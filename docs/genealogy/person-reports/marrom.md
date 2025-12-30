@@ -40,9 +40,9 @@ Marrom established his school at the foot of the Babilônia favela in the Leme n
 
 On Friday evenings, the traditional roda at Copa Leme became a meeting place for dozens of mestres and capoeiristas. Alongside Mestres Formiga and Camaleão, Marrom became one of the precursors of the "Vadiando Entre Amigos" (Playing Among Friends) movement—described as one of the most beautiful movements in capoeira Angola.
 
-In 1998, his student Mestre Guará founded the first European sister school in Paris, initially called "Marrom Capoeira e Alunos, Paris," which later developed into the École de Capoeira Angola de Paris (ECAP). This marked the beginning of international expansion.
+In 1998, his student Mestre Guará founded the first European sister school in Paris, initially called "Marrom Capoeira e Alunos, Paris", which later developed into the École de Capoeira Angola de Paris (ECAP). This marked the beginning of international expansion.
 
-In November 2000, Marrom organized the 5th Children's Capoeira Encounter at Copaleme in Rio de Janeiro, bringing together four hundred children between ages 2 and 12. Legendary Mestre Gato Preto from Bahia visited the event. His philosophy: "Occupying the mind with capoeira, they stay far from drugs."
+In November 2000, Marrom organized the 5th Children's Capoeira Encounter at Copaleme in Rio de Janeiro, bringing together four hundred children between ages 2 and 12. Legendary Mestre Gato Preto from Bahia visited the event. His philosophy: "Occupying the mind with capoeira, they stay far from drugs".
 
 Since the 1990s, Marrom and his students formed an important part of Rio's growing capoeira Angola community, alongside other notable rodas led by Mestres Russo, Camaleão, Formiga, and Angolinha. Many of his students are now consecrated masters themselves, spreading capoeira Angola throughout Europe and beyond: Guará in France, Ferradura in Rio, Contra-Mestre Carcará in Finland, Contra-Mestre Stéph in Paris.
 
@@ -68,9 +68,9 @@ Marrom estabeleceu sua escola aos pés da favela da Babilônia no bairro do Leme
 
 Nas noites de sexta-feira, a roda tradicional no Copa Leme tornou-se ponto de encontro de dezenas de mestres e capoeiristas. Ao lado dos Mestres Formiga e Camaleão, Marrom tornou-se um dos precursores do movimento "Vadiando Entre Amigos"—descrito como um dos mais belos movimentos da capoeira Angola.
 
-Em 1998, seu aluno Mestre Guará fundou a primeira escola-irmã europeia em Paris, inicialmente chamada "Marrom Capoeira e Alunos, Paris," que depois se desenvolveu na École de Capoeira Angola de Paris (ECAP). Isto marcou o início da expansão internacional.
+Em 1998, seu aluno Mestre Guará fundou a primeira escola-irmã europeia em Paris, inicialmente chamada "Marrom Capoeira e Alunos, Paris", que depois se desenvolveu na École de Capoeira Angola de Paris (ECAP). Isto marcou o início da expansão internacional.
 
-Em novembro de 2000, Marrom organizou o 5º Encontro de Capoeira Infantil no Copaleme no Rio de Janeiro, reunindo quatrocentas crianças entre 2 e 12 anos. O lendário Mestre Gato Preto da Bahia visitou o evento. Sua filosofia: "Ocupando a mente com capoeira, eles ficam longe das drogas."
+Em novembro de 2000, Marrom organizou o 5º Encontro de Capoeira Infantil no Copaleme no Rio de Janeiro, reunindo quatrocentas crianças entre 2 e 12 anos. O lendário Mestre Gato Preto da Bahia visitou o evento. Sua filosofia: "Ocupando a mente com capoeira, eles ficam longe das drogas".
 
 Desde os anos 1990, Marrom e seus alunos formaram uma parte importante da crescente comunidade de capoeira Angola do Rio, ao lado de outras rodas notáveis lideradas pelos Mestres Russo, Camaleão, Formiga e Angolinha. Muitos de seus alunos são agora mestres consagrados, espalhando a capoeira Angola pela Europa e além: Guará na França, Ferradura no Rio, Contra-Mestre Carcará na Finlândia, Contra-Mestre Stéph em Paris.
 
@@ -107,10 +107,10 @@ Hoje, Ngoma Capoeira Angola tem representantes em Paris, Berlim, Escócia e outr
 ## Style Notes / Notas de Estilo
 
 ### English
-Mestre Marrom began his capoeira training in Regional style, earning a red rope from Mestre Peixinho of Grupo Senzala. In the 1990s, he turned to capoeira Angola, researching its roots and traditions by studying with the "old guard" of Bahian mestres—Gato Preto, Bigodinho, Boca Rica, Felipe, Brandão, and João Grande. His teaching philosophy emphasizes embodiment over instruction; he corrects students "for doing a movement with the wrong feeling." His school employs African-centered pedagogical approaches.
+Mestre Marrom began his capoeira training in Regional style, earning a red rope from Mestre Peixinho of Grupo Senzala. In the 1990s, he turned to capoeira Angola, researching its roots and traditions by studying with the "old guard" of Bahian mestres—Gato Preto, Bigodinho, Boca Rica, Felipe, Brandão, and João Grande. His teaching philosophy emphasizes embodiment over instruction; he corrects students "for doing a movement with the wrong feeling". His school employs African-centered pedagogical approaches.
 
 ### Português
-Mestre Marrom começou seu treinamento de capoeira no estilo Regional, ganhando corda vermelha de Mestre Peixinho do Grupo Senzala. Nos anos 1990, voltou-se para a capoeira Angola, pesquisando suas raízes e tradições estudando com a "velha guarda" de mestres baianos—Gato Preto, Bigodinho, Boca Rica, Felipe, Brandão e João Grande. Sua filosofia de ensino enfatiza a incorporação sobre a instrução; ele corrige alunos "por fazer um movimento com o sentimento errado." Sua escola emprega abordagens pedagógicas centradas na África.
+Mestre Marrom começou seu treinamento de capoeira no estilo Regional, ganhando corda vermelha de Mestre Peixinho do Grupo Senzala. Nos anos 1990, voltou-se para a capoeira Angola, pesquisando suas raízes e tradições estudando com a "velha guarda" de mestres baianos—Gato Preto, Bigodinho, Boca Rica, Felipe, Brandão e João Grande. Sua filosofia de ensino enfatiza a incorporação sobre a instrução; ele corrige alunos "por fazer um movimento com o sentimento errado". Sua escola emprega abordagens pedagógicas centradas na África.
 
 ## Connections / Conexões
 
@@ -167,7 +167,7 @@ This profile covers only the Rio de Janeiro Mestre Marrom. The apelido_context '
 
 **Lineage Claim:** Mestre Ferradura describes Marrom as "a disciple of Mestre João Pequeno de Pastinha"—though the exact nature of this training (formal student vs. workshop/research collaboration) is not fully documented. This places him within the Pastinha lineage.
 
-**Name Usage:** Also referred to as "Anastácio Marrom" or "Mestre Anastácio."
+**Name Usage:** Also referred to as "Anastácio Marrom" or "Mestre Anastácio".
 
 **Social Projects:** Beyond capoeira, Casa Ngoma Angola provides tutoring, meals, psychosocial support, and food education (with Favela Orgânica) to the Morro da Babilônia community.
 
@@ -181,7 +181,7 @@ Este perfil cobre apenas o Mestre Marrom do Rio de Janeiro. O apelido_context 'R
 
 **Afirmação de Linhagem:** Mestre Ferradura descreve Marrom como "um discípulo de Mestre João Pequeno de Pastinha"—embora a natureza exata deste treinamento (aluno formal vs. colaboração de oficina/pesquisa) não esteja totalmente documentada. Isso o coloca dentro da linhagem de Pastinha.
 
-**Uso do Nome:** Também referido como "Anastácio Marrom" ou "Mestre Anastácio."
+**Uso do Nome:** Também referido como "Anastácio Marrom" ou "Mestre Anastácio".
 
 **Projetos Sociais:** Além da capoeira, a Casa Ngoma Angola oferece reforço escolar, refeições, apoio psicossocial e educação alimentar (com Favela Orgânica) para a comunidade do Morro da Babilônia.
 

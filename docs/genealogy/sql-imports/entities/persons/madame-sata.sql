@@ -38,8 +38,8 @@ INSERT INTO genealogy.person_profiles (
   ARRAY['https://en.wikipedia.org/wiki/Madame_Sat%C3%A3', 'https://capoeirawiki.org/wiki/Madame_Sat%C3%A3', 'https://capoeirahistory.com/general/madame-satan/']::text[],
   -- Capoeira-specific
   NULL, -- Pre-codification; carioca capoeira
-  'Carioca capoeira combined with navalha (straight razor) fighting - the characteristic combat style of Rio''s malandros. Trained by Sete Coroas in "the fine art of malandragem": the game, the razor, the smooth talk, the rasteira (leg sweep), and valentia (bravado). His physical prowess and agility were legendary - in combat "his hands turned to feet and his feet, in tumbling turns, attacked with the violence of a piledriver."',
-  'Capoeira carioca combinada com luta de navalha - o estilo de combate característico dos malandros do Rio. Treinado por Sete Coroas na "fina arte da malandragem": o jogo, a navalha, o papo, a rasteira e a valentia. Sua força física e agilidade eram lendárias - em combate "suas mãos viravam pés e seus pés, em giros cambaleantes, atacavam com a violência de um bate-estacas."',
+  'Carioca capoeira combined with navalha (straight razor) fighting - the characteristic combat style of Rio''s malandros. Trained by Sete Coroas in "the fine art of malandragem": the game, the razor, the smooth talk, the rasteira (leg sweep), and valentia (bravado). His physical prowess and agility were legendary - in combat "his hands turned to feet and his feet, in tumbling turns, attacked with the violence of a piledriver".',
+  'Capoeira carioca combinada com luta de navalha - o estilo de combate característico dos malandros do Rio. Treinado por Sete Coroas na "fina arte da malandragem": o jogo, a navalha, o papo, a rasteira e a valentia. Sua força física e agilidade eram lendárias - em combate "suas mãos viravam pés e seus pés, em giros cambaleantes, atacavam com a violência de um bate-estacas".',
   -- Life dates
   1900,
   'year'::genealogy.date_precision,
@@ -58,23 +58,23 @@ When Sete Coroas died in 1923, he left João as his successor in Lapa and Saúde
 
 João became a capoeirista of terrifying skill. His battles against police were legendary. He routinely fought barehanded against quartets of policemen armed with wooden clubs. In one famous incident, a drunken João resisted arrest by a 24-man platoon, leaving seven officers badly wounded—two with broken arms, two with split livers. The rest of the squad decided to let him sleep it off rather than shoot him.
 
-"In the blink of an eye," one witness recalled, "his hands turned to feet and his feet, in tumbling turns, attacked with the violence of a piledriver."
+"In the blink of an eye", one witness recalled, "his hands turned to feet and his feet, in tumbling turns, attacked with the violence of a piledriver".
 
 But João was more than a fighter. In 1923, he performed as a drag artist in "Loucos em Copacabana" at Teatro Casa de Caboclo, taking the stage name Mulata do Balacochê. He was an openly gay Black man in an era when any one of those identities could get you killed. He refused to hide.
 
 In 1928, his life changed permanently. After his second performance, he was accosted by a vigilante who called him a slur. He fired back. The resulting confrontation led to a 16-year sentence for killing a night watchman named Alberto—later overturned on self-defense grounds after he had already served time.
 
-The name "Madame Satã" came in 1938. Released from prison, he entered a carnival costume contest at Teatro República wearing a fantasia inspired by a bat from his native Pernambuco—all golden sequins and dramatic flair. He won first place. Days later, police arrested him with other homosexuals in a downtown park. When the booking officer demanded his nickname, João refused. But the delegado recognized him as the carnival winner and, associating his bat costume with Cecil B. DeMille''s film "Madam Satan," recorded the name that would follow him forever.
+The name "Madame Satã" came in 1938. Released from prison, he entered a carnival costume contest at Teatro República wearing a fantasia inspired by a bat from his native Pernambuco—all golden sequins and dramatic flair. He won first place. Days later, police arrested him with other homosexuals in a downtown park. When the booking officer demanded his nickname, João refused. But the delegado recognized him as the carnival winner and, associating his bat costume with Cecil B. DeMille''s film "Madam Satan", recorded the name that would follow him forever.
 
 Over his lifetime, João accumulated 27 years and eight months in prison across 29 legal proceedings—ten convictions for charges including homicide, assault, theft, vagrancy, obscenity, and weapons possession. He claimed roughly 100 murders and over 3,000 fights, though these numbers carry the weight of malandro mythology.
 
-He worked as a bouncer, protecting nightclubs and the prostitutes and marginalized people who frequented them. "We are human beings," he declared when asked why he protected those society despised. He raised six adopted daughters in Rio and one more on Ilha Grande.
+He worked as a bouncer, protecting nightclubs and the prostitutes and marginalized people who frequented them. "We are human beings", he declared when asked why he protected those society despised. He raised six adopted daughters in Rio and one more on Ilha Grande.
 
-In 1971, journalists from the underground newspaper O Pasquim "rediscovered" him. The interviews that followed led to his 1972 memoir, "Memórias de Madame Satã," narrated to Sylvan Paezzo. The book revealed a man of complexity—violent and tender, criminal and protective, illiterate yet philosophically profound.
+In 1971, journalists from the underground newspaper O Pasquim "rediscovered" him. The interviews that followed led to his 1972 memoir, "Memórias de Madame Satã", narrated to Sylvan Paezzo. The book revealed a man of complexity—violent and tender, criminal and protective, illiterate yet philosophically profound.
 
 Two years before his death, he performed one last time, playing Satan in "Lampião no Inferno" (1974). He died on April 12, 1976, at age 75, weighing only 46 kilograms. He was buried as an indigent in the cemetery of Vila do Abraão, Ilha Grande, wearing his panama hat, with red roses placed in his coffin.
 
-Madame Satã represents the bridge between the old capoeira carioca of the malandros and the modern art that developed in the 1950s and 1960s. His feats impressed a whole generation of capoeiristas. His life was reimagined in the 2002 film "Madame Satã," directed by Karim Aïnouz with Lázaro Ramos in the title role, which premiered at Cannes.
+Madame Satã represents the bridge between the old capoeira carioca of the malandros and the modern art that developed in the 1950s and 1960s. His feats impressed a whole generation of capoeiristas. His life was reimagined in the 2002 film "Madame Satã", directed by Karim Aïnouz with Lázaro Ramos in the title role, which premiered at Cannes.
 
 He remains an icon of resistance—a Black, homosexual, illiterate son of former slaves who refused to bow to the racist, homophobic, and moralist norms of his society.',
   -- bio_pt
@@ -88,23 +88,23 @@ Quando Sete Coroas morreu em 1923, deixou João como seu sucessor na Lapa e na S
 
 João tornou-se um capoeirista de habilidade aterrorizante. Suas batalhas contra a polícia eram lendárias. Rotineiramente lutava desarmado contra grupos de policiais armados com cassetetes. Num incidente famoso, João embriagado resistiu à prisão por um pelotão de 24 homens, deixando sete policiais gravemente feridos—dois com braços quebrados, dois com fígados lacerados. O resto do pelotão decidiu deixá-lo dormir em vez de atirar nele.
 
-"Num piscar de olhos," lembrou uma testemunha, "suas mãos viravam pés e seus pés, em giros cambaleantes, atacavam com a violência de um bate-estacas."
+"Num piscar de olhos", lembrou uma testemunha, "suas mãos viravam pés e seus pés, em giros cambaleantes, atacavam com a violência de um bate-estacas".
 
 Mas João era mais que um lutador. Em 1923, apresentou-se como transformista em "Loucos em Copacabana" no Teatro Casa de Caboclo, adotando o nome artístico Mulata do Balacochê. Era um homem negro assumidamente gay numa época em que qualquer uma dessas identidades podia custar sua vida. Recusou-se a se esconder.
 
 Em 1928, sua vida mudou permanentemente. Após sua segunda apresentação, foi abordado por um vigilante que o xingou com um palavrão. Ele revidou. O confronto resultou numa sentença de 16 anos por matar um vigia noturno chamado Alberto—posteriormente anulada por legítima defesa depois que ele já havia cumprido parte da pena.
 
-O nome "Madame Satã" veio em 1938. Liberado da prisão, entrou num concurso de fantasias de carnaval no Teatro República usando uma fantasia inspirada num morcego de sua Pernambuco natal—toda de lantejoulas douradas e flair dramático. Ganhou o primeiro lugar. Dias depois, a polícia o prendeu junto com outros homossexuais num parque do centro. Quando o escrivão exigiu seu apelido, João recusou. Mas o delegado o reconheceu como o vencedor do carnaval e, associando sua fantasia de morcego ao filme de Cecil B. DeMille "Madam Satan," registrou o nome que o seguiria para sempre.
+O nome "Madame Satã" veio em 1938. Liberado da prisão, entrou num concurso de fantasias de carnaval no Teatro República usando uma fantasia inspirada num morcego de sua Pernambuco natal—toda de lantejoulas douradas e flair dramático. Ganhou o primeiro lugar. Dias depois, a polícia o prendeu junto com outros homossexuais num parque do centro. Quando o escrivão exigiu seu apelido, João recusou. Mas o delegado o reconheceu como o vencedor do carnaval e, associando sua fantasia de morcego ao filme de Cecil B. DeMille "Madam Satan", registrou o nome que o seguiria para sempre.
 
 Ao longo de sua vida, João acumulou 27 anos e oito meses de prisão em 29 processos—dez condenações por acusações incluindo homicídio, agressão, furto, vadiagem, atentado ao pudor e porte de armas. Alegou cerca de 100 assassinatos e mais de 3.000 brigas, embora esses números carreguem o peso da mitologia malandra.
 
-Trabalhou como segurança, protegendo casas noturnas e as prostitutas e pessoas marginalizadas que as frequentavam. "Somos seres humanos," declarou quando perguntado por que protegia aqueles que a sociedade desprezava. Criou seis filhas adotivas no Rio e mais uma na Ilha Grande.
+Trabalhou como segurança, protegendo casas noturnas e as prostitutas e pessoas marginalizadas que as frequentavam. "Somos seres humanos", declarou quando perguntado por que protegia aqueles que a sociedade desprezava. Criou seis filhas adotivas no Rio e mais uma na Ilha Grande.
 
-Em 1971, jornalistas do jornal alternativo O Pasquim o "redescobriram." As entrevistas que se seguiram levaram às suas memórias de 1972, "Memórias de Madame Satã," narradas a Sylvan Paezzo. O livro revelou um homem de complexidade—violento e terno, criminoso e protetor, analfabeto mas filosoficamente profundo.
+Em 1971, jornalistas do jornal alternativo O Pasquim o "redescobriram". As entrevistas que se seguiram levaram às suas memórias de 1972, "Memórias de Madame Satã", narradas a Sylvan Paezzo. O livro revelou um homem de complexidade—violento e terno, criminoso e protetor, analfabeto mas filosoficamente profundo.
 
 Dois anos antes de sua morte, apresentou-se uma última vez, interpretando Satanás em "Lampião no Inferno" (1974). Morreu em 12 de abril de 1976, aos 75 anos, pesando apenas 46 quilos. Foi enterrado como indigente no cemitério de Vila do Abraão, Ilha Grande, usando seu chapéu panamá, com rosas vermelhas colocadas em seu caixão.
 
-Madame Satã representa a ponte entre a velha capoeira carioca dos malandros e a arte moderna que se desenvolveu nas décadas de 1950 e 1960. Suas façanhas impressionaram toda uma geração de capoeiristas. Sua vida foi reimaginada no filme de 2002 "Madame Satã," dirigido por Karim Aïnouz com Lázaro Ramos no papel principal, que estreou em Cannes.
+Madame Satã representa a ponte entre a velha capoeira carioca dos malandros e a arte moderna que se desenvolveu nas décadas de 1950 e 1960. Suas façanhas impressionaram toda uma geração de capoeiristas. Sua vida foi reimaginada no filme de 2002 "Madame Satã", dirigido por Karim Aïnouz com Lázaro Ramos no papel principal, que estreou em Cannes.
 
 Ele permanece um ícone de resistência—um negro, homossexual, analfabeto filho de ex-escravos que se recusou a se curvar às normas racistas, homofóbicas e moralistas de sua sociedade.',
   -- achievements_en
@@ -120,7 +120,7 @@ BIRTHPLACE: Glória do Goitá, Pernambuco, Brazil (Zona da Mata pernambucana).
 
 PARENTS: Manoel Firmino dos Santos (died 1907) and Firmina Teresa da Conceição, both descendants of enslaved Africans.
 
-TEACHER: Sete Coroas, from ~1909 (when Satã was 9 years old) until Sete Coroas'' death in 1923. Per Madame Satã in 1971 O Pasquim interview: "The greatest malandro of Rio de Janeiro that I knew from 1907 until today was the one who taught me to be a malandro and met me when I was 9 years old, the late Sete Coroas."
+TEACHER: Sete Coroas, from ~1909 (when Satã was 9 years old) until Sete Coroas'' death in 1923. Per Madame Satã in 1971 O Pasquim interview: "The greatest malandro of Rio de Janeiro that I knew from 1907 until today was the one who taught me to be a malandro and met me when I was 9 years old, the late Sete Coroas".
 
 CRIMINAL RECORD: 27 years 8 months incarcerated; 29 legal proceedings; 10 convictions; 3 homicides admitted; ~3,000 fights claimed.
 
@@ -142,7 +142,7 @@ LOCAL DE NASCIMENTO: Glória do Goitá, Pernambuco, Brasil (Zona da Mata pernamb
 
 PAIS: Manoel Firmino dos Santos (morreu em 1907) e Firmina Teresa da Conceição, ambos descendentes de africanos escravizados.
 
-PROFESSOR: Sete Coroas, de ~1909 (quando Satã tinha 9 anos) até a morte de Sete Coroas em 1923. Conforme Madame Satã em entrevista ao Pasquim de 1971: "O maior malandro do Rio de Janeiro que conheci de 1907 até os dias de hoje foi o que me ensinou a ser malandro e me conheceu com 9 anos de idade, o falecido Sete Coroas."
+PROFESSOR: Sete Coroas, de ~1909 (quando Satã tinha 9 anos) até a morte de Sete Coroas em 1923. Conforme Madame Satã em entrevista ao Pasquim de 1971: "O maior malandro do Rio de Janeiro que conheci de 1907 até os dias de hoje foi o que me ensinou a ser malandro e me conheceu com 9 anos de idade, o falecido Sete Coroas".
 
 FICHA CRIMINAL: 27 anos e 8 meses encarcerado; 29 processos; 10 condenações; 3 homicídios admitidos; ~3.000 brigas alegadas.
 

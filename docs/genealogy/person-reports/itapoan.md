@@ -46,7 +46,7 @@ As an author, Itapoan has produced the most significant body of work documenting
 5. "Capoeira: Retalhos da Roda" (2005) - historical fragments
 6. "Capoeira Regional na Imprensa" (2024, with Mestre Cego) - media documentation
 
-He also founded and edited the Revista Negaça bulletin (4+ volumes starting 1992). In 1966, he composed "A Palma de Bimba," a corrido celebrating his master's teaching methods. He possesses an archive of more than 30,000 documents related to capoeira—likely the largest private collection in existence.
+He also founded and edited the Revista Negaça bulletin (4+ volumes starting 1992). In 1966, he composed "A Palma de Bimba", a corrido celebrating his master's teaching methods. He possesses an archive of more than 30,000 documents related to capoeira—likely the largest private collection in existence.
 
 In 1990, he was awarded the Medalha do Mérito Desportivo Nacional by the Brazilian Ministry of Education. In 1996, Ginga expanded to the United States through his student Mestre Kiki da Bahia. In October 2024, the Aracaju City Council awarded him the Título de Cidadania Aracajuana.
 
@@ -76,7 +76,7 @@ Como autor, Itapoan produziu o mais significativo corpo de trabalho documentando
 5. "Capoeira: Retalhos da Roda" (2005) - fragmentos históricos
 6. "Capoeira Regional na Imprensa" (2024, com Mestre Cego) - documentação midiática
 
-Também fundou e editou o boletim Revista Negaça (4+ volumes a partir de 1992). Em 1966, compôs "A Palma de Bimba," um corrido celebrando os métodos de ensino de seu mestre. Possui um arquivo de mais de 30.000 documentos relacionados à capoeira—provavelmente a maior coleção privada existente.
+Também fundou e editou o boletim Revista Negaça (4+ volumes a partir de 1992). Em 1966, compôs "A Palma de Bimba", um corrido celebrando os métodos de ensino de seu mestre. Possui um arquivo de mais de 30.000 documentos relacionados à capoeira—provavelmente a maior coleção privada existente.
 
 Em 1990, recebeu a Medalha do Mérito Desportivo Nacional do Ministério da Educação do Brasil. Em 1996, a Ginga expandiu para os Estados Unidos através de seu aluno Mestre Kiki da Bahia. Em outubro de 2024, a Câmara Municipal de Aracaju concedeu-lhe o Título de Cidadania Aracajuana.
 

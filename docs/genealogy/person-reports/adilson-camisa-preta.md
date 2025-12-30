@@ -30,15 +30,15 @@
 
 Adilson, known as Adilson Camisa Preta ("Black Shirt Adilson"), was born in 1952 in Rio de Janeiro and grew up in the Morro do Cantagalo favela in Ipanema. He became a student of Mestre Roque, one of the founders of Grupo Filhos de Angola and a pioneer of capoeira in Rio de Janeiro's favelas.
 
-By the early 1970s, Adilson had become Roque's most advanced student. When Roque decided to step back from daily teaching at the Pavao/Pavaozinho academy, he entrusted leadership to Adilson. As Paulo Siqueira recalled: "Mestre Roque was teaching, but he already wanted to leave for personal reasons, wanting to stop there and hand over to his most advanced student, Adilson."
+By the early 1970s, Adilson had become Roque's most advanced student. When Roque decided to step back from daily teaching at the Pavao/Pavaozinho academy, he entrusted leadership to Adilson. As Paulo Siqueira recalled: "Mestre Roque was teaching, but he already wanted to leave for personal reasons, wanting to stop there and hand over to his most advanced student, Adilson".
 
-Adilson established himself at the Morro do Pavaozinho in Copacabana, transforming the community space into what one contemporary described as "like a quilombo, where capoeira was practised in a very different way to the academies in the South Zone." The academy served primarily poor residents of the Pavao and Cantagalo hills, operating in a spontaneous, traditional style distinct from the more formal Senzala-influenced academies in the Zona Sul.
+Adilson established himself at the Morro do Pavaozinho in Copacabana, transforming the community space into what one contemporary described as "like a quilombo, where capoeira was practised in a very different way to the academies in the South Zone". The academy served primarily poor residents of the Pavao and Cantagalo hills, operating in a spontaneous, traditional style distinct from the more formal Senzala-influenced academies in the Zona Sul.
 
 Adilson was renowned for his expertise in malandragem - the street wisdom, cunning, and improvisational trickery that formed capoeira's cultural heart. His profound understanding of malandragem extended beyond capoeira technique to encompass the life and ways of his community. This knowledge made him both a formidable player and an influential teacher who could transmit not just movements but the philosophy underlying them.
 
 Beyond the roda, Adilson built connections with important figures in Afro-Brazilian culture. He collaborated with Aroldo Costa and Mercedes Batista, the pioneering choreographer who had been the first Black dancer to perform at Rio de Janeiro's Municipal Theatre. Through Adilson, his students gained access to this broader cultural world. He brought students to perform in concert halls, including Almir Sinclair's "Bahia Saraza" show at venues like the Galeria Alasca and the Intercontinental Hotel in Vidigal.
 
-Paulo Siqueira, who began training at the Pavao academy around 1972, became Adilson's most prominent student. As Siqueira progressed, Adilson told him: "You're not going to pay for capoeira any more. Now you're going to work with me." Siqueira would later describe Adilson as having "great influence in the life of Paulo Siqueira, as capoeirista and person." Adilson remained Paulo's sole mestre throughout his training, eventually graduating him as mestre before Adilson's death.
+Paulo Siqueira, who began training at the Pavao academy around 1972, became Adilson's most prominent student. As Siqueira progressed, Adilson told him: "You're not going to pay for capoeira any more. Now you're going to work with me". Siqueira would later describe Adilson as having "great influence in the life of Paulo Siqueira, as capoeirista and person". Adilson remained Paulo's sole mestre throughout his training, eventually graduating him as mestre before Adilson's death.
 
 Adilson died in the 1990s. His legacy continues through Mestre Paulo Siqueira, who went on to found the Escola de Capoeira Nzinga in Germany in 1985, becoming one of the first to bring capoeira to Europe.
 
@@ -46,15 +46,15 @@ Adilson died in the 1990s. His legacy continues through Mestre Paulo Siqueira, w
 
 Adilson, conhecido como Adilson Camisa Preta, nasceu em 1952 no Rio de Janeiro e cresceu na favela do Morro do Cantagalo em Ipanema. Tornou-se aluno de Mestre Roque, um dos fundadores do Grupo Filhos de Angola e pioneiro da capoeira nas favelas do Rio de Janeiro.
 
-No inicio dos anos 1970, Adilson ja era o aluno mais avancado de Roque. Quando Roque decidiu se afastar do ensino diario na academia do Pavao/Pavaozinho, confiou a lideranca a Adilson. Como Paulo Siqueira relembrou: "Mestre Roque estava ensinando, mas ele ja queria sair por razoes pessoais, querendo parar ali e passar para seu aluno mais avancado, Adilson."
+No inicio dos anos 1970, Adilson ja era o aluno mais avancado de Roque. Quando Roque decidiu se afastar do ensino diario na academia do Pavao/Pavaozinho, confiou a lideranca a Adilson. Como Paulo Siqueira relembrou: "Mestre Roque estava ensinando, mas ele ja queria sair por razoes pessoais, querendo parar ali e passar para seu aluno mais avancado, Adilson".
 
-Adilson se estabeleceu no Morro do Pavaozinho em Copacabana, transformando o espaco comunitario no que um contemporaneo descreveu como "um quilombo, onde a capoeira era praticada de uma forma muito diferente das academias da Zona Sul." A academia atendia principalmente os moradores pobres dos morros do Pavao e Cantagalo, operando em um estilo espontaneo e tradicional distinto das academias mais formais influenciadas pelo Senzala na Zona Sul.
+Adilson se estabeleceu no Morro do Pavaozinho em Copacabana, transformando o espaco comunitario no que um contemporaneo descreveu como "um quilombo, onde a capoeira era praticada de uma forma muito diferente das academias da Zona Sul". A academia atendia principalmente os moradores pobres dos morros do Pavao e Cantagalo, operando em um estilo espontaneo e tradicional distinto das academias mais formais influenciadas pelo Senzala na Zona Sul.
 
 Adilson era conhecido por sua expertise em malandragem - a sabedoria das ruas, astucia e truques improvisados que formavam o coracao cultural da capoeira. Seu profundo entendimento da malandragem ia alem da tecnica de capoeira para abranger a vida e os costumes de sua comunidade. Esse conhecimento o tornava tanto um jogador formidavel quanto um professor influente que podia transmitir nao apenas movimentos, mas a filosofia por tras deles.
 
 Alem da roda, Adilson construiu conexoes com figuras importantes da cultura afro-brasileira. Ele colaborou com Aroldo Costa e Mercedes Batista, a coreografa pioneira que foi a primeira dancarina negra a se apresentar no Teatro Municipal do Rio de Janeiro. Atraves de Adilson, seus alunos ganhavam acesso a esse mundo cultural mais amplo. Ele levava alunos para se apresentar em casas de shows, incluindo o espetaculo "Bahia Saraza" de Almir Sinclair em locais como a Galeria Alasca e o Hotel Intercontinental no Vidigal.
 
-Paulo Siqueira, que comecou a treinar na academia do Pavao por volta de 1972, tornou-se o aluno mais proeminente de Adilson. Quando Siqueira progrediu, Adilson disse a ele: "Voce nao vai mais pagar pela capoeira. Agora voce vai trabalhar comigo." Siqueira mais tarde descreveria Adilson como tendo "grande influencia na vida de Paulo Siqueira, como capoeirista e pessoa." Adilson permaneceu como unico mestre de Paulo durante todo seu treinamento, eventualmente graduando-o como mestre antes da morte de Adilson.
+Paulo Siqueira, que comecou a treinar na academia do Pavao por volta de 1972, tornou-se o aluno mais proeminente de Adilson. Quando Siqueira progrediu, Adilson disse a ele: "Voce nao vai mais pagar pela capoeira. Agora voce vai trabalhar comigo". Siqueira mais tarde descreveria Adilson como tendo "grande influencia na vida de Paulo Siqueira, como capoeirista e pessoa". Adilson permaneceu como unico mestre de Paulo durante todo seu treinamento, eventualmente graduando-o como mestre antes da morte de Adilson.
 
 Adilson morreu nos anos 1990. Seu legado continua atraves de Mestre Paulo Siqueira, que fundou a Escola de Capoeira Nzinga na Alemanha em 1985, tornando-se um dos primeiros a trazer a capoeira para a Europa.
 
@@ -128,16 +128,16 @@ Adilson praticava e ensinava Capoeira Angola na tradicao da "Linha de Sao Bento"
 ## Notes / Notas
 
 ### English
-- **Full name unknown:** All sources refer to him only as "Adilson" or "Adilson Camisa Preta." Surname not documented.
+- **Full name unknown:** All sources refer to him only as "Adilson" or "Adilson Camisa Preta". Surname not documented.
 - **Apelido origin:** Origin of "Camisa Preta" (Black Shirt) nickname not documented in sources.
-- **Death details:** Exact death date and circumstances unknown. Sources only confirm "1990s."
+- **Death details:** Exact death date and circumstances unknown. Sources only confirm "1990s".
 - **Academy description:** The Pavaozinho space was described as "like a quilombo" - operating in a spontaneous, community-based style distinct from formal Zona Sul academies.
 - **Cultural bridge:** Adilson was notable for connecting the favela capoeira world to professional performance venues and Afro-Brazilian cultural institutions.
 
 ### Portugues
-- **Nome completo desconhecido:** Todas as fontes referem-se a ele apenas como "Adilson" ou "Adilson Camisa Preta." Sobrenome nao documentado.
+- **Nome completo desconhecido:** Todas as fontes referem-se a ele apenas como "Adilson" ou "Adilson Camisa Preta". Sobrenome nao documentado.
 - **Origem do apelido:** Origem do apelido "Camisa Preta" nao documentada nas fontes.
-- **Detalhes da morte:** Data exata e circunstancias da morte desconhecidas. Fontes apenas confirmam "anos 1990."
+- **Detalhes da morte:** Data exata e circunstancias da morte desconhecidas. Fontes apenas confirmam "anos 1990".
 - **Descricao da academia:** O espaco do Pavaozinho foi descrito como "um quilombo" - operando em estilo espontaneo e comunitario distinto das academias formais da Zona Sul.
 - **Ponte cultural:** Adilson era notavel por conectar o mundo da capoeira das favelas a locais profissionais de performance e instituicoes culturais afro-brasileiras.
 

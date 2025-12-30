@@ -19,7 +19,7 @@ SELECT
   'associated_with'::genealogy.predicate,
   'person'::genealogy.entity_type, t.id,
   '1920-01-01'::date, 'decade'::genealogy.date_precision,
-  '{"association_context": "Both capoeiristas from Ilha de Maré during overlapping time periods. Totonho de Maré (1894-1974) was an established figure from the island who ''reigned in Ilha de Maré for many years.'' Ricardo was teaching on the island in the 1930s-1940s. Given the small size of the island community, they likely knew each other and may have trained together."}'::jsonb,
+  '{"association_context": "Both capoeiristas from Ilha de Maré during overlapping time periods. Totonho de Maré (1894-1974) was an established figure from the island who ''reigned in Ilha de Maré for many years.'' Ricardo was teaching on the island in the 1930s-1940s. Given the small size of the island community, they likely knew each other and may have trained together".}'::jsonb,
   'likely'::genealogy.confidence,
   'Geographic proximity and temporal overlap; Totonho''s documented presence on Ilha de Maré',
   'Both were capoeiristas from the small island community of Ilha de Maré during overlapping time periods. Likely knew each other given the close-knit nature of the island.',

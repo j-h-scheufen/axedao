@@ -19,8 +19,8 @@ SELECT
   NULL, NULL,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'velhosmestres.com/br/waldemar-1942-1',
-  E'Waldemar confirmed in 1987: "Zacarias foi meu aluno de 1942." First documented student of Waldemar. Waldemar pointed to Zacarias and José Cabelo Bom as "capoeiristas of the future who will continue his tradition."',
-  E'Waldemar confirmou em 1987: "Zacarias foi meu aluno de 1942." Primeiro aluno documentado de Waldemar. Waldemar apontou Zacarias e José Cabelo Bom como "capoeiristas do futuro que continuarão sua tradição."'
+  E'Waldemar confirmed in 1987: "Zacarias foi meu aluno de 1942". First documented student of Waldemar. Waldemar pointed to Zacarias and José Cabelo Bom as "capoeiristas of the future who will continue his tradition".',
+  E'Waldemar confirmou em 1987: "Zacarias foi meu aluno de 1942". Primeiro aluno documentado de Waldemar. Waldemar apontou Zacarias e José Cabelo Bom como "capoeiristas do futuro que continuarão sua tradição".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Zacarias Boa Morte' AND s.apelido_context IS NULL
   AND o.apelido = 'Waldemar' AND o.apelido_context IS NULL

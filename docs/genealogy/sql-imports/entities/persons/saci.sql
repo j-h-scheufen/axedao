@@ -63,7 +63,7 @@ In 2007, Saci received recognition of his mastery with the formal conferral of t
 
 Saci was honored at the Capoeira Regional Centenary celebration that paid tribute to Mestre Bimba, alongside other distinguished mestres including Pombo de Ouro (José Bispo Correia), Itapoan (Raimundo César Alves de Almeida), and Deputado. He has continued to be active in the capoeira community, visiting mestres associated with UNICAR in Munich and other locations, helping to preserve the direct lineage and teachings of Mestre Bimba.
 
-His title "DR." (as noted by his student Mestre Binal) suggests an academic or professional degree alongside his capoeira mastery, though details of this credential remain undocumented.',
+His title "DR". (as noted by his student Mestre Binal) suggests an academic or professional degree alongside his capoeira mastery, though details of this credential remain undocumented.',
   -- bio_pt
   E'Josevaldo Lima de Jesus, conhecido como Mestre Saci, nasceu em 16 de março de 1945, em Santa Barbara, no estado da Bahia. Em julho de 1964, aos 19 anos, começou seu treinamento formal em Capoeira Regional na lendária academia de Mestre Bimba em Salvador—o Centro de Cultura Física e Luta Regional.
 
@@ -77,7 +77,7 @@ Em 2007, Saci recebeu o reconhecimento de sua maestria com a conferência formal
 
 Saci foi homenageado na celebração do Centenário da Capoeira Regional que prestou tributo a Mestre Bimba, junto com outros mestres ilustres incluindo Pombo de Ouro (José Bispo Correia), Itapoan (Raimundo César Alves de Almeida) e Deputado. Ele continua ativo na comunidade de capoeira, visitando mestres associados à UNICAR em Munique e outros locais, ajudando a preservar a linhagem direta e os ensinamentos de Mestre Bimba.
 
-Seu título "DR." (como notado por seu aluno Mestre Binal) sugere um grau acadêmico ou profissional além de sua maestria na capoeira, embora detalhes desta credencial permaneçam não documentados.',
+Seu título "DR". (como notado por seu aluno Mestre Binal) sugere um grau acadêmico ou profissional além de sua maestria na capoeira, embora detalhes desta credencial permaneçam não documentados.',
   -- achievements_en
   E'Direct student of Mestre Bimba (July 1964 - 1974); First teacher of Mestre Ezequiel (introduced him to Capoeira Regional); Received Mestre cord (2007); Conferred Mestre title to Nelsinho (2006); Conferred Mestre title to Saguin (2007); Taught at Quartel dos Dendezeiros Military Police barracks; Taught at Vila Militar sports gymnasium (1980s); Honored at Capoeira Regional Centenary celebration; Witness to historical developments at Mestre Bimba''s academy',
   -- achievements_pt
@@ -91,7 +91,7 @@ NAME DISCREPANCY:
 - "Valdo Jose Lima de Jesus" - used in UNICAR München German source
 Using "Josevaldo" as it appears in the more formal Portuguese-language sources and the Ezequiel report.
 
-TITLE "DR.":
+TITLE "DR".:
 Mestre Binal refers to him as "DR. Josevaldo Lima de Jesus" suggesting an academic or professional title beyond capoeira. Nature of this credential unknown.
 
 MESTRE TITLE (2007):
@@ -136,7 +136,7 @@ DISCREPÂNCIA DE NOME:
 - "Valdo Jose Lima de Jesus" - usado na fonte alemã UNICAR München
 Usando "Josevaldo" pois aparece nas fontes mais formais em português e no relatório de Ezequiel.
 
-TÍTULO "DR.":
+TÍTULO "DR".:
 Mestre Binal refere-se a ele como "DR. Josevaldo Lima de Jesus" sugerindo um título acadêmico ou profissional além da capoeira. Natureza desta credencial desconhecida.
 
 TÍTULO DE MESTRE (2007):

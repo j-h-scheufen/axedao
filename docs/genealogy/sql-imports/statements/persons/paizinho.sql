@@ -23,8 +23,8 @@ SELECT
   '{}'::jsonb,
   'verified'::genealogy.confidence,
   'velhosmestres.com/en/featured-69; capoeirahistory.com/mestre/master-artur-emidio-1930-2011/',
-  E'Paizinho was a disciple of Mestre Neném, described as "an African" or "of African origin." The training likely took place in Itabuna in the late 1800s/early 1900s, during the criminalization period. Neném represents the Layer Zero anchor of this southern Bahia lineage.',
-  E'Paizinho foi discípulo de Mestre Neném, descrito como "um africano" ou "de origem africana." O treinamento provavelmente ocorreu em Itabuna no final de 1800/início de 1900, durante o período de criminalização. Neném representa a âncora da Camada Zero desta linhagem do sul da Bahia.'
+  E'Paizinho was a disciple of Mestre Neném, described as "an African" or "of African origin". The training likely took place in Itabuna in the late 1800s/early 1900s, during the criminalization period. Neném represents the Layer Zero anchor of this southern Bahia lineage.',
+  E'Paizinho foi discípulo de Mestre Neném, descrito como "um africano" ou "de origem africana". O treinamento provavelmente ocorreu em Itabuna no final de 1800/início de 1900, durante o período de criminalização. Neném representa a âncora da Camada Zero desta linhagem do sul da Bahia.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Paizinho' AND COALESCE(s.apelido_context, '') = ''
   AND o.apelido = 'Neném' AND COALESCE(o.apelido_context, '') = 'Itabuna'

@@ -17,7 +17,7 @@ SELECT
   'person', adama.id,
   'associated_with',
   'person', ng.id,
-  '{"association_context": {"en": "Both were among the legendary valentões of Recife during the First Republic era. Sources describe them as the two greatest valentões of the city. Both were capoeiristas who dominated the carnival culture and street life of Recife.", "pt": "Ambos estavam entre os lendários valentões do Recife durante a era da Primeira República. Fontes os descrevem como os dois maiores valentões da cidade. Ambos eram capoeiristas que dominavam a cultura carnavalesca e a vida nas ruas do Recife."}}'::jsonb,
+  '{"association_context": {"en": "Both were among the legendary valentões of Recife during the First Republic era. Sources describe them as the two greatest valentões of the city. Both were capoeiristas who dominated the carnival culture and street life of Recife"., "pt": "Ambos estavam entre os lendários valentões do Recife durante a era da Primeira República. Fontes os descrevem como os dois maiores valentões da cidade. Ambos eram capoeiristas que dominavam a cultura carnavalesca e a vida nas ruas do Recife".}}'::jsonb,
   'likely'::genealogy.confidence,
   'Oscar Mello, "Recife Sangrento" (1937); Academia.edu: Capoeira e capoeiras entre a Guarda Negra'
 FROM genealogy.person_profiles adama, genealogy.person_profiles ng
@@ -38,7 +38,7 @@ SELECT
   'associated_with',
   'person', eleuterio.id,
   '1907-01-01'::date, 'year'::genealogy.date_precision,
-  '{"association_context": {"en": "Fellow valentões involved in disturbances on a train returning from a religious festival in 1907. Both were part of Recife''s network of capoeiristas and tough men during the First Republic era.", "pt": "Valentões companheiros envolvidos em distúrbios em um trem que retornava de uma festividade religiosa em 1907. Ambos faziam parte da rede de capoeiristas e valentões do Recife durante a era da Primeira República."}}'::jsonb,
+  '{"association_context": {"en": "Fellow valentões involved in disturbances on a train returning from a religious festival in 1907. Both were part of Recife''s network of capoeiristas and tough men during the First Republic era"., "pt": "Valentões companheiros envolvidos em distúrbios em um trem que retornava de uma festividade religiosa em 1907. Ambos faziam parte da rede de capoeiristas e valentões do Recife durante a era da Primeira República".}}'::jsonb,
   'likely'::genealogy.confidence,
   'Israel Ozanam, "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife"; Jornal Pequeno Nov 9, 1938',
   'Documented association from 1907 train incident returning from religious festival.',
@@ -61,7 +61,7 @@ SELECT
   'associated_with',
   'person', formigao.id,
   '1907-01-01'::date, 'year'::genealogy.date_precision,
-  '{"association_context": {"en": "Fellow valentões involved in disturbances on a train returning from a religious festival in 1907. Both were part of Recife''s network of capoeiristas and tough men during the First Republic era.", "pt": "Valentões companheiros envolvidos em distúrbios em um trem que retornava de uma festividade religiosa em 1907. Ambos faziam parte da rede de capoeiristas e valentões do Recife durante a era da Primeira República."}}'::jsonb,
+  '{"association_context": {"en": "Fellow valentões involved in disturbances on a train returning from a religious festival in 1907. Both were part of Recife''s network of capoeiristas and tough men during the First Republic era"., "pt": "Valentões companheiros envolvidos em distúrbios em um trem que retornava de uma festividade religiosa em 1907. Ambos faziam parte da rede de capoeiristas e valentões do Recife durante a era da Primeira República".}}'::jsonb,
   'likely'::genealogy.confidence,
   'Israel Ozanam, "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife"',
   'Documented association from 1907 train incident returning from religious festival.',

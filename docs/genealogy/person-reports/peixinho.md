@@ -31,7 +31,7 @@ In 1964, Peixinho moved to Rio de Janeiro where he began practicing capoeira und
 
 In 1966, during a demonstration at a German Club, the group officially adopted the name "Grupo Senzala"—a reference to the slave quarters where enslaved Africans were held, connecting their art to Brazil's history of resistance. The following year, Peixinho began teaching and the group entered the prestigious Berimbau de Ouro tournament. To everyone's surprise, they won—and repeated the victory in 1968 and 1969, permanently claiming the trophy and establishing Senzala's reputation nationwide.
 
-Peixinho and Itamar recognized an opportunity. Seeing the success of their collective work, they decided to rent a space in Travessa Angrense in Copacabana. In 1974, Peixinho opened his famous academy there—a space that would become legendary in capoeira history. For 22 years, the Travessa Angrense served as the headquarters of Centro Cultural Senzala, where "many bambas passed through and were trained." It was there that Mestre Elias first discovered Senzala in 1976, immediately beginning training under Mestres Peixinho and Itamar. Elias would go on to receive his corda vermelha in 1990 and spearhead capoeira's expansion in France.
+Peixinho and Itamar recognized an opportunity. Seeing the success of their collective work, they decided to rent a space in Travessa Angrense in Copacabana. In 1974, Peixinho opened his famous academy there—a space that would become legendary in capoeira history. For 22 years, the Travessa Angrense served as the headquarters of Centro Cultural Senzala, where "many bambas passed through and were trained". It was there that Mestre Elias first discovered Senzala in 1976, immediately beginning training under Mestres Peixinho and Itamar. Elias would go on to receive his corda vermelha in 1990 and spearhead capoeira's expansion in France.
 
 That same year, 1974, Peixinho was formally recognized as Mestre.
 
@@ -45,7 +45,7 @@ By the end of his career, Peixinho coordinated an extensive network of professor
 
 Peixinho was also renowned as an exceptional instrument maker. He crafted berimbaus and atabaques with a sound and quality that musicians and masters worldwide sought. According to those who knew him, no one has since succeeded in replicating the quality of his instruments.
 
-Mestre Acordeon described Peixinho as possessing "exemplary simplicity", noting that he "refined his art to speak little, an energy quiet but always present." Despite his exceptional technique and speed—he was known for his ability to anticipate his opponent's moves—Peixinho avoided violence and made no enemies.
+Mestre Acordeon described Peixinho as possessing "exemplary simplicity", noting that he "refined his art to speak little, an energy quiet but always present". Despite his exceptional technique and speed—he was known for his ability to anticipate his opponent's moves—Peixinho avoided violence and made no enemies.
 
 In his final years, Peixinho fought a long battle against cancer. He passed away in the early morning of May 16, 2011. The news sent shockwaves through the capoeira world. Today, Grupo Senzala commemorates his legacy through the "Iê Viva Meu Mestre" event, held every two years in his honor.
 
@@ -57,7 +57,7 @@ Em 1964, Peixinho mudou-se para o Rio de Janeiro onde começou a praticar capoei
 
 Em 1966, durante uma apresentação em um Clube Alemão, o grupo oficialmente adotou o nome "Grupo Senzala"—uma referência às senzalas onde africanos escravizados eram mantidos, conectando sua arte à história de resistência do Brasil. No ano seguinte, Peixinho começou a ensinar e o grupo entrou no prestigioso torneio Berimbau de Ouro. Para surpresa de todos, eles venceram—e repetiram a vitória em 1968 e 1969, conquistando permanentemente o troféu e estabelecendo a reputação da Senzala nacionalmente.
 
-Peixinho e Itamar reconheceram uma oportunidade. Vendo o sucesso de seu trabalho coletivo, decidiram alugar um espaço na Travessa Angrense em Copacabana. Em 1974, Peixinho abriu sua famosa academia lá—um espaço que se tornaria lendário na história da capoeira. Por 22 anos, a Travessa Angrense serviu como sede do Centro Cultural Senzala, onde "muitos bambas passaram e foram treinados." Foi lá que Mestre Elias descobriu a Senzala pela primeira vez em 1976, começando imediatamente a treinar com os Mestres Peixinho e Itamar. Elias receberia sua corda vermelha em 1990 e lideraria a expansão da capoeira na França.
+Peixinho e Itamar reconheceram uma oportunidade. Vendo o sucesso de seu trabalho coletivo, decidiram alugar um espaço na Travessa Angrense em Copacabana. Em 1974, Peixinho abriu sua famosa academia lá—um espaço que se tornaria lendário na história da capoeira. Por 22 anos, a Travessa Angrense serviu como sede do Centro Cultural Senzala, onde "muitos bambas passaram e foram treinados". Foi lá que Mestre Elias descobriu a Senzala pela primeira vez em 1976, começando imediatamente a treinar com os Mestres Peixinho e Itamar. Elias receberia sua corda vermelha em 1990 e lideraria a expansão da capoeira na França.
 
 Nesse mesmo ano, 1974, Peixinho foi formalmente reconhecido como Mestre.
 
@@ -71,7 +71,7 @@ Ao final de sua carreira, Peixinho coordenava uma extensa rede de professores qu
 
 Peixinho também era renomado como excepcional construtor de instrumentos. Fabricava berimbaus e atabaques com um som e qualidade que músicos e mestres do mundo todo procuravam. Segundo aqueles que o conheceram, ninguém conseguiu replicar a qualidade de seus instrumentos.
 
-Mestre Acordeon descreveu Peixinho como possuidor de "simplicidade exemplar", notando que ele "refinou sua arte para falar pouco, uma energia quieta mas sempre presente." Apesar de sua técnica excepcional e velocidade—era conhecido por sua capacidade de antecipar os movimentos do oponente—Peixinho evitava violência e não fez inimigos.
+Mestre Acordeon descreveu Peixinho como possuidor de "simplicidade exemplar", notando que ele "refinou sua arte para falar pouco, uma energia quieta mas sempre presente". Apesar de sua técnica excepcional e velocidade—era conhecido por sua capacidade de antecipar os movimentos do oponente—Peixinho evitava violência e não fez inimigos.
 
 Em seus últimos anos, Peixinho lutou uma longa batalha contra o câncer. Faleceu na madrugada de 16 de maio de 2011. A notícia causou ondas de choque pelo mundo da capoeira. Hoje, o Grupo Senzala comemora seu legado através do evento "Iê Viva Meu Mestre", realizado a cada dois anos em sua homenagem.
 
@@ -117,13 +117,13 @@ Em seus últimos anos, Peixinho lutou uma longa batalha contra o câncer. Falece
 
 One of the founding cordas vermelhas (red cords) of Grupo Senzala, which developed a systematic teaching methodology blending Capoeira Regional technique from Mestre Bimba's lineage with elements of Capoeira Angola and carioca street traditions. Peixinho was instrumental in professionalizing capoeira and spreading it internationally. He was also an exceptional instrument maker—his berimbaus and atabaques were considered among the finest in the capoeira world, with a sound quality that has never been replicated.
 
-Mestre Acordeon described him as having "exemplary simplicity", noting he "refined his art to speak little, an energy quiet but always present." Known for exceptional technique, speed, and ability to anticipate his opponent's moves. Avoided violence; made no enemies.
+Mestre Acordeon described him as having "exemplary simplicity", noting he "refined his art to speak little, an energy quiet but always present". Known for exceptional technique, speed, and ability to anticipate his opponent's moves. Avoided violence; made no enemies.
 
 ### Português
 
 Um dos cordas vermelhas fundadores do Grupo Senzala, que desenvolveu uma metodologia de ensino sistemática mesclando técnica da Capoeira Regional da linhagem de Mestre Bimba com elementos da Capoeira Angola e tradições cariocas de rua. Peixinho foi fundamental na profissionalização da capoeira e sua disseminação internacional. Também era um excepcional construtor de instrumentos—seus berimbaus e atabaques eram considerados entre os melhores do mundo da capoeira, com uma qualidade sonora que nunca foi replicada.
 
-Mestre Acordeon o descreveu como tendo "simplicidade exemplar", notando que ele "refinou sua arte para falar pouco, uma energia quieta mas sempre presente." Conhecido por técnica excepcional, velocidade e capacidade de antecipar os movimentos do oponente. Evitava violência; não fez inimigos.
+Mestre Acordeon o descreveu como tendo "simplicidade exemplar", notando que ele "refinou sua arte para falar pouco, uma energia quieta mas sempre presente". Conhecido por técnica excepcional, velocidade e capacidade de antecipar os movimentos do oponente. Evitava violência; não fez inimigos.
 
 ## Teachers / Mestres
 
@@ -188,9 +188,9 @@ Fellow founding red cords who trained together from 1963-1966:
 
 ## Instrument Making / Construção de Instrumentos
 
-Peixinho was renowned as one of the finest instrument makers in the capoeira world. He crafted berimbaus and atabaques with exceptional sound quality that musicians and masters worldwide sought. Per senzala-london.co.uk: "one of the absolute best instrument makers in the capoeira world." Sources note "no one has since succeeded in imitating" his instruments.
+Peixinho was renowned as one of the finest instrument makers in the capoeira world. He crafted berimbaus and atabaques with exceptional sound quality that musicians and masters worldwide sought. Per senzala-london.co.uk: "one of the absolute best instrument makers in the capoeira world". Sources note "no one has since succeeded in imitating" his instruments.
 
-Peixinho era renomado como um dos melhores construtores de instrumentos do mundo da capoeira. Fabricava berimbaus e atabaques com qualidade sonora excepcional que músicos e mestres do mundo todo procuravam. Conforme senzala-london.co.uk: "um dos melhores construtores de instrumentos do mundo da capoeira." Fontes notam que "ninguém conseguiu imitar" seus instrumentos.
+Peixinho era renomado como um dos melhores construtores de instrumentos do mundo da capoeira. Fabricava berimbaus e atabaques com qualidade sonora excepcional que músicos e mestres do mundo todo procuravam. Conforme senzala-london.co.uk: "um dos melhores construtores de instrumentos do mundo da capoeira". Fontes notam que "ninguém conseguiu imitar" seus instrumentos.
 
 ## Memorial / Memorial
 

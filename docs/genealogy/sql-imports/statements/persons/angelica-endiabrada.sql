@@ -22,7 +22,7 @@ SELECT
   'likely'::genealogy.confidence,
   'Pedro Abib, Mestres e capoeiras famosos da Bahia (2009)',
   E'Rival/contemporary of Maria Doze Homens. Their conflict documented in book chapter "Maria Doze Homem e Angélica Endiabrada: Briga por moqueca" (Fight over moqueca).',
-  E'Rival/contemporânea de Maria Doze Homens. Seu conflito documentado no capítulo do livro "Maria Doze Homem e Angélica Endiabrada: Briga por moqueca."'
+  E'Rival/contemporânea de Maria Doze Homens. Seu conflito documentado no capítulo do livro "Maria Doze Homem e Angélica Endiabrada: Briga por moqueca".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Angélica Endiabrada' AND o.apelido = 'Maria Doze Homens'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

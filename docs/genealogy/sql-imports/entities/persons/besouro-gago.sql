@@ -68,7 +68,7 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Besouro Gago ("Besouro the Stutterer") is a minimally documented capoeirista who appears in a single secondary source as one of the teachers of Mestre Waldemar da Liberdade. The Grupo Liberdade Capoeira website lists him alongside Siri de Mangue, Canário Pardo, Zé Talabi, and Ricardo da Ilha de Maré as instructors who taught Waldemar during his training period in Periperi (1936-1940).
 
-However, this claim presents a significant historical discrepancy. In his own 1989 interview, Mestre Waldemar explicitly stated: "I had four mestres: Siri de Mangue, one; Canário Pardo, two; Talavi, three, and Ricardo from Ilha de Maré, four." He did not mention Besouro Gago. This primary source testimony—from Waldemar himself—directly contradicts the claim that Besouro Gago was one of his teachers.
+However, this claim presents a significant historical discrepancy. In his own 1989 interview, Mestre Waldemar explicitly stated: "I had four mestres: Siri de Mangue, one; Canário Pardo, two; Talavi, three, and Ricardo from Ilha de Maré, four". He did not mention Besouro Gago. This primary source testimony—from Waldemar himself—directly contradicts the claim that Besouro Gago was one of his teachers.
 
 The name "Besouro" (beetle) was a common apelido in capoeira circles during this era, and should not be confused with the legendary Besouro Mangangá (Manoel Henrique Pereira, 1895-1924). The addition of "Gago" (stutterer) distinguishes this person. Nothing is known about his origins, training, or fate.
 
@@ -76,7 +76,7 @@ Given the single-source nature of this claim and its contradiction with Waldemar
   -- bio_pt
   E'Besouro Gago ("Besouro o Gago") é um capoeirista minimamente documentado que aparece em uma única fonte secundária como um dos professores de Mestre Waldemar da Liberdade. O site do Grupo Liberdade Capoeira o lista junto com Siri de Mangue, Canário Pardo, Zé Talabi e Ricardo da Ilha de Maré como instrutores que ensinaram Waldemar durante seu período de treinamento em Periperi (1936-1940).
 
-No entanto, esta afirmação apresenta uma discrepância histórica significativa. Em sua própria entrevista de 1989, Mestre Waldemar declarou explicitamente: "Tive quatro mestres: Siri de Mangue, um; Canário Pardo, dois; Talavi, três e Ricardo de Ilha de Maré, quatro." Ele não mencionou Besouro Gago. Este testemunho de fonte primária—do próprio Waldemar—contradiz diretamente a alegação de que Besouro Gago foi um de seus professores.
+No entanto, esta afirmação apresenta uma discrepância histórica significativa. Em sua própria entrevista de 1989, Mestre Waldemar declarou explicitamente: "Tive quatro mestres: Siri de Mangue, um; Canário Pardo, dois; Talavi, três e Ricardo de Ilha de Maré, quatro". Ele não mencionou Besouro Gago. Este testemunho de fonte primária—do próprio Waldemar—contradiz diretamente a alegação de que Besouro Gago foi um de seus professores.
 
 O nome "Besouro" era um apelido comum nos círculos de capoeira durante esta época, e não deve ser confundido com o lendário Besouro Mangangá (Manoel Henrique Pereira, 1895-1924). A adição de "Gago" (gago) distingue esta pessoa. Nada se sabe sobre suas origens, treinamento ou destino.
 
@@ -96,7 +96,7 @@ Listed ONLY by Grupo Liberdade Capoeira website as teacher of Waldemar
 URL: https://grupoliberdadecapoeira.com.br/linhagem-mestres/
 
 PRIMARY SOURCE CONTRADICTION:
-Waldemar 1989 interview (velhosmestres.com): "I had four mestres: Siri de Mangue, one; Canário Pardo, two; Talavi, three, and Ricardo from Ilha de Maré, four."
+Waldemar 1989 interview (velhosmestres.com): "I had four mestres: Siri de Mangue, one; Canário Pardo, two; Talavi, three, and Ricardo from Ilha de Maré, four".
 Besouro Gago NOT mentioned by Waldemar himself.
 
 BIRTH YEAR ESTIMATION (1890, decade):
@@ -121,7 +121,7 @@ Listado APENAS pelo site do Grupo Liberdade Capoeira como professor de Waldemar
 URL: https://grupoliberdadecapoeira.com.br/linhagem-mestres/
 
 CONTRADIÇÃO COM FONTE PRIMÁRIA:
-Entrevista de Waldemar 1989 (velhosmestres.com): "Tive quatro mestres: Siri de Mangue, um; Canário Pardo, dois; Talavi, três e Ricardo de Ilha de Maré, quatro."
+Entrevista de Waldemar 1989 (velhosmestres.com): "Tive quatro mestres: Siri de Mangue, um; Canário Pardo, dois; Talavi, três e Ricardo de Ilha de Maré, quatro".
 Besouro Gago NÃO mencionado pelo próprio Waldemar.
 
 ESTIMATIVA DE ANO DE NASCIMENTO (1890, década):

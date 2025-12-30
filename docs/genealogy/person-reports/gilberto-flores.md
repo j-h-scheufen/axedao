@@ -125,7 +125,7 @@ Paulo Flores, Claudio Danadinho, Gato, Gil Velho, Garrincha, Sorriso, Itamar, To
 
 ### Gilberto Flores vs Gil Velho
 
-**CRITICAL DISCREPANCY:** Some sources (notably capoeirailhagrande.wordpress.com) erroneously claim that Gilberto Flores "received the capoeira name 'Gil Velho'." This is **INCORRECT**.
+**CRITICAL DISCREPANCY:** Some sources (notably capoeirailhagrande.wordpress.com) erroneously claim that Gilberto Flores "received the capoeira name 'Gil Velho'". This is **INCORRECT**.
 
 Multiple authoritative sources confirm:
 - **Gil Velho is Gato's brother** (brother of Fernando Campelo Cavalcanti de Albuquerque)

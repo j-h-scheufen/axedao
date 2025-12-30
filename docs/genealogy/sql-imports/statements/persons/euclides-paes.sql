@@ -21,7 +21,7 @@ SELECT
   'verified'::genealogy.confidence,
   'https://centrodomundo.org/mestre-zé-maría',
   'Both mestres taught together at Grupo Capoeira da Guanabara in the 1960s, training Zé Maria and teaching the famous "Pulo do Gato" secret technique. When they discontinued training for work reasons, they authorized Zé Maria to continue teaching in their place.',
-  'Ambos os mestres ensinavam juntos no Grupo Capoeira da Guanabara nos anos 1960, treinando Zé Maria e ensinando a famosa técnica secreta do "Pulo do Gato." Quando descontinuaram o treinamento por motivos de trabalho, autorizaram Zé Maria a continuar ensinando em seu lugar.'
+  'Ambos os mestres ensinavam juntos no Grupo Capoeira da Guanabara nos anos 1960, treinando Zé Maria e ensinando a famosa técnica secreta do "Pulo do Gato". Quando descontinuaram o treinamento por motivos de trabalho, autorizaram Zé Maria a continuar ensinando em seu lugar.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Euclides Paes' AND o.apelido = 'Paulinho Salmon'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

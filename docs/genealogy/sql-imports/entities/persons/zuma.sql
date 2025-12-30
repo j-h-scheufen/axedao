@@ -55,13 +55,13 @@ INSERT INTO genealogy.person_profiles (
   'exact'::genealogy.date_precision,
   'Rio de Janeiro, Brazil',
   -- bio_en
-  E'Anníbal Zumalacaraguhy de Menck Burlamaqui was born on November 25, 1898. His unusual middle name "Zumalacaraguhy"—from which his apelido "Zuma" derived—is of Basque origin, a surname meaning "willow valley." Since the age of ten, Anníbal had practiced Swedish gymnastics, weightlifting, and horizontal bar training. At eighteen he learned Greco-Roman wrestling, and later trained boxing "with fair constancy." Newspaper references from April 1920 describe him as "capoeira and boxeur."
+  E'Anníbal Zumalacaraguhy de Menck Burlamaqui was born on November 25, 1898. His unusual middle name "Zumalacaraguhy"—from which his apelido "Zuma" derived—is of Basque origin, a surname meaning "willow valley". Since the age of ten, Anníbal had practiced Swedish gymnastics, weightlifting, and horizontal bar training. At eighteen he learned Greco-Roman wrestling, and later trained boxing "with fair constancy". Newspaper references from April 1920 describe him as "capoeira and boxeur".
 
 Burlamaqui worked as a customs enforcement officer (guarda da polícia aduaneira), eventually rising to tax auditor at the Receita Federal (Brazilian revenue service). He lived in the Copacabana neighborhood of Rio de Janeiro.
 
 In 1928, Zuma published "Gymnástica Nacional (capoeiragem) methodisada e regrada" (National Gymnastics [Capoeiragem] Methodized and Regulated)—the first written methodology for capoeira. The booklet was inspired by the capoeira of Lapa neighborhood and by the earlier booklet "Gymnastica Brazileira" (1904). His goal was clear: to remove the stigma from capoeiragem and legitimize it as Brazil''s national sport, capable of producing strong, brave citizens.
 
-Dr. Mário Santos, a lawyer who wrote the manual''s preface, posed as Zuma''s opponent in twenty photographs illustrating the techniques. In the preface, Santos argued: "Why would capoeiragem, in Brazil, escape the evolutionary march of its sister forms? Why should we not create rules and regenerate capoeiragem?" He proclaimed capoeiragem superior to boxing, Roman wrestling, and Japanese fighting because it united the requirements of all these disciplines "plus intelligence and vivacity."
+Dr. Mário Santos, a lawyer who wrote the manual''s preface, posed as Zuma''s opponent in twenty photographs illustrating the techniques. In the preface, Santos argued: "Why would capoeiragem, in Brazil, escape the evolutionary march of its sister forms? Why should we not create rules and regenerate capoeiragem?" He proclaimed capoeiragem superior to boxing, Roman wrestling, and Japanese fighting because it united the requirements of all these disciplines "plus intelligence and vivacity".
 
 The manual catalogued 31 movements including: guarda, rasteira, rabo de arraia, corta capim, cabeçada, facão, banda de frente, banda amarrada, banda jogada, banda forçada, rapa, bahu, tesoura, baiana, dourado, queixada, passo de cegonha, encruzilhada, escorrão, pentear ou peneirar, tombo de ladeira ou calco, arrastão, tranco, chincha, xulipa, me esquece, vôo do morcego, espada, and suicídio. Zuma asserted that three kicks were his own inventions: queixada, passo de cegonha, and espada.
 
@@ -69,7 +69,7 @@ Drawing from boxing and football, Zuma prescribed the diameter of the circular p
 
 Beyond capoeira, Burlamaqui pursued literary interests. On March 8, 1930, he joined the Cenáculo Fluminense de História e Letras (Rio de Janeiro''s State Society of History and Letters), a Niterói-based literary society, occupying chair number 33. In the 1950s he served on the directorial board''s committee on writing and peer review, and was elected president of the society twice. The Cenáculo hosted poetry readings and music recitals, and sponsored publications by its members.
 
-In 1939, the Cenáculo published Burlamaqui''s book of erotic poetry, "O meu delírio: poêma do instinto" (My delirium: a poem of instinct). The book received a mixed review in the Jornal do Brasil (April 14, 1939) and a scathing review from critic Álvaro Lins in Correio da Manhã (November 16, 1940). He also published a second poetry collection titled "Babel de Emoções."
+In 1939, the Cenáculo published Burlamaqui''s book of erotic poetry, "O meu delírio: poêma do instinto" (My delirium: a poem of instinct). The book received a mixed review in the Jornal do Brasil (April 14, 1939) and a scathing review from critic Álvaro Lins in Correio da Manhã (November 16, 1940). He also published a second poetry collection titled "Babel de Emoções".
 
 In 1933, through Zuma''s intervention, the Departamento de Luta Brasileira (Capoeiragem) of the Federação Carioca de Boxe was founded on November 5—an early step in the institutionalization of capoeira as a regulated sport. Three years later, on November 4, 1936, the Departamento de Luta Brasileira of the Federação Paulista de Pugilismo followed in São Paulo.
 
@@ -83,13 +83,13 @@ Zuma''s work had direct influence on Federal Decree 3,199/41, enacted by Preside
 
 Anníbal Burlamaqui died on August 18, 1965, at age 67. The Jornal do Brasil published a notice where Mrs. Burlamaqui and family expressed gratitude for condolences received. His legacy as the "Patron of Sporting Capoeira" (Patrono da Capoeira Desportiva) endures—he was among the educated Brazilians who fought to destigmatize capoeira and promote it as a national sport.',
   -- bio_pt
-  E'Anníbal Zumalacaraguhy de Menck Burlamaqui nasceu em 25 de novembro de 1898. Seu incomum nome do meio "Zumalacaraguhy"—do qual derivou seu apelido "Zuma"—é de origem basca, um sobrenome que significa "vale de salgueiros." Desde os dez anos, Anníbal praticava ginástica sueca, musculação e treinamento em barras horizontais. Aos dezoito anos aprendeu luta greco-romana, e depois treinou boxe "com justa constância." Referências em jornais de abril de 1920 o descrevem como "capoeira e boxeur."
+  E'Anníbal Zumalacaraguhy de Menck Burlamaqui nasceu em 25 de novembro de 1898. Seu incomum nome do meio "Zumalacaraguhy"—do qual derivou seu apelido "Zuma"—é de origem basca, um sobrenome que significa "vale de salgueiros". Desde os dez anos, Anníbal praticava ginástica sueca, musculação e treinamento em barras horizontais. Aos dezoito anos aprendeu luta greco-romana, e depois treinou boxe "com justa constância". Referências em jornais de abril de 1920 o descrevem como "capoeira e boxeur".
 
 Burlamaqui trabalhou como guarda da polícia aduaneira, eventualmente ascendendo a auditor fiscal na Receita Federal. Morava no bairro de Copacabana no Rio de Janeiro.
 
 Em 1928, Zuma publicou "Gymnástica Nacional (capoeiragem) methodisada e regrada"—a primeira metodologia escrita para capoeira. O livreto foi inspirado pela capoeira do bairro da Lapa e pelo livreto anterior "Gymnastica Brazileira" (1904). Seu objetivo era claro: remover o estigma da capoeiragem e legitimá-la como esporte nacional do Brasil, capaz de produzir cidadãos fortes e corajosos.
 
-Dr. Mário Santos, um advogado que escreveu o prefácio do manual, posou como oponente de Zuma em vinte fotografias ilustrando as técnicas. No prefácio, Santos argumentou: "Por que a capoeiragem, no Brasil, escaparia à marcha evolutiva de suas formas irmãs? Por que não deveríamos criar regras e regenerar a capoeiragem?" Ele proclamou a capoeiragem superior ao boxe, luta romana e luta japonesa porque unia os requisitos de todas essas disciplinas "além de inteligência e vivacidade."
+Dr. Mário Santos, um advogado que escreveu o prefácio do manual, posou como oponente de Zuma em vinte fotografias ilustrando as técnicas. No prefácio, Santos argumentou: "Por que a capoeiragem, no Brasil, escaparia à marcha evolutiva de suas formas irmãs? Por que não deveríamos criar regras e regenerar a capoeiragem?" Ele proclamou a capoeiragem superior ao boxe, luta romana e luta japonesa porque unia os requisitos de todas essas disciplinas "além de inteligência e vivacidade".
 
 O manual catalogou 31 movimentos incluindo: guarda, rasteira, rabo de arraia, corta capim, cabeçada, facão, banda de frente, banda amarrada, banda jogada, banda forçada, rapa, bahu, tesoura, baiana, dourado, queixada, passo de cegonha, encruzilhada, escorrão, pentear ou peneirar, tombo de ladeira ou calco, arrastão, tranco, chincha, xulipa, me esquece, vôo do morcego, espada e suicídio. Zuma afirmou que três chutes eram suas próprias invenções: queixada, passo de cegonha e espada.
 
@@ -97,11 +97,11 @@ Inspirando-se no boxe e futebol, Zuma prescreveu o diâmetro do campo de jogo ci
 
 Além da capoeira, Burlamaqui cultivou interesses literários. Em 8 de março de 1930, ingressou no Cenáculo Fluminense de História e Letras, uma sociedade literária baseada em Niterói, ocupando a cadeira número 33. Nos anos 1950 serviu no conselho diretor no comitê de redação e parecer, e foi eleito presidente da sociedade duas vezes. O Cenáculo promovia leituras de poesia e recitais musicais, e patrocinava publicações de seus membros.
 
-Em 1939, o Cenáculo publicou o livro de poesia erótica de Burlamaqui, "O meu delírio: poêma do instinto." O livro recebeu uma crítica mista no Jornal do Brasil (14 de abril de 1939) e uma crítica severa do crítico Álvaro Lins no Correio da Manhã (16 de novembro de 1940). Ele também publicou uma segunda coleção de poesia intitulada "Babel de Emoções."
+Em 1939, o Cenáculo publicou o livro de poesia erótica de Burlamaqui, "O meu delírio: poêma do instinto". O livro recebeu uma crítica mista no Jornal do Brasil (14 de abril de 1939) e uma crítica severa do crítico Álvaro Lins no Correio da Manhã (16 de novembro de 1940). Ele também publicou uma segunda coleção de poesia intitulada "Babel de Emoções".
 
 Em 1933, através da intervenção de Zuma, o Departamento de Luta Brasileira (Capoeiragem) da Federação Carioca de Boxe foi fundado em 5 de novembro—um passo inicial na institucionalização da capoeira como esporte regulamentado. Três anos depois, em 4 de novembro de 1936, o Departamento de Luta Brasileira da Federação Paulista de Pugilismo foi criado em São Paulo.
 
-Nesse mesmo ano, 1936, Mestre Bimba lançou seu famoso desafio a lutadores de qualquer estilo de arte marcial. As lutas foram disputadas sob as regras similares ao boxe de Zuma. Bimba enfrentou quatro oponentes—Henrique Bahia, Vítor Benedito Lopes, Américo Ciência e o capoeirista José Custódio "Zé I" dos Santos—e venceu todas as lutas, ganhando o apelido "Três Pancadas."
+Nesse mesmo ano, 1936, Mestre Bimba lançou seu famoso desafio a lutadores de qualquer estilo de arte marcial. As lutas foram disputadas sob as regras similares ao boxe de Zuma. Bimba enfrentou quatro oponentes—Henrique Bahia, Vítor Benedito Lopes, Américo Ciência e o capoeirista José Custódio "Zé I" dos Santos—e venceu todas as lutas, ganhando o apelido "Três Pancadas".
 
 Mestre Bimba está documentado como tendo estudado os métodos de vários professores de capoeira do Rio de Janeiro incluindo Sinhozinho, Mário Aleixo e Zuma, que misturavam capoeira com artes marciais como judô, boxe, luta greco-romana e jogo do pau português. A codificação de Zuma influenciou outros que buscavam transformar a capoeira em um esporte socialmente aceitável.
 
@@ -122,7 +122,7 @@ DEATH DATE (August 18, 1965):
 Jornal do Brasil published obituary notice with family gratitude for condolences received.
 
 FULL NAME:
-Anníbal Zumalacaraguhy de Menck Burlamaqui. "Zumalacaraguhy" is Basque (meaning "willow valley")—origin of nickname "Zuma."
+Anníbal Zumalacaraguhy de Menck Burlamaqui. "Zumalacaraguhy" is Basque (meaning "willow valley")—origin of nickname "Zuma".
 
 OCCUPATION:
 - Guarda da polícia aduaneira (customs enforcement officer)
@@ -186,7 +186,7 @@ DATA DE MORTE (18 de agosto de 1965):
 Jornal do Brasil publicou nota de obituário com agradecimento da família pelas condolências recebidas.
 
 NOME COMPLETO:
-Anníbal Zumalacaraguhy de Menck Burlamaqui. "Zumalacaraguhy" é basco (significando "vale de salgueiros")—origem do apelido "Zuma."
+Anníbal Zumalacaraguhy de Menck Burlamaqui. "Zumalacaraguhy" é basco (significando "vale de salgueiros")—origem do apelido "Zuma".
 
 OCUPAÇÃO:
 - Guarda da polícia aduaneira
@@ -222,7 +222,7 @@ LEGADO INSTITUCIONAL:
 CONEXÃO COM DESAFIOS DE BIMBA EM 1936:
 As lutas de desafio de Bimba foram disputadas sob as regras similares ao boxe de Zuma.
 Oponentes: Henrique Bahia, Vítor Benedito Lopes, Américo Ciência, José Custódio "Zé I" dos Santos
-Bimba venceu todas as quatro, ganhando o apelido "Três Pancadas."
+Bimba venceu todas as quatro, ganhando o apelido "Três Pancadas".
 
 ESTUDO DE BIMBA DOS MÉTODOS DE ZUMA:
 Documentado que Bimba estudou métodos de Sinhozinho, Mario Aleixo e Zuma.

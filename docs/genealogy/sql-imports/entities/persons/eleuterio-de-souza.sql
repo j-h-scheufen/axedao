@@ -50,19 +50,19 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Eleutério de Souza, known as "O preto Eleutério" (Black Eleutério), was a founding figure in Recife''s labor movement and one of the city''s feared valentões during the late 19th and early 20th centuries.
 
-According to the Jornal Pequeno of November 9, 1938, Eleutério was "one of the founders of the primitive stevedore work in Pernambuco." The Stevedores Union of Pernambuco (SINDESTIVA/PE), founded March 19, 1891 by formerly enslaved workers, became the oldest stevedores union in Latin America. Many of its founders, like Eleutério, had emerged from slavery just three years earlier and immediately organized to fight for their rights and better working conditions.
+According to the Jornal Pequeno of November 9, 1938, Eleutério was "one of the founders of the primitive stevedore work in Pernambuco". The Stevedores Union of Pernambuco (SINDESTIVA/PE), founded March 19, 1891 by formerly enslaved workers, became the oldest stevedores union in Latin America. Many of its founders, like Eleutério, had emerged from slavery just three years earlier and immediately organized to fight for their rights and better working conditions.
 
-Beyond his role in the labor movement, Eleutério was a "valiant man" who "made an era in Recife in his youth." He was deeply connected to the political machinery of the era, "always preferred by old politicians" who employed him as their bodyguard, "especially during complicated elections." This was common practice in Recife and throughout Brazil, where capoeiristas and valentões served as enforcers during the fraud-ridden elections of the First Republic, dissolving rival political gatherings, intimidating voters, and providing muscle for their patrons.
+Beyond his role in the labor movement, Eleutério was a "valiant man" who "made an era in Recife in his youth". He was deeply connected to the political machinery of the era, "always preferred by old politicians" who employed him as their bodyguard, "especially during complicated elections". This was common practice in Recife and throughout Brazil, where capoeiristas and valentões served as enforcers during the fraud-ridden elections of the First Republic, dissolving rival political gatherings, intimidating voters, and providing muscle for their patrons.
 
 In 1907, Eleutério was involved in disturbances on a train returning from a religious festival, alongside Adama and Formigão—fellow valentões of the era. This incident places him among the network of capoeiristas and tough men who dominated Recife''s streets in this period, walking openly armed through neighborhoods like Santo Antônio, São José, and Afogados.
 
 The documentary record suggests Eleutério''s prime occurred earlier than the other named valentões of the period. His founding role in the stevedore movement indicates he was already an established figure by 1891, and by 1907 he may have been among the elder statesmen of Recife''s valentão community.',
   -- bio_pt
-  E'Eleutério de Souza, conhecido como "O preto Eleutério," foi uma figura fundadora no movimento trabalhista do Recife e um dos temidos valentões da cidade no final do século XIX e início do século XX.
+  E'Eleutério de Souza, conhecido como "O preto Eleutério", foi uma figura fundadora no movimento trabalhista do Recife e um dos temidos valentões da cidade no final do século XIX e início do século XX.
 
-Segundo o Jornal Pequeno de 9 de novembro de 1938, Eleutério foi "um dos fundadores da primitiva estiva em Pernambuco." O Sindicato dos Estivadores de Pernambuco (SINDESTIVA/PE), fundado em 19 de março de 1891 por trabalhadores anteriormente escravizados, tornou-se o mais antigo sindicato de estivadores da América Latina. Muitos de seus fundadores, como Eleutério, haviam emergido da escravidão apenas três anos antes e imediatamente se organizaram para lutar por seus direitos e melhores condições de trabalho.
+Segundo o Jornal Pequeno de 9 de novembro de 1938, Eleutério foi "um dos fundadores da primitiva estiva em Pernambuco". O Sindicato dos Estivadores de Pernambuco (SINDESTIVA/PE), fundado em 19 de março de 1891 por trabalhadores anteriormente escravizados, tornou-se o mais antigo sindicato de estivadores da América Latina. Muitos de seus fundadores, como Eleutério, haviam emergido da escravidão apenas três anos antes e imediatamente se organizaram para lutar por seus direitos e melhores condições de trabalho.
 
-Além de seu papel no movimento trabalhista, Eleutério era um "homem valente" que "na sua mocidade fez época no Recife." Ele estava profundamente conectado à maquinaria política da época, "sempre preferido pelos antigos políticos" que o empregavam como guarda-costas, "principalmente por ocasião de eleições intrincadas." Esta era uma prática comum no Recife e em todo o Brasil, onde capoeiristas e valentões serviam como capangas durante as eleições fraudulentas da Primeira República, dissolvendo reuniões políticas rivais, intimidando eleitores e fornecendo força para seus patronos.
+Além de seu papel no movimento trabalhista, Eleutério era um "homem valente" que "na sua mocidade fez época no Recife". Ele estava profundamente conectado à maquinaria política da época, "sempre preferido pelos antigos políticos" que o empregavam como guarda-costas, "principalmente por ocasião de eleições intrincadas". Esta era uma prática comum no Recife e em todo o Brasil, onde capoeiristas e valentões serviam como capangas durante as eleições fraudulentas da Primeira República, dissolvendo reuniões políticas rivais, intimidando eleitores e fornecendo força para seus patronos.
 
 Em 1907, Eleutério se envolveu em distúrbios em um trem que retornava de uma festividade religiosa, ao lado de Adama e Formigão—valentões contemporâneos. Este incidente o coloca entre a rede de capoeiristas e homens valentes que dominavam as ruas do Recife neste período, andando abertamente armados pelos bairros de Santo Antônio, São José e Afogados.
 
@@ -84,13 +84,13 @@ POLITICAL ROLE: Served as bodyguard to politicians during elections—a common r
 
 1907 TRAIN INCIDENT: Involved in disturbances on a train returning from a religious festival, along with Adama and Formigão.
 
-SOURCES: Primary source is Jornal Pequeno, November 9, 1938 (cited in Israel Ozanam''s dissertation). Academic context from Israel Ozanam, "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife."',
+SOURCES: Primary source is Jornal Pequeno, November 9, 1938 (cited in Israel Ozanam''s dissertation). Academic context from Israel Ozanam, "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife".',
   -- Researcher notes (Portuguese)
-  E'ESTIMATIVA DO ANO DE NASCIMENTO (1860, precisão de década): Eleutério foi descrito como tendo "fez época no Recife na sua mocidade" e era um fundador da "primitiva estiva em Pernambuco." O sindicato dos estivadores (SINDESTIVA/PE) foi fundado em 1891 por trabalhadores anteriormente escravizados. Se Eleutério tinha 25-35 anos quando ajudou a organizar o trabalho de estiva por volta de 1891, seu nascimento seria por volta de 1856-1866. Em 1907 (incidente do trem), ele já seria uma figura madura e estabelecida. Em 1938 quando o Jornal Pequeno escreveu sobre ele, ele estaria idoso ou recentemente falecido. Usando 1860 como estimativa do ponto médio.
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1860, precisão de década): Eleutério foi descrito como tendo "fez época no Recife na sua mocidade" e era um fundador da "primitiva estiva em Pernambuco". O sindicato dos estivadores (SINDESTIVA/PE) foi fundado em 1891 por trabalhadores anteriormente escravizados. Se Eleutério tinha 25-35 anos quando ajudou a organizar o trabalho de estiva por volta de 1891, seu nascimento seria por volta de 1856-1866. Em 1907 (incidente do trem), ele já seria uma figura madura e estabelecida. Em 1938 quando o Jornal Pequeno escreveu sobre ele, ele estaria idoso ou recentemente falecido. Usando 1860 como estimativa do ponto médio.
 
 DATA DE MORTE: Desconhecida. O artigo do Jornal Pequeno de 1938 pode ser um obituário ou memorial, sugerindo que ele faleceu por volta ou antes desta data, mas nenhuma data específica foi encontrada.
 
-APELIDO: Conhecido como "O preto Eleutério." O termo "preto" indica que ele era um homem negro, provavelmente anteriormente escravizado ou descendente de escravizados.
+APELIDO: Conhecido como "O preto Eleutério". O termo "preto" indica que ele era um homem negro, provavelmente anteriormente escravizado ou descendente de escravizados.
 
 PROFISSÃO: Estivador (trabalhador portuário); figura fundadora no movimento dos estivadores de Pernambuco.
 
@@ -98,7 +98,7 @@ PAPEL POLÍTICO: Servia como guarda-costas de políticos durante eleições—pa
 
 INCIDENTE DO TREM DE 1907: Envolvido em distúrbios em um trem que retornava de uma festividade religiosa, junto com Adama e Formigão.
 
-FONTES: Fonte primária é o Jornal Pequeno de 9 de novembro de 1938 (citado na dissertação de Israel Ozanam). Contexto acadêmico de Israel Ozanam, "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife."'
+FONTES: Fonte primária é o Jornal Pequeno de 9 de novembro de 1938 (citado na dissertação de Israel Ozanam). Contexto acadêmico de Israel Ozanam, "Capoeira e capoeiras entre a Guarda Negra e a Educação Física no Recife".'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,

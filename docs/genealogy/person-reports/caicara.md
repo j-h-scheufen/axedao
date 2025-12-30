@@ -26,19 +26,19 @@
 
 ### English
 
-Antônio Conceição Moraes was born on May 8, 1924, in Cachoeira de São Félix, a city in the Recôncavo Baiano region that he described as "a place of many mysteries and much magic." His mother, Dona Adélia Maria da Conceição, was a Yalorixá (Candomblé priestess) who prepared him from childhood for religious responsibilities. Before capoeira, he worked as a magarefe (butcher).
+Antônio Conceição Moraes was born on May 8, 1924, in Cachoeira de São Félix, a city in the Recôncavo Baiano region that he described as "a place of many mysteries and much magic". His mother, Dona Adélia Maria da Conceição, was a Yalorixá (Candomblé priestess) who prepared him from childhood for religious responsibilities. Before capoeira, he worked as a magarefe (butcher).
 
-In 1938, at age 14, Caiçara began learning capoeira from Mestre Aberrê de Santo Amaro (Antônio Rufino dos Santos), who taught him "os segredos e mistérios da capoeiragem." Before Aberrê's death, the mestre passed his bengala (walking cane) to Caiçara—it would become his trademark for the next fifty years.
+In 1938, at age 14, Caiçara began learning capoeira from Mestre Aberrê de Santo Amaro (Antônio Rufino dos Santos), who taught him "os segredos e mistérios da capoeiragem". Before Aberrê's death, the mestre passed his bengala (walking cane) to Caiçara—it would become his trademark for the next fifty years.
 
-Later, Caiçara refined his berimbau playing and singing skills under Mestre Waldemar at the legendary Barracão in Liberdade, Salvador. This training gave him the musical mastery that made him famous as "a great singer" with a voice described as "contagious and hypnotic."
+Later, Caiçara refined his berimbau playing and singing skills under Mestre Waldemar at the legendary Barracão in Liberdade, Salvador. This training gave him the musical mastery that made him famous as "a great singer" with a voice described as "contagious and hypnotic".
 
 Beyond capoeira, Caiçara trained in jiu-jitsu, boxing, freestyle wrestling, and Greco-Roman wrestling. He accumulated 27 scars from bullets, razors, knives, daggers, and machetes throughout his life, which he displayed with pride, declaring: "I am a sorcerer!"
 
 **The Bimba Confrontation:**
 
-The famous confrontation with Mestre Bimba occurred in the 1960s at a graduation event in Amaralina. Caiçara provoked Bimba's disciples, declaring himself "the master." When they finally played, Bimba applied a devastating "bênção" (blessing kick), breaking Caiçara's nose and lips. Bimba's response was iconic: "Isso é que é jogo de perna, meu filho"—"That's footwork, my son."
+The famous confrontation with Mestre Bimba occurred in the 1960s at a graduation event in Amaralina. Caiçara provoked Bimba's disciples, declaring himself "the master". When they finally played, Bimba applied a devastating "bênção" (blessing kick), breaking Caiçara's nose and lips. Bimba's response was iconic: "Isso é que é jogo de perna, meu filho"—"That's footwork, my son".
 
-In November 1972, as Bimba prepared to leave Salvador for Goiânia, Caiçara apologized: "I am Bahia's third master after you and Mestre Pastinha. Forgive my arrogance; don't leave. Bahia needs you." This reconciliation came too late—Bimba left and died two years later.
+In November 1972, as Bimba prepared to leave Salvador for Goiânia, Caiçara apologized: "I am Bahia's third master after you and Mestre Pastinha. Forgive my arrogance; don't leave. Bahia needs you". This reconciliation came too late—Bimba left and died two years later.
 
 **Legacy:**
 
@@ -48,19 +48,19 @@ Known for sharp wit, his famous phrases included: "Roupa de homem não dá em me
 
 ### Português
 
-Antônio Conceição Moraes nasceu em 8 de maio de 1924, em Cachoeira de São Félix, uma cidade no Recôncavo Baiano que ele descrevia como "um lugar de muitos mistérios e muita magia." Sua mãe, Dona Adélia Maria da Conceição, era Yalorixá que o preparou desde a infância para responsabilidades religiosas. Antes da capoeira, trabalhou como magarefe (açougueiro).
+Antônio Conceição Moraes nasceu em 8 de maio de 1924, em Cachoeira de São Félix, uma cidade no Recôncavo Baiano que ele descrevia como "um lugar de muitos mistérios e muita magia". Sua mãe, Dona Adélia Maria da Conceição, era Yalorixá que o preparou desde a infância para responsabilidades religiosas. Antes da capoeira, trabalhou como magarefe (açougueiro).
 
-Em 1938, aos 14 anos, Caiçara começou a aprender capoeira com Mestre Aberrê de Santo Amaro (Antônio Rufino dos Santos), que lhe ensinou "os segredos e mistérios da capoeiragem." Antes da morte de Aberrê, o mestre passou sua bengala para Caiçara—ela se tornaria sua marca registrada pelos próximos cinquenta anos.
+Em 1938, aos 14 anos, Caiçara começou a aprender capoeira com Mestre Aberrê de Santo Amaro (Antônio Rufino dos Santos), que lhe ensinou "os segredos e mistérios da capoeiragem". Antes da morte de Aberrê, o mestre passou sua bengala para Caiçara—ela se tornaria sua marca registrada pelos próximos cinquenta anos.
 
-Mais tarde, Caiçara aperfeiçoou seu toque de berimbau e canto sob Mestre Waldemar no lendário Barracão na Liberdade, Salvador. Este treinamento lhe deu o domínio musical que o tornou famoso como "um grande cantador" com voz descrita como "contagiante e hipnótica."
+Mais tarde, Caiçara aperfeiçoou seu toque de berimbau e canto sob Mestre Waldemar no lendário Barracão na Liberdade, Salvador. Este treinamento lhe deu o domínio musical que o tornou famoso como "um grande cantador" com voz descrita como "contagiante e hipnótica".
 
 Além da capoeira, Caiçara treinou jiu-jitsu, boxe, luta livre e luta greco-romana. Acumulou 27 cicatrizes de balas, navalhas, facas, punhais e facões ao longo de sua vida, que exibia com orgulho, declarando: "Eu sou feiticeiro!"
 
 **O Confronto com Bimba:**
 
-O famoso confronto com Mestre Bimba ocorreu na década de 1960 em um evento de formatura em Amaralina. Caiçara provocou os discípulos de Bimba, declarando-se "o mestre." Quando finalmente jogaram, Bimba aplicou uma devastadora "bênção," quebrando o nariz e os lábios de Caiçara. A resposta de Bimba foi icônica: "Isso é que é jogo de perna, meu filho."
+O famoso confronto com Mestre Bimba ocorreu na década de 1960 em um evento de formatura em Amaralina. Caiçara provocou os discípulos de Bimba, declarando-se "o mestre". Quando finalmente jogaram, Bimba aplicou uma devastadora "bênção", quebrando o nariz e os lábios de Caiçara. A resposta de Bimba foi icônica: "Isso é que é jogo de perna, meu filho".
 
-Em novembro de 1972, enquanto Bimba se preparava para deixar Salvador rumo a Goiânia, Caiçara se desculpou: "Sou o terceiro mestre da Bahia depois de você e Mestre Pastinha. Perdoe minha arrogância; não vá embora. A Bahia precisa de você." Esta reconciliação veio tarde demais—Bimba partiu e morreu dois anos depois.
+Em novembro de 1972, enquanto Bimba se preparava para deixar Salvador rumo a Goiânia, Caiçara se desculpou: "Sou o terceiro mestre da Bahia depois de você e Mestre Pastinha. Perdoe minha arrogância; não vá embora. A Bahia precisa de você". Esta reconciliação veio tarde demais—Bimba partiu e morreu dois anos depois.
 
 **Legado:**
 
@@ -72,11 +72,11 @@ Conhecido pelo humor afiado, suas frases famosas incluíam: "Roupa de homem não
 
 ### English
 
-Caiçara was known for a "hard and efficient style" that contrasted with Mestre Pastinha's softer approach. His technique was described as "formidable and effective." His trademark was the bengala (walking cane) inherited from Mestre Aberrê—both an elegant accessory and a deadly weapon in the hands of a capoeirista. He trained in multiple martial arts beyond capoeira, including jiu-jitsu, boxing, freestyle wrestling, and Greco-Roman wrestling.
+Caiçara was known for a "hard and efficient style" that contrasted with Mestre Pastinha's softer approach. His technique was described as "formidable and effective". His trademark was the bengala (walking cane) inherited from Mestre Aberrê—both an elegant accessory and a deadly weapon in the hands of a capoeirista. He trained in multiple martial arts beyond capoeira, including jiu-jitsu, boxing, freestyle wrestling, and Greco-Roman wrestling.
 
 ### Português
 
-Caiçara era conhecido por um "estilo duro e eficiente" que contrastava com a abordagem mais suave de Mestre Pastinha. Sua técnica era descrita como "formidável e eficaz." Sua marca registrada era a bengala herdada de Mestre Aberrê—tanto um acessório elegante quanto uma arma mortal nas mãos de um capoeirista. Treinava múltiplas artes marciais além da capoeira, incluindo jiu-jitsu, boxe, luta livre e luta greco-romana.
+Caiçara era conhecido por um "estilo duro e eficiente" que contrastava com a abordagem mais suave de Mestre Pastinha. Sua técnica era descrita como "formidável e eficaz". Sua marca registrada era a bengala herdada de Mestre Aberrê—tanto um acessório elegante quanto uma arma mortal nas mãos de um capoeirista. Treinava múltiplas artes marciais além da capoeira, incluindo jiu-jitsu, boxe, luta livre e luta greco-romana.
 
 ## Achievements / Conquistas
 

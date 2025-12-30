@@ -55,11 +55,11 @@ INSERT INTO genealogy.person_profiles (
   NULL,
   NULL,
   -- Extended content (English)
-  E'Juvenil is known from a single but vivid anecdote in Mestre Leopoldina''s testimony to Nestor Capoeira, recorded for the 2005 documentary "Mestre Leopoldina, a Fina Flor da Malandragem."
+  E'Juvenil is known from a single but vivid anecdote in Mestre Leopoldina''s testimony to Nestor Capoeira, recorded for the 2005 documentary "Mestre Leopoldina, a Fina Flor da Malandragem".
 
 Around 1951 or 1952, after Leopoldina had been training with Quinzinho for three or four months on Morro da Favela, the two encountered someone who could also play capoeira. This man was called Juvenil. He greeted them and invited the young Leopoldina to spar.
 
-According to Leopoldina: "He took off his hat, vest, tie, and stood naked from the waist up, and we started to play. But as soon as we started playing, he gave me a kick that grazed me on the head."
+According to Leopoldina: "He took off his hat, vest, tie, and stood naked from the waist up, and we started to play. But as soon as we started playing, he gave me a kick that grazed me on the head".
 
 Quinzinho, who was armed with a pistol hidden under a handkerchief, immediately stood up and pointed the gun at Juvenil''s face. "Don''t do that! Don''t do that, or he''ll become a coward!" he warned.
 
@@ -67,11 +67,11 @@ The incident reveals the informal rules governing street capoeira in 1950s Rio. 
 
 Nothing else is known about Juvenil - not his full name, his background, who taught him, or what became of him afterward. He remains an anonymous figure who stepped briefly into the historical record through this single encounter.',
   -- Extended content (Portuguese)
-  E'Juvenil é conhecido por uma única, porém vívida, anedota no depoimento de Mestre Leopoldina a Nestor Capoeira, gravado para o documentário de 2005 "Mestre Leopoldina, a Fina Flor da Malandragem."
+  E'Juvenil é conhecido por uma única, porém vívida, anedota no depoimento de Mestre Leopoldina a Nestor Capoeira, gravado para o documentário de 2005 "Mestre Leopoldina, a Fina Flor da Malandragem".
 
 Por volta de 1951 ou 1952, depois que Leopoldina vinha treinando com Quinzinho por três ou quatro meses no Morro da Favela, os dois encontraram alguém que também sabia jogar capoeira. Esse homem se chamava Juvenil. Ele os cumprimentou e convidou o jovem Leopoldina para jogar.
 
-Segundo Leopoldina: "Ele tirou o chapéu, colete, gravata, e ficou nu da cintura para cima, e a gente começou a jogar. Mas assim que começamos a jogar, ele me deu um chute que raspou na minha cabeça."
+Segundo Leopoldina: "Ele tirou o chapéu, colete, gravata, e ficou nu da cintura para cima, e a gente começou a jogar. Mas assim que começamos a jogar, ele me deu um chute que raspou na minha cabeça".
 
 Quinzinho, que estava armado com uma pistola escondida sob um lenço, levantou-se imediatamente e apontou a arma na cara de Juvenil. "Não faz isso! Não faz isso, senão ele vai ficar covarde!" alertou.
 
@@ -86,7 +86,7 @@ Nada mais se sabe sobre Juvenil - nem seu nome completo, sua origem, quem o ensi
 Juvenil encountered Leopoldina (b. 1933) around 1951-1952 when Leopoldina was 18-19. Juvenil wore formal attire (hat, vest, tie) suggesting an adult. Given he was an established capoeirista capable of throwing a meia-lua, he was likely in his 20s-30s, placing birth in the mid-1920s.
 
 SINGLE SOURCE:
-The only documentation for Juvenil is Mestre Leopoldina''s testimony to Nestor Capoeira, included in the 2005 documentary "Mestre Leopoldina, a Fina Flor da Malandragem." No other sources mention him.
+The only documentation for Juvenil is Mestre Leopoldina''s testimony to Nestor Capoeira, included in the 2005 documentary "Mestre Leopoldina, a Fina Flor da Malandragem". No other sources mention him.
 
 FULL NAME: Unknown.
 
@@ -101,7 +101,7 @@ Juvenil was NOT a student of Quinzinho. He was described as "someone who could a
 Juvenil encontrou Leopoldina (n. 1933) por volta de 1951-1952 quando Leopoldina tinha 18-19 anos. Juvenil usava traje formal (chapéu, colete, gravata) sugerindo ser adulto. Dado que era um capoeirista estabelecido capaz de aplicar uma meia-lua, provavelmente tinha entre 20 e 30 anos, situando o nascimento em meados da década de 1920.
 
 FONTE ÚNICA:
-A única documentação sobre Juvenil é o depoimento de Mestre Leopoldina a Nestor Capoeira, incluído no documentário de 2005 "Mestre Leopoldina, a Fina Flor da Malandragem." Nenhuma outra fonte o menciona.
+A única documentação sobre Juvenil é o depoimento de Mestre Leopoldina a Nestor Capoeira, incluído no documentário de 2005 "Mestre Leopoldina, a Fina Flor da Malandragem". Nenhuma outra fonte o menciona.
 
 NOME COMPLETO: Desconhecido.
 

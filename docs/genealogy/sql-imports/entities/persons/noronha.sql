@@ -50,7 +50,7 @@ INSERT INTO genealogy.person_profiles (
   -- Extended content (bio_en)
   E'Daniel Coutinho was born on August 3, 1909, in Beco do Girassol, in the Baixa dos Sapateiros neighborhood of Salvador, Bahia. His parents were José Coutinho and Maria Conceição, both of indigenous descent. Unlike most capoeiristas of his era, Noronha possessed reading and writing abilities, which he considered himself educated for that time.
 
-At eight years old, in 1917, young Daniel began learning capoeira from Mestre Cândido Pequeno in Beco de Xaréu. Cândido Pequeno, known as "Argolinha de Ouro" (Golden Little Ring) for the small gold earring he wore, was recognized as "the champion of capoeira in the State of Bahia." From him, Noronha learned the "difficult art of capoeira, the art of the solta and the rabo-de-arraia," with complete dedication.
+At eight years old, in 1917, young Daniel began learning capoeira from Mestre Cândido Pequeno in Beco de Xaréu. Cândido Pequeno, known as "Argolinha de Ouro" (Golden Little Ring) for the small gold earring he wore, was recognized as "the champion of capoeira in the State of Bahia". From him, Noronha learned the "difficult art of capoeira, the art of the solta and the rabo-de-arraia", with complete dedication.
 
 In the 1920s, Noronha was among the 22 founding mestres who established the Centro Nacional de Capoeira de Origem Angola at Ladeira de Pedra in the Gengibirra area of the Liberdade neighborhood. This was the first organized center for Capoeira Angola in Bahia. The center adopted green and yellow—the colors of the Brazilian flag—as its official colors. Four mestres were recognized as "donos e proprietários" (owners and proprietors): Noronha himself, his brother Livino (Livino Boca da Barra/Livino Malvadeza), Totonho de Maré, and Amorzinho.
 
@@ -58,11 +58,11 @@ With his brother Livino, Noronha also managed the Centro de Capoeira Angola da C
 
 Noronha worked many jobs throughout his life: shoeshine boy, stevedore, dock worker (trapicheiro), ragpicker, shipboard worker, truck driver assistant, street porter, and in the petroleum industry. From 1939 onwards, he was employed at the Sindicato dos Conferentes e Consertadores de Carga e Descarga do Pôrto da Cidade do Salvador (the port workers'' union).
 
-His personal life included two marriages. His first wife died during childbirth, leaving him with three children. His second marriage, lasting approximately 30 years, was to Maria Joana Batista Coutinho, known as "Dofana," a woman of the Kêtu nation devoted to Iansã. Together they had six children.
+His personal life included two marriages. His first wife died during childbirth, leaving him with three children. His second marriage, lasting approximately 30 years, was to Maria Joana Batista Coutinho, known as "Dofana", a woman of the Kêtu nation devoted to Iansã. Together they had six children.
 
-In 1941, after the death of Amorzinho (the civil guard who had protected the Gengibirra rodas from police harassment), Noronha and the other surviving mestres handed the Centro Nacional de Capoeira de Origem Angola to Mestre Pastinha. In Noronha''s own words: "Because of the death of Amorzinho, the guard, we handed over the Centre to Mestre Pastinha to take care and this Centre was registered by the efforts of Mestre Pastinha, who knew how to raise this Center to prominence."
+In 1941, after the death of Amorzinho (the civil guard who had protected the Gengibirra rodas from police harassment), Noronha and the other surviving mestres handed the Centro Nacional de Capoeira de Origem Angola to Mestre Pastinha. In Noronha''s own words: "Because of the death of Amorzinho, the guard, we handed over the Centre to Mestre Pastinha to take care and this Centre was registered by the efforts of Mestre Pastinha, who knew how to raise this Center to prominence".
 
-In 1968, Noronha participated in Jair Moura''s film "Dança de Guerra." In 1971, he provided historical information for Jair Moura''s article published in A Tarde newspaper.
+In 1968, Noronha participated in Jair Moura''s film "Dança de Guerra". In 1971, he provided historical information for Jair Moura''s article published in A Tarde newspaper.
 
 Throughout his life, Noronha documented his knowledge in handwritten notebooks using all capital letters, old Portuguese spelling conventions, and minimal punctuation—essentially transcribing speech directly. On April 29, 1976, at age 66, he completed his manuscripts. He died on November 17, 1977.
 
@@ -70,7 +70,7 @@ Frede Abreu first published his manuscripts in 1993 under the title "O ABC da Ca
   -- bio_pt
   E'Daniel Coutinho nasceu em 3 de agosto de 1909, no Beco do Girassol, na Baixa dos Sapateiros, Salvador, Bahia. Seus pais eram José Coutinho e Maria Conceição, ambos de descendência indígena. Diferentemente da maioria dos capoeiristas de sua época, Noronha possuía habilidades de leitura e escrita, o que ele considerava ser educado para aquele tempo.
 
-Aos oito anos, em 1917, o jovem Daniel começou a aprender capoeira com Mestre Cândido Pequeno no Beco de Xaréu. Cândido Pequeno, conhecido como "Argolinha de Ouro" pelo pequeno brinco de ouro que usava, era reconhecido como "o campeão da capoeira do Estado da Bahia." Com ele, Noronha aprendeu a "difícil arte da capoeira, a arte da solta e do rabo-de-arraia," com completa dedicação.
+Aos oito anos, em 1917, o jovem Daniel começou a aprender capoeira com Mestre Cândido Pequeno no Beco de Xaréu. Cândido Pequeno, conhecido como "Argolinha de Ouro" pelo pequeno brinco de ouro que usava, era reconhecido como "o campeão da capoeira do Estado da Bahia". Com ele, Noronha aprendeu a "difícil arte da capoeira, a arte da solta e do rabo-de-arraia", com completa dedicação.
 
 Na década de 1920, Noronha estava entre os 22 mestres fundadores que estabeleceram o Centro Nacional de Capoeira de Origem Angola na Ladeira de Pedra, na área do Gengibirra, no bairro da Liberdade. Este foi o primeiro centro organizado de Capoeira Angola na Bahia. O centro adotou o verde e amarelo—as cores da bandeira brasileira—como suas cores oficiais. Quatro mestres foram reconhecidos como "donos e proprietários": o próprio Noronha, seu irmão Livino (Livino Boca da Barra/Livino Malvadeza), Totonho de Maré e Amorzinho.
 
@@ -78,9 +78,9 @@ Com seu irmão Livino, Noronha também gerenciou o Centro de Capoeira Angola da 
 
 Noronha trabalhou em muitos empregos ao longo da vida: engraxate, estivador, trapicheiro, catador, trabalhador de navio, ajudante de caminhoneiro, carregador de rua e na indústria petrolífera. A partir de 1939, foi empregado no Sindicato dos Conferentes e Consertadores de Carga e Descarga do Pôrto da Cidade do Salvador.
 
-Sua vida pessoal incluiu dois casamentos. Sua primeira esposa morreu durante o parto, deixando-o com três filhos. Seu segundo casamento, durando aproximadamente 30 anos, foi com Maria Joana Batista Coutinho, conhecida como "Dofana," uma mulher da nação Kêtu devota de Iansã. Juntos tiveram seis filhos.
+Sua vida pessoal incluiu dois casamentos. Sua primeira esposa morreu durante o parto, deixando-o com três filhos. Seu segundo casamento, durando aproximadamente 30 anos, foi com Maria Joana Batista Coutinho, conhecida como "Dofana", uma mulher da nação Kêtu devota de Iansã. Juntos tiveram seis filhos.
 
-Em 1941, após a morte de Amorzinho (o guarda civil que havia protegido as rodas do Gengibirra do assédio policial), Noronha e os outros mestres sobreviventes entregaram o Centro Nacional de Capoeira de Origem Angola a Mestre Pastinha. Nas próprias palavras de Noronha: "Por causa da morte de Amorzinho, o guarda, nós entregamos o Centro a Mestre Pastinha para cuidar e este Centro foi registrado pelos esforços de Mestre Pastinha, que soube elevar este Centro à proeminência."
+Em 1941, após a morte de Amorzinho (o guarda civil que havia protegido as rodas do Gengibirra do assédio policial), Noronha e os outros mestres sobreviventes entregaram o Centro Nacional de Capoeira de Origem Angola a Mestre Pastinha. Nas próprias palavras de Noronha: "Por causa da morte de Amorzinho, o guarda, nós entregamos o Centro a Mestre Pastinha para cuidar e este Centro foi registrado pelos esforços de Mestre Pastinha, que soube elevar este Centro à proeminência".
 
 Em 1968, Noronha participou do filme "Dança de Guerra" de Jair Moura. Em 1971, forneceu informações históricas para o artigo de Jair Moura publicado no jornal A Tarde.
 

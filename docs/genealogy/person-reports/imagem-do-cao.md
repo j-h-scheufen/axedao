@@ -32,7 +32,7 @@ This group represented a cultural movement that pioneered capoeira teaching in R
 
 Like his fellow co-founders Baleado and Dois de Ouro, Imagem do Cão remains a figure whose life details are largely lost to history. His full name, birth and death dates, teachers, students, and later activities are undocumented. What survives is his connection to a transformative moment in capoeira history - when Bahian angoleiros established the roots of what would become contemporary capoeira in Rio de Janeiro.
 
-His apelido, meaning "Image of the Dog" or "Dog's Image," follows the tradition of capoeira nicknames that could reference physical appearance, personality traits, or memorable incidents.
+His apelido, meaning "Image of the Dog" or "Dog's Image", follows the tradition of capoeira nicknames that could reference physical appearance, personality traits, or memorable incidents.
 
 ### Português
 
@@ -40,11 +40,11 @@ Imagem do Cão foi um angoleiro baiano que fez parte da onda de capoeiristas que
 
 Quando Onça Preta chegou ao Rio no final dos anos 1950, Imagem do Cão já estava estabelecido na cidade, parte de uma pequena comunidade de capoeiristas baianos que haviam precedido a migração maior. Em 21 de julho de 1960, ele se uniu a cinco outros angoleiros baianos - Mucungê, Dois de Ouro, Baleado, Onça Preta e Roque - para co-fundar o Grupo Filhos de Angola no Rio de Janeiro.
 
-Este grupo representou um movimento cultural que foi pioneiro no ensino de capoeira nas favelas do Rio, particularmente na Zona Sul. Enquanto Mestre Roque estabeleceu sua academia no Pavão/Pavãozinho e tornou-se o líder mais visível, o Grupo Filhos de Angola foi um esforço coletivo destes seis migrantes baianos que trouxeram seu estilo tradicional de Angola para uma nova cidade. O grupo participou de torneios e competições que ajudaram a disseminar a capoeira, incluindo o Berimbau de Ouro (1967), e se apresentou em shows folclóricos como "Uma Noite na Bahia."
+Este grupo representou um movimento cultural que foi pioneiro no ensino de capoeira nas favelas do Rio, particularmente na Zona Sul. Enquanto Mestre Roque estabeleceu sua academia no Pavão/Pavãozinho e tornou-se o líder mais visível, o Grupo Filhos de Angola foi um esforço coletivo destes seis migrantes baianos que trouxeram seu estilo tradicional de Angola para uma nova cidade. O grupo participou de torneios e competições que ajudaram a disseminar a capoeira, incluindo o Berimbau de Ouro (1967), e se apresentou em shows folclóricos como "Uma Noite na Bahia".
 
 Assim como seus companheiros co-fundadores Baleado e Dois de Ouro, Imagem do Cão permanece uma figura cujos detalhes de vida estão em grande parte perdidos para a história. Seu nome completo, datas de nascimento e morte, mestres, alunos e atividades posteriores não estão documentados. O que sobrevive é sua conexão com um momento transformador na história da capoeira - quando angoleiros baianos estabeleceram as raízes do que se tornaria a capoeira contemporânea no Rio de Janeiro.
 
-Seu apelido, significando "Imagem do Cão" ou "Imagem do Cachorro," segue a tradição de apelidos da capoeira que podiam referenciar aparência física, traços de personalidade ou incidentes memoráveis.
+Seu apelido, significando "Imagem do Cão" ou "Imagem do Cachorro", segue a tradição de apelidos da capoeira que podiam referenciar aparência física, traços de personalidade ou incidentes memoráveis.
 
 ## Achievements / Conquistas
 

@@ -70,8 +70,8 @@ SELECT
   '1969-01-01'::date, 'year'::genealogy.date_precision,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'Capoeira Connection interview (2011), Portal Capoeira interview',
-  E'Bola Sete''s first formal training in capoeira was under Pessoa Bababá, a merchant marine sailor and disciple of Mestre Pastinha. Training took place in a small, poorly-lit basement space in Salvador, for approximately one year before Bola Sete entered Pastinha''s CECA in 1969. Pessoa Bababá was described as "muito forte e valente" (very strong and brave) and taught "the old game the old way."',
-  E'O primeiro treinamento formal de Bola Sete em capoeira foi sob Pessoa Bababá, um marinheiro da Marinha Mercante e discípulo de Mestre Pastinha. O treinamento aconteceu em um pequeno espaço mal iluminado no porão em Salvador, por aproximadamente um ano antes de Bola Sete entrar no CECA de Pastinha em 1969. Pessoa Bababá era descrito como "muito forte e valente" e ensinava "o jogo antigo da maneira antiga."'
+  E'Bola Sete''s first formal training in capoeira was under Pessoa Bababá, a merchant marine sailor and disciple of Mestre Pastinha. Training took place in a small, poorly-lit basement space in Salvador, for approximately one year before Bola Sete entered Pastinha''s CECA in 1969. Pessoa Bababá was described as "muito forte e valente" (very strong and brave) and taught "the old game the old way".',
+  E'O primeiro treinamento formal de Bola Sete em capoeira foi sob Pessoa Bababá, um marinheiro da Marinha Mercante e discípulo de Mestre Pastinha. O treinamento aconteceu em um pequeno espaço mal iluminado no porão em Salvador, por aproximadamente um ano antes de Bola Sete entrar no CECA de Pastinha em 1969. Pessoa Bababá era descrito como "muito forte e valente" e ensinava "o jogo antigo da maneira antiga".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Bola Sete' AND o.apelido = 'Pessoa Bababá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

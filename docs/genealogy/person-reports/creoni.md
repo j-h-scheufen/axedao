@@ -26,7 +26,7 @@
 
 Creoni was a capoeirista active in Salvador, Bahia during the 1930s. He was a regular participant in the Sunday rodas at Matatu Preto in the Matatu neighborhood, alongside other notable practitioners of the era.
 
-According to Mestre Canjiquinha's testimony, Creoni was among the capoeiristas who gathered at Matatu Preto around 1935: "There was a lowland called Matatu Preto, a hill in the Matatu neighborhood and down below there was a square, a terreiro. There, on Sundays, all these capoeiristas would come - Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, the late Barboza, and this citizen called Antonio Raimundo, nicknamed by everyone Aberrê."
+According to Mestre Canjiquinha's testimony, Creoni was among the capoeiristas who gathered at Matatu Preto around 1935: "There was a lowland called Matatu Preto, a hill in the Matatu neighborhood and down below there was a square, a terreiro. There, on Sundays, all these capoeiristas would come - Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, the late Barboza, and this citizen called Antonio Raimundo, nicknamed by everyone Aberrê".
 
 This training circle was significant in the history of capoeira Angola in Salvador. It was through these Sunday gatherings that Mestre Aberrê taught young Canjiquinha, who was then only 10 years old. The Matatu Preto rodas served as an informal training ground where experienced capoeiristas passed on their knowledge to the next generation.
 
@@ -36,7 +36,7 @@ Creoni's presence among this group of notable capoeiristas suggests he was a res
 
 Creoni foi um capoeirista ativo em Salvador, Bahia, durante a década de 1930. Ele era participante assíduo das rodas de domingo no Matatu Preto, no bairro do Matatu, junto com outros praticantes notáveis da época.
 
-De acordo com o depoimento de Mestre Canjiquinha, Creoni estava entre os capoeiristas que se reuniam no Matatu Preto por volta de 1935: "Tinha uma baixada chamada Matatu Preto, um morro no bairro do Matatu e lá embaixo tinha um largo, um terreiro. Lá, aos domingos, vinham todos esses capoeiristas - Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, finado Barboza, e esse cidadão chamado Antônio Raimundo, apelidado por todos de Aberrê."
+De acordo com o depoimento de Mestre Canjiquinha, Creoni estava entre os capoeiristas que se reuniam no Matatu Preto por volta de 1935: "Tinha uma baixada chamada Matatu Preto, um morro no bairro do Matatu e lá embaixo tinha um largo, um terreiro. Lá, aos domingos, vinham todos esses capoeiristas - Onça Preta, Geraldo Chapeleiro, Totonho Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, finado Barboza, e esse cidadão chamado Antônio Raimundo, apelidado por todos de Aberrê".
 
 Este círculo de treino foi significativo na história da capoeira Angola em Salvador. Foi através desses encontros de domingo que Mestre Aberrê ensinou o jovem Canjiquinha, que tinha então apenas 10 anos. As rodas do Matatu Preto serviam como um campo de treino informal onde capoeiristas experientes passavam seu conhecimento para a próxima geração.
 

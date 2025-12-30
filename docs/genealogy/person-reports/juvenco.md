@@ -12,4 +12,4 @@
 | Role | Friend of Besouro |
 
 **Biography:**
-According to Mestre João Pequeno: "In the fazenda de São Pedro, I met Mestre Juvenço, who worked as a blacksmith (ferreiro); he was a friend of Besouro, he told me a lot of stories about Besouro."
+According to Mestre João Pequeno: "In the fazenda de São Pedro, I met Mestre Juvenço, who worked as a blacksmith (ferreiro); he was a friend of Besouro, he told me a lot of stories about Besouro".

@@ -111,8 +111,8 @@ SELECT
   NULL, NULL,
   '{"relationship_type": "segundo primo"}'::jsonb, 'verified'::genealogy.confidence,
   'https://tribunademinas.com.br/noticias/cultura/14-07-2019/abracem-nossa-historia-e-nos-respeitem-pede-mestre-curio.html',
-  E'Besouro Mangangá was the "primo segundo" (second cousin) of José Martins dos Santos (Malvadeza), as stated by Mestre Curió: "Tenho uma ''parenteza'' também com o finado Besouro de Santo Amaro... que era primo segundo do meu pai."',
-  E'Besouro Mangangá era "primo segundo" de José Martins dos Santos (Malvadeza), conforme declarado por Mestre Curió: "Tenho uma ''parenteza'' também com o finado Besouro de Santo Amaro... que era primo segundo do meu pai."'
+  E'Besouro Mangangá was the "primo segundo" (second cousin) of José Martins dos Santos (Malvadeza), as stated by Mestre Curió: "Tenho uma ''parenteza'' também com o finado Besouro de Santo Amaro... que era primo segundo do meu pai".',
+  E'Besouro Mangangá era "primo segundo" de José Martins dos Santos (Malvadeza), conforme declarado por Mestre Curió: "Tenho uma ''parenteza'' também com o finado Besouro de Santo Amaro... que era primo segundo do meu pai".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Malvadeza' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

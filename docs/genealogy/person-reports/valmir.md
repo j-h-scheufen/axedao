@@ -125,11 +125,11 @@ In August 2003, at the 9th International FICA Meeting in Belo Horizonte, Valmir 
 
 Beyond teaching capoeira, Valmir has dedicated himself to social work and cultural preservation. He coordinated the "Capacitação Solidária" project (2001-2002), which focused on musical instrument production. Starting in 2006, he became the General Coordinator of the Audiovisual Archive Project for Capoeira Angola, a Ponto de Cultura initiative dedicated to preserving the art's history. He has also worked with Projeto Axé, ALMM (Associação Livre de Moradores da Mangueira), and FAMEB (Fundação do Menor Trabalhador) to support at-risk youth in Salvador.
 
-His teaching has taken him across the globe—to Germany, France, Italy, Finland, Sweden, England, Japan, Spain, and Costa Rica. In 2011, he released the CD "Das Voltas Que O Mundo Deu, As Voltas Que O Mundo Da," documenting the musical traditions of Capoeira Angola.
+His teaching has taken him across the globe—to Germany, France, Italy, Finland, Sweden, England, Japan, Spain, and Costa Rica. In 2011, he released the CD "Das Voltas Que O Mundo Deu, As Voltas Que O Mundo Da", documenting the musical traditions of Capoeira Angola.
 
 In June 2023, after nearly three decades with FICA, Valmir departed to establish his own organization: Instituto de Capoeira Angola Alagbedé (I.C.A.A.). The name "Alagbedé" comes from the Yoruba word for blacksmith—craftsmen who forge iron and are associated with the orisha Ogun. Within a short time, I.C.A.A. established affiliates across multiple countries including Brazil, Colombia, Venezuela, Puerto Rico, Japan, France, England, and Spain.
 
-Today, Mestre Valmir continues to teach from his base in Salvador's historic Pelourinho district. He specializes in crafting berimbaus and caxixis, teaching rhythm, singing (ladainha, chula, corrido), and transmitting the history and philosophy of Capoeira Angola. In October 2025, he was featured in National Geographic Traveller. As he describes his work: "It's a fighting dance... It's a dialogue, not a competition. I'm not teaching people to be violent. I'm teaching them to realise their potential, to understand their ancestry."
+Today, Mestre Valmir continues to teach from his base in Salvador's historic Pelourinho district. He specializes in crafting berimbaus and caxixis, teaching rhythm, singing (ladainha, chula, corrido), and transmitting the history and philosophy of Capoeira Angola. In October 2025, he was featured in National Geographic Traveller. As he describes his work: "It's a fighting dance... It's a dialogue, not a competition. I'm not teaching people to be violent. I'm teaching them to realise their potential, to understand their ancestry".
 
 ### Português
 
@@ -149,21 +149,21 @@ Seu ensino o levou ao redor do mundo—à Alemanha, França, Itália, Finlândia
 
 Em junho de 2023, após quase três décadas com a FICA, Valmir partiu para estabelecer sua própria organização: Instituto de Capoeira Angola Alagbedé (I.C.A.A.). O nome "Alagbedé" vem da palavra iorubá para ferreiro—artesãos que forjam ferro e estão associados ao orixá Ogum. Em pouco tempo, o I.C.A.A. estabeleceu afiliados em múltiplos países incluindo Brasil, Colômbia, Venezuela, Porto Rico, Japão, França, Inglaterra e Espanha.
 
-Hoje, Mestre Valmir continua a ensinar de sua base no histórico bairro do Pelourinho em Salvador. Especializa-se em confeccionar berimbaus e caxixis, ensinar ritmo, canto (ladainha, chula, corrido) e transmitir a história e filosofia da Capoeira Angola. Em outubro de 2025, foi apresentado na National Geographic Traveller. Como ele descreve seu trabalho: "É uma dança de luta... É um diálogo, não uma competição. Não estou ensinando as pessoas a serem violentas. Estou ensinando-as a realizar seu potencial, a compreender sua ancestralidade."
+Hoje, Mestre Valmir continua a ensinar de sua base no histórico bairro do Pelourinho em Salvador. Especializa-se em confeccionar berimbaus e caxixis, ensinar ritmo, canto (ladainha, chula, corrido) e transmitir a história e filosofia da Capoeira Angola. Em outubro de 2025, foi apresentado na National Geographic Traveller. Como ele descreve seu trabalho: "É uma dança de luta... É um diálogo, não uma competição. Não estou ensinando as pessoas a serem violentas. Estou ensinando-as a realizar seu potencial, a compreender sua ancestralidade".
 
 ---
 
 ## Style Notes / Notas sobre Estilo
 
-**EN:** Traditional Capoeira Angola practitioner emphasizing movements close to the ground and dance-like qualities. Describes capoeira as "a fighting dance" and teaches it as "a dialogue, not a competition." Focuses on helping students realize their potential and understand their ancestry. Specializes in crafting berimbaus and caxixis, teaching rhythm, singing (ladainha, chula, corrido), and transmitting the history and philosophy of Capoeira Angola.
+**EN:** Traditional Capoeira Angola practitioner emphasizing movements close to the ground and dance-like qualities. Describes capoeira as "a fighting dance" and teaches it as "a dialogue, not a competition". Focuses on helping students realize their potential and understand their ancestry. Specializes in crafting berimbaus and caxixis, teaching rhythm, singing (ladainha, chula, corrido), and transmitting the history and philosophy of Capoeira Angola.
 
-**PT:** Praticante tradicional de Capoeira Angola enfatizando movimentos rentes ao chão e qualidades dançantes. Descreve a capoeira como "uma dança de luta" e a ensina como "um diálogo, não uma competição." Foca em ajudar os alunos a realizar seu potencial e compreender sua ancestralidade. Especializa-se em confecção de berimbaus e caxixis, ensino de ritmo, canto (ladainha, chula, corrido) e transmissão da história e filosofia da Capoeira Angola.
+**PT:** Praticante tradicional de Capoeira Angola enfatizando movimentos rentes ao chão e qualidades dançantes. Descreve a capoeira como "uma dança de luta" e a ensina como "um diálogo, não uma competição". Foca em ajudar os alunos a realizar seu potencial e compreender sua ancestralidade. Especializa-se em confecção de berimbaus e caxixis, ensino de ritmo, canto (ladainha, chula, corrido) e transmissão da história e filosofia da Capoeira Angola.
 
 ---
 
 ## Quotes / Citações
 
-> "It's a fighting dance... It's a dialogue, not a competition. I'm not teaching people to be violent. I'm teaching them to realise their potential, to understand their ancestry."
+> "It's a fighting dance... It's a dialogue, not a competition. I'm not teaching people to be violent. I'm teaching them to realise their potential, to understand their ancestry".
 > — Mestre Valmir, National Geographic Traveller (2025)
 
 ---

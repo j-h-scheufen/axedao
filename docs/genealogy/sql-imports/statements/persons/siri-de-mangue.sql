@@ -21,11 +21,11 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1910-01-01'::date, 'approximate'::genealogy.date_precision,
   '1924-07-08'::date, 'exact'::genealogy.date_precision,
-  '{"association_context": "Training companions in Santo Amaro; part of Besouro''s circle that met on Sundays and holidays to play capoeira. Some sources also describe Siri as a student of Besouro."}'::jsonb,
+  '{"association_context": "Training companions in Santo Amaro; part of Besouro''s circle that met on Sundays and holidays to play capoeira. Some sources also describe Siri as a student of Besouro".}'::jsonb,
   'likely'::genealogy.confidence,
   'Papoeira.com, Capoeira Fandom Wiki, multiple sources describe them as training companions',
-  'Part of Besouro''s circle of capoeiristas in Santo Amaro that included Paulo Barroquinha, Canário Pardo, and Maria Doze Homens. Described as "a gang of capoeira resistance fighters."',
-  'Parte do círculo de capoeiristas de Besouro em Santo Amaro que incluía Paulo Barroquinha, Canário Pardo e Maria Doze Homens. Descrito como "uma gangue de lutadores de resistência da capoeira."'
+  'Part of Besouro''s circle of capoeiristas in Santo Amaro that included Paulo Barroquinha, Canário Pardo, and Maria Doze Homens. Described as "a gang of capoeira resistance fighters".',
+  'Parte do círculo de capoeiristas de Besouro em Santo Amaro que incluía Paulo Barroquinha, Canário Pardo e Maria Doze Homens. Descrito como "uma gangue de lutadores de resistência da capoeira".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Siri de Mangue' AND o.apelido = 'Besouro Mangangá'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

@@ -30,11 +30,11 @@ Leandro Bonaparte was the chief of the São Francisco party, described by Pláci
 
 The Guaiamú and Nagoa were the two major federations that controlled the capoeira maltas of Rio de Janeiro during the second half of the 19th century. While the Nagoas operated in the peripheral Cidade Velha and allied with the Conservative Party, the Guaiamús controlled the central Cidade Nova and aligned with the Republicans of the Liberal Party. Their rivalry played out in bloody street battles, political violence, and ritualized confrontations.
 
-Under Bonaparte's leadership, the Guaiamú federation included the parishes of São Francisco, Santa Rita, Marinha, Ouro Preto, and São Domingos de Gusmão, along with numerous smaller affiliated gangs. These groups were known as "houses" or "provinces," and members identified themselves by wearing red.
+Under Bonaparte's leadership, the Guaiamú federation included the parishes of São Francisco, Santa Rita, Marinha, Ouro Preto, and São Domingos de Gusmão, along with numerous smaller affiliated gangs. These groups were known as "houses" or "provinces", and members identified themselves by wearing red.
 
 The Guaiamú were known for a particular ritual of provocation. When enemy capoeiras met in a tavern, the Guaiamú would pour brandy on the ground and dance on it, then pour red wine over the brandy - symbolically stepping on the Nagoa's white color and placing their red above it. This gesture was enough to start a fight, as no capoeira would tolerate seeing his color stepped upon.
 
-The Guaiamú trained their novices on the hill of Livramento at a place called "Mango Tree." Rehearsals took place regularly on Sunday mornings and consisted of head and foot exercises and knife and razor blows. The most famous capoeiras served as instructors. Training progressed from clean hands to wooden weapons to actual blades.
+The Guaiamú trained their novices on the hill of Livramento at a place called "Mango Tree". Rehearsals took place regularly on Sunday mornings and consisted of head and foot exercises and knife and razor blows. The most famous capoeiras served as instructors. Training progressed from clean hands to wooden weapons to actual blades.
 
 The maltas were organized with military precision: chief, assistant, policemen, and rank-and-file soldiers. This structure allowed them to function both as territorial protection networks and as political muscle for the Liberal Party. During elections, capoeiras were hired as capangas (henchmen) by politicians to intimidate voters and attack opposition newspapers.
 
@@ -50,7 +50,7 @@ Sob a liderança de Bonaparte, a federação Guaiamú incluía as freguesias de 
 
 Os Guaiamú eram conhecidos por um ritual particular de provocação. Quando capoeiras inimigos se encontravam em uma taverna, o Guaiamú despejava aguardente no chão e dançava sobre ela, depois despejava vinho tinto sobre a aguardente - simbolicamente pisando na cor branca dos Nagoa e colocando seu vermelho acima. Este gesto era suficiente para iniciar uma briga, pois nenhum capoeira toleraria ver sua cor pisoteada.
 
-Os Guaiamú treinavam seus novatos no morro do Livramento em um lugar chamado "Mangueira." Os ensaios aconteciam regularmente nas manhãs de domingo e consistiam em exercícios de cabeça e pé e golpes de faca e navalha. Os capoeiras mais famosos serviam como instrutores. O treinamento progredia de mãos limpas para armas de madeira até lâminas reais.
+Os Guaiamú treinavam seus novatos no morro do Livramento em um lugar chamado "Mangueira". Os ensaios aconteciam regularmente nas manhãs de domingo e consistiam em exercícios de cabeça e pé e golpes de faca e navalha. Os capoeiras mais famosos serviam como instrutores. O treinamento progredia de mãos limpas para armas de madeira até lâminas reais.
 
 As maltas eram organizadas com precisão militar: chefe, assistente, policiais e soldados de base. Essa estrutura permitia que funcionassem tanto como redes de proteção territorial quanto como força política para o Partido Liberal. Durante as eleições, capoeiras eram contratados como capangas por políticos para intimidar eleitores e atacar jornais de oposição.
 

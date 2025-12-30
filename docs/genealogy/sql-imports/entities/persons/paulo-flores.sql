@@ -79,7 +79,7 @@ The group moved from the Laranjeiras terrace to Largo de Machado in 1966. That s
 
 In 1967, with the help of friends Tabosa and Fritz from Brasília, Grupo Senzala entered the prestigious Berimbau de Ouro tournament. The group won the championship for three consecutive years (1967-1969), permanently securing the trophy and establishing Senzala as a force in Brazilian capoeira. The group''s success brought national attention to their innovative teaching methods.
 
-Mestre Gato later reflected on the collaborative nature of their success: "Rafael of Bahia, Paulo born in Rio and Gato from Pernambuco formed the triple base of the future Grupo Senzala." This geographic diversity—Bahia, Rio, and Pernambuco—enriched the group with different regional perspectives and styles.
+Mestre Gato later reflected on the collaborative nature of their success: "Rafael of Bahia, Paulo born in Rio and Gato from Pernambuco formed the triple base of the future Grupo Senzala". This geographic diversity—Bahia, Rio, and Pernambuco—enriched the group with different regional perspectives and styles.
 
 Today, Mestre Paulo Flores remains one of the 17 active cordas vermelhas (red cords) of Grupo Senzala, alongside Danadinho, Gato, Gil Velho, Garrincha, Sorriso, Itamar, Toni Vargas, Ramos, Elias, Amendoim, Beto, Feijão, Samara, Arruda, and Azeite. His brother Rafael passed away on November 5, 2016, at age 68, and Peixinho died in May 2011. But the collaborative leadership model they pioneered continues, with Grupo Senzala having graduated over 96 mestres and influenced the methodology of most major capoeira organizations worldwide.',
   -- Extended content (bio_pt)
@@ -99,7 +99,7 @@ O grupo mudou-se do terraço de Laranjeiras para o Largo de Machado em 1966. Nes
 
 Em 1967, com a ajuda dos amigos Tabosa e Fritz de Brasília, o Grupo Senzala entrou no prestigioso torneio Berimbau de Ouro. O grupo venceu o campeonato por três anos consecutivos (1967-1969), assegurando permanentemente o troféu e estabelecendo o Senzala como uma força na capoeira brasileira. O sucesso do grupo trouxe atenção nacional para seus métodos de ensino inovadores.
 
-Mestre Gato mais tarde refletiu sobre a natureza colaborativa de seu sucesso: "Rafael da Bahia, Paulo nascido no Rio e Gato de Pernambuco formaram a base tripla do futuro Grupo Senzala." Essa diversidade geográfica—Bahia, Rio e Pernambuco—enriqueceu o grupo com diferentes perspectivas e estilos regionais.
+Mestre Gato mais tarde refletiu sobre a natureza colaborativa de seu sucesso: "Rafael da Bahia, Paulo nascido no Rio e Gato de Pernambuco formaram a base tripla do futuro Grupo Senzala". Essa diversidade geográfica—Bahia, Rio e Pernambuco—enriqueceu o grupo com diferentes perspectivas e estilos regionais.
 
 Hoje, Mestre Paulo Flores permanece como um dos 17 cordas vermelhas ativos do Grupo Senzala, ao lado de Danadinho, Gato, Gil Velho, Garrincha, Sorriso, Itamar, Toni Vargas, Ramos, Elias, Amendoim, Beto, Feijão, Samara, Arruda e Azeite. Seu irmão Rafael faleceu em 5 de novembro de 2016, aos 68 anos, e Peixinho morreu em maio de 2011. Mas o modelo de liderança colaborativa que eles pioneiraram continua, com o Grupo Senzala tendo formado mais de 96 mestres e influenciado a metodologia da maioria das principais organizações de capoeira em todo o mundo.',
   -- Achievements

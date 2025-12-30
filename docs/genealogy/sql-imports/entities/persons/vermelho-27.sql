@@ -69,7 +69,7 @@ Several mestres gathered together after Bimba''s death with a shared purpose: to
 
 Vermelho 27 also served as patron of the Grupo de Capoeira Porto da Barra, founded in 1993 by his student Mestre Cabeludo (Antonio Sergio Pinho Freire de Carvalho).
 
-In his later years, Vermelho 27 battled skin cancer. He never stopped teaching or thinking about capoeira. On his deathbed, he made a final request to his disciple, Mestre Cabeludo: "Do not let Capoeira Regional stop. Write my book and keep talking about Mestre Bimba."
+In his later years, Vermelho 27 battled skin cancer. He never stopped teaching or thinking about capoeira. On his deathbed, he made a final request to his disciple, Mestre Cabeludo: "Do not let Capoeira Regional stop. Write my book and keep talking about Mestre Bimba".
 
 Mestre Vermelho 27 died on May 18, 1996, due to respiratory failure. In a fitting tribute to his lifelong devotion, a berimbau was placed on his remains at his funeral.
 
@@ -79,13 +79,13 @@ His legacy endures through the Associação de Capoeira Mestre Bimba at Rua Fran
 
 O apelido "Vermelho" veio de sua distintiva tez avermelhada. Como outro aluno chamado Vermelho já treinava sob Mestre Pastinha, ele adicionou "27" para se distinguir—um número que era seu amuleto da sorte na roleta e coincidentemente a placa de seu carro. Com o tempo ficou conhecido simplesmente como "Vermelho de Mestre Bimba" devido à sua profunda conexão com seu professor.
 
-O próprio Bimba reconheceu a extraordinária dedicação de Vermelho 27, declarando-o famosamente "Maluco por Capoeira." Ele foi contado entre os dez melhores alunos de Bimba e se formou em 1956.
+O próprio Bimba reconheceu a extraordinária dedicação de Vermelho 27, declarando-o famosamente "Maluco por Capoeira". Ele foi contado entre os dez melhores alunos de Bimba e se formou em 1956.
 
 Além da capoeira, Vermelho 27 trabalhou na Refinaria Landulfo Alves da PETROBRÁS na Bahia. Este emprego estável se provaria crucial—deu-lhe a base financeira para empreender o que ele chamou de "uma missão muito difícil" na preservação da academia de Mestre Bimba.
 
 Quando Mestre Bimba decidiu se mudar para Goiânia em 1973, desiludido com promessas quebradas e falta de apoio governamental na Bahia, o futuro de sua histórica academia no Terreiro de Jesus estava em jogo. Bimba inicialmente tentou vender o espaço para seus alunos, mas a maioria não tinha condições. Por fim, confiou a academia a Vermelho 27, dizendo-lhe: "Vermelho, você é o único que pode manter este lugar porque você é ''maluco por capoeira.''"
 
-Em 1972, Bimba realizou sua última cerimônia de formatura no Centro de Cultura Física Regional—um evento que a imprensa chamou de "A Formatura do Adeus." Vermelho 27 serviu como orador nesta ocasião histórica. Ele também organizou uma celebração de despedida para seu mestre na refinaria da PETROBRÁS em Madre de Deus (Mataripe) em 1973.
+Em 1972, Bimba realizou sua última cerimônia de formatura no Centro de Cultura Física Regional—um evento que a imprensa chamou de "A Formatura do Adeus". Vermelho 27 serviu como orador nesta ocasião histórica. Ele também organizou uma celebração de despedida para seu mestre na refinaria da PETROBRÁS em Madre de Deus (Mataripe) em 1973.
 
 Após a morte de Mestre Bimba em fevereiro de 1974, Vermelho 27 assumiu total responsabilidade pela academia. Em 1975, para honrar a memória de seu professor, renomeou-a para Associação de Capoeira Mestre Bimba (ACMB). Ele não estava sozinho nesta missão—formou alianças com Mestre Boa Gente, Ferro Velho (Mestre Durval), Vermelho Boxel, Mestre Bahia e Mestre Bando para manter a academia funcionando.
 
@@ -93,7 +93,7 @@ Vários mestres se reuniram após a morte de Bimba com um propósito compartilha
 
 Vermelho 27 também serviu como patrono do Grupo de Capoeira Porto da Barra, fundado em 1993 por seu aluno Mestre Cabeludo (Antonio Sergio Pinho Freire de Carvalho).
 
-Em seus últimos anos, Vermelho 27 lutou contra o câncer de pele. Ele nunca parou de ensinar ou pensar em capoeira. Em seu leito de morte, fez um último pedido a seu discípulo, Mestre Cabeludo: "Não deixe a Capoeira Regional parar. Escreva meu livro e continue falando sobre Mestre Bimba."
+Em seus últimos anos, Vermelho 27 lutou contra o câncer de pele. Ele nunca parou de ensinar ou pensar em capoeira. Em seu leito de morte, fez um último pedido a seu discípulo, Mestre Cabeludo: "Não deixe a Capoeira Regional parar. Escreva meu livro e continue falando sobre Mestre Bimba".
 
 Mestre Vermelho 27 morreu em 18 de maio de 1996, devido a insuficiência respiratória. Em uma homenagem adequada à sua devoção vitalícia, um berimbau foi colocado sobre seus restos mortais em seu funeral.
 
@@ -142,7 +142,7 @@ Rua Francisco Muniz Barreto #1 (formerly Rua das Laranjeiras), Terreiro de Jesus
 
 1982 O GLOBO ARTICLE: Listed Vermelho 27 among prominent Regional mestres in Salvador alongside Vinte e Nove, Medicina, Banduê, Capazans
 
-FINAL WORDS: To Mestre Cabeludo: "Do not let Capoeira Regional stop. Write my book and keep talking about Mestre Bimba."',
+FINAL WORDS: To Mestre Cabeludo: "Do not let Capoeira Regional stop. Write my book and keep talking about Mestre Bimba".',
   -- notes_pt
   E'DATA DE NASCIMENTO: 9 de março de 1936 - consistente em múltiplas fontes (CapoeiraWiki, Lalaue, UNICAR München)
 
@@ -183,7 +183,7 @@ Rua Francisco Muniz Barreto #1 (anteriormente Rua das Laranjeiras), Terreiro de 
 
 ARTIGO O GLOBO 1982: Listou Vermelho 27 entre os mestres proeminentes da Regional em Salvador junto com Vinte e Nove, Medicina, Banduê, Capazans
 
-ÚLTIMAS PALAVRAS: Para Mestre Cabeludo: "Não deixe a Capoeira Regional parar. Escreva meu livro e continue falando sobre Mestre Bimba."'
+ÚLTIMAS PALAVRAS: Para Mestre Cabeludo: "Não deixe a Capoeira Regional parar. Escreva meu livro e continue falando sobre Mestre Bimba".'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,

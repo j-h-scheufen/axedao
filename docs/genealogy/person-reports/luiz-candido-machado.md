@@ -28,11 +28,11 @@ Luiz Cândido Machado was a formerly enslaved man of Bantu descent who became a 
 
 Batuque was a combat game of predominantly Angolan origins that flourished in Bahia before becoming extinct in the early 20th century. The game was fought in circles, with one player defending a central position while attackers attempted to knock them down using sweeping techniques, hip strikes, and powerful leg movements. Edison Carneiro documented that batuque was played to berimbau, tambourine, scraper, and singing—sharing musical elements with capoeira. Techniques included rapa, baú, banda lisa, and encruzilhada.
 
-By the time his son Manoel dos Reis Machado (Mestre Bimba) was born in 1899, Luiz Cândido was already celebrated at street festivals (festas de largo) as a "great batuqueiro" and a "champion of batuque." His reputation was such that he was known throughout Salvador's black community.
+By the time his son Manoel dos Reis Machado (Mestre Bimba) was born in 1899, Luiz Cândido was already celebrated at street festivals (festas de largo) as a "great batuqueiro" and a "champion of batuque". His reputation was such that he was known throughout Salvador's black community.
 
 Luiz Cândido taught batuque to his son Bimba. The young Bimba learned from his father and also observed his mother Maria Martinha do Bonfim, who was respected among batuqueiros and was said to be "boa de perna" (good with her legs).
 
-In an interview documented by Waldeloir Rego in his 1968 book "Capoeira Angola: Ensaio Sócio-Etnográfico," Bimba himself stated that he drew upon batuque techniques when creating Capoeira Regional. When asked about his influences, Bimba replied (in Portuguese): "se valeu de golpes de Batuque, como Banda armada, Banda fechada, Encruzilhada, Rapa, Cruz de carreira e Baú" (that he made use of batuque strikes, such as Banda armada, Banda fechada, Encruzilhada, Rapa, Cruz de carreira and Baú). This provides direct evidence that Bimba consciously incorporated techniques from the batuque tradition his father had taught him.
+In an interview documented by Waldeloir Rego in his 1968 book "Capoeira Angola: Ensaio Sócio-Etnográfico", Bimba himself stated that he drew upon batuque techniques when creating Capoeira Regional. When asked about his influences, Bimba replied (in Portuguese): "se valeu de golpes de Batuque, como Banda armada, Banda fechada, Encruzilhada, Rapa, Cruz de carreira e Baú" (that he made use of batuque strikes, such as Banda armada, Banda fechada, Encruzilhada, Rapa, Cruz de carreira and Baú). This provides direct evidence that Bimba consciously incorporated techniques from the batuque tradition his father had taught him.
 
 Nestor Capoeira, in his writings on capoeira history, further argues that many of the rasteiras (leg sweeps) that distinguish Regional from Angola likely derive from batuque.
 
@@ -44,11 +44,11 @@ Luiz Cândido Machado foi um homem ex-escravizado de ascendência banto que se t
 
 O batuque era um jogo de combate de origem predominantemente angolana que floresceu na Bahia antes de se extinguir no início do século XX. O jogo era lutado em círculos, com um jogador defendendo uma posição central enquanto atacantes tentavam derrubá-lo usando técnicas de rasteira, golpes de quadril e movimentos poderosos de pernas. Edison Carneiro documentou que o batuque era jogado ao som de berimbau, pandeiro, reco-reco e canto—compartilhando elementos musicais com a capoeira. As técnicas incluíam rapa, baú, banda lisa e encruzilhada.
 
-Quando seu filho Manoel dos Reis Machado (Mestre Bimba) nasceu em 1899, Luiz Cândido já era celebrado nas festas de largo como um "grande batuqueiro" e "campeão de batuque." Sua reputação era tal que ele era conhecido em toda a comunidade negra de Salvador.
+Quando seu filho Manoel dos Reis Machado (Mestre Bimba) nasceu em 1899, Luiz Cândido já era celebrado nas festas de largo como um "grande batuqueiro" e "campeão de batuque". Sua reputação era tal que ele era conhecido em toda a comunidade negra de Salvador.
 
-Luiz Cândido ensinou batuque ao seu filho Bimba. O jovem Bimba aprendeu com seu pai e também observou sua mãe Maria Martinha do Bonfim, que era respeitada entre os batuqueiros e era considerada "boa de perna."
+Luiz Cândido ensinou batuque ao seu filho Bimba. O jovem Bimba aprendeu com seu pai e também observou sua mãe Maria Martinha do Bonfim, que era respeitada entre os batuqueiros e era considerada "boa de perna".
 
-Em uma entrevista documentada por Waldeloir Rego em seu livro de 1968 "Capoeira Angola: Ensaio Sócio-Etnográfico," o próprio Bimba afirmou que utilizou técnicas de batuque ao criar a Capoeira Regional. Quando perguntado sobre suas influências, Bimba respondeu: "se valeu de golpes de Batuque, como Banda armada, Banda fechada, Encruzilhada, Rapa, Cruz de carreira e Baú." Isso fornece evidência direta de que Bimba conscientemente incorporou técnicas da tradição de batuque que seu pai lhe ensinou.
+Em uma entrevista documentada por Waldeloir Rego em seu livro de 1968 "Capoeira Angola: Ensaio Sócio-Etnográfico", o próprio Bimba afirmou que utilizou técnicas de batuque ao criar a Capoeira Regional. Quando perguntado sobre suas influências, Bimba respondeu: "se valeu de golpes de Batuque, como Banda armada, Banda fechada, Encruzilhada, Rapa, Cruz de carreira e Baú". Isso fornece evidência direta de que Bimba conscientemente incorporou técnicas da tradição de batuque que seu pai lhe ensinou.
 
 Nestor Capoeira, em seus escritos sobre a história da capoeira, argumenta ainda que muitas das rasteiras que distinguem a Regional da Angola provavelmente derivam do batuque.
 
@@ -78,7 +78,7 @@ Praticante de batuque, um esporte de combate afro-brasileiro extinto de origem p
 
 ## Batuque Techniques / Técnicas de Batuque
 
-Techniques from batuque that Mestre Bimba explicitly stated he incorporated into Capoeira Regional (source: Waldeloir Rego, "Capoeira Angola: Ensaio Sócio-Etnográfico," 1968):
+Techniques from batuque that Mestre Bimba explicitly stated he incorporated into Capoeira Regional (source: Waldeloir Rego, "Capoeira Angola: Ensaio Sócio-Etnográfico", 1968):
 
 | Technique | Description (EN) | Descrição (PT) |
 |-----------|------------------|----------------|
@@ -143,7 +143,7 @@ In the 1930s, Angolans in Brazil were the champions of batuque, with one of the 
 
 Batuque (meaning "drumming") was a general term for various Afro-Brazilian practices in the 19th century, including music, dance, combat games, and religion. The combat game form was a wrestling-like game played primarily in Bahia, now extinct.
 
-**Origins:** Predominantly Angolan origins. The term "batuque" referred to different practices in different regions—in Rio it was called "pernada," and in Rio Grande it became the general term for Afro-Brazilian religion.
+**Origins:** Predominantly Angolan origins. The term "batuque" referred to different practices in different regions—in Rio it was called "pernada", and in Rio Grande it became the general term for Afro-Brazilian religion.
 
 **How it was played:** Two players stood in a circle. The defender stood in the center in a defensive position with inward-rotated legs to protect his genitals and root himself. The attacker, often after feinting, made one decisive attempt to knock down the defender with his hips, upper legs, or feet. If the defender fell, a new player took their place; if not, they became the attacker.
 
@@ -155,7 +155,7 @@ Batuque (meaning "drumming") was a general term for various Afro-Brazilian pract
 
 Batuque (significando "percussão") era um termo geral para várias práticas afro-brasileiras no século XIX, incluindo música, dança, jogos de combate e religião. A forma de jogo de combate era um jogo semelhante à luta livre jogado principalmente na Bahia, agora extinto.
 
-**Origens:** Origem predominantemente angolana. O termo "batuque" referia-se a práticas diferentes em diferentes regiões—no Rio era chamado "pernada," e no Rio Grande se tornou o termo geral para religião afro-brasileira.
+**Origens:** Origem predominantemente angolana. O termo "batuque" referia-se a práticas diferentes em diferentes regiões—no Rio era chamado "pernada", e no Rio Grande se tornou o termo geral para religião afro-brasileira.
 
 **Como era jogado:** Dois jogadores ficavam em um círculo. O defensor ficava no centro em posição defensiva com pernas rotacionadas para dentro para proteger sua genitália e se enraizar. O atacante, muitas vezes após fintas, fazia uma tentativa decisiva de derrubar o defensor com seus quadris, coxas ou pés. Se o defensor caísse, um novo jogador tomava seu lugar; se não, ele se tornava o atacante.
 

@@ -19,8 +19,8 @@ SELECT
   NULL, NULL,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'https://capoeiradabahia.portalcapoeira.com/dr-jos-qcisnandoq-lima-a-pedra-fundamental-da-regional/',
-  E'Cisnando found Bimba in the Curuzú neighborhood of Liberdade while studying medicine. Though initially refused because capoeira was "for Black people," Cisnando endured Bimba''s gravata test (three minutes in a neck lock) and was accepted. More than a student, Cisnando became a collaborator who contributed academic methodology to Bimba''s system.',
-  E'Cisnando encontrou Bimba no bairro do Curuzú, na Liberdade, enquanto estudava medicina. Embora inicialmente recusado porque capoeira era "para gente preta," Cisnando suportou o teste da gravata de Bimba (três minutos em uma chave de pescoço) e foi aceito. Mais que um aluno, Cisnando tornou-se um colaborador que contribuiu com metodologia acadêmica para o sistema de Bimba.'
+  E'Cisnando found Bimba in the Curuzú neighborhood of Liberdade while studying medicine. Though initially refused because capoeira was "for Black people", Cisnando endured Bimba''s gravata test (three minutes in a neck lock) and was accepted. More than a student, Cisnando became a collaborator who contributed academic methodology to Bimba''s system.',
+  E'Cisnando encontrou Bimba no bairro do Curuzú, na Liberdade, enquanto estudava medicina. Embora inicialmente recusado porque capoeira era "para gente preta", Cisnando suportou o teste da gravata de Bimba (três minutos em uma chave de pescoço) e foi aceito. Mais que um aluno, Cisnando tornou-se um colaborador que contribuiu com metodologia acadêmica para o sistema de Bimba.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cisnando' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -41,7 +41,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1938-01-01'::date, 'year'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": {"en": "Both were university-educated students of Bimba who formed the two intellectual pillars of Capoeira Regional. Both contributed academic methodology and institutional legitimacy to the art.", "pt": "Ambos eram alunos universitários de Bimba que formaram os dois pilares intelectuais da Capoeira Regional. Ambos contribuíram com metodologia acadêmica e legitimidade institucional para a arte."}}'::jsonb,
+  '{"association_context": {"en": "Both were university-educated students of Bimba who formed the two intellectual pillars of Capoeira Regional. Both contributed academic methodology and institutional legitimacy to the art"., "pt": "Ambos eram alunos universitários de Bimba que formaram os dois pilares intelectuais da Capoeira Regional. Ambos contribuíram com metodologia acadêmica e legitimidade institucional para a arte".}}'::jsonb,
   'verified'::genealogy.confidence,
   'https://portalcapoeira.com/capoeira-da-bahia/dr-jose-qcisnandoq-lima-a-pedra-fundamental-da-regional/',
   E'Cisnando (Initial Phase, 1930-1937) and Decânio (Consolidation Phase, from 1938) formed the two intellectual "pillars" upon which Bimba built Capoeira Regional. Both were university-educated professionals (medicine) who gave the art academic structure and social legitimacy.',

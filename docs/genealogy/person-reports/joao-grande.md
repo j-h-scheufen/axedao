@@ -26,7 +26,7 @@
 
 João Oliveira dos Santos was born on January 15, 1933, in the village of Itagi in southern Bahia. As a child, he worked alongside his family in the fields as a cattle herder. His mother died when he was young, and he never attended school.
 
-At the age of ten, he saw a movement called "corta capim" for the first time—a crouching technique where one leg swings in a circle while hopping over it with the other. Fascinated, he asked what it was called and was told it was "the Dance of the Nagos," a dance of the African descendants in Salvador.
+At the age of ten, he saw a movement called "corta capim" for the first time—a crouching technique where one leg swings in a circle while hopping over it with the other. Fascinated, he asked what it was called and was told it was "the Dance of the Nagos", a dance of the African descendants in Salvador.
 
 Ten years later, at age twenty, João left his rural life and arrived in Salvador. At Roca do Lobo, he witnessed his first proper capoeira roda. Present were mestres Menino Gordo, João Pequeno, Mestre Barbosa, and Cobrinha Verde—one of the most skillful players of that era. João Pequeno sent him to Mestre Pastinha, who had an academy in the Cardeal Pequeno neighborhood of Brotas.
 
@@ -44,7 +44,7 @@ At 91 years old, Mestre João Grande has dedicated more than 70 years to capoeir
 
 João Oliveira dos Santos nasceu em 15 de janeiro de 1933, na vila de Itagi, no sul da Bahia. Quando criança, trabalhava com a família nos campos como vaqueiro. Sua mãe morreu quando ele era jovem, e nunca frequentou a escola.
 
-Aos dez anos, viu pela primeira vez um movimento chamado "corta capim"—uma técnica agachada onde uma perna gira em círculo enquanto salta sobre ela com a outra. Fascinado, perguntou como se chamava e foi informado que era "a Dança dos Nagôs," uma dança dos descendentes africanos em Salvador.
+Aos dez anos, viu pela primeira vez um movimento chamado "corta capim"—uma técnica agachada onde uma perna gira em círculo enquanto salta sobre ela com a outra. Fascinado, perguntou como se chamava e foi informado que era "a Dança dos Nagôs", uma dança dos descendentes africanos em Salvador.
 
 Dez anos depois, aos vinte anos, João deixou sua vida rural e chegou a Salvador. Em Roca do Lobo, testemunhou sua primeira roda de capoeira. Presentes estavam os mestres Menino Gordo, João Pequeno, Mestre Barbosa e Cobrinha Verde—um dos jogadores mais habilidosos daquela época. João Pequeno o enviou a Mestre Pastinha, que tinha uma academia no bairro Cardeal Pequeno de Brotas.
 
@@ -87,10 +87,10 @@ Aos 91 anos, Mestre João Grande dedicou mais de 70 anos à capoeira angola e co
 ## Style Notes / Notas de Estilo
 
 ### English
-Pure Capoeira Angola in the tradition of Mestre Pastinha. Known for spreading the floor-touching mandinga movements he learned from Mestre Cobrinha Verde—a mystical practice of touching the floor as if making sorcery or asking for protection. Teaches capoeira "the African way, as a philosophy and a way of life, respecting the roots, history and tradition." His academy features berimbaus, historical photographs, and African cultural artifacts reflecting his deep appreciation for African culture. Never needed to speak English to teach—his students learn Portuguese for the rodas.
+Pure Capoeira Angola in the tradition of Mestre Pastinha. Known for spreading the floor-touching mandinga movements he learned from Mestre Cobrinha Verde—a mystical practice of touching the floor as if making sorcery or asking for protection. Teaches capoeira "the African way, as a philosophy and a way of life, respecting the roots, history and tradition". His academy features berimbaus, historical photographs, and African cultural artifacts reflecting his deep appreciation for African culture. Never needed to speak English to teach—his students learn Portuguese for the rodas.
 
 ### Português
-Capoeira Angola pura na tradição de Mestre Pastinha. Conhecido por difundir os movimentos de mandinga de tocar o chão que aprendeu de Mestre Cobrinha Verde—uma prática mística de tocar o chão como se fizesse feitiçaria ou pedisse proteção. Ensina capoeira "do jeito africano, como filosofia e modo de vida, respeitando as raízes, história e tradição." Sua academia apresenta berimbaus, fotografias históricas e artefatos culturais africanos refletindo sua profunda apreciação pela cultura africana. Nunca precisou falar inglês para ensinar—seus alunos aprendem português para as rodas.
+Capoeira Angola pura na tradição de Mestre Pastinha. Conhecido por difundir os movimentos de mandinga de tocar o chão que aprendeu de Mestre Cobrinha Verde—uma prática mística de tocar o chão como se fizesse feitiçaria ou pedisse proteção. Ensina capoeira "do jeito africano, como filosofia e modo de vida, respeitando as raízes, história e tradição". Sua academia apresenta berimbaus, fotografias históricas e artefatos culturais africanos refletindo sua profunda apreciação pela cultura africana. Nunca precisou falar inglês para ensinar—seus alunos aprendem português para as rodas.
 
 ## Teachers / Mestres
 
@@ -100,7 +100,7 @@ Capoeira Angola pura na tradição de Mestre Pastinha. Conhecido por difundir os
 
 ## Students / Alunos
 
-- **Mestre Moraes** (Pedro Moraes Trindade) - Considers João Grande his "true teacher." Co-founder of GCAP.
+- **Mestre Moraes** (Pedro Moraes Trindade) - Considers João Grande his "true teacher". Co-founder of GCAP.
 - **Mestre Cobra Mansa** - Trained with João Grande at GCAP.
 - **Mestre Jurandir Santos** - Listed as João Grande's son and student (per CapoeiraHub).
 - **Mestre Marquinho** - Began training in 2000.
@@ -155,7 +155,7 @@ NEA states honorary doctorate from Upsala College was 1993, while other sources 
 
 Dakar 1966 delegation included six capoeiristas: Pastinha, João Grande, Gato Preto, Gildo Alfinete, Roberto Satanás, and Camafeu de Oxossi. Departure was April 16, 1966; festival ran April 1-24. Diploma received from Pastinha in 1968.
 
-Mestre Moraes considers João Grande his "true teacher." Capoeira Hub lists Mestre Jurandir Santos as his son and student, though this could not be independently confirmed in other sources—needs verification.
+Mestre Moraes considers João Grande his "true teacher". Capoeira Hub lists Mestre Jurandir Santos as his son and student, though this could not be independently confirmed in other sources—needs verification.
 
 ### Português
 Data de nascimento confirmada como 15 de janeiro de 1933 em múltiplas fontes (Wikipedia, Velhos Mestres, NEA, Smithsonian). Local de nascimento confirmado como Itagi, Bahia. João Grande ainda está vivo e ensinando em Nova York em 2024-2025—aulas programadas até janeiro de 2025 com evento "Fruta Madura 2025" planejado reunindo-o com Mestre Dunga após 38 anos.
@@ -164,7 +164,7 @@ NEA afirma doutorado honorário da Upsala College em 1993, enquanto outras fonte
 
 A delegação de Dakar 1966 incluía seis capoeiristas: Pastinha, João Grande, Gato Preto, Gildo Alfinete, Roberto Satanás e Camafeu de Oxossi. Partida foi 16 de abril de 1966; festival ocorreu de 1-24 de abril. Diploma recebido de Pastinha em 1968.
 
-Mestre Moraes considera João Grande seu "verdadeiro mestre." Capoeira Hub lista Mestre Jurandir Santos como seu filho e aluno, embora isso não tenha sido confirmado independentemente em outras fontes—necessita verificação.
+Mestre Moraes considera João Grande seu "verdadeiro mestre". Capoeira Hub lista Mestre Jurandir Santos como seu filho e aluno, embora isso não tenha sido confirmado independentemente em outras fontes—necessita verificação.
 
 ## Sources / Fontes
 

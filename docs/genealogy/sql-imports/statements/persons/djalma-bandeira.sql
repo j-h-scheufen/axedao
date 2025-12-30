@@ -22,8 +22,8 @@ SELECT
   NULL, NULL,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'capoeirahistory.com/mestre/master-djalma-bandeira-1934-1988/',
-  E'Djalma Bandeira was Artur Emídio''s first student. After Artur abandoned the ring in 1957, "friends encouraged him to focus on teaching. His first student was Djalma Bandeira, who became a travel companion with whom Artur refined his skills." André Lacé Lopes compared their partnership to "Don Quixote and Sancho Panza."',
-  E'Djalma Bandeira foi o primeiro aluno de Artur Emídio. Depois que Artur abandonou os ringues em 1957, "amigos o encorajaram a se concentrar no ensino. Seu primeiro aluno foi Djalma Bandeira, que se tornou um companheiro de viagem com quem Artur aprimorou suas habilidades." André Lacé Lopes comparou sua parceria a "Dom Quixote e Sancho Pança."'
+  E'Djalma Bandeira was Artur Emídio''s first student. After Artur abandoned the ring in 1957, "friends encouraged him to focus on teaching. His first student was Djalma Bandeira, who became a travel companion with whom Artur refined his skills". André Lacé Lopes compared their partnership to "Don Quixote and Sancho Panza".',
+  E'Djalma Bandeira foi o primeiro aluno de Artur Emídio. Depois que Artur abandonou os ringues em 1957, "amigos o encorajaram a se concentrar no ensino. Seu primeiro aluno foi Djalma Bandeira, que se tornou um companheiro de viagem com quem Artur aprimorou suas habilidades". André Lacé Lopes comparou sua parceria a "Dom Quixote e Sancho Pança".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Djalma Bandeira' AND s.apelido_context IS NULL
   AND o.apelido = 'Artur Emídio' AND o.apelido_context IS NULL
@@ -45,8 +45,8 @@ SELECT
   '{"association_context": "travel companion and performance partner for international folklore shows including Skindô, Capital Samba, and Arco-Íris"}'::jsonb,
   'verified'::genealogy.confidence,
   'capoeirahistory.com/mestre/master-djalma-bandeira-1934-1988/',
-  E'The two traveled together performing in shows on Brazilian popular culture, both responsible for the capoeira aspect. Working with producers Abraão Medina and Carlos Machado, they toured New York, Paris, Buenos Aires, Acapulco, and the Iberian Peninsula. Shows included "Capital Samba," "Skindô," and musical "Arco-Íris" featuring Joãozinho da Goméia, Ary Barroso, and Mestre Paraná.',
-  E'Os dois viajavam juntos se apresentando em shows sobre cultura popular brasileira, ambos responsáveis pelo aspecto de capoeira. Trabalhando com os produtores Abraão Medina e Carlos Machado, excursionaram por Nova York, Paris, Buenos Aires, Acapulco e Península Ibérica. Os shows incluíram "Capital Samba," "Skindô" e o musical "Arco-Íris" com Joãozinho da Goméia, Ary Barroso e Mestre Paraná.'
+  E'The two traveled together performing in shows on Brazilian popular culture, both responsible for the capoeira aspect. Working with producers Abraão Medina and Carlos Machado, they toured New York, Paris, Buenos Aires, Acapulco, and the Iberian Peninsula. Shows included "Capital Samba", "Skindô", and musical "Arco-Íris" featuring Joãozinho da Goméia, Ary Barroso, and Mestre Paraná.',
+  E'Os dois viajavam juntos se apresentando em shows sobre cultura popular brasileira, ambos responsáveis pelo aspecto de capoeira. Trabalhando com os produtores Abraão Medina e Carlos Machado, excursionaram por Nova York, Paris, Buenos Aires, Acapulco e Península Ibérica. Os shows incluíram "Capital Samba", "Skindô" e o musical "Arco-Íris" com Joãozinho da Goméia, Ary Barroso e Mestre Paraná.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Djalma Bandeira' AND s.apelido_context IS NULL
   AND o.apelido = 'Artur Emídio' AND o.apelido_context IS NULL

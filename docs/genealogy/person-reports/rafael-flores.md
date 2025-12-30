@@ -32,7 +32,7 @@ In early 1963, Rafael and his brother Paulo spent two months training at Mestre 
 
 Returning to Rio de Janeiro in 1963, the brothers organized weekly training sessions on the terrace of their apartment building in Laranjeiras. Rafael trained alongside Paulo on this terrace, and soon friends began joining them—including Fernando (later Mestre Gato), Gil Velho, Garrincha, Itamar, Peixinho, Danadinho, Preguiça, and Sorriso. These teenagers would become the generation to revolutionize capoeira teaching methodology.
 
-Rafael himself articulated the group's diverse origins: "Rafael of Bahia, Paulo born in Rio and Gato from Pernambuco formed the triple base of the future Grupo Senzala." This geographic diversity—Bahia, Rio, and Pernambuco—enriched the group with different regional perspectives and styles.
+Rafael himself articulated the group's diverse origins: "Rafael of Bahia, Paulo born in Rio and Gato from Pernambuco formed the triple base of the future Grupo Senzala". This geographic diversity—Bahia, Rio, and Pernambuco—enriched the group with different regional perspectives and styles.
 
 In 1964, Rafael and Gato competed in the Berimbau de Prata tournament in Santa Teresa, placing third against established groups including Mestre Artur Emídio's. In 1966, during a demonstration at the German Club (Clube Germânico), his brother Paulo suggested the name "Grupo Senzala"—referencing the slave quarters where enslaved Africans were held, a powerful political and cultural statement.
 
@@ -56,7 +56,7 @@ No início de 1963, Rafael e seu irmão Paulo passaram dois meses treinando na l
 
 Retornando ao Rio de Janeiro em 1963, os irmãos organizaram sessões de treinamento semanais no terraço do prédio de apartamentos onde moravam em Laranjeiras. Rafael treinou ao lado de Paulo nesse terraço, e logo amigos começaram a se juntar a eles—incluindo Fernando (mais tarde Mestre Gato), Gil Velho, Garrincha, Itamar, Peixinho, Danadinho, Preguiça e Sorriso. Esses adolescentes se tornariam a geração a revolucionar a metodologia de ensino da capoeira.
 
-O próprio Rafael articulou as origens diversas do grupo: "Rafael da Bahia, Paulo nascido no Rio e Gato de Pernambuco formaram a tríplice base do futuro Grupo Senzala." Essa diversidade geográfica—Bahia, Rio e Pernambuco—enriqueceu o grupo com diferentes perspectivas e estilos regionais.
+O próprio Rafael articulou as origens diversas do grupo: "Rafael da Bahia, Paulo nascido no Rio e Gato de Pernambuco formaram a tríplice base do futuro Grupo Senzala". Essa diversidade geográfica—Bahia, Rio e Pernambuco—enriqueceu o grupo com diferentes perspectivas e estilos regionais.
 
 Em 1964, Rafael e Gato competiram no torneio Berimbau de Prata em Santa Teresa, ficando em terceiro lugar contra grupos estabelecidos incluindo o de Mestre Artur Emídio. Em 1966, durante uma apresentação no Clube Germânico, seu irmão Paulo sugeriu o nome "Grupo Senzala"—referenciando as senzalas onde africanos escravizados eram mantidos, uma poderosa declaração política e cultural.
 

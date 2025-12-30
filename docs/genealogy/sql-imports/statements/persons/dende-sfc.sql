@@ -6,7 +6,7 @@
 -- ============================================================
 
 -- Dendê (SFC) trained_under Siri de Mangue
--- Per Mário Buscapé's testimony: "His father and his uncle Dendê practised capoeira and met up with famous capoeiras of the Recôncavo like Siri de Mangue, Canário Pardo and Besouro from Santo Amaro."
+-- Per Mário Buscapé's testimony: "His father and his uncle Dendê practised capoeira and met up with famous capoeiras of the Recôncavo like Siri de Mangue, Canário Pardo and Besouro from Santo Amaro".
 INSERT INTO genealogy.statements (
   subject_type, subject_id, predicate, object_type, object_id,
   started_at, started_at_precision, ended_at, ended_at_precision,
@@ -62,7 +62,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1920-01-01'::date, 'decade'::genealogy.date_precision,
   '1924-01-01'::date, 'year'::genealogy.date_precision,
-  '{"association_context": "Dendê trained with Besouro''s companions and according to Mário Buscapé, Besouro visited their family home. Part of the Recôncavo capoeira circle."}'::jsonb,
+  '{"association_context": "Dendê trained with Besouro''s companions and according to Mário Buscapé, Besouro visited their family home. Part of the Recôncavo capoeira circle".}'::jsonb,
   'likely'::genealogy.confidence,
   'capoeirahistory.com/mestre/master-mario-buscape-1934-2021/',
   'Besouro Mangangá visited Dendê''s family home (before Mário was born). Dendê was part of the capoeira circle in the Recôncavo that included Besouro and his companions. Ended with Besouro''s death in 1924.',

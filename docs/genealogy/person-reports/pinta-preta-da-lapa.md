@@ -32,7 +32,7 @@ The wounding was taken as a grave insult. The following day, Manuel Maria Trinda
 
 In a remarkable display of malandra cunning, Trindade and his companions whistled for the police, posed as victims of the Nagoas, and even helped with arrests of some Glória capoeiras. The next day, another man—João Maria da Silva Seabra, known as "Dr. Cereja"—was arrested for carrying a knife and boasting that he had wounded Pinta Preta. He was tried by jury and acquitted.
 
-Two years later, in 1872, the chief of police was still investigating Pinta Preta's murderers, describing him in official records as a "member of the National Guard" and "chief of the capoeiras of Glória."
+Two years later, in 1872, the chief of police was still investigating Pinta Preta's murderers, describing him in official records as a "member of the National Guard" and "chief of the capoeiras of Glória".
 
 ### Português
 
@@ -44,7 +44,7 @@ O ferimento foi tomado como uma grave ofensa. No dia seguinte, Manuel Maria Trin
 
 Em uma notável demonstração de astúcia malandra, Trindade e seus companheiros apitaram para a polícia, se passaram por vítimas dos Nagoas, e até ajudaram nas prisões de alguns capoeiras da Glória. No dia seguinte, outro homem—João Maria da Silva Seabra, conhecido como "Dr. Cereja"—foi preso por portar uma faca e se gabar de ter ferido Pinta Preta. Foi julgado pelo júri e absolvido.
 
-Dois anos depois, em 1872, o chefe de polícia ainda investigava os assassinos de Pinta Preta, descrevendo-o nos registros oficiais como "membro da Guarda Nacional" e "chefe dos capoeiras da Glória."
+Dois anos depois, em 1872, o chefe de polícia ainda investigava os assassinos de Pinta Preta, descrevendo-o nos registros oficiais como "membro da Guarda Nacional" e "chefe dos capoeiras da Glória".
 
 ## The Vendetta Cycle / O Ciclo de Vingança
 

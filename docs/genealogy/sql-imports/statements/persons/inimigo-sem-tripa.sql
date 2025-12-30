@@ -9,7 +9,7 @@
 --
 -- Inimigo Sem Tripa is known only from Mestre Pastinha's 1967
 -- interview where he was listed among fifteen deceased practitioners
--- of "pure Capoeira de Angola." No teachers, students, group affiliations,
+-- of "pure Capoeira de Angola". No teachers, students, group affiliations,
 -- or specific relationships have been documented.
 --
 -- The 1976 O Globo article quoting Pastinha's students also mentions

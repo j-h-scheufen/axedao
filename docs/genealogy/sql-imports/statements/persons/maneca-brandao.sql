@@ -19,8 +19,8 @@ SELECT
   NULL, NULL,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'https://cdosergipe.wixsite.com/cdosergipe/mestre-suassuna, https://portalcapoeira.com/capoeira/publicacoes-e-artigos/itabuna-lancamento-do-livro-capoeira-de-luta-de-negro-a-exercicio-de-branco-no-cenario-grapiuna/',
-  'Trained at Mestre Bimba''s Centro de Cultura Física Regional in Salvador. Zoião was his classmate. Multiple sources confirm: "Maneca Brandão, aluno do Mestre Bimba."',
-  'Treinou no Centro de Cultura Física Regional de Mestre Bimba em Salvador. Zoião era seu colega de turma. Múltiplas fontes confirmam: "Maneca Brandão, aluno do Mestre Bimba."'
+  'Trained at Mestre Bimba''s Centro de Cultura Física Regional in Salvador. Zoião was his classmate. Multiple sources confirm: "Maneca Brandão, aluno do Mestre Bimba".',
+  'Treinou no Centro de Cultura Física Regional de Mestre Bimba em Salvador. Zoião era seu colega de turma. Múltiplas fontes confirmam: "Maneca Brandão, aluno do Mestre Bimba".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Maneca Brandão' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

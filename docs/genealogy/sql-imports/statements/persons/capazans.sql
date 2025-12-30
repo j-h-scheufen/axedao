@@ -19,8 +19,8 @@ SELECT
   NULL, NULL,
   '{}'::jsonb, 'likely'::genealogy.confidence,
   'O Globo newspaper (February 16, 1982) via velhosmestres.com',
-  E'The 1982 O Globo article lists Capazans among Regional mestres who were "almost all direct disciples of the legendary Bimba." Without additional sources confirming direct training, using "likely" confidence.',
-  E'O artigo do O Globo de 1982 lista Capazans entre os mestres de Regional que eram "quase todos discípulos diretos do lendário Bimba." Sem fontes adicionais confirmando treinamento direto, usando confiança "likely".'
+  E'The 1982 O Globo article lists Capazans among Regional mestres who were "almost all direct disciples of the legendary Bimba". Without additional sources confirming direct training, using "likely" confidence.',
+  E'O artigo do O Globo de 1982 lista Capazans entre os mestres de Regional que eram "quase todos discípulos diretos do lendário Bimba". Sem fontes adicionais confirmando treinamento direto, usando confiança "likely".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Capazans' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

@@ -24,13 +24,13 @@
 
 ### English
 
-José Custódio dos Santos, known as "Zé I" (newspaper spelling: "Zéy" or "Zei"), was a capoeirista active in Salvador, Bahia, in the 1930s. He is remembered as one of the four opponents defeated by Mestre Bimba in the famous 1936 challenge series at Parque Odeon in Praça da Sé, Salvador—and notably, the only one among the four specifically identified as a "fellow capoeira master."
+José Custódio dos Santos, known as "Zé I" (newspaper spelling: "Zéy" or "Zei"), was a capoeirista active in Salvador, Bahia, in the 1930s. He is remembered as one of the four opponents defeated by Mestre Bimba in the famous 1936 challenge series at Parque Odeon in Praça da Sé, Salvador—and notably, the only one among the four specifically identified as a "fellow capoeira master".
 
 Beyond the 1936 challenge, Zé I was an active participant in the early Capoeira Angola movement. On January 14, 1937, he participated in the capoeira demonstration at the II Congresso Afro-Brasileiro in Salvador—a landmark event organized by Edison Carneiro and Jorge Amado that brought together capoeiristas and sought to legitimize the art. At this demonstration, he appeared alongside Samuel Querido de Deus, Barbosa, Ambrósio, and other practitioners who were developing what would become known as Capoeira Angola.
 
 In 1936, Mestre Bimba issued an open challenge through the newspapers to fighters of any martial art style to test his Capoeira Regional. The fights were held at the newly inaugurated Parque Odeon under boxing-like rules developed by capoeirista Aníbal Burlamaqui. A point-scoring system was used: cabeçada (headbutt) takedowns worth 2-3 points, meia lua and armada strikes worth 1 point, tesoura (scissors) takedowns worth 2 points, and a headlock (gravata) worth 6 points.
 
-José Custódio stepped into the ring against Bimba on March 18, 1936. According to the Jornal A Tarde article from March 16, 1936, Bimba won the match decisively with a score of 15-2. Bimba himself later stated: "I won fifteen points to two, and not as it was reported." The newspaper noted that "Zéy did only one meia lua and armada hit and one tesoura hit"—accounting for his two points.
+José Custódio stepped into the ring against Bimba on March 18, 1936. According to the Jornal A Tarde article from March 16, 1936, Bimba won the match decisively with a score of 15-2. Bimba himself later stated: "I won fifteen points to two, and not as it was reported". The newspaper noted that "Zéy did only one meia lua and armada hit and one tesoura hit"—accounting for his two points.
 
 As a fellow capoeirista facing Bimba, José Custódio's defeat was particularly significant for Bimba's project of proving Regional's superiority. While the other three opponents may have come from various fighting backgrounds, Zé I was explicitly a capoeira practitioner, making this a direct test of Bimba's new methodology against traditional capoeira.
 
@@ -40,13 +40,13 @@ José Custódio was one of four opponents Bimba faced that night—alongside Hen
 
 ### Português
 
-José Custódio dos Santos, conhecido como "Zé I" (grafia de jornal: "Zéy" ou "Zei"), foi um capoeirista ativo em Salvador, Bahia, nos anos 1930. Ele é lembrado como um dos quatro oponentes derrotados por Mestre Bimba na famosa série de desafios de 1936 no Parque Odeon na Praça da Sé, Salvador—e notavelmente, o único entre os quatro especificamente identificado como "mestre de capoeira."
+José Custódio dos Santos, conhecido como "Zé I" (grafia de jornal: "Zéy" ou "Zei"), foi um capoeirista ativo em Salvador, Bahia, nos anos 1930. Ele é lembrado como um dos quatro oponentes derrotados por Mestre Bimba na famosa série de desafios de 1936 no Parque Odeon na Praça da Sé, Salvador—e notavelmente, o único entre os quatro especificamente identificado como "mestre de capoeira".
 
 Além do desafio de 1936, Zé I foi participante ativo do movimento inicial da Capoeira Angola. Em 14 de janeiro de 1937, ele participou da demonstração de capoeira no II Congresso Afro-Brasileiro em Salvador—um evento histórico organizado por Edison Carneiro e Jorge Amado que reuniu capoeiristas e buscou legitimar a arte. Nesta demonstração, ele apareceu ao lado de Samuel Querido de Deus, Barbosa, Ambrósio e outros praticantes que estavam desenvolvendo o que viria a ser conhecido como Capoeira Angola.
 
 Em 1936, Mestre Bimba lançou um desafio aberto pelos jornais a lutadores de qualquer estilo de arte marcial para testar sua Capoeira Regional. As lutas foram realizadas no recém-inaugurado Parque Odeon sob regras semelhantes ao boxe desenvolvidas pelo capoeirista Aníbal Burlamaqui. Um sistema de pontuação foi utilizado: derrubadas por cabeçada valendo 2-3 pontos, golpes de meia lua e armada valendo 1 ponto, derrubadas por tesoura valendo 2 pontos, e gravata valendo 6 pontos.
 
-José Custódio entrou no ringue contra Bimba em 18 de março de 1936. De acordo com o artigo do Jornal A Tarde de 16 de março de 1936, Bimba venceu a luta de forma decisiva com um placar de 15-2. O próprio Bimba declarou posteriormente: "Ganhei quinze pontos a dois, e não como foi relatado." O jornal observou que "Zéy fez apenas um golpe de meia lua e armada e um golpe de tesoura"—contabilizando seus dois pontos.
+José Custódio entrou no ringue contra Bimba em 18 de março de 1936. De acordo com o artigo do Jornal A Tarde de 16 de março de 1936, Bimba venceu a luta de forma decisiva com um placar de 15-2. O próprio Bimba declarou posteriormente: "Ganhei quinze pontos a dois, e não como foi relatado". O jornal observou que "Zéy fez apenas um golpe de meia lua e armada e um golpe de tesoura"—contabilizando seus dois pontos.
 
 Como colega capoeirista enfrentando Bimba, a derrota de José Custódio foi particularmente significativa para o projeto de Bimba de provar a superioridade da Regional. Enquanto os outros três oponentes podem ter vindo de várias origens de luta, Zé I era explicitamente um praticante de capoeira, tornando isto um teste direto da nova metodologia de Bimba contra a capoeira tradicional.
 
@@ -97,7 +97,7 @@ No documented students.
 - Congress records spelling: "Zei" (II Congresso Afro-Brasileiro, 1937)
 
 ### The Only Fellow Capoeirista
-Among the four 1936 opponents, José Custódio is the only one explicitly described as a "fellow capoeira master." This made his defeat particularly significant for Bimba's project of proving Regional's superiority over traditional capoeira.
+Among the four 1936 opponents, José Custódio is the only one explicitly described as a "fellow capoeira master". This made his defeat particularly significant for Bimba's project of proving Regional's superiority over traditional capoeira.
 
 ### Point Scoring System (from Jornal A Tarde)
 - Cabeçada to aú (takedown): 3 points

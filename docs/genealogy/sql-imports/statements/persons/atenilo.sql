@@ -21,7 +21,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   NULL, 'unknown'::genealogy.date_precision,
   NULL, 'unknown'::genealogy.date_precision,
-  '{"association_context": "Some sources claim Atenilo was Neco Canário Pardo''s brother and used the nickname Cordão de Ouro. This is disputed due to ~38-year age gap (Neco c.1880, Atenilo 1918). Mestre Waldemar attributed Cordão de Ouro to Besouro Mangangá himself."}'::jsonb,
+  '{"association_context": "Some sources claim Atenilo was Neco Canário Pardo''s brother and used the nickname Cordão de Ouro. This is disputed due to ~38-year age gap (Neco c.1880, Atenilo 1918). Mestre Waldemar attributed Cordão de Ouro to Besouro Mangangá himself".}'::jsonb,
   'uncertain'::genealogy.confidence,
   'San Francisco Capoeira blog; disputed by Mestre Waldemar attribution',
   'Alleged brothers per some sources. Chronologically problematic: ~38-year age gap suggests half-brothers at most. May be erroneous.',

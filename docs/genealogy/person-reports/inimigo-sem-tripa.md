@@ -3,8 +3,8 @@
 **SQL Import:** `docs/genealogy/sql-imports/entities/persons/inimigo-sem-tripa.sql`
 
 **Significance / Significância:**
-- EN: Legendary capoeirista listed by Mestre Pastinha in 1967 among the deceased practitioners of "pure Capoeira de Angola."
-- PT: Capoeirista lendário listado por Mestre Pastinha em 1967 entre os praticantes falecidos de "capoeira de Angola pura."
+- EN: Legendary capoeirista listed by Mestre Pastinha in 1967 among the deceased practitioners of "pure Capoeira de Angola".
+- PT: Capoeirista lendário listado por Mestre Pastinha em 1967 entre os praticantes falecidos de "capoeira de Angola pura".
 
 **Profile Type:** `historical_capoeirista`
 
@@ -26,11 +26,11 @@
 
 Inimigo Sem Tripa was a legendary capoeirista of Salvador, Bahia, active during the late 19th or early 20th century. He is known from Mestre Pastinha's 1967 interview with Roberto Freire for Revista Realidade, where Pastinha recalled the great capoeiristas of the past.
 
-In that interview, conducted when Pastinha was 78 years old and nearly blind, the father of Capoeira Angola listed fifteen deceased practitioners who had practiced "the pure Capoeira de Angola as I and these boys there do until today." Inimigo Sem Tripa was among them, alongside other colorfully-named figures such as Bigode de Seda (Silk Mustache), Américo Ciência, Bugalho, Amorzinho (Little Love), Zé Bom Pé (Joe Good Foot), Chico Três Pedaços (Chico Three Pieces), Tibiriçá da Folha Grossa (Tibiriçá of the Thick Leaf), Doze Homens (Twelve Men), Vitorino Braço Torto (Vitorino Crooked Arm), Zé do U, Zé do Saco (Joe of the Sack), Bené do Correio (Bené of the Post Office), Sete Mortes (Seven Deaths), and Chico Me Dá (Give-Me Chico). Pastinha also mentioned two women among these legendary practitioners: Júlia Fogareira and Maria Homem.
+In that interview, conducted when Pastinha was 78 years old and nearly blind, the father of Capoeira Angola listed fifteen deceased practitioners who had practiced "the pure Capoeira de Angola as I and these boys there do until today". Inimigo Sem Tripa was among them, alongside other colorfully-named figures such as Bigode de Seda (Silk Mustache), Américo Ciência, Bugalho, Amorzinho (Little Love), Zé Bom Pé (Joe Good Foot), Chico Três Pedaços (Chico Three Pieces), Tibiriçá da Folha Grossa (Tibiriçá of the Thick Leaf), Doze Homens (Twelve Men), Vitorino Braço Torto (Vitorino Crooked Arm), Zé do U, Zé do Saco (Joe of the Sack), Bené do Correio (Bené of the Post Office), Sete Mortes (Seven Deaths), and Chico Me Dá (Give-Me Chico). Pastinha also mentioned two women among these legendary practitioners: Júlia Fogareira and Maria Homem.
 
-Pastinha remarked of these figures: "Digo a gente, lembrando os grandes capoeiristas do passado. Já estão mortos. Cada nome destes é uma história" (We speak, remembering the great capoeiristas of the past. They are already dead. Each of these names is a story). He emphasized that their nicknames revealed their character and fighting style: "From the nicknames alone you can know who they were, how they fought."
+Pastinha remarked of these figures: "Digo a gente, lembrando os grandes capoeiristas do passado. Já estão mortos. Cada nome destes é uma história" (We speak, remembering the great capoeiristas of the past. They are already dead. Each of these names is a story). He emphasized that their nicknames revealed their character and fighting style: "From the nicknames alone you can know who they were, how they fought".
 
-The apelido "Inimigo Sem Tripa" translates literally as "Enemy Without Guts" or "Gutless Enemy." In Portuguese, "tripa" (guts/intestines) carries connotations of courage or nerve, similar to the English expression "having guts." The nickname may have been ironic—perhaps given to a fighter so fierce he left his enemies gutless, or conversely, someone whose name belied his actual ferocity. The 1976 O Globo article quoting Pastinha's students used the plural form "Inimigos Sem Tripa" (Gutless Enemies), suggesting either a name variation or perhaps that multiple fighters shared this designation.
+The apelido "Inimigo Sem Tripa" translates literally as "Enemy Without Guts" or "Gutless Enemy". In Portuguese, "tripa" (guts/intestines) carries connotations of courage or nerve, similar to the English expression "having guts". The nickname may have been ironic—perhaps given to a fighter so fierce he left his enemies gutless, or conversely, someone whose name belied his actual ferocity. The 1976 O Globo article quoting Pastinha's students used the plural form "Inimigos Sem Tripa" (Gutless Enemies), suggesting either a name variation or perhaps that multiple fighters shared this designation.
 
 In that 1976 article, Pastinha's students stated: "Depois que Bimba morreu, só restou ele daquela geração de 'angoleiros' de briga" (After Bimba died, only he [Pastinha] remained from that generation of fighting angoleiros). This confirms that Inimigo Sem Tripa belonged to the generation of "angoleiros de briga"—fighters renowned for their combative prowess in the pre-academy era.
 
@@ -40,13 +40,13 @@ No further biographical details have survived—no teachers, students, specific 
 
 Inimigo Sem Tripa foi um lendário capoeirista de Salvador, Bahia, ativo durante o final do século XIX ou início do século XX. Ele é conhecido pela entrevista de Mestre Pastinha de 1967 com Roberto Freire para a Revista Realidade, na qual Pastinha recordou os grandes capoeiristas do passado.
 
-Nessa entrevista, conduzida quando Pastinha tinha 78 anos e estava quase cego, o pai da Capoeira Angola listou quinze praticantes falecidos que haviam praticado "a pura capoeira de Angola como eu e esses rapazes aí fazem até hoje." Inimigo Sem Tripa estava entre eles, ao lado de outras figuras de nomes coloridos como Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibiriçá da Folha Grossa, Doze Homens, Vitorino Braço Torto, Zé do U, Zé do Saco, Bené do Correio, Sete Mortes e Chico Me Dá. Pastinha também mencionou duas mulheres entre esses praticantes lendários: Júlia Fogareira e Maria Homem.
+Nessa entrevista, conduzida quando Pastinha tinha 78 anos e estava quase cego, o pai da Capoeira Angola listou quinze praticantes falecidos que haviam praticado "a pura capoeira de Angola como eu e esses rapazes aí fazem até hoje". Inimigo Sem Tripa estava entre eles, ao lado de outras figuras de nomes coloridos como Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibiriçá da Folha Grossa, Doze Homens, Vitorino Braço Torto, Zé do U, Zé do Saco, Bené do Correio, Sete Mortes e Chico Me Dá. Pastinha também mencionou duas mulheres entre esses praticantes lendários: Júlia Fogareira e Maria Homem.
 
-Pastinha comentou sobre essas figuras: "Digo a gente, lembrando os grandes capoeiristas do passado. Já estão mortos. Cada nome destes é uma história." Ele enfatizou que seus apelidos revelavam seu caráter e estilo de luta: "Só pelo apelido você conhece quem eles eram, como lutavam."
+Pastinha comentou sobre essas figuras: "Digo a gente, lembrando os grandes capoeiristas do passado. Já estão mortos. Cada nome destes é uma história". Ele enfatizou que seus apelidos revelavam seu caráter e estilo de luta: "Só pelo apelido você conhece quem eles eram, como lutavam".
 
-O apelido "Inimigo Sem Tripa" traduz-se literalmente como "Inimigo Sem Tripas" ou "Inimigo Covarde." Em português, "tripa" (tripas/intestinos) carrega conotações de coragem ou ousadia, semelhante à expressão inglesa "ter tripa." O apelido pode ter sido irônico—talvez dado a um lutador tão feroz que deixava seus inimigos sem tripas, ou inversamente, alguém cujo nome desmentia sua verdadeira ferocidade. O artigo do O Globo de 1976, citando os alunos de Pastinha, usou a forma plural "Inimigos Sem Tripa," sugerindo uma variação de nome ou talvez que múltiplos lutadores compartilhavam essa designação.
+O apelido "Inimigo Sem Tripa" traduz-se literalmente como "Inimigo Sem Tripas" ou "Inimigo Covarde". Em português, "tripa" (tripas/intestinos) carrega conotações de coragem ou ousadia, semelhante à expressão inglesa "ter tripa". O apelido pode ter sido irônico—talvez dado a um lutador tão feroz que deixava seus inimigos sem tripas, ou inversamente, alguém cujo nome desmentia sua verdadeira ferocidade. O artigo do O Globo de 1976, citando os alunos de Pastinha, usou a forma plural "Inimigos Sem Tripa", sugerindo uma variação de nome ou talvez que múltiplos lutadores compartilhavam essa designação.
 
-Naquele artigo de 1976, os alunos de Pastinha declararam: "Depois que Bimba morreu, só restou ele daquela geração de 'angoleiros' de briga." Isso confirma que Inimigo Sem Tripa pertencia à geração de "angoleiros de briga"—lutadores renomados por sua destreza combativa na era pré-academia.
+Naquele artigo de 1976, os alunos de Pastinha declararam: "Depois que Bimba morreu, só restou ele daquela geração de 'angoleiros' de briga". Isso confirma que Inimigo Sem Tripa pertencia à geração de "angoleiros de briga"—lutadores renomados por sua destreza combativa na era pré-academia.
 
 Nenhum detalhe biográfico adicional sobreviveu—nenhum mestre, aluno, incidente específico ou aparição documentada. Inimigo Sem Tripa existe como um nome na lista de Pastinha dos caídos, um lembrete de que por trás de cada apelido havia uma vida agora em grande parte esquecida.
 
@@ -58,17 +58,17 @@ No specific achievements documented. Recognized by Mestre Pastinha as one of the
 
 ### Português
 
-Nenhuma conquista específica documentada. Reconhecido por Mestre Pastinha como um dos praticantes lendários de "capoeira de Angola pura" e classificado como "angoleiro de briga."
+Nenhuma conquista específica documentada. Reconhecido por Mestre Pastinha como um dos praticantes lendários de "capoeira de Angola pura" e classificado como "angoleiro de briga".
 
 ## Style Notes / Notas de Estilo
 
 ### English
 
-Traditional capoeira de Angola. Mestre Pastinha explicitly identified Inimigo Sem Tripa as a practitioner of "pure Capoeira de Angola" alongside other legendary angoleiros of the pre-Bimba/Pastinha era. Pastinha remarked that the nicknames alone revealed "who they were, how they fought." The classification as an "angoleiro de briga" (fighting angoleiro) suggests a combative, street-fighting oriented approach to capoeira.
+Traditional capoeira de Angola. Mestre Pastinha explicitly identified Inimigo Sem Tripa as a practitioner of "pure Capoeira de Angola" alongside other legendary angoleiros of the pre-Bimba/Pastinha era. Pastinha remarked that the nicknames alone revealed "who they were, how they fought". The classification as an "angoleiro de briga" (fighting angoleiro) suggests a combative, street-fighting oriented approach to capoeira.
 
 ### Português
 
-Capoeira de Angola tradicional. Mestre Pastinha identificou explicitamente Inimigo Sem Tripa como praticante de "capoeira de Angola pura" ao lado de outros angoleiros lendários da era pré-Bimba/Pastinha. Pastinha observou que os apelidos por si só revelavam "quem eles eram, como lutavam." A classificação como "angoleiro de briga" sugere uma abordagem combativa, orientada para a luta de rua.
+Capoeira de Angola tradicional. Mestre Pastinha identificou explicitamente Inimigo Sem Tripa como praticante de "capoeira de Angola pura" ao lado de outros angoleiros lendários da era pré-Bimba/Pastinha. Pastinha observou que os apelidos por si só revelavam "quem eles eram, como lutavam". A classificação como "angoleiro de briga" sugere uma abordagem combativa, orientada para a luta de rua.
 
 ## Teachers / Mestres
 

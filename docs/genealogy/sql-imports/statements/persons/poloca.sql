@@ -39,8 +39,8 @@ SELECT
   '1990-01-01'::date, 'year'::genealogy.date_precision,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'https://nzinga-marburg.com/2018/02/06/mestras-e-mestres/',
-  'Trained with João Grande at GCAP during mid-1980s. Sources confirm Poloca trained under "Masters João Grande, Moraes and Cobra Mansa."',
-  'Treinou com João Grande no GCAP durante meados dos anos 1980. Fontes confirmam que Poloca treinou sob "Mestres João Grande, Moraes e Cobra Mansa."'
+  'Trained with João Grande at GCAP during mid-1980s. Sources confirm Poloca trained under "Masters João Grande, Moraes and Cobra Mansa".',
+  'Treinou com João Grande no GCAP durante meados dos anos 1980. Fontes confirmam que Poloca treinou sob "Mestres João Grande, Moraes e Cobra Mansa".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Poloca' AND o.apelido = 'João Grande'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
@@ -59,8 +59,8 @@ SELECT
   NULL, NULL,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'https://nzinga-marburg.com/2018/02/06/mestras-e-mestres/',
-  'Trained with Cobra Mansa at GCAP from 1983. Sources confirm Poloca trained under "Masters João Grande, Moraes and Cobra Mansa."',
-  'Treinou com Cobra Mansa no GCAP a partir de 1983. Fontes confirmam que Poloca treinou sob "Mestres João Grande, Moraes e Cobra Mansa."'
+  'Trained with Cobra Mansa at GCAP from 1983. Sources confirm Poloca trained under "Masters João Grande, Moraes and Cobra Mansa".',
+  'Treinou com Cobra Mansa no GCAP a partir de 1983. Fontes confirmam que Poloca treinou sob "Mestres João Grande, Moraes e Cobra Mansa".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Poloca' AND o.apelido = 'Cobra Mansa'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

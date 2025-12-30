@@ -22,7 +22,7 @@ SELECT
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'https://iesambi.org.br/capoeira_arquivos/mestreoncatigre.htm',
   E'Part of Mestre Bimba''s first graduating class. 1939 photograph documents graduation of Maia, Decânio, and Onça Tigre. Described as "o aluno mais ilustre do grande Mestre" (the most illustrious student of the great Master). Served as monitor at CPOR academy under Bimba''s supervision.',
-  E'Parte da primeira turma de formatura de Mestre Bimba. Fotografia de 1939 documenta formatura de Maia, Decânio e Onça Tigre. Descrito como "o aluno mais ilustre do grande Mestre." Atuou como monitor na academia do CPOR sob supervisão de Bimba.'
+  E'Parte da primeira turma de formatura de Mestre Bimba. Fotografia de 1939 documenta formatura de Maia, Decânio e Onça Tigre. Descrito como "o aluno mais ilustre do grande Mestre". Atuou como monitor na academia do CPOR sob supervisão de Bimba.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Onça Tigre' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

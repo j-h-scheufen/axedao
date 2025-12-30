@@ -42,8 +42,8 @@ SELECT
   '1924-07-08'::date, 'exact'::genealogy.date_precision,
   'verified'::genealogy.confidence,
   'Velhos Mestres, Papoeira.com - multiple sources document his training in Trapiche de Baixo',
-  'Besouro moved to Trapiche de Baixo at age 13 (~1908) and trained/taught there until his death in 1924. The neighborhood "became his school."',
-  'Besouro mudou-se para o Trapiche de Baixo aos 13 anos (~1908) e treinou/ensinou lá até sua morte em 1924. O bairro "tornou-se sua escola."'
+  'Besouro moved to Trapiche de Baixo at age 13 (~1908) and trained/taught there until his death in 1924. The neighborhood "became his school".',
+  'Besouro mudou-se para o Trapiche de Baixo aos 13 anos (~1908) e treinou/ensinou lá até sua morte em 1924. O bairro "tornou-se sua escola".'
 FROM genealogy.person_profiles p, genealogy.group_profiles g
 WHERE p.apelido = 'Besouro Mangangá' AND g.name = 'Roda de Trapiche de Baixo'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

@@ -68,9 +68,9 @@ On September 8, 1914, Aleixo relocated to the prestigious Club de Regatas Boquei
 
 In 1916, Aleixo invited Agenor Sampaio—the future Mestre Sinhozinho—to teach Greco-Roman wrestling at the União dos Empregados do Comércio (Trade Union of Retail Employees) in central Rio. This collaboration placed two of Rio de Janeiro''s most important early capoeira figures in the same institutional space.
 
-By 1920, Aleixo and the journalist Raul Pederneiras opened a capoeiragem school in one of the classrooms of the Club Gymnástico Português (Portuguese Gymnastics Club). The Sorocabano newspaper Cruzeiro do Sul reported on their intention: "Dr. Raul Pederneiras and professor Mario Aleixo intend to found in Rio a school for teaching a genuinely Brazilian sport: capoeiragem." Pederneiras, who had previously taught jiu-jitsu and capoeiragem to the Rio civil police, was a fervent intellectual advocate for capoeira as a national identity element.
+By 1920, Aleixo and the journalist Raul Pederneiras opened a capoeiragem school in one of the classrooms of the Club Gymnástico Português (Portuguese Gymnastics Club). The Sorocabano newspaper Cruzeiro do Sul reported on their intention: "Dr. Raul Pederneiras and professor Mario Aleixo intend to found in Rio a school for teaching a genuinely Brazilian sport: capoeiragem". Pederneiras, who had previously taught jiu-jitsu and capoeiragem to the Rio civil police, was a fervent intellectual advocate for capoeira as a national identity element.
 
-On March 13, 1920, the newspaper O Jornal documented a sports festival where Aleixo and Sinhozinho performed. The program included: "Personal defence and attack—teacher Mário Aleixo versus Ernesto Goétte" and "Brazilian gymnastics (Capoeiragem)—teacher Agenor Sampaio versus Lincoln Coimbra." Presentations were directed by "teachers Mário Aleixo, Gustavo Senna and Agenor Sampaio."
+On March 13, 1920, the newspaper O Jornal documented a sports festival where Aleixo and Sinhozinho performed. The program included: "Personal defence and attack—teacher Mário Aleixo versus Ernesto Goétte" and "Brazilian gymnastics (Capoeiragem)—teacher Agenor Sampaio versus Lincoln Coimbra". Presentations were directed by "teachers Mário Aleixo, Gustavo Senna and Agenor Sampaio".
 
 Aleixo''s approach of blending capoeira with jiu-jitsu—which he called "capo-jitsu"—made him a uniquely innovative athlete, demonstrating capacity for adaptation according to each opponent. He combined standing capoeira techniques with jiu-jitsu ground work, creating perhaps the first truly hybrid Brazilian fighting system.
 
@@ -94,9 +94,9 @@ Em 8 de setembro de 1914, Aleixo se transferiu para o prestigioso Club de Regata
 
 Em 1916, Aleixo convidou Agenor Sampaio—o futuro Mestre Sinhozinho—para ensinar luta greco-romana na União dos Empregados do Comércio no centro do Rio. Essa colaboração colocou duas das mais importantes figuras pioneiras da capoeira carioca no mesmo espaço institucional.
 
-Em 1920, Aleixo e o jornalista Raul Pederneiras abriram uma escola de capoeiragem em uma das salas do Club Gymnástico Português. O jornal sorocabano Cruzeiro do Sul noticiou sua intenção: "O dr. Raul Pederneiras e o professor Mario Aleixo pretendem fundar no Rio uma escola para o ensino de um desporto genuinamente brasileiro: a capoeiragem." Pederneiras, que já havia ensinado jiu-jitsu e capoeiragem à polícia civil do Rio, era um fervoroso defensor intelectual da capoeira como elemento de identidade nacional.
+Em 1920, Aleixo e o jornalista Raul Pederneiras abriram uma escola de capoeiragem em uma das salas do Club Gymnástico Português. O jornal sorocabano Cruzeiro do Sul noticiou sua intenção: "O dr. Raul Pederneiras e o professor Mario Aleixo pretendem fundar no Rio uma escola para o ensino de um desporto genuinamente brasileiro: a capoeiragem". Pederneiras, que já havia ensinado jiu-jitsu e capoeiragem à polícia civil do Rio, era um fervoroso defensor intelectual da capoeira como elemento de identidade nacional.
 
-Em 13 de março de 1920, o jornal O Jornal documentou um festival esportivo onde Aleixo e Sinhozinho se apresentaram. O programa incluía: "Defesa e ataque pessoal—professor Mário Aleixo versus Ernesto Goétte" e "Ginástica brasileira (Capoeiragem)—professor Agenor Sampaio versus Lincoln Coimbra." As apresentações foram dirigidas pelos "professores Mário Aleixo, Gustavo Senna e Agenor Sampaio."
+Em 13 de março de 1920, o jornal O Jornal documentou um festival esportivo onde Aleixo e Sinhozinho se apresentaram. O programa incluía: "Defesa e ataque pessoal—professor Mário Aleixo versus Ernesto Goétte" e "Ginástica brasileira (Capoeiragem)—professor Agenor Sampaio versus Lincoln Coimbra". As apresentações foram dirigidas pelos "professores Mário Aleixo, Gustavo Senna e Agenor Sampaio".
 
 A abordagem de Aleixo de mesclar capoeira com jiu-jitsu—que ele chamava de "capo-jitsu"—fez dele um atleta singularmente inovador, demonstrando capacidade de adaptação de acordo com cada oponente. Ele combinou técnicas de capoeira em pé com trabalho de solo do jiu-jitsu, criando talvez o primeiro sistema de luta brasileiro verdadeiramente híbrido.
 
@@ -121,7 +121,7 @@ DEATH YEAR:
 Unknown. After his defeat to George Gracie in the early 1930s, Aleixo faded from historical record. No obituary or death notice found.
 
 NAME:
-Full name appears to be simply "Mário Aleixo." No middle name or surname found in sources.
+Full name appears to be simply "Mário Aleixo". No middle name or surname found in sources.
 
 TITLE:
 Referred to as "professor" in newspaper accounts. Never held formal capoeira mestre title.
@@ -172,7 +172,7 @@ ANO DE MORTE:
 Desconhecido. Após sua derrota para George Gracie no início dos anos 1930, Aleixo desapareceu do registro histórico. Nenhum obituário ou nota de falecimento encontrada.
 
 NOME:
-Nome completo parece ser simplesmente "Mário Aleixo." Nenhum nome do meio ou sobrenome encontrado nas fontes.
+Nome completo parece ser simplesmente "Mário Aleixo". Nenhum nome do meio ou sobrenome encontrado nas fontes.
 
 TÍTULO:
 Referido como "professor" em relatos de jornais. Nunca deteve título formal de mestre de capoeira.

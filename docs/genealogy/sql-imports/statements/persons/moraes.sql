@@ -7,7 +7,7 @@
 -- ============================================================
 
 -- Moraes student_of João Grande
--- Primary teacher-student relationship. Moraes considers João Grande his "true teacher."
+-- Primary teacher-student relationship. Moraes considers João Grande his "true teacher".
 INSERT INTO genealogy.statements (
   subject_type, subject_id, predicate, object_type, object_id,
   started_at, started_at_precision, ended_at, ended_at_precision,

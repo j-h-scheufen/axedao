@@ -39,7 +39,7 @@ INSERT INTO genealogy.person_profiles (
   -- Capoeira-specific
   'regional'::genealogy.style,
   E'Creator and founder of Capoeira Regional (Luta Regional Baiana). Synthesized traditional capoeira from his teacher Bentinho with batuque techniques from his father, adding elements of his own invention. Created the first systematic teaching method for capoeira including the "sequências de ensino" (teaching sequences), "cintura desprezada" (grappling sequences), and the charanga bateria (one berimbau, two pandeiros).',
-  E'Criador e fundador da Capoeira Regional (Luta Regional Baiana). Sintetizou a capoeira tradicional de seu mestre Bentinho com técnicas de batuque de seu pai, adicionando elementos de sua própria invenção. Criou o primeiro método de ensino sistemático para capoeira incluindo as "sequências de ensino," "cintura desprezada" (sequências de agarramento) e a bateria charanga (um berimbau, dois pandeiros).',
+  E'Criador e fundador da Capoeira Regional (Luta Regional Baiana). Sintetizou a capoeira tradicional de seu mestre Bentinho com técnicas de batuque de seu pai, adicionando elementos de sua própria invenção. Criou o primeiro método de ensino sistemático para capoeira incluindo as "sequências de ensino", "cintura desprezada" (sequências de agarramento) e a bateria charanga (um berimbau, dois pandeiros).',
   -- Life dates
   1899,
   'year'::genealogy.date_precision,
@@ -50,7 +50,7 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Manoel dos Reis Machado was born on November 23, 1899, in the Bairro do Engenho Velho neighborhood of Salvador, Bahia—the youngest of 25 siblings. His parents were Luiz Cândido Machado, a champion of batuque, and Maria Martinha do Bonfim. The nickname "Bimba" came from a bet between his mother and the midwife about his sex; when he was born male, the midwife remarked on his "bimba" (Bahian slang for male genitalia), and the name stuck for life.
 
-At twelve years old, in 1911, Bimba began learning capoeira from Bentinho, an African-born captain of the Companhia Baiana de Navegação. Training took place at the Clube União em Apuros on the Estrada das Boiadas in Salvador''s Liberdade neighborhood—a predominantly Black area. The apprenticeship lasted four years. Bimba later described Bentinho''s style as "capoeira de Angola" or "capoeira antiga."
+At twelve years old, in 1911, Bimba began learning capoeira from Bentinho, an African-born captain of the Companhia Baiana de Navegação. Training took place at the Clube União em Apuros on the Estrada das Boiadas in Salvador''s Liberdade neighborhood—a predominantly Black area. The apprenticeship lasted four years. Bimba later described Bentinho''s style as "capoeira de Angola" or "capoeira antiga".
 
 Parallel to his capoeira training, young Bimba learned batuque from his father, who was a local champion of this combat sport involving defensive positioning and powerful leg sweeps. These techniques would later become foundational to Capoeira Regional.
 
@@ -86,11 +86,11 @@ On February 5, 1974, Mestre Bimba died from a stroke at the Hospital das Clínic
 
 On June 12, 1996, Bimba was posthumously awarded an Honorary Doctorate by the Federal University of Bahia. The Fundação Mestre Bimba, established in 1994 under his son Mestre Nenel''s leadership, continues to preserve his legacy.
 
-His famous declaration: "I didn''t do capoeira for myself... I did it for the world."',
+His famous declaration: "I didn''t do capoeira for myself... I did it for the world".',
   -- bio_pt
   E'Manoel dos Reis Machado nasceu em 23 de novembro de 1899, no Bairro do Engenho Velho em Salvador, Bahia—o caçula de 25 irmãos. Seus pais eram Luiz Cândido Machado, um campeão de batuque, e Maria Martinha do Bonfim. O apelido "Bimba" veio de uma aposta entre sua mãe e a parteira sobre seu sexo; quando ele nasceu homem, a parteira comentou sobre sua "bimba" (gíria baiana para genitália masculina), e o nome ficou para a vida toda.
 
-Aos doze anos, em 1911, Bimba começou a aprender capoeira com Bentinho, um capitão de navegação nascido na África da Companhia Baiana de Navegação. O treinamento acontecia no Clube União em Apuros na Estrada das Boiadas, no bairro da Liberdade em Salvador—uma área predominantemente negra. O aprendizado durou quatro anos. Bimba mais tarde descreveu o estilo de Bentinho como "capoeira de Angola" ou "capoeira antiga."
+Aos doze anos, em 1911, Bimba começou a aprender capoeira com Bentinho, um capitão de navegação nascido na África da Companhia Baiana de Navegação. O treinamento acontecia no Clube União em Apuros na Estrada das Boiadas, no bairro da Liberdade em Salvador—uma área predominantemente negra. O aprendizado durou quatro anos. Bimba mais tarde descreveu o estilo de Bentinho como "capoeira de Angola" ou "capoeira antiga".
 
 Paralelamente ao treinamento de capoeira, o jovem Bimba aprendeu batuque com seu pai, que era campeão local deste esporte de combate envolvendo posicionamento defensivo e poderosas rasteiras. Essas técnicas mais tarde se tornariam fundamentais para a Capoeira Regional.
 
@@ -126,7 +126,7 @@ Em 5 de fevereiro de 1974, Mestre Bimba morreu de um AVC no Hospital das Clínic
 
 Em 12 de junho de 1996, Bimba foi postumamente agraciado com um Doutorado Honoris Causa pela Universidade Federal da Bahia. A Fundação Mestre Bimba, estabelecida em 1994 sob a liderança de seu filho Mestre Nenel, continua a preservar seu legado.
 
-Sua famosa declaração: "Eu não fiz capoeira para mim... Fiz para o mundo."',
+Sua famosa declaração: "Eu não fiz capoeira para mim... Fiz para o mundo".',
   -- achievements_en
   E'Founded first official capoeira academy in Brazil (1932); Obtained first state certification for capoeira teaching (1937); Created Capoeira Regional style; Instrumental in ending capoeira prohibition (1930); Demonstrated capoeira to President Getúlio Vargas (1953); Won all four 1936 challenge matches against fighters of various styles; Created systematic teaching methodology (sequências, cintura desprezada); Posthumous Honorary Doctorate from Federal University of Bahia (1996); Recognized as "Father of Modern Capoeira"',
   -- achievements_pt

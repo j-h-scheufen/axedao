@@ -22,8 +22,8 @@ SELECT
   NULL, NULL,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'CapoeiraWiki, simonbjj.com, academia-lab.com, historyoffighting.com',
-  E'Waldemar Santana trained Capoeira Regional under Mestre Bimba in Salvador during his youth. Multiple sources confirm this, describing him as training "during his youth in Salvador under the guidance of Mestre Manoel dos Reis Machado, known as Mestre Bimba." This capoeira foundation became the base for his later vale-tudo fighting career.',
-  E'Waldemar Santana treinou Capoeira Regional com Mestre Bimba em Salvador durante sua juventude. Múltiplas fontes confirmam isso, descrevendo-o treinando "durante sua juventude em Salvador sob orientação de Mestre Manoel dos Reis Machado, conhecido como Mestre Bimba." Essa base de capoeira se tornou a fundação para sua posterior carreira de vale-tudo.'
+  E'Waldemar Santana trained Capoeira Regional under Mestre Bimba in Salvador during his youth. Multiple sources confirm this, describing him as training "during his youth in Salvador under the guidance of Mestre Manoel dos Reis Machado, known as Mestre Bimba". This capoeira foundation became the base for his later vale-tudo fighting career.',
+  E'Waldemar Santana treinou Capoeira Regional com Mestre Bimba em Salvador durante sua juventude. Múltiplas fontes confirmam isso, descrevendo-o treinando "durante sua juventude em Salvador sob orientação de Mestre Manoel dos Reis Machado, conhecido como Mestre Bimba". Essa base de capoeira se tornou a fundação para sua posterior carreira de vale-tudo.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Leopardo Negro' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

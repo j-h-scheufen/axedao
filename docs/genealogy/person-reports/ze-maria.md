@@ -44,13 +44,13 @@ Mestre Marcos did important work spreading capoeira in Ecuador, opening training
 
 In May 2013, Mestre Zé Maria, together with his master Mestre Paulinho Salmon, awarded the mestre cord (white cord) to Henry Vizcarra (Mestre Carvão) and Marco Herrera (Mestre Perninha), demonstrating the continuation of his lineage. The Centro do Mundo group, founded in 2011 by his students, became the first Ecuadorian capoeira group with international branches in the USA, Germany, and Spain.
 
-Mestre Zé Maria died in 2016. His legacy lives on through his teaching philosophy, which he called "Estilo Zema"—described as "the sublime essence of the art of Capoeiragem, where playing Capoeira is to coordinate the body with the soul in an off-center way."
+Mestre Zé Maria died in 2016. His legacy lives on through his teaching philosophy, which he called "Estilo Zema"—described as "the sublime essence of the art of Capoeiragem, where playing Capoeira is to coordinate the body with the soul in an off-center way".
 
 ### Português
 
 José Maria da Silva nasceu na manhã de 20 de dezembro de 1948, no Rio de Janeiro, sob o signo de Sagitário. Deu seus primeiros passos na arte da capoeiragem em 1962, aos treze ou quatorze anos, no bairro de Tijuca onde morava. Seu primeiro professor foi um velho militar baiano que não se autodenominava mestre mas que, em sua juventude, havia sido um excelente capoeirista. Zé Maria treinou com ele intensivamente por dois anos, absorvendo as técnicas e fundamentos da arte.
 
-Em 1965, com o conhecimento adquirido, começou a ensinar voluntariamente a vizinhos e amigos na Rua Marquês de Valença em Tijuca, onde desenvolveu seu próprio método de ensino. Isso representou uma forma inicial de transmissão comunitária de capoeira no bairro. Em 1966, treinou sob dois mestres reconhecidos da época, Paulo Salmon e Euclides Paes, que lhe ensinaram o famoso segredo do "Pulo do Gato." Em 1967, formou-se como instrutor do Grupo Capoeira da Guanabara.
+Em 1965, com o conhecimento adquirido, começou a ensinar voluntariamente a vizinhos e amigos na Rua Marquês de Valença em Tijuca, onde desenvolveu seu próprio método de ensino. Isso representou uma forma inicial de transmissão comunitária de capoeira no bairro. Em 1966, treinou sob dois mestres reconhecidos da época, Paulo Salmon e Euclides Paes, que lhe ensinaram o famoso segredo do "Pulo do Gato". Em 1967, formou-se como instrutor do Grupo Capoeira da Guanabara.
 
 Quando seus mestres descontinuaram o treinamento por motivos de trabalho, eles o autorizaram a continuar ensinando em seu lugar. Ele então decidiu formar seu próprio grupo, nomeando-o "Grupo de Capoeira do Império da Tijuca" em 20 de dezembro de 1967, na Rua Conde de Bomfim. Isso o tornou o precursor do ensino de capoeira no bairro de Tijuca, onde hoje existem numerosos grupos de capoeira. A data de fundação—seu aniversário—marcou o início de uma presença organizada de capoeira neste importante bairro carioca.
 
@@ -66,7 +66,7 @@ Mestre Marcos fez um trabalho importante na difusão da capoeira no Equador, abr
 
 Em maio de 2013, Mestre Zé Maria, junto com seu mestre Mestre Paulinho Salmon, concedeu a corda de mestre (corda branca) a Henry Vizcarra (Mestre Carvão) e Marco Herrera (Mestre Perninha), demonstrando a continuação de sua linhagem. O grupo Centro do Mundo, fundado em 2011 por seus alunos, tornou-se o primeiro grupo de capoeira equatoriano com filiais internacionais nos EUA, Alemanha e Espanha.
 
-Mestre Zé Maria faleceu em 2016. Seu legado vive através de sua filosofia de ensino, que ele chamou de "Estilo Zema"—descrito como "a sublime essência da arte da Capoeiragem, onde jogar Capoeira é coordenar descentradamente o corpo com a alma."
+Mestre Zé Maria faleceu em 2016. Seu legado vive através de sua filosofia de ensino, que ele chamou de "Estilo Zema"—descrito como "a sublime essência da arte da Capoeiragem, onde jogar Capoeira é coordenar descentradamente o corpo com a alma".
 
 ## Achievements / Conquistas
 
@@ -95,10 +95,10 @@ Mestre Zé Maria faleceu em 2016. Seu legado vive através de sua filosofia de e
 ## Style Notes / Notas de Estilo
 
 ### English
-Developed his own teaching methodology combining capoeira with Brazilian cultural expressions including samba, maculelê, and frevo. Trained initially under an old Bahian military man in Tijuca (1962-1964), then refined his techniques with Mestres Paulo Salmon and Euclides Paes (1966), from whom he learned the famous "Pulo do Gato" (Cat's Leap) secret. His teaching approach became known as "Estilo Zema"—described as "the sublime essence of the art of Capoeiragem, where playing Capoeira is to coordinate the body with the soul in an off-center way."
+Developed his own teaching methodology combining capoeira with Brazilian cultural expressions including samba, maculelê, and frevo. Trained initially under an old Bahian military man in Tijuca (1962-1964), then refined his techniques with Mestres Paulo Salmon and Euclides Paes (1966), from whom he learned the famous "Pulo do Gato" (Cat's Leap) secret. His teaching approach became known as "Estilo Zema"—described as "the sublime essence of the art of Capoeiragem, where playing Capoeira is to coordinate the body with the soul in an off-center way".
 
 ### Português
-Desenvolveu sua própria metodologia de ensino combinando capoeira com expressões culturais brasileiras incluindo samba, maculelê e frevo. Treinou inicialmente sob um velho militar baiano em Tijuca (1962-1964), depois refinou suas técnicas com os Mestres Paulo Salmon e Euclides Paes (1966), de quem aprendeu o famoso segredo do "Pulo do Gato." Sua abordagem de ensino ficou conhecida como "Estilo Zema"—descrito como "a sublime essência da arte da Capoeiragem, onde jogar Capoeira é coordenar descentradamente o corpo com a alma."
+Desenvolveu sua própria metodologia de ensino combinando capoeira com expressões culturais brasileiras incluindo samba, maculelê e frevo. Treinou inicialmente sob um velho militar baiano em Tijuca (1962-1964), depois refinou suas técnicas com os Mestres Paulo Salmon e Euclides Paes (1966), de quem aprendeu o famoso segredo do "Pulo do Gato". Sua abordagem de ensino ficou conhecida como "Estilo Zema"—descrito como "a sublime essência da arte da Capoeiragem, onde jogar Capoeira é coordenar descentradamente o corpo com a alma".
 
 ## Connections / Conexões
 
@@ -156,7 +156,7 @@ The old Bahian military man who first taught Zé Maria (1962-1964) remains anony
 Both Paulo Salmon and Euclides Paes are credited with teaching Zé Maria the "Pulo do Gato" (Cat's Leap), described as a famous secret technique. This suggests both mestres may have shared a common lineage or training background. The nature of this technique is not described in available sources.
 
 **SAMBA SCHOOL CONNECTION:**
-The Centro do Mundo biography describes Zé Maria as "also the director of the historic samba school Império da Tijuca." However, this appears to require verification. The original group name "Grupo de Capoeira do Império da Tijuca" may simply reference the samba school as a neighborhood cultural landmark, not necessarily indicating he was its director. The Império da Tijuca samba school is a historic institution founded in 1940.
+The Centro do Mundo biography describes Zé Maria as "also the director of the historic samba school Império da Tijuca". However, this appears to require verification. The original group name "Grupo de Capoeira do Império da Tijuca" may simply reference the samba school as a neighborhood cultural landmark, not necessarily indicating he was its director. The Império da Tijuca samba school is a historic institution founded in 1940.
 
 **TIJUCA NEIGHBORHOOD SIGNIFICANCE:**
 Zé Maria is credited as the "precursor of capoeira teaching in the Tijuca neighborhood", where today there are numerous capoeira groups. This represents an important contribution to the geographic spread of capoeira in Rio de Janeiro during the 1960s.
@@ -173,7 +173,7 @@ O velho militar baiano que primeiro ensinou Zé Maria (1962-1964) permanece anô
 Tanto Paulo Salmon quanto Euclides Paes são creditados por ensinar a Zé Maria o "Pulo do Gato", descrito como uma técnica secreta famosa. Isso sugere que ambos os mestres podem ter compartilhado uma linhagem ou formação comum. A natureza desta técnica não é descrita nas fontes disponíveis.
 
 **CONEXÃO COM ESCOLA DE SAMBA:**
-A biografia do Centro do Mundo descreve Zé Maria como "também diretor da histórica escola de samba Império da Tijuca." No entanto, isso parece requerer verificação. O nome original do grupo "Grupo de Capoeira do Império da Tijuca" pode simplesmente referenciar a escola de samba como marco cultural do bairro, não necessariamente indicando que ele era seu diretor. A escola de samba Império da Tijuca é uma instituição histórica fundada em 1940.
+A biografia do Centro do Mundo descreve Zé Maria como "também diretor da histórica escola de samba Império da Tijuca". No entanto, isso parece requerer verificação. O nome original do grupo "Grupo de Capoeira do Império da Tijuca" pode simplesmente referenciar a escola de samba como marco cultural do bairro, não necessariamente indicando que ele era seu diretor. A escola de samba Império da Tijuca é uma instituição histórica fundada em 1940.
 
 **SIGNIFICÂNCIA DO BAIRRO TIJUCA:**
 Zé Maria é creditado como o "precursor do ensino de capoeira no bairro de Tijuca", onde hoje existem numerosos grupos de capoeira. Isso representa uma contribuição importante para a expansão geográfica da capoeira no Rio de Janeiro durante os anos 1960.

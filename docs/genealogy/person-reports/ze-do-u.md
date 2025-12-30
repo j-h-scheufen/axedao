@@ -26,9 +26,9 @@
 
 Zé do U was a capoeirista of Salvador, Bahia, active during the early-to-mid 20th century. His name appears in one of the most important primary sources in capoeira history: Mestre Pastinha's 1967 interview with Revista Realidade magazine.
 
-In February 1967, the 78-year-old Pastinha—nearly blind but still teaching at his academy in Pelourinho—spoke with journalist Roberto Freire about the great capoeiristas of the past. Pastinha listed Zé do U among 17 deceased practitioners of "pure Capoeira de Angola," alongside Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá, and two women: Júlia Fogareira and Maria Homem.
+In February 1967, the 78-year-old Pastinha—nearly blind but still teaching at his academy in Pelourinho—spoke with journalist Roberto Freire about the great capoeiristas of the past. Pastinha listed Zé do U among 17 deceased practitioners of "pure Capoeira de Angola", alongside Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá, and two women: Júlia Fogareira and Maria Homem.
 
-Pastinha remarked of these figures: "Cada nome destes é uma história"—each of these names is a story. He observed that their apelidos revealed "who they were, how they fought," suggesting these nicknames encoded information about their fighting styles, personalities, or physical characteristics.
+Pastinha remarked of these figures: "Cada nome destes é uma história"—each of these names is a story. He observed that their apelidos revealed "who they were, how they fought", suggesting these nicknames encoded information about their fighting styles, personalities, or physical characteristics.
 
 The apelido "Zé do U" follows a common Brazilian naming pattern where "Zé" (short for José) is followed by a geographic or occupational identifier. The "U" likely refers to a place, occupation, or characteristic—perhaps a neighborhood, street, or business where this capoeirista was known. Without additional documentation, the exact meaning remains unknown.
 
@@ -38,9 +38,9 @@ Beyond Pastinha's mention, no other documentation of Zé do U has been found. He
 
 Zé do U foi um capoeirista de Salvador, Bahia, ativo durante o início e meados do século XX. Seu nome aparece em uma das mais importantes fontes primárias da história da capoeira: a entrevista de Mestre Pastinha à Revista Realidade em 1967.
 
-Em fevereiro de 1967, Pastinha, então com 78 anos—quase cego mas ainda ensinando em sua academia no Pelourinho—conversou com o jornalista Roberto Freire sobre os grandes capoeiristas do passado. Pastinha listou Zé do U entre 17 praticantes falecidos de "capoeira de Angola pura," ao lado de Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá, e duas mulheres: Júlia Fogareira e Maria Homem.
+Em fevereiro de 1967, Pastinha, então com 78 anos—quase cego mas ainda ensinando em sua academia no Pelourinho—conversou com o jornalista Roberto Freire sobre os grandes capoeiristas do passado. Pastinha listou Zé do U entre 17 praticantes falecidos de "capoeira de Angola pura", ao lado de Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá, e duas mulheres: Júlia Fogareira e Maria Homem.
 
-Pastinha comentou sobre essas figuras: "Cada nome destes é uma história." Ele observou que seus apelidos revelavam "quem eles eram, como lutavam"—sugerindo que esses apelidos codificavam informações sobre seus estilos de luta, personalidades ou características físicas.
+Pastinha comentou sobre essas figuras: "Cada nome destes é uma história". Ele observou que seus apelidos revelavam "quem eles eram, como lutavam"—sugerindo que esses apelidos codificavam informações sobre seus estilos de luta, personalidades ou características físicas.
 
 O apelido "Zé do U" segue um padrão comum de nomeação brasileira onde "Zé" (diminutivo de José) é seguido por um identificador geográfico ou ocupacional. O "U" provavelmente se refere a um lugar, ocupação ou característica—talvez um bairro, rua ou estabelecimento onde este capoeirista era conhecido. Sem documentação adicional, o significado exato permanece desconhecido.
 
@@ -50,11 +50,11 @@ Além da menção de Pastinha, nenhuma outra documentação sobre Zé do U foi e
 
 ### English
 
-Traditional capoeira de Angola. Pastinha explicitly listed Zé do U among the deceased practitioners of "pure Capoeira de Angola," distinguishing these figures from the modernized Regional style. Without additional documentation, specific details about his playing style are unknown.
+Traditional capoeira de Angola. Pastinha explicitly listed Zé do U among the deceased practitioners of "pure Capoeira de Angola", distinguishing these figures from the modernized Regional style. Without additional documentation, specific details about his playing style are unknown.
 
 ### Português
 
-Capoeira de Angola tradicional. Pastinha listou explicitamente Zé do U entre os praticantes falecidos de "capoeira de Angola pura," distinguindo essas figuras do estilo Regional modernizado. Sem documentação adicional, detalhes específicos sobre seu estilo de jogo são desconhecidos.
+Capoeira de Angola tradicional. Pastinha listou explicitamente Zé do U entre os praticantes falecidos de "capoeira de Angola pura", distinguindo essas figuras do estilo Regional modernizado. Sem documentação adicional, detalhes específicos sobre seu estilo de jogo são desconhecidos.
 
 ## Teachers / Mestres
 
@@ -89,7 +89,7 @@ Fellow practitioners on Pastinha's list of deceased "pure Capoeira de Angola" pr
 
 ### 1976 Source Confirmation
 
-Zé do U also appears in a 1976 O Globo article (velhosmestres.com/br/pastinha-1976) which reproduces a similar list of "angoleiros de briga," confirming his status among the legendary angoleiros. This version includes Besouro and omits Zé Bom Pé.
+Zé do U also appears in a 1976 O Globo article (velhosmestres.com/br/pastinha-1976) which reproduces a similar list of "angoleiros de briga", confirming his status among the legendary angoleiros. This version includes Besouro and omits Zé Bom Pé.
 
 ## Timeline / Cronologia
 
@@ -111,7 +111,7 @@ Zé do U also appears in a 1976 O Globo article (velhosmestres.com/br/pastinha-1
 ## Research Notes
 
 ### Birth Year Estimation (1900, decade precision)
-Listed by Pastinha in 1967 as already deceased among practitioners of "pure Capoeira de Angola." The other figures on this list were active in the early-to-mid 20th century (Américo Ciência fought Bimba in 1936; Amorzinho led Gengibirra until 1943), suggesting Zé do U was likely born around 1880-1910.
+Listed by Pastinha in 1967 as already deceased among practitioners of "pure Capoeira de Angola". The other figures on this list were active in the early-to-mid 20th century (Américo Ciência fought Bimba in 1936; Amorzinho led Gengibirra until 1943), suggesting Zé do U was likely born around 1880-1910.
 
 ### Death Year Estimation (1960, decade precision)
 Confirmed dead by Pastinha's 1967 interview. As a contemporary of the other angoleiros on the list (most active 1900s-1940s), likely died in the 1950s-1960s.
@@ -122,10 +122,10 @@ Confirmed dead by Pastinha's 1967 interview. As a contemporary of the other ango
 - An occupation or business
 - A distinguishing physical or behavioral characteristic
 
-Without additional sources, the exact meaning is unknown. Pastinha noted that these old angoleiros' apelidos revealed "who they were, how they fought."
+Without additional sources, the exact meaning is unknown. Pastinha noted that these old angoleiros' apelidos revealed "who they were, how they fought".
 
 ### Single-Source Profile
-This profile is based primarily on a single source: Pastinha's 1967 interview with Revista Realidade magazine ("É Luta, É Dança, É Capoeira" by Roberto Freire, photos by David Drew Zingg). Zé do U is also confirmed in the 1976 O Globo list of "angoleiros de briga."
+This profile is based primarily on a single source: Pastinha's 1967 interview with Revista Realidade magazine ("É Luta, É Dança, É Capoeira" by Roberto Freire, photos by David Drew Zingg). Zé do U is also confirmed in the 1976 O Globo list of "angoleiros de briga".
 
 ### No Gengibirra/Liberdade Connection Found
 Unlike some other figures on Pastinha's list (e.g., Amorzinho, Doze Homens), Zé do U is not mentioned in sources about the Gengibirra roda or the 1941 transition to CECA. His relationship to these groups is unknown.

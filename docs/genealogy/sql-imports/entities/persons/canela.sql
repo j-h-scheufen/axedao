@@ -21,7 +21,7 @@ INSERT INTO genealogy.person_profiles (
   E'Treinado sob Mestre Zé Maria na associação de Tijuca do Rio de Janeiro. Canela desenvolveu um estilo Regional com forte ênfase na transmissão cultural, incluindo samba, maculelê e frevo junto com capoeira. Sua metodologia de ensino foi reconhecida pelo Ministério da Educação do Brasil, que lhe concedeu a autorização número 956 para ensinar capoeira nas escolas nacionais.',
   1951, 'exact'::genealogy.date_precision, 'Rio de Janeiro, Brazil',
   2022, 'exact'::genealogy.date_precision, 'Viterbo, Italy',
-  E'Floriano Franklin Canela was born on February 26, 1951, in Rio de Janeiro, and began practicing capoeira from early childhood. He continued his formation as a capoeirista in the Tijuca association established by Mestre José Maria da Silva (Mestre Zé Maria), who was also the director of the historic samba school "Império da Tijuca."
+  E'Floriano Franklin Canela was born on February 26, 1951, in Rio de Janeiro, and began practicing capoeira from early childhood. He continued his formation as a capoeirista in the Tijuca association established by Mestre José Maria da Silva (Mestre Zé Maria), who was also the director of the historic samba school "Império da Tijuca".
 
 In 1967, at age sixteen, Canela prepared a performance on Brazilian art and culture with children from the Brício Filho school in Vila da Penha for their end-of-year school festival. From 1969 to 1971, he trained students at the "Orsina da Fonseca" high school. In 1972, with the consent of his master, he founded the group Mangangà in Rio de Janeiro. The name comes from the Tupí-Guaraní indigenous word for a small but spirited animal that never gives up.
 
@@ -38,7 +38,7 @@ Mestre Canela trained generations of young people in Viterbo over nearly forty y
 As proof of his ability to transmit his technical knowledge and Brazilian folkloric traditions, Mestre Canela trained numerous assistant instructors and instructors who continued his work.
 
 Floriano Franklin Canela died on January 29, 2022, in Viterbo, Italy, at age 70, after being in intensive care due to various health conditions. He was remembered by the Viterbo community as a person of cheerful and helpful character who remained active with his wife and six children at the Church of San Leonardo Murialdo''s oratory. His school was approaching its 40th anniversary at the time of his passing.',
-  E'Floriano Franklin Canela nasceu em 26 de fevereiro de 1951, no Rio de Janeiro, e começou a praticar capoeira desde a primeira infância. Continuou sua formação como capoeirista na associação de Tijuca fundada por Mestre José Maria da Silva (Mestre Zé Maria), que também era diretor da histórica escola de samba "Império da Tijuca."
+  E'Floriano Franklin Canela nasceu em 26 de fevereiro de 1951, no Rio de Janeiro, e começou a praticar capoeira desde a primeira infância. Continuou sua formação como capoeirista na associação de Tijuca fundada por Mestre José Maria da Silva (Mestre Zé Maria), que também era diretor da histórica escola de samba "Império da Tijuca".
 
 Em 1967, aos dezesseis anos, Canela preparou uma apresentação sobre arte e cultura brasileira com crianças da escola Brício Filho na Vila da Penha para o festival de fim de ano. De 1969 a 1971, treinou alunos na escola "Orsina da Fonseca". Em 1972, com o consentimento de seu mestre, fundou o grupo Mangangà no Rio de Janeiro. O nome vem da palavra indígena Tupí-Guaraní para um animal pequeno mas valente que nunca desiste.
 

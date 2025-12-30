@@ -67,10 +67,10 @@ Seu sobrinho foi Mestre Roque (Roque Mendes dos Santos, nascido em 1938 em Cacho
 ## Style Notes / Notas de Estilo
 
 ### English
-No specific capoeira style documented. His nephew Mestre Roque practiced capoeira Angola in the "line of São Bento," which was described as faster than other Angola styles.
+No specific capoeira style documented. His nephew Mestre Roque practiced capoeira Angola in the "line of São Bento", which was described as faster than other Angola styles.
 
 ### Português
-Nenhum estilo específico de capoeira documentado. Seu sobrinho Mestre Roque praticava capoeira Angola na "linha de São Bento," que era descrita como mais rápida que outros estilos de Angola.
+Nenhum estilo específico de capoeira documentado. Seu sobrinho Mestre Roque praticava capoeira Angola na "linha de São Bento", que era descrita como mais rápida que outros estilos de Angola.
 
 ## Teachers / Mestres
 
@@ -111,7 +111,7 @@ Through his brother Chico Preto who worked at Mercado Modelo, Zé Bedeu was conn
 ## Notes & Uncertainties / Notas e Incertezas
 
 ### Limited Documentation
-Zé Bedeu is only documented through a single source: the biography of his nephew Mestre Roque at capoeuropa.org (Escola de Capoeira Angola Nzinga). No independent biographical sources have been found. The confidence level for this person is "likely" rather than "verified."
+Zé Bedeu is only documented through a single source: the biography of his nephew Mestre Roque at capoeuropa.org (Escola de Capoeira Angola Nzinga). No independent biographical sources have been found. The confidence level for this person is "likely" rather than "verified".
 
 ### Name Clarification
 The phrase "pai e mestre de Marco Buscapé" (father and master of Marco Buscapé) likely uses "mestre" in the sense of "teacher" rather than as a formal capoeira title. There is no documentation of Zé Bedeu holding a formal title in capoeira.

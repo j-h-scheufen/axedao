@@ -26,7 +26,7 @@
 
 The "Caboclo Jacó" was a capoeirista in Rio de Janeiro who became a victim in the cycle of vendetta killings that convulsed the capoeira maltas in 1870.
 
-Plácido de Abreu documented his death in "Os Capoeiras" (1886), listing it as part of a chain of reprisals that began with the murder of Pinta Preta da Lapa: "The death of the Frenchman was followed by the death of Pinta Preta da Lapa on Alfândega Street, in front of the side street of S. Domingos, on the night of the King's. After this, followed the death of the caboclo Jacó, in the celebration at Paula Matos, (being murdered in the street of Riachuelo)."
+Plácido de Abreu documented his death in "Os Capoeiras" (1886), listing it as part of a chain of reprisals that began with the murder of Pinta Preta da Lapa: "The death of the Frenchman was followed by the death of Pinta Preta da Lapa on Alfândega Street, in front of the side street of S. Domingos, on the night of the King's. After this, followed the death of the caboclo Jacó, in the celebration at Paula Matos, (being murdered in the street of Riachuelo)".
 
 His nickname "Caboclo" indicates he was of mixed Indigenous and African or European ancestry—a common demographic in the capoeira maltas of Rio de Janeiro. Paula Matos was a neighborhood in the Santa Teresa area of Rio, and the "celebration" where he was killed was likely a festival or gathering similar to the Festa dos Reis where Pinta Preta had attacked his enemies.
 
@@ -38,7 +38,7 @@ Jacó exists now as a single line in a list of the dead—but that list itself p
 
 O "Caboclo Jacó" foi um capoeirista no Rio de Janeiro que se tornou vítima no ciclo de mortes por vingança que convulsionou as maltas de capoeira em 1870.
 
-Plácido de Abreu documentou sua morte em "Os Capoeiras" (1886), listando-a como parte de uma cadeia de represálias que começou com o assassinato de Pinta Preta da Lapa: "A morte do francês foi seguida pela morte de Pinta Preta da Lapa na Rua da Alfândega, em frente à travessa de S. Domingos, na noite dos Reis. Após isso, seguiu-se a morte do caboclo Jacó, na festa de Paula Matos, (sendo assassinado na rua do Riachuelo)."
+Plácido de Abreu documentou sua morte em "Os Capoeiras" (1886), listando-a como parte de uma cadeia de represálias que começou com o assassinato de Pinta Preta da Lapa: "A morte do francês foi seguida pela morte de Pinta Preta da Lapa na Rua da Alfândega, em frente à travessa de S. Domingos, na noite dos Reis. Após isso, seguiu-se a morte do caboclo Jacó, na festa de Paula Matos, (sendo assassinado na rua do Riachuelo)".
 
 Seu apelido "Caboclo" indica que ele era de ascendência mista indígena e africana ou europeia—uma demografia comum nas maltas de capoeira do Rio de Janeiro. Paula Matos era um bairro na área de Santa Teresa do Rio, e a "festa" onde ele foi morto era provavelmente um festival ou reunião semelhante à Festa dos Reis onde Pinta Preta havia atacado seus inimigos.
 

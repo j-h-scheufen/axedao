@@ -26,13 +26,13 @@
 
 Pedro Celestino dos Santos, known as Pedro Porreta, was one of the most notorious capoeiristas of early 20th century Salvador, Bahia. He was a fish seller at the Mercado de Santa Bárbara in the Pilar District, a famous meeting place for capoeira practitioners.
 
-Porreta dominated the Baixa dos Sapateiros area (nicknamed "Baixinha"), functioning as a local authority figure who "maintained order and disorder" in the region. He lived on Rua do Tijolo and had support from allied politicians and police. His brother, Pedro de Alcântara, known as "Piroca," often accompanied him in street confrontations. The book "Mestres e capoeiras famosos da Bahia" features them together with the subtitle "Os donos do quarteirão" (The owners of the block).
+Porreta dominated the Baixa dos Sapateiros area (nicknamed "Baixinha"), functioning as a local authority figure who "maintained order and disorder" in the region. He lived on Rua do Tijolo and had support from allied politicians and police. His brother, Pedro de Alcântara, known as "Piroca", often accompanied him in street confrontations. The book "Mestres e capoeiras famosos da Bahia" features them together with the subtitle "Os donos do quarteirão" (The owners of the block).
 
-His first documented conflict appears in a December 14, 1920 A Tarde newspaper report. In the Taboão area, José Batista da Cruz, nicknamed "Guruxinha," was attacked with razor cuts by Pedro Porreta, assisted by his brother Piroca. The victim later died from his injuries.
+His first documented conflict appears in a December 14, 1920 A Tarde newspaper report. In the Taboão area, José Batista da Cruz, nicknamed "Guruxinha", was attacked with razor cuts by Pedro Porreta, assisted by his brother Piroca. The victim later died from his injuries.
 
-Porreta's reputation extended to Salvador's prostitution zones, where documents identify him as a cafetão (pimp). His companion Josepha Alves de Araújo stated that "the offender is known as a troublemaker and has been arrested several times by police."
+Porreta's reputation extended to Salvador's prostitution zones, where documents identify him as a cafetão (pimp). His companion Josepha Alves de Araújo stated that "the offender is known as a troublemaker and has been arrested several times by police".
 
-In 1931, he was accused of assaulting Josepha Alves de Araújo. He was defended by Major Cosme de Farias, the legendary "rábula" (self-taught lawyer) who defended over 30,000 people including capoeiristas, thieves, prostitutes, and the poor. Farias argued that Porreta "was in a state of complete mental disturbance," and he was acquitted.
+In 1931, he was accused of assaulting Josepha Alves de Araújo. He was defended by Major Cosme de Farias, the legendary "rábula" (self-taught lawyer) who defended over 30,000 people including capoeiristas, thieves, prostitutes, and the poor. Farias argued that Porreta "was in a state of complete mental disturbance", and he was acquitted.
 
 One of the most emblematic cases of his life occurred on September 28, 1929. Pedro Porreta invaded the room of Francisca Albino dos Santos, known as Chicão, a formidable valentona (tough woman) and prostitute known to police. Porreta was searching for intimate clothing belonging to one of his companions. Feeling violated, Chicão struck him with precise blows that resulted in several injuries. The newspapers reported the "valente Porreta" arriving at the police station badly beaten.
 
@@ -42,13 +42,13 @@ Some time after this confrontation, Pedro Porreta was assassinated, and Chicão 
 
 Pedro Celestino dos Santos, conhecido como Pedro Porreta, foi um dos capoeiristas mais notórios do início do século XX em Salvador, Bahia. Era vendedor de peixe no Mercado de Santa Bárbara, no Distrito do Pilar, famoso local de encontro dos praticantes de capoeira.
 
-Porreta dominava a área da Baixa dos Sapateiros (apelidada de "Baixinha"), funcionando como uma figura de autoridade local que "mantinha a ordem e a desordem" na região. Morava na Rua do Tijolo e tinha apoio de políticos aliados e policiais. Seu irmão, Pedro de Alcântara, conhecido como "Piroca," frequentemente o acompanhava em confrontos de rua. O livro "Mestres e capoeiras famosos da Bahia" os apresenta juntos com o subtítulo "Os donos do quarteirão."
+Porreta dominava a área da Baixa dos Sapateiros (apelidada de "Baixinha"), funcionando como uma figura de autoridade local que "mantinha a ordem e a desordem" na região. Morava na Rua do Tijolo e tinha apoio de políticos aliados e policiais. Seu irmão, Pedro de Alcântara, conhecido como "Piroca", frequentemente o acompanhava em confrontos de rua. O livro "Mestres e capoeiras famosos da Bahia" os apresenta juntos com o subtítulo "Os donos do quarteirão".
 
-Seu primeiro conflito documentado aparece em uma reportagem do jornal A Tarde de 14 de dezembro de 1920. Na área do Taboão, José Batista da Cruz, apelidado "Guruxinha," foi atacado com cortes de navalha por Pedro Porreta, auxiliado por seu irmão Piroca. A vítima faleceu posteriormente devido aos ferimentos.
+Seu primeiro conflito documentado aparece em uma reportagem do jornal A Tarde de 14 de dezembro de 1920. Na área do Taboão, José Batista da Cruz, apelidado "Guruxinha", foi atacado com cortes de navalha por Pedro Porreta, auxiliado por seu irmão Piroca. A vítima faleceu posteriormente devido aos ferimentos.
 
-A reputação de Porreta estendia-se às zonas de prostituição de Salvador, onde documentos o identificam como cafetão. Sua companheira Josepha Alves de Araújo afirmou que "o ofensor é conhecido como desordeiro e tem sido preso diversas vezes pela polícia."
+A reputação de Porreta estendia-se às zonas de prostituição de Salvador, onde documentos o identificam como cafetão. Sua companheira Josepha Alves de Araújo afirmou que "o ofensor é conhecido como desordeiro e tem sido preso diversas vezes pela polícia".
 
-Em 1931, ele foi acusado de agredir Josepha Alves de Araújo. Foi defendido pelo Major Cosme de Farias, o lendário "rábula" (advogado autodidata) que defendeu mais de 30.000 pessoas incluindo capoeiristas, ladrões, prostitutas e pobres. Farias argumentou que Porreta "estava em estado de completa perturbação mental," e ele foi absolvido.
+Em 1931, ele foi acusado de agredir Josepha Alves de Araújo. Foi defendido pelo Major Cosme de Farias, o lendário "rábula" (advogado autodidata) que defendeu mais de 30.000 pessoas incluindo capoeiristas, ladrões, prostitutas e pobres. Farias argumentou que Porreta "estava em estado de completa perturbação mental", e ele foi absolvido.
 
 Um dos casos mais emblemáticos de sua vida ocorreu em 28 de setembro de 1929. Pedro Porreta invadiu o quarto de Francisca Albino dos Santos, conhecida como Chicão, uma formidável valentona e prostituta conhecida da polícia. Porreta procurava roupas íntimas pertencentes a uma de suas companheiras. Sentindo-se violada, Chicão desferiu-lhe golpes certeiros que resultaram em várias lesões. Os jornais noticiaram o "valente Porreta" chegando muito machucado na delegacia.
 

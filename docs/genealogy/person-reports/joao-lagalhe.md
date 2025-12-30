@@ -27,11 +27,11 @@
 
 João-Lagalhé was a capoeirista in Rio de Janeiro who killed the "famous" César-Maneta on the Praia do Peixe (Fish Beach) in 1870, continuing the vendetta cycle that had convulsed the capoeira maltas that year.
 
-Plácido de Abreu documented his act in "Os Capoeiras" (1886): "after this came the death of the Alemãozinho [Small German], next to the old Lyrical Theatre do Campo, by the famous César-Maneta that, shortly after was also murdered on the Peixe Beach, by João-Lagalhé."
+Plácido de Abreu documented his act in "Os Capoeiras" (1886): "after this came the death of the Alemãozinho [Small German], next to the old Lyrical Theatre do Campo, by the famous César-Maneta that, shortly after was also murdered on the Peixe Beach, by João-Lagalhé".
 
 The Praia do Peixe where João-Lagalhé struck was located near the Candelária Market, in the area of modern Praça XV—a bustling commercial zone where fish was sold and small boats docked. To kill a "famous" capoeirista in such a public location required either exceptional skill, the element of surprise, or both.
 
-What happened to João-Lagalhé after he killed César-Maneta is unknown. Abreu wrote that "these reprisals have continued until today," implying the vendetta cycle did not end with César-Maneta's death. Whether João-Lagalhé became the next victim, fled, or somehow escaped the cycle is lost to history.
+What happened to João-Lagalhé after he killed César-Maneta is unknown. Abreu wrote that "these reprisals have continued until today", implying the vendetta cycle did not end with César-Maneta's death. Whether João-Lagalhé became the next victim, fled, or somehow escaped the cycle is lost to history.
 
 His name suggests "João" as a first name (one of the most common in Portuguese) and "Lagalhé" as either a surname or nickname. The origin of "Lagalhé" is unclear—it may be of French origin (many French-derived surnames exist in Brazil) or a local variant of another name.
 
@@ -41,11 +41,11 @@ João-Lagalhé's documented act—killing the famous César-Maneta in a public f
 
 João-Lagalhé foi um capoeirista no Rio de Janeiro que matou o "famoso" César-Maneta na Praia do Peixe em 1870, continuando o ciclo de vingança que havia convulsionado as maltas de capoeira naquele ano.
 
-Plácido de Abreu documentou seu ato em "Os Capoeiras" (1886): "depois disso veio a morte do Alemãozinho, perto do velho Teatro Lírico do Campo, pelo famoso César-Maneta que, pouco depois também foi assassinado na Praia do Peixe, por João-Lagalhé."
+Plácido de Abreu documentou seu ato em "Os Capoeiras" (1886): "depois disso veio a morte do Alemãozinho, perto do velho Teatro Lírico do Campo, pelo famoso César-Maneta que, pouco depois também foi assassinado na Praia do Peixe, por João-Lagalhé".
 
 A Praia do Peixe onde João-Lagalhé atacou ficava perto do Mercado da Candelária, na área da moderna Praça XV—uma zona comercial movimentada onde peixe era vendido e pequenos barcos atracavam. Matar um capoeirista "famoso" em local tão público exigia habilidade excepcional, o elemento surpresa, ou ambos.
 
-O que aconteceu com João-Lagalhé depois que ele matou César-Maneta é desconhecido. Abreu escreveu que "essas represálias continuaram até hoje," implicando que o ciclo de vingança não terminou com a morte de César-Maneta. Se João-Lagalhé se tornou a próxima vítima, fugiu, ou de alguma forma escapou do ciclo está perdido na história.
+O que aconteceu com João-Lagalhé depois que ele matou César-Maneta é desconhecido. Abreu escreveu que "essas represálias continuaram até hoje", implicando que o ciclo de vingança não terminou com a morte de César-Maneta. Se João-Lagalhé se tornou a próxima vítima, fugiu, ou de alguma forma escapou do ciclo está perdido na história.
 
 Seu nome sugere "João" como primeiro nome (um dos mais comuns em português) e "Lagalhé" como sobrenome ou apelido. A origem de "Lagalhé" é incerta—pode ser de origem francesa (muitos sobrenomes derivados do francês existem no Brasil) ou uma variante local de outro nome.
 

@@ -30,19 +30,19 @@ Celso learned capoeira from Mestre Artur Emídio at his academy in Bonsucesso, o
 
 In 1973, Celso founded the Associação de Capoeira Engenho da Rainha (ACER) in the Engenho da Rainha suburb of Rio de Janeiro, a working-class neighborhood in the Zona Norte. The organization continues to operate today, with Celso serving as president, and has expanded internationally with branches in the UK including Devon and Cornwall.
 
-During the 1960s and 70s, Celso was recognized as one of the most prominent capoeiristas in Rio de Janeiro. Mestre Gary (Mestre 22 da Bonfim), recalling this dangerous era, listed the notable capoeiristas of the time: "Zé Grande, Deraldo, Luiz do peito queimado, Zé Pedro, Mentirinha, Cilas, Touro, Travasso, Celso do Engenho da Rainha, Corvo, Bogado, Martins, Marlon."
+During the 1960s and 70s, Celso was recognized as one of the most prominent capoeiristas in Rio de Janeiro. Mestre Gary (Mestre 22 da Bonfim), recalling this dangerous era, listed the notable capoeiristas of the time: "Zé Grande, Deraldo, Luiz do peito queimado, Zé Pedro, Mentirinha, Cilas, Touro, Travasso, Celso do Engenho da Rainha, Corvo, Bogado, Martins, Marlon".
 
-Celso has made significant contributions to capoeira history through his oral testimonies. In an important interview recorded on April 23, 2002, he provided valuable accounts of capoeira practices in Rio de Janeiro before the arrival of organized academies. He recalled observing factory worker Maneca performing capoeira-like movements in 1954, noting that practitioners at the time "didn't say it was capoeira... they said he was a malandro [cunning guy]."
+Celso has made significant contributions to capoeira history through his oral testimonies. In an important interview recorded on April 23, 2002, he provided valuable accounts of capoeira practices in Rio de Janeiro before the arrival of organized academies. He recalled observing factory worker Maneca performing capoeira-like movements in 1954, noting that practitioners at the time "didn't say it was capoeira... they said he was a malandro [cunning guy]".
 
-Most significantly, Celso provided testimony about his cousin known as "Americano," who had been imprisoned at Ilha Grande:
+Most significantly, Celso provided testimony about his cousin known as "Americano", who had been imprisoned at Ilha Grande:
 
-> "I had a cousin who was also imprisoned at Ilha Grande. Americano, that was his nickname. This cousin of mine also did some capoeira things, rolling on the ground, throwing legs, giving headbutts, but he said that was tiririca, they did it there at Ilha Grande in the prison."
+> "I had a cousin who was also imprisoned at Ilha Grande. Americano, that was his nickname. This cousin of mine also did some capoeira things, rolling on the ground, throwing legs, giving headbutts, but he said that was tiririca, they did it there at Ilha Grande in the prison".
 
 This testimony documents the practice of capoeira-like movements called "tiririca" within Rio's prison system, demonstrating how capoeira techniques persisted under different names during the era of prohibition.
 
-Celso was emphatic that he only saw an actual roda de capoeira after Artur Emídio came to Rio de Janeiro: "The first time I saw a capoeira roda was at Arthur Emídio's academy in Praça Mauá, in 1959." When asked to define capoeira, Mestre Celso offered the philosophical response: "Capoeira is capoeira" - suggesting the art transcends simple definition.
+Celso was emphatic that he only saw an actual roda de capoeira after Artur Emídio came to Rio de Janeiro: "The first time I saw a capoeira roda was at Arthur Emídio's academy in Praça Mauá, in 1959". When asked to define capoeira, Mestre Celso offered the philosophical response: "Capoeira is capoeira" - suggesting the art transcends simple definition.
 
-As of 2024, Mestre Celso remains active at age 85 and is described as "the oldest active, living Master teaching and playing Capoeira in Rio."
+As of 2024, Mestre Celso remains active at age 85 and is described as "the oldest active, living Master teaching and playing Capoeira in Rio".
 
 ### Português
 
@@ -52,19 +52,19 @@ Celso aprendeu capoeira com Mestre Artur Emídio em sua academia em Bonsucesso, 
 
 Em 1973, Celso fundou a Associação de Capoeira Engenho da Rainha (ACER) no subúrbio de Engenho da Rainha, no Rio de Janeiro, um bairro de classe trabalhadora na Zona Norte. A organização continua operando hoje, com Celso servindo como presidente, e expandiu-se internacionalmente com filiais no Reino Unido incluindo Devon e Cornualha.
 
-Durante os anos 1960 e 70, Celso era reconhecido como um dos capoeiristas mais proeminentes do Rio de Janeiro. Mestre Gary (Mestre 22 da Bonfim), recordando essa era perigosa, listou os capoeiristas notáveis da época: "Zé Grande, Deraldo, Luiz do peito queimado, Zé Pedro, Mentirinha, Cilas, Touro, Travasso, Celso do Engenho da Rainha, Corvo, Bogado, Martins, Marlon."
+Durante os anos 1960 e 70, Celso era reconhecido como um dos capoeiristas mais proeminentes do Rio de Janeiro. Mestre Gary (Mestre 22 da Bonfim), recordando essa era perigosa, listou os capoeiristas notáveis da época: "Zé Grande, Deraldo, Luiz do peito queimado, Zé Pedro, Mentirinha, Cilas, Touro, Travasso, Celso do Engenho da Rainha, Corvo, Bogado, Martins, Marlon".
 
-Celso fez contribuições significativas para a história da capoeira através de seus depoimentos orais. Em uma importante entrevista gravada em 23 de abril de 2002, ele forneceu relatos valiosos sobre práticas de capoeira no Rio de Janeiro antes da chegada das academias organizadas. Recordou observar o operário Maneca fazendo movimentos semelhantes à capoeira em 1954, notando que os praticantes na época "não diziam que era capoeira... diziam que ele era um cara malandro."
+Celso fez contribuições significativas para a história da capoeira através de seus depoimentos orais. Em uma importante entrevista gravada em 23 de abril de 2002, ele forneceu relatos valiosos sobre práticas de capoeira no Rio de Janeiro antes da chegada das academias organizadas. Recordou observar o operário Maneca fazendo movimentos semelhantes à capoeira em 1954, notando que os praticantes na época "não diziam que era capoeira... diziam que ele era um cara malandro".
 
-Mais significativamente, Celso forneceu testemunho sobre seu primo conhecido como "Americano," que havia sido preso na Ilha Grande:
+Mais significativamente, Celso forneceu testemunho sobre seu primo conhecido como "Americano", que havia sido preso na Ilha Grande:
 
-> "Eu tinha um primo que também, teve preso na Ilha Grande. Americano, né o apelido dele era Americano. Esse meu primo fazia também algumas coisas de capoeira, rolava no chão, jogava a perna, dava cabeçada, mas ele já dizia que aquilo era tiririca, eles faziam lá na Ilha Grande no presídio."
+> "Eu tinha um primo que também, teve preso na Ilha Grande. Americano, né o apelido dele era Americano. Esse meu primo fazia também algumas coisas de capoeira, rolava no chão, jogava a perna, dava cabeçada, mas ele já dizia que aquilo era tiririca, eles faziam lá na Ilha Grande no presídio".
 
 Este testemunho documenta a prática de movimentos semelhantes à capoeira chamados "tiririca" dentro do sistema prisional do Rio, demonstrando como as técnicas de capoeira persistiram sob diferentes nomes durante a era da proibição.
 
-Celso foi enfático que só viu uma roda de capoeira real depois que Artur Emídio chegou ao Rio de Janeiro: "A primeira vez que eu vi uma roda de capoeira foi na academia de Arthur Emídio na Praça Mauá, em 1959." Quando perguntado para definir capoeira, Mestre Celso ofereceu a resposta filosófica: "Capoeira é capoeira" - sugerindo que a arte transcende definição simples.
+Celso foi enfático que só viu uma roda de capoeira real depois que Artur Emídio chegou ao Rio de Janeiro: "A primeira vez que eu vi uma roda de capoeira foi na academia de Arthur Emídio na Praça Mauá, em 1959". Quando perguntado para definir capoeira, Mestre Celso ofereceu a resposta filosófica: "Capoeira é capoeira" - sugerindo que a arte transcende definição simples.
 
-Em 2024, Mestre Celso permanece ativo aos 85 anos e é descrito como "o mais antigo Mestre ativo e vivo ensinando e jogando Capoeira no Rio."
+Em 2024, Mestre Celso permanece ativo aos 85 anos e é descrito como "o mais antigo Mestre ativo e vivo ensinando e jogando Capoeira no Rio".
 
 ## Achievements / Conquistas
 

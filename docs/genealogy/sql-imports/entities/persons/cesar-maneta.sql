@@ -54,7 +54,7 @@ His nickname "Maneta" typically means "one-armed" or "one-handed" in Portuguese.
 
 César-Maneta''s documented act was the killing of Alemãozinho ("Little German") near the old Teatro Lírico do Campo in 1870. This murder was part of the vendetta cycle that began with the death of Pinta Preta da Lapa on January 7, 1870, followed by the killing of Caboclo Jacó at Paula Matos. By killing Alemãozinho, César-Maneta continued the chain of reprisals that had convulsed the capoeira gangs of Rio de Janeiro.
 
-Plácido de Abreu recorded his fate: "after this came the death of the Alemãozinho [Small German], next to the old Lyrical Theatre do Campo, by the famous César-Maneta that, shortly after was also murdered on the Peixe Beach, by João-Lagalhé."
+Plácido de Abreu recorded his fate: "after this came the death of the Alemãozinho [Small German], next to the old Lyrical Theatre do Campo, by the famous César-Maneta that, shortly after was also murdered on the Peixe Beach, by João-Lagalhé".
 
 The Praia do Peixe (Fish Beach) where César-Maneta met his end was located near the Candelária Market, in the area of modern Praça XV—a bustling commercial zone where fish was sold and small boats docked. It was a public, well-trafficked location, suggesting his death was either a brazen public killing or the result of a confrontation in plain sight.
 
@@ -66,7 +66,7 @@ Seu apelido "Maneta" tipicamente significa "sem um braço" ou "sem uma mão" em 
 
 O ato documentado de César-Maneta foi o assassinato do Alemãozinho ("Pequeno Alemão") perto do velho Teatro Lírico do Campo em 1870. Este assassinato fazia parte do ciclo de vingança que começou com a morte de Pinta Preta da Lapa em 7 de janeiro de 1870, seguida pelo assassinato do Caboclo Jacó em Paula Matos. Ao matar o Alemãozinho, César-Maneta continuou a cadeia de represálias que havia convulsionado as gangues de capoeira do Rio de Janeiro.
 
-Plácido de Abreu registrou seu destino: "depois disso veio a morte do Alemãozinho, perto do velho Teatro Lírico do Campo, pelo famoso César-Maneta que, pouco depois também foi assassinado na Praia do Peixe, por João-Lagalhé."
+Plácido de Abreu registrou seu destino: "depois disso veio a morte do Alemãozinho, perto do velho Teatro Lírico do Campo, pelo famoso César-Maneta que, pouco depois também foi assassinado na Praia do Peixe, por João-Lagalhé".
 
 A Praia do Peixe onde César-Maneta encontrou seu fim ficava perto do Mercado da Candelária, na área da moderna Praça XV—uma zona comercial movimentada onde peixe era vendido e pequenos barcos atracavam. Era um local público e muito frequentado, sugerindo que sua morte foi ou um assassinato público descarado ou o resultado de um confronto à vista de todos.
 

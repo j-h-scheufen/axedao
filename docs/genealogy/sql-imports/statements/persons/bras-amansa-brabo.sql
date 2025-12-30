@@ -40,7 +40,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   NULL, NULL,
   NULL, NULL,
-  '{"association_context": "Both named as Bimba''s most trusted companions alongside Crispim (Bimba''s eldest son). Training contemporaries at Centro de Cultura Física Regional."}'::jsonb,
+  '{"association_context": "Both named as Bimba''s most trusted companions alongside Crispim (Bimba''s eldest son). Training contemporaries at Centro de Cultura Física Regional".}'::jsonb,
   'verified'::genealogy.confidence,
   'Atenilo testimony preserved in Mestre Itapoan writings',
   E'Both were part of Bimba''s inner circle of trusted companions alongside Crispim. Contemporaries at Bimba''s academy.',

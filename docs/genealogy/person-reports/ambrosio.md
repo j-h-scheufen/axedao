@@ -26,7 +26,7 @@
 
 Ambrósio was one of the capoeiristas who participated in the historic demonstration of capoeira de Angola at the II Congresso Afro-Brasileiro (Second Afro-Brazilian Congress) held in Salvador on January 14, 1937. This landmark event, organized by folklorist Edison Carneiro and writer Aydano de Couto Ferraz, brought together intellectuals, researchers, and practitioners of Afro-Brazilian culture for what became a pivotal moment in the documentation and legitimization of capoeira.
 
-The demonstration took place at the basketball court of Club de Regatas Itapagipe in the Ribeira neighborhood of Salvador. The newspaper Estado da Bahia announced that the "vadiação" (capoeira session) would be directed by Samuel Querido de Deus, who was "considered by his peers as the best capoeirista of Bahia." Ambrósio appeared among the listed participants alongside Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes, Eutíquio, Neném, Zei, Barroso, Arthur Mattos, Raphael, Edgar, Damião, and other practitioners of "the great art of Mangangá."
+The demonstration took place at the basketball court of Club de Regatas Itapagipe in the Ribeira neighborhood of Salvador. The newspaper Estado da Bahia announced that the "vadiação" (capoeira session) would be directed by Samuel Querido de Deus, who was "considered by his peers as the best capoeirista of Bahia". Ambrósio appeared among the listed participants alongside Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes, Eutíquio, Neném, Zei, Barroso, Arthur Mattos, Raphael, Edgar, Damião, and other practitioners of "the great art of Mangangá".
 
 The II Congresso Afro-Brasileiro marked a turning point for capoeira's public perception. Following the demonstrations, ethnographer Edison Carneiro and novelist Jorge Amado advocated for the creation of a federation of capoeiristas—an advocacy that helped shift capoeira's image from a criminalized street practice to a recognized cultural tradition worthy of preservation and study.
 
@@ -38,7 +38,7 @@ Little else is known about Ambrósio's personal life. His real name, occupation,
 
 Ambrósio foi um dos capoeiristas que participou da histórica demonstração de capoeira de Angola no II Congresso Afro-Brasileiro realizado em Salvador em 14 de janeiro de 1937. Este evento marcante, organizado pelo folclorista Edison Carneiro e pelo escritor Aydano de Couto Ferraz, reuniu intelectuais, pesquisadores e praticantes da cultura afro-brasileira no que se tornou um momento fundamental na documentação e legitimação da capoeira.
 
-A demonstração ocorreu na quadra de basquete do Club de Regatas Itapagipe no bairro da Ribeira em Salvador. O jornal Estado da Bahia anunciou que a "vadiação" seria dirigida por Samuel Querido de Deus, que era "considerado por seus pares como o melhor capoeirista da Bahia." Ambrósio apareceu entre os participantes listados ao lado de Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes, Eutíquio, Neném, Zei, Barroso, Arthur Mattos, Raphael, Edgar, Damião e outros praticantes da "grande arte de Mangangá."
+A demonstração ocorreu na quadra de basquete do Club de Regatas Itapagipe no bairro da Ribeira em Salvador. O jornal Estado da Bahia anunciou que a "vadiação" seria dirigida por Samuel Querido de Deus, que era "considerado por seus pares como o melhor capoeirista da Bahia". Ambrósio apareceu entre os participantes listados ao lado de Barbosa, Onça Preta, Juvenal, Zeppelin, Bugaia, Fernandes, Eutíquio, Neném, Zei, Barroso, Arthur Mattos, Raphael, Edgar, Damião e outros praticantes da "grande arte de Mangangá".
 
 O II Congresso Afro-Brasileiro marcou uma virada na percepção pública da capoeira. Após as demonstrações, o etnógrafo Edison Carneiro e o romancista Jorge Amado advogaram pela criação de uma federação de capoeiristas—uma advocacia que ajudou a mudar a imagem da capoeira de uma prática de rua criminalizada para uma tradição cultural reconhecida digna de preservação e estudo.
 
@@ -121,7 +121,7 @@ Participants in the historic January 14, 1937 demonstration at Club de Regatas I
 
 **Death:** Unknown. No death date recorded in any sources consulted.
 
-**Full Name:** Unknown. All sources refer only to "Ambrósio."
+**Full Name:** Unknown. All sources refer only to "Ambrósio".
 
 **Title:** No formal title recorded. The modern mestre/contra-mestre system did not exist in his era.
 

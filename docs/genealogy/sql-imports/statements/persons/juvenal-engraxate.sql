@@ -20,8 +20,8 @@ SELECT
   '{}'::jsonb,
   'verified'::genealogy.confidence,
   'O Cruzeiro magazine (1948); Velhos Mestres; Jorge Amado (Bahía de Todos os Santos, 1944)',
-  'Juvenal was formally recognized as Mestre by Samuel Querido de Deus. "This title was given to me by Samuel Querido-de-Deus," Juvenal recounted. "Samuel liked my qualities and saw my future." Juvenal described his teacher as "uma onça" (a jaguar).',
-  'Juvenal foi formalmente reconhecido como Mestre por Samuel Querido de Deus. "Este título me foi dado por Samuel Querido-de-Deus," Juvenal contou. "Samuel gostava das minhas qualidades e via meu futuro." Juvenal descrevia seu professor como "uma onça".'
+  'Juvenal was formally recognized as Mestre by Samuel Querido de Deus. "This title was given to me by Samuel Querido-de-Deus", Juvenal recounted. "Samuel liked my qualities and saw my future". Juvenal described his teacher as "uma onça" (a jaguar).',
+  'Juvenal foi formalmente reconhecido como Mestre por Samuel Querido de Deus. "Este título me foi dado por Samuel Querido-de-Deus", Juvenal contou. "Samuel gostava das minhas qualidades e via meu futuro". Juvenal descrevia seu professor como "uma onça".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Juvenal Engraxate' AND o.apelido = 'Querido de Deus'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

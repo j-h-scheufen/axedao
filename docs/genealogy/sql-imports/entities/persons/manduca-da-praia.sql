@@ -54,7 +54,7 @@ His full name is recorded as Manoel Alves da Silva in most sources. He was descr
 
 His legitimate business was a fish stall in the São José parish marketplace, where he was known not just for selling seafood but for holding court, sharing stories of his exploits with eager listeners. He supplemented it with bodyguard work for politicians, building the connections that would prove invaluable.
 
-According to Plácido de Abreu''s 1886 book "Os Capoeiras," Manduca was chief of the Santa Luzia party within the Nagoa federation - one of the two great rival factions that divided Rio de Janeiro. The Nagoas wore white as their identifying color.
+According to Plácido de Abreu''s 1886 book "Os Capoeiras", Manduca was chief of the Santa Luzia party within the Nagoa federation - one of the two great rival factions that divided Rio de Janeiro. The Nagoas wore white as their identifying color.
 
 He started his career young, reportedly at Lavadinho, where he made his name in the brutal sport of running with bulls. His weapons included the knife, razor blade, the "petrópolis" (a long hardwood cudgel), and his ever-present cane. His capoeira techniques were comprehensive: the banda and rasteira (sweeps), punches, the headbutt in its various forms, and the devastating rabo de arraia (stingray tail kick).
 
@@ -88,13 +88,13 @@ O que distinguia Manduca não era apenas sua habilidade de luta - embora suposta
   -- achievements_pt
   'Chefe do partido de Santa Luzia (federação Nagoa); Invicto em carreira de lutas de rua; Absolvido de todas as 27 acusações criminais; Famosa vitória sobre o deputado português Santana',
   -- Researcher notes (English)
-  E'BIRTH YEAR ESTIMATION (1820, decade precision): Active around 1850 with a "graying pointed beard" and described as having started his career "young at Lavadinho." If he had a graying beard (suggesting 40s-50s) in 1850 and started young, birth decade estimated as 1820s.
+  E'BIRTH YEAR ESTIMATION (1820, decade precision): Active around 1850 with a "graying pointed beard" and described as having started his career "young at Lavadinho". If he had a graying beard (suggesting 40s-50s) in 1850 and started young, birth decade estimated as 1820s.
 
 NAME: Full name recorded as Manoel Alves da Silva in most sources.
 
 DEATH: Unknown. No records of his death have been found.',
   -- Researcher notes (Portuguese)
-  E'ESTIMATIVA DO ANO DE NASCIMENTO (1820, precisão de década): Ativo por volta de 1850 com uma "barba pontuda grisalha" e descrito como tendo começado sua carreira "jovem no Lavadinho." Se ele tinha barba grisalha (sugerindo 40-50 anos) em 1850 e começou jovem, década de nascimento estimada como 1820.
+  E'ESTIMATIVA DO ANO DE NASCIMENTO (1820, precisão de década): Ativo por volta de 1850 com uma "barba pontuda grisalha" e descrito como tendo começado sua carreira "jovem no Lavadinho". Se ele tinha barba grisalha (sugerindo 40-50 anos) em 1850 e começou jovem, década de nascimento estimada como 1820.
 
 NOME: Nome completo registrado como Manoel Alves da Silva na maioria das fontes.
 

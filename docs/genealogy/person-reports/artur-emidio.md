@@ -35,11 +35,11 @@ By his early twenties, Artur delighted audiences at circuses and amusement parks
 
 In 1954, he traveled to Rio de Janeiro to fight Hélio Gracie in a match that ended in a draw. After his defeats, he frequented the Gracie academy to supplement his ground game. In 1955, he moved permanently to Rio de Janeiro with his family.
 
-In Rio, Artur established the Academia de Capoeira Artur Emídio on Rua Manuel Fontenele in Bonsucesso - one of the first formal capoeira academies in the city. His most celebrated ring fight came on April 13, 1957, against Robson Gracie at Maracanãzinho. Artur had declared he would "do with Robson what Waldemar did with Hélio." The fight lasted only four minutes before Robson's submission victory.
+In Rio, Artur established the Academia de Capoeira Artur Emídio on Rua Manuel Fontenele in Bonsucesso - one of the first formal capoeira academies in the city. His most celebrated ring fight came on April 13, 1957, against Robson Gracie at Maracanãzinho. Artur had declared he would "do with Robson what Waldemar did with Hélio". The fight lasted only four minutes before Robson's submission victory.
 
-After this defeat, friends encouraged him to focus on teaching. His first student was Djalma Bandeira. The Sunday roda at his academy became legendary - a meeting point where mestres from all over Brazil congregated. As Mestre Paulão recalled: "Masters from all over Brazil came to the roda of Artur Emídio... it was an eclectic capoeira."
+After this defeat, friends encouraged him to focus on teaching. His first student was Djalma Bandeira. The Sunday roda at his academy became legendary - a meeting point where mestres from all over Brazil congregated. As Mestre Paulão recalled: "Masters from all over Brazil came to the roda of Artur Emídio... it was an eclectic capoeira".
 
-With Djalma Bandeira, Artur performed in the folkloric show "Skindô," touring New York, Paris, Acapulco, and Buenos Aires. He is likely the first capoeirista to perform abroad, pioneering capoeira internationally during the 1950s and early 1960s.
+With Djalma Bandeira, Artur performed in the folkloric show "Skindô", touring New York, Paris, Acapulco, and Buenos Aires. He is likely the first capoeirista to perform abroad, pioneering capoeira internationally during the 1950s and early 1960s.
 
 From the 1960s onward, Artur abandoned the ring and dedicated himself exclusively to capoeira. He judged competitions including the Berimbau de Ouro and became involved with the Cariocan Federation of Pugilism.
 
@@ -47,7 +47,7 @@ He trained many students who became important masters: Leopoldina (from ~1954), 
 
 Artur Emídio was part of a generation born in the 1930s that formed the core of contemporary Rio de Janeiro capoeira. There is consensus that four lineages were the main influences on Contemporary Capoeira in Rio: Artur Emídio, Paraná, Mário Buscapé, and Roque.
 
-He died on May 3, 2011, at age 81. Portal Capoeira declared: "Rio de Janeiro's capoeira lost its greatest personality."
+He died on May 3, 2011, at age 81. Portal Capoeira declared: "Rio de Janeiro's capoeira lost its greatest personality".
 
 ### Português
 
@@ -61,11 +61,11 @@ Por volta dos vinte anos, Artur encantava plateias de circos e parques de divers
 
 Em 1954, viajou ao Rio de Janeiro para lutar contra Hélio Gracie em uma luta que terminou empatada. Após suas derrotas, frequentou a academia Gracie para complementar seu jogo de chão. Em 1955, mudou-se permanentemente para o Rio de Janeiro com sua família.
 
-No Rio, Artur estabeleceu a Academia de Capoeira Artur Emídio na Rua Manuel Fontenele em Bonsucesso - uma das primeiras academias formais de capoeira da cidade. Sua luta de ringue mais célebre foi em 13 de abril de 1957, contra Robson Gracie no Maracanãzinho. Artur havia declarado que faria "com Robson o que Waldemar fez com Hélio." A luta durou apenas quatro minutos antes da vitória por finalização de Robson.
+No Rio, Artur estabeleceu a Academia de Capoeira Artur Emídio na Rua Manuel Fontenele em Bonsucesso - uma das primeiras academias formais de capoeira da cidade. Sua luta de ringue mais célebre foi em 13 de abril de 1957, contra Robson Gracie no Maracanãzinho. Artur havia declarado que faria "com Robson o que Waldemar fez com Hélio". A luta durou apenas quatro minutos antes da vitória por finalização de Robson.
 
-Após essa derrota, amigos o encorajaram a se concentrar no ensino. Seu primeiro aluno foi Djalma Bandeira. A roda de domingo em sua academia tornou-se lendária - um ponto de encontro onde mestres de todo o Brasil se reuniam. Como Mestre Paulão lembrou: "Mestres de todo o Brasil vinham à roda de Artur Emídio... era uma capoeira eclética."
+Após essa derrota, amigos o encorajaram a se concentrar no ensino. Seu primeiro aluno foi Djalma Bandeira. A roda de domingo em sua academia tornou-se lendária - um ponto de encontro onde mestres de todo o Brasil se reuniam. Como Mestre Paulão lembrou: "Mestres de todo o Brasil vinham à roda de Artur Emídio... era uma capoeira eclética".
 
-Com Djalma Bandeira, Artur se apresentou no show folclórico "Skindô," excursionando por Nova York, Paris, Acapulco e Buenos Aires. É provavelmente o primeiro capoeirista a se apresentar no exterior, sendo pioneiro da capoeira internacionalmente durante os anos 1950 e início dos 1960.
+Com Djalma Bandeira, Artur se apresentou no show folclórico "Skindô", excursionando por Nova York, Paris, Acapulco e Buenos Aires. É provavelmente o primeiro capoeirista a se apresentar no exterior, sendo pioneiro da capoeira internacionalmente durante os anos 1950 e início dos 1960.
 
 A partir dos anos 1960, Artur abandonou os ringues e se dedicou exclusivamente à capoeira. Atuou como juiz em competições incluindo o Berimbau de Ouro e envolveu-se com a Federação Carioca de Pugilismo.
 
@@ -73,7 +73,7 @@ Treinou muitos alunos que se tornaram mestres importantes: Leopoldina (a partir 
 
 Artur Emídio fazia parte de uma geração nascida nos anos 1930 que formou o núcleo da capoeira contemporânea do Rio de Janeiro. Há consenso de que quatro linhagens foram as principais influências na Capoeira Contemporânea do Rio: Artur Emídio, Paraná, Mário Buscapé e Roque.
 
-Faleceu em 3 de maio de 2011, aos 81 anos. O Portal Capoeira declarou: "A capoeira do Rio de Janeiro perdeu sua maior personalidade."
+Faleceu em 3 de maio de 2011, aos 81 anos. O Portal Capoeira declarou: "A capoeira do Rio de Janeiro perdeu sua maior personalidade".
 
 ## Achievements / Conquistas
 
@@ -83,7 +83,7 @@ Faleceu em 3 de maio de 2011, aos 81 anos. O Portal Capoeira declarou: "A capoei
 - Vale-tudo fighter defending capoeira's reputation in the rings
 - Judge at Berimbau de Ouro competition
 - Sunday rodas were crucial meeting points for Contemporary Capoeira development
-- Featured performer in "Skindô," "Capital Samba," and "Arco-Íris"
+- Featured performer in "Skindô", "Capital Samba", and "Arco-Íris"
 - One of "four main lineages" of contemporary Rio de Janeiro capoeira
 - Subject of documentary "From the Ring to the Stage" (2023)
 - Took over Mestre Paizinho's academy at age 15 (1945)
@@ -94,7 +94,7 @@ Faleceu em 3 de maio de 2011, aos 81 anos. O Portal Capoeira declarou: "A capoei
 - Lutador de vale-tudo defendendo a reputação da capoeira nos ringues
 - Juiz no Berimbau de Ouro
 - Rodas de domingo foram pontos de encontro cruciais para o desenvolvimento da Capoeira Contemporânea
-- Artista em destaque em "Skindô," "Capital Samba" e "Arco-Íris"
+- Artista em destaque em "Skindô", "Capital Samba" e "Arco-Íris"
 - Uma das "quatro principais linhagens" da capoeira contemporânea do Rio de Janeiro
 - Tema do documentário "Do Ringue ao Palco" (2023)
 - Assumiu a academia de Mestre Paizinho aos 15 anos (1945)

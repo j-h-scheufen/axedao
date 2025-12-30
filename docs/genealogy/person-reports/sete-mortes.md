@@ -33,7 +33,7 @@ Historical analysis clarifies an error in popular fiction: while Jorge Amado's n
 
 Sete Mortes was among the capoeiristas known for their skill with the navalha (straight razor), alongside Caboclinho and Noca de Jacó. In an era when many capoeiristas supplemented their fighting techniques with blades, this skill added to his fearsome reputation. He is featured in "Mestres e Capoeiras famosos da Bahia" (2009) with the subtitle "O temível facínora!"—indicating his story was considered important enough to preserve in the historical record.
 
-In 1967, at 78 years old and nearly blind, Mestre Pastinha spoke with journalist Roberto Freire for Revista Realidade about the great capoeiristas of the past. He listed Sete Mortes among 17 deceased practitioners of "pure Capoeira de Angola," alongside Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, and others. Pastinha noted: "Cada nome destes é uma história"—each of these names is a story.
+In 1967, at 78 years old and nearly blind, Mestre Pastinha spoke with journalist Roberto Freire for Revista Realidade about the great capoeiristas of the past. He listed Sete Mortes among 17 deceased practitioners of "pure Capoeira de Angola", alongside Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, and others. Pastinha noted: "Cada nome destes é uma história"—each of these names is a story.
 
 ### Português
 
@@ -45,17 +45,17 @@ A análise histórica esclarece um erro na ficção popular: enquanto os romance
 
 Sete Mortes estava entre os capoeiristas conhecidos por sua habilidade com a navalha, ao lado de Caboclinho e Noca de Jacó. Em uma era em que muitos capoeiristas suplementavam suas técnicas de luta com lâminas, essa habilidade aumentava sua reputação temível. Ele é apresentado em "Mestres e Capoeiras famosos da Bahia" (2009) com o subtítulo "O temível facínora!"—indicando que sua história foi considerada importante o suficiente para ser preservada no registro histórico.
 
-Em 1967, aos 78 anos e quase cego, Mestre Pastinha conversou com o jornalista Roberto Freire para a Revista Realidade sobre os grandes capoeiristas do passado. Ele listou Sete Mortes entre 17 praticantes falecidos de "capoeira de Angola pura," ao lado de Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, e outros. Pastinha observou: "Cada nome destes é uma história."
+Em 1967, aos 78 anos e quase cego, Mestre Pastinha conversou com o jornalista Roberto Freire para a Revista Realidade sobre os grandes capoeiristas do passado. Ele listou Sete Mortes entre 17 praticantes falecidos de "capoeira de Angola pura", ao lado de Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, e outros. Pastinha observou: "Cada nome destes é uma história".
 
 ## Style Notes / Notas de Estilo
 
 ### English
 
-Traditional capoeira de Angola. Pastinha explicitly listed Sete Mortes among the deceased practitioners of "pure Capoeira de Angola," distinguishing these figures from the modernized Regional style. Known as a skilled handler of the navalha (straight razor), alongside Caboclinho and Noca de Jacó. His fighting style likely incorporated blade work common to the era.
+Traditional capoeira de Angola. Pastinha explicitly listed Sete Mortes among the deceased practitioners of "pure Capoeira de Angola", distinguishing these figures from the modernized Regional style. Known as a skilled handler of the navalha (straight razor), alongside Caboclinho and Noca de Jacó. His fighting style likely incorporated blade work common to the era.
 
 ### Português
 
-Capoeira de Angola tradicional. Pastinha listou explicitamente Sete Mortes entre os praticantes falecidos de "capoeira de Angola pura," distinguindo essas figuras do estilo Regional modernizado. Conhecido como hábil manejador da navalha, ao lado de Caboclinho e Noca de Jacó. Seu estilo de luta provavelmente incorporava o trabalho com lâminas comum à época.
+Capoeira de Angola tradicional. Pastinha listou explicitamente Sete Mortes entre os praticantes falecidos de "capoeira de Angola pura", distinguindo essas figuras do estilo Regional modernizado. Conhecido como hábil manejador da navalha, ao lado de Caboclinho e Noca de Jacó. Seu estilo de luta provavelmente incorporava o trabalho com lâminas comum à época.
 
 ## Achievements / Conquistas
 
@@ -153,7 +153,7 @@ Confirmed dead by Pastinha's 1967 interview. Born 1883, active through 1910s-192
 Governor Antônio Moniz Sodré de Aragão governed Bahia from March 29, 1916 to March 29, 1920. His administration coincided with economic difficulties due to World War I's impact on cacau and tobacco exports to Germany. The guarda civil position provided cover for political enforcement during electoral disputes.
 
 ### Jorge Amado Fiction Correction
-Jorge Amado's novels (Tenda dos Milagres, Jubiabá) portrayed capoeiristas in political contexts, but erroneously linked Sete Mortes to Pedrito (Pedro de Azevedo Gordilho). Historical research by Oliveira & Leal clarifies the actual connection was to Police Chief Álvaro José de Cova. This is documented in the academic chapter "Pedrito, Sete Mortes e a ficção amadiana."
+Jorge Amado's novels (Tenda dos Milagres, Jubiabá) portrayed capoeiristas in political contexts, but erroneously linked Sete Mortes to Pedrito (Pedro de Azevedo Gordilho). Historical research by Oliveira & Leal clarifies the actual connection was to Police Chief Álvaro José de Cova. This is documented in the academic chapter "Pedrito, Sete Mortes e a ficção amadiana".
 
 ### Navalha (Straight Razor) Skill
 Sete Mortes is listed among capoeiristas skilled with the navalha (straight razor), alongside Caboclinho and Noca de Jacó. The navalha was a common weapon among capoeiristas of this era, and skill with it added to their fearsome reputations.

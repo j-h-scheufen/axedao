@@ -41,7 +41,7 @@ The Kilombolas group would prove influential in Salvador's capoeira history, tho
 
 After completing his residency, Medicina lived for five years on Ilha Mar Grande, where he founded another capoeira initiative: the Grupo Meninos da Ilha (Island Boys Group), which he describes as embodying a joyful capoeira spirit among young practitioners.
 
-Eventually Medicina settled in the Recôncavo Baiano—first in Cachoeira, then in nearby Muritiba, where he established his most enduring legacy: Grupo de Capoeira Raça. The name "Raça" (Race, or Grit) reflects his philosophy: "people who are in the struggle of life with courage."
+Eventually Medicina settled in the Recôncavo Baiano—first in Cachoeira, then in nearby Muritiba, where he established his most enduring legacy: Grupo de Capoeira Raça. The name "Raça" (Race, or Grit) reflects his philosophy: "people who are in the struggle of life with courage".
 
 By 2007, Medicina was celebrating forty years of teaching capoeira. An event at the Grapiúna Tênis Clube in Itabuna baptized approximately 300 children from peripheral neighborhoods including São Pedro, Califórnia, Ferradas, and Urbis 4. The event also included children with Down syndrome and saw the formation of new contra-mestres. Mestre Suassuna himself attended, reconnecting with his most accomplished student.
 
@@ -63,7 +63,7 @@ O grupo Kilombolas provaria ser influente na história da capoeira de Salvador, 
 
 Após completar sua residência, Medicina viveu por cinco anos na Ilha Mar Grande, onde fundou outra iniciativa de capoeira: o Grupo Meninos da Ilha, que ele descreve como incorporando um espírito alegre de capoeira entre jovens praticantes.
 
-Eventualmente Medicina se estabeleceu no Recôncavo Baiano—primeiro em Cachoeira, depois na vizinha Muritiba, onde estabeleceu seu legado mais duradouro: Grupo de Capoeira Raça. O nome "Raça" reflete sua filosofia: "pessoas que estão na luta da vida com coragem."
+Eventualmente Medicina se estabeleceu no Recôncavo Baiano—primeiro em Cachoeira, depois na vizinha Muritiba, onde estabeleceu seu legado mais duradouro: Grupo de Capoeira Raça. O nome "Raça" reflete sua filosofia: "pessoas que estão na luta da vida com coragem".
 
 Em 2007, Medicina estava celebrando quarenta anos de ensino de capoeira. Um evento no Grapiúna Tênis Clube em Itabuna batizou aproximadamente 300 crianças de bairros periféricos incluindo São Pedro, Califórnia, Ferradas e Urbis 4. O evento também incluiu crianças com síndrome de Down e viu a formação de novos contra-mestres. O próprio Mestre Suassuna compareceu, reconectando-se com seu aluno mais bem-sucedido.
 
@@ -154,7 +154,7 @@ Listed alongside in the February 1982 O Globo article (archived at velhosmestres
 
 ## Lineage Clarification / Esclarecimento de Linhagem
 
-The 1982 O Globo article (archived at velhosmestres.com/br/cobrinha-1982-3) lists Medicina among Regional mestres, stating they were "almost all direct disciples of the legendary Bimba." This is a **generalization about the group**, not a specific claim about each individual.
+The 1982 O Globo article (archived at velhosmestres.com/br/cobrinha-1982-3) lists Medicina among Regional mestres, stating they were "almost all direct disciples of the legendary Bimba". This is a **generalization about the group**, not a specific claim about each individual.
 
 **Medicina's actual lineage:**
 ```

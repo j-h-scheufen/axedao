@@ -77,7 +77,7 @@ Everything changed in 1975 during Rio''s Carnival. At a roda near Central do Bra
 
 On July 5, 1975, at age 17-18, Braga began training with Moraes at Clube Gurilandia in Botafogo. He was among the initial cohort of students including Peçanha (later known as Cobra Mansa), Mano, Agostinho, and others. Moraes emphasized the Angola tradition, sharing knowledge he had learned from "o velho" (Mestre Pastinha) through his own teachers João Grande and João Pequeno.
 
-In December 1975, Braga traveled to Salvador with a group that included Moraes, Neco, Marco Aurélio, Zé Carlos, Tete, and Amalha. During this pivotal journey, they visited Mestre Pastinha, who remembered Moraes by his childhood nickname "Pedrinho." The group remained in Salvador for January, participating in Bonfim festival celebrations featuring Angola roda dancing. Braga presented a berimbau to Pastinha as a gift during this visit.
+In December 1975, Braga traveled to Salvador with a group that included Moraes, Neco, Marco Aurélio, Zé Carlos, Tete, and Amalha. During this pivotal journey, they visited Mestre Pastinha, who remembered Moraes by his childhood nickname "Pedrinho". The group remained in Salvador for January, participating in Bonfim festival celebrations featuring Angola roda dancing. Braga presented a berimbau to Pastinha as a gift during this visit.
 
 On December 16, 1978, at Parque Lage in Jardim Botânico, Rio de Janeiro, Braga received the rank of Mestre in a ceremonial advancement alongside his colleagues Neco and José Carlos (Zé Carlos). Marco Aurélio was simultaneously promoted to Contra-Mestre. Mestres Camisa and Preguiça attended as honored guests. These were the first mestres of Capoeira Angola formed outside of Bahia - a historic milestone in the art''s evolution.
 
@@ -165,7 +165,7 @@ MESTRE TITLE: December 16, 1978 at Parque Lage, Jardim Botânico, Rio de Janeiro
 GCAP FOUNDING: October 5, 1980 at Cosme Velho artisan fair. Founding idea from Neco. Logo designed by Braga. Founding mestres: Moraes, Braga, Neco, Zé Carlos. Founding contra-mestres: Marco Aurélio, Peçanha (Cobra Mansa).
 
 PASTINHA VISITS:
-- December 1975: First visit with Moraes, Neco, Marco Aurélio, Zé Carlos, Tete, Amalha. Pastinha remembered Moraes as "Pedrinho." Braga presented berimbau to Pastinha.
+- December 1975: First visit with Moraes, Neco, Marco Aurélio, Zé Carlos, Tete, Amalha. Pastinha remembered Moraes as "Pedrinho". Braga presented berimbau to Pastinha.
 - December 1979: Second visit with Moraes.
 
 AFRICA BANTU FOUNDING:
@@ -211,7 +211,7 @@ TÍTULO DE MESTRE: 16 de dezembro de 1978 no Parque Lage, Jardim Botânico, Rio 
 FUNDAÇÃO DO GCAP: 5 de outubro de 1980 na feira de artesanato de Cosme Velho. Ideia de fundação de Neco. Logotipo desenhado por Braga. Mestres fundadores: Moraes, Braga, Neco, Zé Carlos. Contra-mestres fundadores: Marco Aurélio, Peçanha (Cobra Mansa).
 
 VISITAS A PASTINHA:
-- Dezembro de 1975: Primeira visita com Moraes, Neco, Marco Aurélio, Zé Carlos, Tete, Amalha. Pastinha lembrou de Moraes como "Pedrinho." Braga presenteou berimbau a Pastinha.
+- Dezembro de 1975: Primeira visita com Moraes, Neco, Marco Aurélio, Zé Carlos, Tete, Amalha. Pastinha lembrou de Moraes como "Pedrinho". Braga presenteou berimbau a Pastinha.
 - Dezembro de 1979: Segunda visita com Moraes.
 
 FUNDAÇÃO DO AFRICA BANTU:
@@ -226,7 +226,7 @@ CRONOLOGIA INTERNACIONAL:
 
 GRADUAÇÃO DE CORDA: Alcançou corda amarela na federação de capoeira do Rio de Janeiro antes de conhecer Moraes (1975).
 
-NOTA: Site Africa Bantu afirma que texto biográfico está "ainda de possíveis ajustes."
+NOTA: Site Africa Bantu afirma que texto biográfico está "ainda de possíveis ajustes".
 
 FONTES:
 - africabantu.wordpress.com/mestre-braga/ (fonte biográfica principal)

@@ -19,8 +19,8 @@ SELECT
   '1955-10-25'::date, 'exact'::genealogy.date_precision,
   '{}'::jsonb, 'verified'::genealogy.confidence,
   'ABCA, Capoeira News, Velhos Mestres',
-  E'Carlos Senna began training at Mestre Bimba''s Centro de Cultura Física Regional in 1949 at age 18. He completed his formatura (graduation) in 1950, earned the nickname "Senna Preto," was appointed Technical Director in 1954, and departed on October 25, 1955 to found Senavox.',
-  E'Carlos Senna começou a treinar no Centro de Cultura Física Regional de Mestre Bimba em 1949 aos 18 anos. Completou sua formatura em 1950, ganhou o apelido "Senna Preto," foi nomeado Diretor Técnico em 1954, e partiu em 25 de outubro de 1955 para fundar a Senavox.'
+  E'Carlos Senna began training at Mestre Bimba''s Centro de Cultura Física Regional in 1949 at age 18. He completed his formatura (graduation) in 1950, earned the nickname "Senna Preto", was appointed Technical Director in 1954, and departed on October 25, 1955 to found Senavox.',
+  E'Carlos Senna começou a treinar no Centro de Cultura Física Regional de Mestre Bimba em 1949 aos 18 anos. Completou sua formatura em 1950, ganhou o apelido "Senna Preto", foi nomeado Diretor Técnico em 1954, e partiu em 25 de outubro de 1955 para fundar a Senavox.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Carlos Senna' AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

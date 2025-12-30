@@ -29,7 +29,7 @@ Antônio Boca de Porco ("Pig Mouth") was one of the 22 founding mestres of the C
 
 Boca de Porco worked as a stevedore (estivador) - a dock worker who loaded and unloaded ships at Salvador's busy port. This occupation was common among capoeiristas of his era, as the physically demanding work of the docks attracted strong, skilled fighters. The nickname "Boca de Porco" ("Pig Mouth") was distinctive and memorable, though the origin of this apelido has not been documented.
 
-Mestre Noronha, in his handwritten manuscripts (completed April 29, 1976, later published as "O ABC da Capoeira Angola" in 1993), specifically listed "Antonio Boca de Porco stevedore" among the founding mestres of what he called "the first capoeira centre of the State of Bahia." The inclusion of his occupation alongside his name in Noronha's careful documentation suggests it was an important part of his identity within the capoeira community.
+Mestre Noronha, in his handwritten manuscripts (completed April 29, 1976, later published as "O ABC da Capoeira Angola" in 1993), specifically listed "Antonio Boca de Porco stevedore" among the founding mestres of what he called "the first capoeira centre of the State of Bahia". The inclusion of his occupation alongside his name in Noronha's careful documentation suggests it was an important part of his identity within the capoeira community.
 
 Boca de Porco was present at the historic gathering when, on February 23, 1941, Mestre Aberrê introduced Mestre Pastinha to the roda at Gengibirra, leading to Pastinha's eventual assumption of leadership and the transformation of the center into the internationally famous CECA (Centro Esportivo de Capoeira Angola).
 

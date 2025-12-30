@@ -11,7 +11,7 @@
 -- STYLE: Regional - Trained under Mestre Artur Emídio who taught
 -- the systematized Bahian method; Paulo Gomes was described as
 -- "the only successor of Mestre Bimba in Brazil" and "the hope
--- that regional capoeira will continue to exist."
+-- that regional capoeira will continue to exist".
 --
 -- LINEAGE: Neném (African) → Paizinho → Artur Emídio → Paulo Gomes
 --
@@ -80,15 +80,15 @@ In the carioca capital, Paulo Gomes learned capoeira from Mestre Artur Emídio, 
 
 His capoeira genealogy traces a distinguished Bahian lineage: "son" of Mestre Artur Emídio (1930-2011), "grandson" of Mestre Paizinho (Teodoro Ramos), and "great-grandson" of Mestre Neném, a capoeirista of African origin.
 
-On June 11, 1963, Paulo Gomes founded the Centro de Capoeira Ilha de Maré—reportedly the first to institutionalize the batizado (baptism ceremony) as a formal graduation ritual in capoeira. In 1967, he established an academy on Rua Augusta 1351 in São Paulo. He recalled that while he had 30 male students there, "in Rio, in three years, I trained more than 30 women."
+On June 11, 1963, Paulo Gomes founded the Centro de Capoeira Ilha de Maré—reportedly the first to institutionalize the batizado (baptism ceremony) as a formal graduation ritual in capoeira. In 1967, he established an academy on Rua Augusta 1351 in São Paulo. He recalled that while he had 30 male students there, "in Rio, in three years, I trained more than 30 women".
 
 In the 1960s, Paulo Gomes moved to the Baixada Fluminense, specifically to São João de Meriti in the Coelho da Rocha neighborhood. There he became a foundational figure, training mestres who would establish capoeira across the region. His principal disciples included Mestre Valdir Sales (1942-2019), who founded the Associação de Capoeira Valdir Sales in São João de Meriti, and Mestre Josias da Silva, who established the Associação de Capoeira Josias da Silva in Nova Iguaçu and Duque de Caxias.
 
-The famous Sunday roda at Zé Pedro''s academy in Bonsucesso (1973-1979) featured Paulo Gomes among its regular participants, alongside Artur Emídio, Mintirinha, Khorvo, Luis Malhado, Macaco Preto, Nilson Arerê, and Paulão Muzenza. These gatherings were legendary for their intensity—"his roda only had bambas, tough guys," recalled Mestre Valdir Sales.
+The famous Sunday roda at Zé Pedro''s academy in Bonsucesso (1973-1979) featured Paulo Gomes among its regular participants, alongside Artur Emídio, Mintirinha, Khorvo, Luis Malhado, Macaco Preto, Nilson Arerê, and Paulão Muzenza. These gatherings were legendary for their intensity—"his roda only had bambas, tough guys", recalled Mestre Valdir Sales.
 
 In São Paulo, Paulo Gomes became one of the founders of a new capoeira community. In 1985, he created the Associação do Brasil da Capoeira (ABRACAP—Brazilian Capoeira Association). That same year, he helped establish State Law nº 4.649, designating August 3rd as "Dia do Capoeirista" (Capoeirista Day) in São Paulo. He served as an advisor to Governor Mário Covas on capoeira-related matters.
 
-Among his São Paulo students was Mestra Maria Pandeiro (Roberta Maria Neves), who began training with him in 1980 at the Academia Ilha de Maré. She later founded Capoeira Dandara in Bremen, Germany (2002). Another notable student was Jorginho (Jorge Machado Silva), a 12-year-old prodigy of whom Paulo Gomes said: "This kid is the great hope of capoeira regional, he''s too good."
+Among his São Paulo students was Mestra Maria Pandeiro (Roberta Maria Neves), who began training with him in 1980 at the Academia Ilha de Maré. She later founded Capoeira Dandara in Bremen, Germany (2002). Another notable student was Jorginho (Jorge Machado Silva), a 12-year-old prodigy of whom Paulo Gomes said: "This kid is the great hope of capoeira regional, he''s too good".
 
 He published a book, *Capoeira: a arte marcial brasileira* (Capoeira: The Brazilian Martial Art), and recorded a CD, *Roda de Capoeira da Ilha de Maré*.
 
@@ -102,15 +102,15 @@ Na capital carioca, Paulo Gomes aprendeu capoeira com Mestre Artur Emídio, tamb
 
 Sua genealogia capoeirística traça uma linhagem baiana distinta: "filho" de Mestre Artur Emídio (1930-2011), "neto" de Mestre Paizinho (Teodoro Ramos) e "bisneto" de Mestre Neném, um capoeirista de origem africana.
 
-Em 11 de junho de 1963, Paulo Gomes fundou o Centro de Capoeira Ilha de Maré—supostamente o primeiro a institucionalizar o batizado como ritual formal de graduação na capoeira. Em 1967, estabeleceu uma academia na Rua Augusta 1351, em São Paulo. Ele lembrava que, enquanto tinha 30 alunos homens lá, "no Rio, em três anos, formei mais de 30 mulheres."
+Em 11 de junho de 1963, Paulo Gomes fundou o Centro de Capoeira Ilha de Maré—supostamente o primeiro a institucionalizar o batizado como ritual formal de graduação na capoeira. Em 1967, estabeleceu uma academia na Rua Augusta 1351, em São Paulo. Ele lembrava que, enquanto tinha 30 alunos homens lá, "no Rio, em três anos, formei mais de 30 mulheres".
 
 Nos anos 1960, Paulo Gomes mudou-se para a Baixada Fluminense, especificamente para São João de Meriti, no bairro Coelho da Rocha. Ali tornou-se uma figura fundamental, treinando mestres que estabeleceriam a capoeira por toda a região. Seus principais discípulos incluíam Mestre Valdir Sales (1942-2019), que fundou a Associação de Capoeira Valdir Sales em São João de Meriti, e Mestre Josias da Silva, que estabeleceu a Associação de Capoeira Josias da Silva em Nova Iguaçu e Duque de Caxias.
 
-A famosa roda de domingo na academia de Zé Pedro em Bonsucesso (1973-1979) contava com Paulo Gomes entre seus participantes regulares, ao lado de Artur Emídio, Mintirinha, Khorvo, Luis Malhado, Macaco Preto, Nilson Arerê e Paulão Muzenza. Esses encontros eram lendários por sua intensidade—"a roda dele só tinha bamba, cara duro," recordou Mestre Valdir Sales.
+A famosa roda de domingo na academia de Zé Pedro em Bonsucesso (1973-1979) contava com Paulo Gomes entre seus participantes regulares, ao lado de Artur Emídio, Mintirinha, Khorvo, Luis Malhado, Macaco Preto, Nilson Arerê e Paulão Muzenza. Esses encontros eram lendários por sua intensidade—"a roda dele só tinha bamba, cara duro", recordou Mestre Valdir Sales.
 
 Em São Paulo, Paulo Gomes tornou-se um dos fundadores de uma nova comunidade de capoeira. Em 1985, criou a Associação do Brasil da Capoeira (ABRACAP). Nesse mesmo ano, ajudou a estabelecer a Lei Estadual nº 4.649, designando 3 de agosto como "Dia do Capoeirista" em São Paulo. Serviu como assessor do Governador Mário Covas em assuntos relacionados à capoeira.
 
-Entre seus alunos paulistanos estava Mestra Maria Pandeiro (Roberta Maria Neves), que começou a treinar com ele em 1980 na Academia Ilha de Maré. Ela posteriormente fundou a Capoeira Dandara em Bremen, Alemanha (2002). Outro aluno notável foi Jorginho (Jorge Machado Silva), um prodígio de 12 anos sobre quem Paulo Gomes disse: "Este garoto é a grande esperança da capoeira regional, ele é bom demais."
+Entre seus alunos paulistanos estava Mestra Maria Pandeiro (Roberta Maria Neves), que começou a treinar com ele em 1980 na Academia Ilha de Maré. Ela posteriormente fundou a Capoeira Dandara em Bremen, Alemanha (2002). Outro aluno notável foi Jorginho (Jorge Machado Silva), um prodígio de 12 anos sobre quem Paulo Gomes disse: "Este garoto é a grande esperança da capoeira regional, ele é bom demais".
 
 Publicou um livro, *Capoeira: a arte marcial brasileira*, e gravou um CD, *Roda de Capoeira da Ilha de Maré*.
 
@@ -142,7 +142,7 @@ Seu velório foi realizado no salão da academia, repleto de homenagens de mestr
   -- Researcher notes (English)
   E'BIRTH DATE: January 25, 1941 - Confirmed by both capoeirahistory.com and velhosmestres.com.
 
-DEATH DATE: September 23, 1998 - Velhosmestres.com provides exact date; capoeirahistory.com lists only "1998." Death occurred inside his academy during evening class.
+DEATH DATE: September 23, 1998 - Velhosmestres.com provides exact date; capoeirahistory.com lists only "1998". Death occurred inside his academy during evening class.
 
 ALTERNATE APELIDO: Velhosmestres.com mentions "Galo Cego" as an alternate apelido, but this is not widely used in other sources. "Paulo Gomes" is the primary name used in lineage references.
 
@@ -175,7 +175,7 @@ SOURCES CONSULTED:
   -- Researcher notes (Portuguese)
   E'DATA DE NASCIMENTO: 25 de janeiro de 1941 - Confirmado por capoeirahistory.com e velhosmestres.com.
 
-DATA DE FALECIMENTO: 23 de setembro de 1998 - Velhosmestres.com fornece data exata; capoeirahistory.com lista apenas "1998." A morte ocorreu dentro de sua academia durante aula noturna.
+DATA DE FALECIMENTO: 23 de setembro de 1998 - Velhosmestres.com fornece data exata; capoeirahistory.com lista apenas "1998". A morte ocorreu dentro de sua academia durante aula noturna.
 
 APELIDO ALTERNATIVO: Velhosmestres.com menciona "Galo Cego" como apelido alternativo, mas não é amplamente usado em outras fontes. "Paulo Gomes" é o nome principal usado em referências de linhagem.
 

@@ -21,11 +21,11 @@
 
 Sérgio Fachinetti Dória, known as Mestre Cafuné, was born in 1938 in Salvador, Bahia. He works as a carpenter (marceneiro) and has dedicated over five decades to capoeira.
 
-In 1966, Cafuné read an interview with Mestre Bimba in a newspaper and was inspired to seek out the legendary creator of Capoeira Regional. He traveled a considerable distance from the Polo Petroquímico de Camaçari, where he worked, to the historic Pelourinho district in Salvador. He recalls being a timid, fearful person at the time: "I passed through Baixa dos Sapateiros with fear and climbed the hill with my legs trembling."
+In 1966, Cafuné read an interview with Mestre Bimba in a newspaper and was inspired to seek out the legendary creator of Capoeira Regional. He traveled a considerable distance from the Polo Petroquímico de Camaçari, where he worked, to the historic Pelourinho district in Salvador. He recalls being a timid, fearful person at the time: "I passed through Baixa dos Sapateiros with fear and climbed the hill with my legs trembling".
 
-When he first knocked on the door of Bimba's Centro de Cultura Física Regional, he was turned away. He soon discovered a small sign on the door that read: "Visit, 2 thousand cruzeiros. Monthly fee, 2 thousand cruzeiros." Rather than pay for a mere visit, Cafuné decided to pay the monthly fee and returned to enroll as a student. Bimba gave him his first lesson that day.
+When he first knocked on the door of Bimba's Centro de Cultura Física Regional, he was turned away. He soon discovered a small sign on the door that read: "Visit, 2 thousand cruzeiros. Monthly fee, 2 thousand cruzeiros". Rather than pay for a mere visit, Cafuné decided to pay the monthly fee and returned to enroll as a student. Bimba gave him his first lesson that day.
 
-From his very first class, Bimba imparted wisdom that extended beyond physical technique: "When you arrive somewhere, don't enter immediately. First you observe, see when you can enter, when you can exit, be careful." This teaching became a guiding philosophy for Cafuné: "He taught us to have respect for spaces, be more observant, more balanced—it's something with a very broad meaning."
+From his very first class, Bimba imparted wisdom that extended beyond physical technique: "When you arrive somewhere, don't enter immediately. First you observe, see when you can enter, when you can exit, be careful". This teaching became a guiding philosophy for Cafuné: "He taught us to have respect for spaces, be more observant, more balanced—it's something with a very broad meaning".
 
 Cafuné remained a student at Bimba's academy until the master departed for Goiânia in 1971. During this time, the batizado ceremonies took place on Sundays at the academy in Nordeste de Amaralina. It was at his batizado that Bimba personally bestowed his nickname: after Cafuné's first game in a complete roda, the master declared, "his name is Cafuné—he doesn't play capoeira, he does cafuné" (referring to a gentle caress).
 
@@ -43,13 +43,13 @@ In January 2024, at 85 years old, Mestre Cafuné was among 14 octogenarian capoe
 
 Sérgio Fachinetti Dória, conhecido como Mestre Cafuné, nasceu em 1938 em Salvador, Bahia. Trabalha como marceneiro e dedicou mais de cinco décadas à capoeira.
 
-Em 1966, Cafuné leu uma entrevista com Mestre Bimba em um jornal e foi inspirado a procurar o lendário criador da Capoeira Regional. Viajou uma distância considerável do Polo Petroquímico de Camaçari, onde trabalhava, até o histórico bairro do Pelourinho em Salvador. Ele recorda ter sido uma pessoa tímida e medrosa na época: "Passava pela Baixa dos Sapateiros com medo e subia a ladeira com as pernas tremendo."
+Em 1966, Cafuné leu uma entrevista com Mestre Bimba em um jornal e foi inspirado a procurar o lendário criador da Capoeira Regional. Viajou uma distância considerável do Polo Petroquímico de Camaçari, onde trabalhava, até o histórico bairro do Pelourinho em Salvador. Ele recorda ter sido uma pessoa tímida e medrosa na época: "Passava pela Baixa dos Sapateiros com medo e subia a ladeira com as pernas tremendo".
 
-Quando bateu pela primeira vez na porta do Centro de Cultura Física Regional de Bimba, foi dispensado. Logo descobriu uma pequena placa na porta que dizia: "Visita, 2 mil cruzeiros. Mensalidade, 2 mil cruzeiros." Ao invés de pagar por uma mera visita, Cafuné decidiu pagar a mensalidade e voltou para se matricular como aluno. Bimba deu-lhe sua primeira aula naquele dia.
+Quando bateu pela primeira vez na porta do Centro de Cultura Física Regional de Bimba, foi dispensado. Logo descobriu uma pequena placa na porta que dizia: "Visita, 2 mil cruzeiros. Mensalidade, 2 mil cruzeiros". Ao invés de pagar por uma mera visita, Cafuné decidiu pagar a mensalidade e voltou para se matricular como aluno. Bimba deu-lhe sua primeira aula naquele dia.
 
-Desde sua primeira aula, Bimba transmitiu sabedoria que ia além da técnica física: "Quando você chegar em algum lugar, não entre imediatamente. Primeiro você observa, vê quando pode entrar, quando pode sair, tenha cuidado." Este ensinamento tornou-se uma filosofia orientadora para Cafuné: "Ele nos ensinou a ter respeito pelos espaços, ser mais observador, mais equilibrado—é algo com um significado muito amplo."
+Desde sua primeira aula, Bimba transmitiu sabedoria que ia além da técnica física: "Quando você chegar em algum lugar, não entre imediatamente. Primeiro você observa, vê quando pode entrar, quando pode sair, tenha cuidado". Este ensinamento tornou-se uma filosofia orientadora para Cafuné: "Ele nos ensinou a ter respeito pelos espaços, ser mais observador, mais equilibrado—é algo com um significado muito amplo".
 
-Cafuné permaneceu como aluno na academia de Bimba até a partida do mestre para Goiânia em 1971. Durante esse tempo, as cerimônias de batizado aconteciam aos domingos na academia do Nordeste de Amaralina. Foi em seu batizado que Bimba pessoalmente lhe deu o apelido: após o primeiro jogo de Cafuné em uma roda completa, o mestre declarou: "o nome dele é Cafuné—ele não joga capoeira, ele faz cafuné."
+Cafuné permaneceu como aluno na academia de Bimba até a partida do mestre para Goiânia em 1971. Durante esse tempo, as cerimônias de batizado aconteciam aos domingos na academia do Nordeste de Amaralina. Foi em seu batizado que Bimba pessoalmente lhe deu o apelido: após o primeiro jogo de Cafuné em uma roda completa, o mestre declarou: "o nome dele é Cafuné—ele não joga capoeira, ele faz cafuné".
 
 Cafuné formou-se em agosto de 1967, conquistando o direito de ensinar.
 
@@ -155,10 +155,10 @@ Cafuné is a direct disciple of Mestre Bimba (1899-1974), the creator of Capoeir
 Most sources consistently point to 1938.
 
 ### Name
-Full name confirmed as **Sérgio Fachinetti Dória** (EDUFBA, Clínica de Capoeira). Some sources use the shortened form "Sérgio Dória."
+Full name confirmed as **Sérgio Fachinetti Dória** (EDUFBA, Clínica de Capoeira). Some sources use the shortened form "Sérgio Dória".
 
 ### Apelido Origin
-Mestre Bimba personally named him "Cafuné" at his batizado ceremony, declaring: "his name is Cafuné—he doesn't play capoeira, he does cafuné." The word "cafuné" refers to a gentle caress or the act of running fingers through someone's hair.
+Mestre Bimba personally named him "Cafuné" at his batizado ceremony, declaring: "his name is Cafuné—he doesn't play capoeira, he does cafuné". The word "cafuné" refers to a gentle caress or the act of running fingers through someone's hair.
 
 ### Cultural Context
 Cafuné practices Candomblé, maintaining the connection between capoeira and Afro-Brazilian spiritual traditions that was important to Mestre Bimba himself.

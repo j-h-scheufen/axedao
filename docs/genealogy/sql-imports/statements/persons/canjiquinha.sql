@@ -57,7 +57,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1986-09-16'::date, 'exact'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": {"en": "Recorded landmark LP together at Boca do Rio studio, Salvador. Both described as heirs of capoeira roots from Siri de Mangue and Aberrê.", "pt": "Gravaram LP marcante juntos no estúdio Boca do Rio, Salvador. Ambos descritos como herdeiros das raízes da capoeira de Siri de Mangue e Aberrê."}}'::jsonb,
+  '{"association_context": {"en": "Recorded landmark LP together at Boca do Rio studio, Salvador. Both described as heirs of capoeira roots from Siri de Mangue and Aberrê"., "pt": "Gravaram LP marcante juntos no estúdio Boca do Rio, Salvador. Ambos descritos como herdeiros das raízes da capoeira de Siri de Mangue e Aberrê".}}'::jsonb,
   'verified'::genealogy.confidence,
   'velhosmestres.com/en/waldemar-1986, Discogs',
   'Canjiquinha and Waldemar recorded a 34-track LP on September 16, 1986 at Boca do Rio studio in Salvador. Liner notes by Mestre Itapoan described them as "heirs of the roots" from masters Siri de Mangue and Aberrê. Chorus included Mestres Itapoan, Suassuna, Ezequiel, and Geni.',
@@ -81,8 +81,8 @@ SELECT
   NULL, NULL,
   '{"instruction_type": "berimbau"}'::jsonb, 'verified'::genealogy.confidence,
   'velhosmestres.com/en/featured-39',
-  'Canjiquinha learned berimbau from Zeca do Uruguai. He recalled: "He showed me how to play, taught me rhythms and lots of songs... that the berimbau reigns the capoeira roda." This was berimbau instruction specifically, not primary capoeira training (which was under Aberrê).',
-  'Canjiquinha aprendeu berimbau com Zeca do Uruguai. Ele lembrava: "Ele me mostrou como tocar, me ensinou ritmos e muitas cantigas... que o berimbau manda na roda de capoeira." Esta foi instrução de berimbau especificamente, não treinamento principal de capoeira (que foi com Aberrê).'
+  'Canjiquinha learned berimbau from Zeca do Uruguai. He recalled: "He showed me how to play, taught me rhythms and lots of songs... that the berimbau reigns the capoeira roda". This was berimbau instruction specifically, not primary capoeira training (which was under Aberrê).',
+  'Canjiquinha aprendeu berimbau com Zeca do Uruguai. Ele lembrava: "Ele me mostrou como tocar, me ensinou ritmos e muitas cantigas... que o berimbau manda na roda de capoeira". Esta foi instrução de berimbau especificamente, não treinamento principal de capoeira (que foi com Aberrê).'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Canjiquinha' AND o.apelido = 'Zeca do Uruguai'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

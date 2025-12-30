@@ -130,7 +130,7 @@ Apesar de documentação mínima, Sete representa um nó de linhagem importante:
 - Para Gegê → Capoeira contemporânea do Rio, especialmente Duque de Caxias
 
 **REQUISITO DE DESAMBIGUAÇÃO:**
-Usa `apelido_context = 'Gegê teacher'` no banco de dados para distinguir de outros capoeiristas "Sete," particularmente Sete Coroas (Rio), Sete Mortes (Bahia), Bola Sete (aluno de Pastinha) e Sete Molas (roda de Waldemar).
+Usa `apelido_context = 'Gegê teacher'` no banco de dados para distinguir de outros capoeiristas "Sete", particularmente Sete Coroas (Rio), Sete Mortes (Bahia), Bola Sete (aluno de Pastinha) e Sete Molas (roda de Waldemar).
 
 ---
 

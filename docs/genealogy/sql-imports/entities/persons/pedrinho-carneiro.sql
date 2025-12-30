@@ -66,17 +66,17 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Pedrinho was one of ten children born to the Carneiro family at Fazenda Estiva, a farm in the interior of Jacobina, Bahia. His eldest brother, Edvaldo Carneiro e Silva, would become the legendary Grão-Mestre Camisa Roxa, considered the best student of Mestre Bimba.
 
-When Camisa Roxa''s father died around 1965, the twenty-one-year-old eldest brother became the family patriarch. As Mestre Camisa later recalled, "He was a second father to us." Under his guidance and example, three of his younger brothers—Ermival, Pedrinho, and José Tadeu—followed him to Salvador to train capoeira with Mestre Bimba.
+When Camisa Roxa''s father died around 1965, the twenty-one-year-old eldest brother became the family patriarch. As Mestre Camisa later recalled, "He was a second father to us". Under his guidance and example, three of his younger brothers—Ermival, Pedrinho, and José Tadeu—followed him to Salvador to train capoeira with Mestre Bimba.
 
-Pedrinho joined Mestre Bimba''s academy in Salvador, likely in the mid-to-late 1960s. Along with Ermival and José Tadeu, he completed the rigorous training regimen and graduated as an aluno formado—a formally graduated student of the Academia de Mestre Bimba. According to Mestre Camisa, he was "the fourth in my family to graduate from Mestre Bimba''s capoeira course," which places Pedrinho and Ermival as the second and third graduates before him.
+Pedrinho joined Mestre Bimba''s academy in Salvador, likely in the mid-to-late 1960s. Along with Ermival and José Tadeu, he completed the rigorous training regimen and graduated as an aluno formado—a formally graduated student of the Academia de Mestre Bimba. According to Mestre Camisa, he was "the fourth in my family to graduate from Mestre Bimba''s capoeira course", which places Pedrinho and Ermival as the second and third graduates before him.
 
 The Carneiro family of Jacobina represents one of the most significant capoeira dynasties of the 20th century. From this single family at Fazenda Estiva came four brothers who trained at Mestre Bimba''s academy (the family''s fifth capoeirista remains unidentified). While Camisa Roxa became one of the pioneers who brought capoeira to Europe, and José Tadeu (Mestre Camisa) went on to found Abadá-Capoeira in 1988, Pedrinho''s role in this family tradition—though less publicly documented—was part of the foundation that made this family legacy possible.',
   -- bio_pt
   E'Pedrinho foi um dos dez filhos nascidos da família Carneiro na Fazenda Estiva, uma fazenda no interior de Jacobina, Bahia. Seu irmão mais velho, Edvaldo Carneiro e Silva, se tornaria o lendário Grão-Mestre Camisa Roxa, considerado o melhor aluno de Mestre Bimba.
 
-Quando o pai de Camisa Roxa faleceu por volta de 1965, o irmão mais velho de vinte e um anos tornou-se o patriarca da família. Como Mestre Camisa recordou mais tarde, "Ele foi um segundo pai para nós." Sob sua orientação e exemplo, três de seus irmãos mais novos—Ermival, Pedrinho e José Tadeu—o seguiram até Salvador para treinar capoeira com Mestre Bimba.
+Quando o pai de Camisa Roxa faleceu por volta de 1965, o irmão mais velho de vinte e um anos tornou-se o patriarca da família. Como Mestre Camisa recordou mais tarde, "Ele foi um segundo pai para nós". Sob sua orientação e exemplo, três de seus irmãos mais novos—Ermival, Pedrinho e José Tadeu—o seguiram até Salvador para treinar capoeira com Mestre Bimba.
 
-Pedrinho ingressou na academia de Mestre Bimba em Salvador, provavelmente em meados ou final dos anos 1960. Junto com Ermival e José Tadeu, ele completou o rigoroso regime de treinamento e formou-se como aluno formado—um aluno formalmente graduado da Academia de Mestre Bimba. Segundo Mestre Camisa, ele foi "o quarto da minha família a se formar no curso de capoeira de Mestre Bimba," o que coloca Pedrinho e Ermival como segundo e terceiro formados antes dele.
+Pedrinho ingressou na academia de Mestre Bimba em Salvador, provavelmente em meados ou final dos anos 1960. Junto com Ermival e José Tadeu, ele completou o rigoroso regime de treinamento e formou-se como aluno formado—um aluno formalmente graduado da Academia de Mestre Bimba. Segundo Mestre Camisa, ele foi "o quarto da minha família a se formar no curso de capoeira de Mestre Bimba", o que coloca Pedrinho e Ermival como segundo e terceiro formados antes dele.
 
 A família Carneiro de Jacobina representa uma das dinastias de capoeira mais significativas do século XX. Desta única família da Fazenda Estiva saíram quatro irmãos que treinaram na academia de Mestre Bimba (o quinto capoeirista da família permanece não identificado). Enquanto Camisa Roxa se tornou um dos pioneiros que levaram a capoeira para a Europa, e José Tadeu (Mestre Camisa) fundou a Abadá-Capoeira em 1988, o papel de Pedrinho nesta tradição familiar—embora menos documentado publicamente—foi parte da fundação que tornou este legado familiar possível.',
   -- achievements_en
@@ -85,10 +85,10 @@ A família Carneiro de Jacobina representa uma das dinastias de capoeira mais si
   E'Formou-se como aluno formado da academia de Mestre Bimba em Salvador; Membro da dinastia de capoeira Carneiro de Jacobina, Bahia',
   -- notes_en
   E'BIRTH YEAR ESTIMATION (1950, decade):
-Camisa Roxa (eldest brother) born January 7, 1944. Mestre Camisa (José Tadeu, youngest of the four brothers who trained with Bimba) born October 28, 1955. Mestre Camisa stated he was "the fourth in my family to graduate from Mestre Bimba''s capoeira course," suggesting Ermival, Pedrinho, and Camisa Roxa graduated before him. Pedrinho is described as a younger brother of Camisa Roxa. Reasonable estimate places his birth in the late 1940s to early 1950s. Using 1950 as midpoint with decade precision.
+Camisa Roxa (eldest brother) born January 7, 1944. Mestre Camisa (José Tadeu, youngest of the four brothers who trained with Bimba) born October 28, 1955. Mestre Camisa stated he was "the fourth in my family to graduate from Mestre Bimba''s capoeira course", suggesting Ermival, Pedrinho, and Camisa Roxa graduated before him. Pedrinho is described as a younger brother of Camisa Roxa. Reasonable estimate places his birth in the late 1940s to early 1950s. Using 1950 as midpoint with decade precision.
 
 NAME:
-Only "Pedrinho" documented in sources. Full name likely "Pedro Carneiro" following family pattern but not confirmed. Birth records from Jacobina could potentially confirm. "Pedrinho" is diminutive form of "Pedro."
+Only "Pedrinho" documented in sources. Full name likely "Pedro Carneiro" following family pattern but not confirmed. Birth records from Jacobina could potentially confirm. "Pedrinho" is diminutive form of "Pedro".
 
 APELIDO_CONTEXT:
 Using "Carneiro" to distinguish from other capoeiristas named "Pedrinho" (e.g., Pedrinho Fio do Ouro mentioned in sources as teacher of Mestre Cigano in 1972 Bahia).
@@ -116,10 +116,10 @@ DEATH: Unknown. No documentation found.
 TITLE: Listed as aluno formado (not mestre). No evidence found that he received mestre title.',
   -- notes_pt
   E'ESTIMATIVA ANO DE NASCIMENTO (1950, década):
-Camisa Roxa (irmão mais velho) nasceu 7 de janeiro de 1944. Mestre Camisa (José Tadeu, mais novo dos quatro irmãos que treinaram com Bimba) nasceu 28 de outubro de 1955. Mestre Camisa afirmou que foi "o quarto da minha família a se formar no curso de capoeira de Mestre Bimba," sugerindo que Ermival, Pedrinho e Camisa Roxa se formaram antes dele. Pedrinho é descrito como irmão mais novo de Camisa Roxa. Estimativa razoável coloca seu nascimento no final dos anos 1940 ou início dos anos 1950. Usando 1950 como ponto médio com precisão de década.
+Camisa Roxa (irmão mais velho) nasceu 7 de janeiro de 1944. Mestre Camisa (José Tadeu, mais novo dos quatro irmãos que treinaram com Bimba) nasceu 28 de outubro de 1955. Mestre Camisa afirmou que foi "o quarto da minha família a se formar no curso de capoeira de Mestre Bimba", sugerindo que Ermival, Pedrinho e Camisa Roxa se formaram antes dele. Pedrinho é descrito como irmão mais novo de Camisa Roxa. Estimativa razoável coloca seu nascimento no final dos anos 1940 ou início dos anos 1950. Usando 1950 como ponto médio com precisão de década.
 
 NOME:
-Apenas "Pedrinho" documentado nas fontes. Nome completo provavelmente "Pedro Carneiro" seguindo padrão familiar, mas não confirmado. Registros de nascimento de Jacobina poderiam potencialmente confirmar. "Pedrinho" é forma diminutiva de "Pedro."
+Apenas "Pedrinho" documentado nas fontes. Nome completo provavelmente "Pedro Carneiro" seguindo padrão familiar, mas não confirmado. Registros de nascimento de Jacobina poderiam potencialmente confirmar. "Pedrinho" é forma diminutiva de "Pedro".
 
 APELIDO_CONTEXT:
 Usando "Carneiro" para distinguir de outros capoeiristas chamados "Pedrinho" (ex: Pedrinho Fio do Ouro mencionado nas fontes como professor de Mestre Cigano em 1972 na Bahia).

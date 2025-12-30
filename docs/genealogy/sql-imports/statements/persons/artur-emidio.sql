@@ -61,7 +61,7 @@ SELECT
   'person'::genealogy.entity_type, o.id,
   '1967-01-01'::date, 'year'::genealogy.date_precision,
   NULL, NULL,
-  '{"association_context": "Met at 1967 capoeira symposium at Campos dos Afonsos, Rio de Janeiro. Artur Emídio later described their relationship as \"somewhat conflictual.\" Photo of them together exists from this event."}'::jsonb,
+  '{"association_context": "Met at 1967 capoeira symposium at Campos dos Afonsos, Rio de Janeiro. Artur Emídio later described their relationship as \"somewhat conflictual.\" Photo of them together exists from this event".}'::jsonb,
   'verified'::genealogy.confidence,
   'velhosmestres.com/en/featured-69; nossa-tribo.com/mestre-artur-emidio/',
   'Documented meeting at 1967 symposium. Not a teacher-student relationship. Artur''s academy was described as based on "the systematized method of Mestre Bimba" but this was learned through his own lineage (Paizinho), not directly from Bimba.',

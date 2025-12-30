@@ -52,13 +52,13 @@ INSERT INTO genealogy.person_profiles (
   -- bio_en
   E'Talabi was a capoeira mestre from Periperi, a working-class neighborhood in Salvador''s Subúrbio Ferroviário (railway suburbs). He taught at what became known as the "roda danada"—the "mad roda" or "wild roda"—where the old mestres of Salvador gathered in the 1930s to play capoeira before the era of formal academies.
 
-Mestre Waldemar da Paixão identified Talabi as his third teacher in a 1989 interview: "I learned capoeira in 1936 in Periperi and my name is Waldemar Rodrigues da Paixão. I had four mestres: Siri de Mangue, one; Canário Pardo, two; Talavi, three, and Ricardo from Ilha de Maré, four." The 1970 Diário de Notícias article about Waldemar also references him as "a student of Mestre Talabi de Periperi," confirming the teaching relationship.
+Mestre Waldemar da Paixão identified Talabi as his third teacher in a 1989 interview: "I learned capoeira in 1936 in Periperi and my name is Waldemar Rodrigues da Paixão. I had four mestres: Siri de Mangue, one; Canário Pardo, two; Talavi, three, and Ricardo from Ilha de Maré, four". The 1970 Diário de Notícias article about Waldemar also references him as "a student of Mestre Talabi de Periperi", confirming the teaching relationship.
 
-Waldemar described discovering capoeira when he saw the roda at Periperi: "All the old Mestres were there and I asked to learn." This was a time when capoeira had just been legalized (1937) but was still practiced informally in the streets and empty lots. As Waldemar recalled, "At those times there wasn''t any Academy. There was only that roda in Periperi and the Academy was everywhere there was a good shadow from the sun."
+Waldemar described discovering capoeira when he saw the roda at Periperi: "All the old Mestres were there and I asked to learn". This was a time when capoeira had just been legalized (1937) but was still practiced informally in the streets and empty lots. As Waldemar recalled, "At those times there wasn''t any Academy. There was only that roda in Periperi and the Academy was everywhere there was a good shadow from the sun".
 
 The "roda danada" at Periperi was one of the key gathering points for capoeiristas in Salvador before the academy era. Mestres like Siri de Mangue, Canário Pardo, Talabi, and others would come together on Sundays and holidays to play. This was rough, street capoeira—the kind that would later be refined and preserved by Mestre Pastinha and others as Capoeira Angola, but in the 1930s it existed in a less codified form.
 
-Talabi''s apelido has multiple spelling variations in the historical record: Talabi, Talavi, Telabi, and sometimes "Calabi." The phrase "de Periperi" (of Periperi) appears frequently with his name, indicating his strong association with that neighborhood. This location-based identification was common among capoeiristas of this era, distinguishing them from others who might share the same nickname.
+Talabi''s apelido has multiple spelling variations in the historical record: Talabi, Talavi, Telabi, and sometimes "Calabi". The phrase "de Periperi" (of Periperi) appears frequently with his name, indicating his strong association with that neighborhood. This location-based identification was common among capoeiristas of this era, distinguishing them from others who might share the same nickname.
 
 Beyond his role teaching Waldemar, almost nothing else is documented about Talabi''s life. Like many capoeiristas of his generation, he left no written records, no photographs, and only the memories preserved in oral testimony. Yet his influence lives on through Mestre Waldemar, whose Barracão in Liberdade became one of the most important sites in capoeira history. Waldemar''s students—including figures who would shape capoeira''s global expansion—carry forward the teachings that Talabi helped transmit at that mad roda in Periperi.
 
@@ -66,13 +66,13 @@ The fact that Waldemar sought out four different mestres to learn from speaks to
   -- bio_pt
   E'Talabi era um mestre de capoeira de Periperi, um bairro popular no Subúrbio Ferroviário de Salvador. Ele ensinava no que ficou conhecida como a "roda danada"—a roda louca ou selvagem—onde os mestres antigos de Salvador se reuniam nos anos 1930 para jogar capoeira antes da era das academias formais.
 
-Mestre Waldemar da Paixão identificou Talabi como seu terceiro mestre em uma entrevista de 1989: "Aprendi capoeira em 1936 em Periperi e me chamo Waldemar Rodrigues da Paixão. Tive quatro mestres: Siri de Mangue, um; Canário Pardo, dois; Talavi, três e Ricardo de Ilha de Maré, quatro." O artigo do Diário de Notícias de 1970 sobre Waldemar também o referencia como "aluno de Mestre Talabi de Periperi," confirmando a relação de ensino.
+Mestre Waldemar da Paixão identificou Talabi como seu terceiro mestre em uma entrevista de 1989: "Aprendi capoeira em 1936 em Periperi e me chamo Waldemar Rodrigues da Paixão. Tive quatro mestres: Siri de Mangue, um; Canário Pardo, dois; Talavi, três e Ricardo de Ilha de Maré, quatro". O artigo do Diário de Notícias de 1970 sobre Waldemar também o referencia como "aluno de Mestre Talabi de Periperi", confirmando a relação de ensino.
 
-Waldemar descreveu a descoberta da capoeira quando viu a roda em Periperi: "Todos os Mestres antigos estavam lá e eu pedi para aprender." Era uma época em que a capoeira havia acabado de ser legalizada (1937) mas ainda era praticada informalmente nas ruas e terrenos baldios. Como Waldemar recordou, "Naquele tempo não havia Academia. Havia apenas aquela roda em Periperi e a Academia era em todo lugar que havia uma boa sombra do sol."
+Waldemar descreveu a descoberta da capoeira quando viu a roda em Periperi: "Todos os Mestres antigos estavam lá e eu pedi para aprender". Era uma época em que a capoeira havia acabado de ser legalizada (1937) mas ainda era praticada informalmente nas ruas e terrenos baldios. Como Waldemar recordou, "Naquele tempo não havia Academia. Havia apenas aquela roda em Periperi e a Academia era em todo lugar que havia uma boa sombra do sol".
 
 A "roda danada" de Periperi era um dos principais pontos de encontro para capoeiristas em Salvador antes da era das academias. Mestres como Siri de Mangue, Canário Pardo, Talabi e outros se reuniam aos domingos e feriados para jogar. Era uma capoeira dura, de rua—o tipo que mais tarde seria refinado e preservado por Mestre Pastinha e outros como Capoeira Angola, mas nos anos 1930 existia em uma forma menos codificada.
 
-O apelido de Talabi tem múltiplas variações ortográficas no registro histórico: Talabi, Talavi, Telabi e às vezes "Calabi." A frase "de Periperi" aparece frequentemente com seu nome, indicando sua forte associação com aquele bairro. Esta identificação baseada em localização era comum entre capoeiristas desta época, distinguindo-os de outros que poderiam compartilhar o mesmo apelido.
+O apelido de Talabi tem múltiplas variações ortográficas no registro histórico: Talabi, Talavi, Telabi e às vezes "Calabi". A frase "de Periperi" aparece frequentemente com seu nome, indicando sua forte associação com aquele bairro. Esta identificação baseada em localização era comum entre capoeiristas desta época, distinguindo-os de outros que poderiam compartilhar o mesmo apelido.
 
 Além de seu papel ensinando Waldemar, quase nada mais está documentado sobre a vida de Talabi. Como muitos capoeiristas de sua geração, ele não deixou registros escritos, nem fotografias, apenas as memórias preservadas em testemunho oral. No entanto, sua influência vive através de Mestre Waldemar, cujo Barracão na Liberdade se tornou um dos locais mais importantes da história da capoeira. Os alunos de Waldemar—incluindo figuras que moldariam a expansão global da capoeira—levam adiante os ensinamentos que Talabi ajudou a transmitir naquela roda danada em Periperi.
 
@@ -93,7 +93,7 @@ NAME: Full name unknown. Known by apelido only. Name variations in sources inclu
 - Calabi (variant spelling)
 All confirmed to refer to the same person through context.
 
-LOCATION: Strongly associated with Periperi neighborhood, hence "Talabi de Periperi." Periperi is located in Salvador''s Subúrbio Ferroviário (railway suburbs), a working-class area that was a center of Afro-Brazilian culture.
+LOCATION: Strongly associated with Periperi neighborhood, hence "Talabi de Periperi". Periperi is located in Salvador''s Subúrbio Ferroviário (railway suburbs), a working-class area that was a center of Afro-Brazilian culture.
 
 TEACHING CONTEXT: Part of the informal street roda culture of pre-academy capoeira. The "roda danada" (mad/wild roda) at Periperi was one of several key gathering points for capoeiristas in 1930s Salvador.
 
@@ -118,7 +118,7 @@ NOME: Nome completo desconhecido. Conhecido apenas pelo apelido. Variações de 
 - Calabi (variante ortográfica)
 Todos confirmados como referindo-se à mesma pessoa através do contexto.
 
-LOCAL: Fortemente associado ao bairro de Periperi, daí "Talabi de Periperi." Periperi está localizado no Subúrbio Ferroviário de Salvador, uma área popular que era um centro da cultura afro-brasileira.
+LOCAL: Fortemente associado ao bairro de Periperi, daí "Talabi de Periperi". Periperi está localizado no Subúrbio Ferroviário de Salvador, uma área popular que era um centro da cultura afro-brasileira.
 
 CONTEXTO DE ENSINO: Parte da cultura informal de roda de rua da capoeira pré-academia. A "roda danada" em Periperi era um dos vários pontos-chave de encontro para capoeiristas na Salvador dos anos 1930.
 

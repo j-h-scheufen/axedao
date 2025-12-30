@@ -34,7 +34,7 @@ The pinnacle of Roberto Satanás's capoeira career came in April 1966, when he w
 
 At the Dakar festival, Pastinha was too frail to play. Instead, his students - Gato, Roberto, and Gildo - performed while Camafeu played the berimbau. Their presentation was met with tremendous applause from the African audience, representing a symbolic return of capoeira to its continental roots. President Léopold Sédar Senghor of Senegal, champion of the Négritude movement, was present at the event.
 
-In 1969, Roberto Satanás was one of the singers on Mestre Pastinha's historic LP "Capoeira Angola - Mestre Pastinha e sua Academia," recorded live at Teatro Castro Alves in Salvador alongside Pastinha and Waldomiro Malvadeza.
+In 1969, Roberto Satanás was one of the singers on Mestre Pastinha's historic LP "Capoeira Angola - Mestre Pastinha e sua Academia", recorded live at Teatro Castro Alves in Salvador alongside Pastinha and Waldomiro Malvadeza.
 
 Remarkably, shortly after the triumphant Dakar journey, Roberto Satanás left capoeira entirely. He pursued higher education, graduating in architecture, and later became a karate master. On September 24, 1970, he co-founded ARKA Empreendimentos Ltd., and by 2014 was serving as President of the Bidding Committee of DERBA (Bahia's Department of Transportation Infrastructure).
 
@@ -52,7 +52,7 @@ O auge da carreira de capoeira de Roberto Satanás veio em abril de 1966, quando
 
 No festival de Dacar, Pastinha estava fraco demais para jogar. Em vez disso, seus alunos - Gato, Roberto e Gildo - se apresentaram enquanto Camafeu tocava o berimbau. A apresentação foi recebida com tremendo aplauso do público africano, representando um retorno simbólico da capoeira às suas raízes continentais. O Presidente Léopold Sédar Senghor do Senegal, campeão do movimento da Negritude, estava presente no evento.
 
-Em 1969, Roberto Satanás foi um dos cantores no histórico LP de Mestre Pastinha "Capoeira Angola - Mestre Pastinha e sua Academia," gravado ao vivo no Teatro Castro Alves em Salvador, junto com Pastinha e Waldomiro Malvadeza.
+Em 1969, Roberto Satanás foi um dos cantores no histórico LP de Mestre Pastinha "Capoeira Angola - Mestre Pastinha e sua Academia", gravado ao vivo no Teatro Castro Alves em Salvador, junto com Pastinha e Waldomiro Malvadeza.
 
 Notavelmente, pouco depois da triunfante viagem a Dacar, Roberto Satanás deixou a capoeira completamente. Ele buscou educação superior, formando-se em arquitetura, e mais tarde tornou-se mestre de karatê. Em 24 de setembro de 1970, ele co-fundou a ARKA Empreendimentos Ltda., e em 2014 estava servindo como Presidente da Comissão de Licitação do DERBA (Departamento de Infraestrutura de Transportes da Bahia).
 

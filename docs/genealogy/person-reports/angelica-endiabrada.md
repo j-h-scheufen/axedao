@@ -24,11 +24,11 @@
 
 ### English
 
-Anna Angélica, known as "Angélica Endiabrada," was a valentona - a tough woman skilled in physical combat - who became notorious in Salvador, Bahia between 1910 and 1920. She was a constant presence in newspaper headlines and police records as one of the feared "valentonas da Bahia."
+Anna Angélica, known as "Angélica Endiabrada", was a valentona - a tough woman skilled in physical combat - who became notorious in Salvador, Bahia between 1910 and 1920. She was a constant presence in newspaper headlines and police records as one of the feared "valentonas da Bahia".
 
 "Endiabrada" - meaning "possessed by the devil" or "wild" - was not a mere nickname but an adjective given to women who demonstrated exceptional skill in hand-to-hand combat. Angélica earned this epithet after a confrontation with a civil guard in which she resisted arrest and struck the officer, breaking his mouth. This single act of defiance against authority crystallized her reputation in the popular imagination.
 
-According to Antônio Vianna in "Casos e coisas da Bahia," Angélica was also known as a troublemaker who, when drinking, would break up bars in the capital city around 1910. The scenes were the streets, the brothels, the points of prostitution - the same urban geography that shaped male capoeiristas of the era. The reasons for conflict were jealousy, alcohol, personal feuds - the common currency of street life in old Bahia.
+According to Antônio Vianna in "Casos e coisas da Bahia", Angélica was also known as a troublemaker who, when drinking, would break up bars in the capital city around 1910. The scenes were the streets, the brothels, the points of prostitution - the same urban geography that shaped male capoeiristas of the era. The reasons for conflict were jealousy, alcohol, personal feuds - the common currency of street life in old Bahia.
 
 Angélica belonged to a generation of legendary female capoeiristas and valentonas whose stories were passed down in oral tradition. She was contemporary with Salomé, Maria Doze Homens, Chicão, Rosa Palmeirão, Massú, Catu, Almerinda, and Menininha - women whose histories involved confrontations with police, knife fights with razors, and even the deaths of famous male valentões.
 
@@ -42,15 +42,15 @@ The doctoral thesis "Mulheres incorrigíveis: capoeiragem, desordem e valentia n
 
 ### Português
 
-Anna Angélica, conhecida como "Angélica Endiabrada," foi uma valentona - uma mulher durona e habilidosa no combate físico - que se tornou notória em Salvador, Bahia, entre 1910 e 1920. Ela era presença constante nas manchetes dos jornais e nos registros policiais como uma das temidas "valentonas da Bahia."
+Anna Angélica, conhecida como "Angélica Endiabrada", foi uma valentona - uma mulher durona e habilidosa no combate físico - que se tornou notória em Salvador, Bahia, entre 1910 e 1920. Ela era presença constante nas manchetes dos jornais e nos registros policiais como uma das temidas "valentonas da Bahia".
 
 "Endiabrada" - significando "possuída pelo diabo" ou "selvagem" - não era um mero apelido, mas um adjetivo dado às mulheres que demonstravam habilidade excepcional no combate corpo a corpo. Angélica ganhou esse epíteto após um confronto com um guarda civil, no qual resistiu à prisão e bateu no oficial, quebrando sua boca. Este único ato de desafio à autoridade cristalizou sua reputação no imaginário popular.
 
-Segundo Antônio Vianna em "Casos e coisas da Bahia," Angélica também era conhecida como uma desordeira que, quando bebia, quebrava os bares da capital por volta de 1910. Os cenários eram as ruas, os bordéis, os pontos de prostituição - a mesma geografia urbana que moldou os capoeiristas masculinos da época. Os motivos dos conflitos eram ciúmes, bebida, rixas pessoais - a moeda corrente da vida de rua na velha Bahia.
+Segundo Antônio Vianna em "Casos e coisas da Bahia", Angélica também era conhecida como uma desordeira que, quando bebia, quebrava os bares da capital por volta de 1910. Os cenários eram as ruas, os bordéis, os pontos de prostituição - a mesma geografia urbana que moldou os capoeiristas masculinos da época. Os motivos dos conflitos eram ciúmes, bebida, rixas pessoais - a moeda corrente da vida de rua na velha Bahia.
 
 Angélica pertencia a uma geração de lendárias capoeiristas e valentonas femininas cujas histórias foram transmitidas pela tradição oral. Ela era contemporânea de Salomé, Maria Doze Homens, Chicão, Rosa Palmeirão, Massú, Catu, Almerinda e Menininha - mulheres cujas histórias envolviam confrontos com a polícia, brigas com navalha, e até mortes de famosos valentões.
 
-O livro "Mestres e capoeiras famosos da Bahia" de Pedro Abib (2009) contém um capítulo intitulado "Maria Doze Homem e Angélica Endiabrada: Briga por moqueca," documentando um encontro entre essas duas mulheres lendárias. O fato de seu conflito ter merecido um capítulo próprio demonstra o quão significativas essas figuras femininas eram na capoeiragem do início do século XX na Bahia.
+O livro "Mestres e capoeiras famosos da Bahia" de Pedro Abib (2009) contém um capítulo intitulado "Maria Doze Homem e Angélica Endiabrada: Briga por moqueca", documentando um encontro entre essas duas mulheres lendárias. O fato de seu conflito ter merecido um capítulo próprio demonstra o quão significativas essas figuras femininas eram na capoeiragem do início do século XX na Bahia.
 
 Embora não haja evidência direta de que Angélica fosse capoeirista no sentido formal, os jornais e a polícia da época rotulavam mulheres como ela dessa forma. O domínio da navalha, canivete, faca e punhal sugere que ela fazia parte da cultura da capoeiragem, pois essas armas eram as companheiras dos praticantes de capoeira pós-escravidão.
 
@@ -136,7 +136,7 @@ The book "Mestres e capoeiras famosos da Bahia" by Pedro Abib (2009), available 
 The fact that their conflict warranted its own book chapter demonstrates the cultural significance of both women in the capoeiragem of early 20th century Bahia.
 
 ### Português
-O livro "Mestres e capoeiras famosos da Bahia" de Pedro Abib (2009), disponível no JSTOR, contém um capítulo intitulado "Maria Doze Homem e Angélica Endiabrada: Briga por moqueca." Este capítulo documenta um famoso encontro entre essas duas valentonas lendárias.
+O livro "Mestres e capoeiras famosos da Bahia" de Pedro Abib (2009), disponível no JSTOR, contém um capítulo intitulado "Maria Doze Homem e Angélica Endiabrada: Briga por moqueca". Este capítulo documenta um famoso encontro entre essas duas valentonas lendárias.
 
 O fato de seu conflito ter merecido um capítulo próprio demonstra a significância cultural de ambas as mulheres na capoeiragem do início do século XX na Bahia.
 

@@ -29,7 +29,7 @@ When the federal government imposed mandatory smallpox vaccination in November 1
 
 **Capture:** The trenches of Saúde were the last to fall. On November 16, 1904, before the final assault by Army and Navy forces, Prata Preta was captured in a police ambush. According to newspaper accounts, his arrest required five men from the police and army to subdue him. Even during capture, he was accused of killing an Army soldier and wounding two policemen. When brought to the Central Police Station, he was found carrying two revolvers, a knife, and a jackknife, his body marked with sword bruises.
 
-**Exile:** On December 25, 1904, Prata Preta was deported aboard the ship Itaipava with hundreds of other prisoners to the distant federal territory of Acre—Brazil's "tropical Siberia." The deportees were held in the ship's hold under deplorable conditions, many dying during the voyage. They were abandoned in the Amazon without shelter or means of sustenance.
+**Exile:** On December 25, 1904, Prata Preta was deported aboard the ship Itaipava with hundreds of other prisoners to the distant federal territory of Acre—Brazil's "tropical Siberia". The deportees were held in the ship's hold under deplorable conditions, many dying during the voyage. They were abandoned in the Amazon without shelter or means of sustenance.
 
 Nothing certain is known of Prata Preta's fate after deportation. Some newspaper references from 1907 and 1909 suggest he may have returned to Rio de Janeiro, but this remains unconfirmed.
 
@@ -43,29 +43,29 @@ Quando o governo federal impôs a vacinação obrigatória contra a varíola em 
 
 **Liderança nas Barricadas:** Prata Preta comandou essas barricadas na Praça da Harmonia, organizando mais de 2.000 moradores para resistir às forças do Exército e da Marinha enviadas para suprimir a rebelião. Sua força física, carisma e habilidades na capoeira fizeram dele uma figura lendária.
 
-> "Combatia nos lugares mais perigosos das trincheiras e, mesmo na luta final antes de ser capturado, foi acusado de matar um soldado do Exército e ferir dois da Polícia."
+> "Combatia nos lugares mais perigosos das trincheiras e, mesmo na luta final antes de ser capturado, foi acusado de matar um soldado do Exército e ferir dois da Polícia".
 
 Os rebeldes empregaram "armas" improvisadas para enganar os militares—pedaços de madeira enrolados em papel prateado para se assemelhar a cartuchos de dinamite, e um poste de iluminação a gás montado sobre rodas de carroça para imitar um canhão:
 
-> "As trincheiras da Saúde foram as últimas a serem abatidas. Ali constava haver dinamites e um canhão para impedir o avanço das tropas militares, mas, quando os revoltosos foram rendidos, descobriu-se que os materiais bélicos não passavam de um engodo."
+> "As trincheiras da Saúde foram as últimas a serem abatidas. Ali constava haver dinamites e um canhão para impedir o avanço das tropas militares, mas, quando os revoltosos foram rendidos, descobriu-se que os materiais bélicos não passavam de um engodo".
 
 **Prisão:** Em 16 de novembro de 1904, antes do ataque final das forças do Exército e da Marinha, Prata Preta foi capturado em uma emboscada policial:
 
-> "Sua prisão, ocorrida ainda no dia 16 de novembro de 1904, era atribuída pelos jornais como uma elaborada emboscada construída pela polícia. Pego de surpresa por vários policiais, teria ainda oferecido 'tenaz resistência', ferindo dois praças que efetuaram a prisão."
+> "Sua prisão, ocorrida ainda no dia 16 de novembro de 1904, era atribuída pelos jornais como uma elaborada emboscada construída pela polícia. Pego de surpresa por vários policiais, teria ainda oferecido 'tenaz resistência', ferindo dois praças que efetuaram a prisão".
 
-> "Levado para a Repartição Central da Polícia, 'não cessava de protestar veementemente', apesar das muitas 'contusões de espada' que tinha ao longo do corpo."
+> "Levado para a Repartição Central da Polícia, 'não cessava de protestar veementemente', apesar das muitas 'contusões de espada' que tinha ao longo do corpo".
 
 **Exílio:** Em 25 de dezembro de 1904, Prata Preta foi deportado a bordo do navio Itaipava junto com centenas de outros prisioneiros para o distante território federal do Acre—a "Sibéria tropical" do Brasil:
 
-> "Os deportados foram amontoados em navios-prisão e enviados para o Acre, onde eram mantidos nos porões em condições promíscuas e sem direito de subir ao convés, vigiados por forte contingente militar."
+> "Os deportados foram amontoados em navios-prisão e enviados para o Acre, onde eram mantidos nos porões em condições promíscuas e sem direito de subir ao convés, vigiados por forte contingente militar".
 
 Sobre seu paradeiro após a deportação:
 
-> "Sobre o paradeiro de Prata Preta, que enganou as tropas militares com seus 'materiais bélicos' improvisados, quase nada se sabe após sua captura e deportação para o Acre."
+> "Sobre o paradeiro de Prata Preta, que enganou as tropas militares com seus 'materiais bélicos' improvisados, quase nada se sabe após sua captura e deportação para o Acre".
 
 **Legado:** Em 2004, no centenário da Revolta da Vacina, moradores do bairro da Saúde fundaram o bloco carnavalesco "Cordão do Prata Preta" para reviver a memória deste líder popular:
 
-> "Sua figura tornou-se um símbolo da luta contra as injustiças sociais e o autoritarismo. Apesar disso, sua história foi, por muito tempo, apagada da memória oficial até ser resgatada por movimentos culturais e populares."
+> "Sua figura tornou-se um símbolo da luta contra as injustiças sociais e o autoritarismo. Apesar disso, sua história foi, por muito tempo, apagada da memória oficial até ser resgatada por movimentos culturais e populares".
 
 ## Historical Context
 
@@ -81,13 +81,13 @@ Prata Preta represented the generation of Black dockworkers who practiced capoei
 
 A Revolta da Vacina irrompeu no Rio de Janeiro de 10 a 16 de novembro de 1904, também conhecida como "Quebra-Lampiões". O gatilho imediato foi uma lei determinando a vacinação obrigatória contra a varíola, mas causas mais profundas incluíam as reformas urbanas do prefeito Pereira Passos e as campanhas sanitárias lideradas pelo médico Oswaldo Cruz que deslocavam comunidades pobres.
 
-> "Em 10 de novembro de 1904, logo após o projeto de obrigatoriedade ser publicizado, grandes agitações populares começaram a tomar conta das ruas e praças centrais da cidade do Rio."
+> "Em 10 de novembro de 1904, logo após o projeto de obrigatoriedade ser publicizado, grandes agitações populares começaram a tomar conta das ruas e praças centrais da cidade do Rio".
 
 O saldo oficial: 30 mortos, 110 feridos e 945 presos na Ilha das Cobras. Entre 461 e 1.400 pessoas foram deportadas para o Acre. Três navios—Itaipava (duas viagens), Itaperuna e Itapacy—transportaram os deportados em condições horríveis.
 
 Prata Preta representava a geração de estivadores negros que praticavam capoeira na região portuária do Rio apesar de sua criminalização em 1890 sob o Artigo 402 do Código Penal:
 
-> "Os estivadores negros foram os primeiros a exibir técnicas de artes marciais, competindo entre si nas praias para ver quem era mais habilidoso."
+> "Os estivadores negros foram os primeiros a exibir técnicas de artes marciais, competindo entre si nas praias para ver quem era mais habilidoso".
 
 ## Date Discrepancies
 

@@ -80,7 +80,7 @@ FAMILY: Brother of Dendê (Mário Buscapé''s uncle and first capoeira teacher).
 
 OCCUPATION: Crabber (catador de caranguejos) in São Francisco do Conde.
 
-LINEAGE DISCREPANCY: One web source (Capoeira Rotterdam) states "Besouro → Dendê → José Bidel → Mário Buscapé," suggesting Dendê taught José Bidel. However, Mário Buscapé''s own testimony (primary source) states Dendê was his uncle and José Bidel was his father, with both being brothers who trained together with Besouro''s companions. Both taught Mário. The relationship "Dendê → José Bidel" as teacher-student is UNCONFIRMED. More likely: both brothers learned from the same circle (Siri de Mangue, Canário Pardo) and both taught Mário.
+LINEAGE DISCREPANCY: One web source (Capoeira Rotterdam) states "Besouro → Dendê → José Bidel → Mário Buscapé", suggesting Dendê taught José Bidel. However, Mário Buscapé''s own testimony (primary source) states Dendê was his uncle and José Bidel was his father, with both being brothers who trained together with Besouro''s companions. Both taught Mário. The relationship "Dendê → José Bidel" as teacher-student is UNCONFIRMED. More likely: both brothers learned from the same circle (Siri de Mangue, Canário Pardo) and both taught Mário.
 
 BESOURO CONNECTION: According to Mário Buscapé, Besouro visited their house, but this must have been before Mário was born (pre-1924). José Bidel and Dendê were not direct students of Besouro but rather associated with his companions after his death.
 
@@ -101,7 +101,7 @@ FAMÍLIA: Irmão de Dendê (tio de Mário Buscapé e primeiro professor de capoe
 
 OCUPAÇÃO: Catador de caranguejos em São Francisco do Conde.
 
-DISCREPÂNCIA DE LINHAGEM: Uma fonte web (Capoeira Rotterdam) afirma "Besouro → Dendê → José Bidel → Mário Buscapé," sugerindo que Dendê ensinou José Bidel. No entanto, o próprio testemunho de Mário Buscapé (fonte primária) afirma que Dendê era seu tio e José Bidel era seu pai, sendo ambos irmãos que treinaram juntos com os companheiros de Besouro. Ambos ensinaram Mário. A relação "Dendê → José Bidel" como professor-aluno é NÃO CONFIRMADA. Mais provável: ambos os irmãos aprenderam do mesmo círculo (Siri de Mangue, Canário Pardo) e ambos ensinaram Mário.
+DISCREPÂNCIA DE LINHAGEM: Uma fonte web (Capoeira Rotterdam) afirma "Besouro → Dendê → José Bidel → Mário Buscapé", sugerindo que Dendê ensinou José Bidel. No entanto, o próprio testemunho de Mário Buscapé (fonte primária) afirma que Dendê era seu tio e José Bidel era seu pai, sendo ambos irmãos que treinaram juntos com os companheiros de Besouro. Ambos ensinaram Mário. A relação "Dendê → José Bidel" como professor-aluno é NÃO CONFIRMADA. Mais provável: ambos os irmãos aprenderam do mesmo círculo (Siri de Mangue, Canário Pardo) e ambos ensinaram Mário.
 
 CONEXÃO COM BESOURO: Segundo Mário Buscapé, Besouro visitou sua casa, mas isso deve ter sido antes de Mário nascer (pré-1924). José Bidel e Dendê não eram alunos diretos de Besouro, mas sim associados com seus companheiros após sua morte.
 

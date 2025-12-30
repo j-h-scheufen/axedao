@@ -76,7 +76,7 @@ INSERT INTO genealogy.person_profiles (
   -- Extended content (English)
   E'Mestre Paizinho, born Teodoro Ramos, was a capoeirista who taught in Itabuna, in the southern Bahia cocoa belt, during the era when capoeira was criminalized in Brazil. He represents a crucial link in one of the most important lineages in capoeira history, connecting the African-born Mestre Neném to Mestre Artur Emídio, who would become one of the four founding lineages of contemporary capoeira in Rio de Janeiro.
 
-Paizinho was a disciple of Mestre Neném, described as "an African" or "of African origin," making Paizinho a second-generation practitioner from the African diaspora. Almost nothing is known about his early life or how he came to study under Neném, but he established himself as a teacher in Itabuna during the prohibition era.
+Paizinho was a disciple of Mestre Neném, described as "an African" or "of African origin", making Paizinho a second-generation practitioner from the African diaspora. Almost nothing is known about his early life or how he came to study under Neném, but he established himself as a teacher in Itabuna during the prohibition era.
 
 What we know of Paizinho comes primarily from the testimony of his most famous student, Artur Emídio de Oliveira, who began training with him in 1937 at age seven. Paizinho would go to Artur''s house on Rua Direita in the Pontalzinho neighborhood at 6 AM each morning to wake him for training. The training took place "in the street, on the pavement" but also in secret locations due to the legal prohibition.
 
@@ -92,7 +92,7 @@ After Paizinho''s death, the fifteen-year-old Artur Emídio took over his master
   -- Extended content (Portuguese)
   E'Mestre Paizinho, nascido Teodoro Ramos, foi um capoeirista que ensinou em Itabuna, na zona cacaueira do sul da Bahia, durante a era em que a capoeira era criminalizada no Brasil. Ele representa um elo crucial em uma das linhagens mais importantes da história da capoeira, conectando o africano Mestre Neném a Mestre Artur Emídio, que se tornaria uma das quatro linhagens fundadoras da capoeira contemporânea no Rio de Janeiro.
 
-Paizinho foi discípulo de Mestre Neném, descrito como "um africano" ou "de origem africana," fazendo de Paizinho um praticante de segunda geração da diáspora africana. Quase nada se sabe sobre sua vida inicial ou como veio a estudar com Neném, mas ele se estabeleceu como professor em Itabuna durante a era de proibição.
+Paizinho foi discípulo de Mestre Neném, descrito como "um africano" ou "de origem africana", fazendo de Paizinho um praticante de segunda geração da diáspora africana. Quase nada se sabe sobre sua vida inicial ou como veio a estudar com Neném, mas ele se estabeleceu como professor em Itabuna durante a era de proibição.
 
 O que sabemos de Paizinho vem principalmente do testemunho de seu aluno mais famoso, Artur Emídio de Oliveira, que começou a treinar com ele em 1937 aos sete anos. Paizinho ia à casa de Artur na Rua Direita, no bairro do Pontalzinho, às 6 da manhã cada dia para acordá-lo para o treino. O treinamento acontecia "na rua, no passeio" mas também em locais secretos devido à proibição legal.
 
@@ -158,7 +158,7 @@ Multiple arrests documented. Pattern: arrested, bail paid next day, returned to 
 Quote (Artur Emídio): "Many were the times that my Master was arrested. But the next day the bail was paid, and he would leave. And at night, he would return to teach Capoeira, practiced for love!"
 
 ICARUS LEGEND CONTEXT:
-Described as occurring "on moonlit nights in Itabuna and Ilhéus." Appears to be local folklore; Artur Emídio''s direct testimony disputes it. May reflect community mythologizing of a mysterious teacher figure.
+Described as occurring "on moonlit nights in Itabuna and Ilhéus". Appears to be local folklore; Artur Emídio''s direct testimony disputes it. May reflect community mythologizing of a mysterious teacher figure.
 
 LINEAGE CHAIN:
 Neném (African, ~1860-?) → Paizinho (Teodoro Ramos, ~1890-1945) → Artur Emídio (1930-2011) → [Leopoldina, Djalma Bandeira, Paulo Gomes, Celso do Engenho, Mendonça, etc.]
@@ -207,7 +207,7 @@ Múltiplas prisões documentadas. Padrão: preso, fiança paga no dia seguinte, 
 Citação (Artur Emídio): "Muitas foram as vezes que meu Mestre foi preso. Mas no dia seguinte a fiança era paga, e ele saía. E à noite, voltava a ensinar Capoeira, praticada por amor!"
 
 CONTEXTO DA LENDA DE ÍCARO:
-Descrito como ocorrendo "em noites de lua em Itabuna e Ilhéus." Parece ser folclore local; o testemunho direto de Artur Emídio o disputa. Pode refletir a mitologização comunitária de uma figura de mestre misteriosa.
+Descrito como ocorrendo "em noites de lua em Itabuna e Ilhéus". Parece ser folclore local; o testemunho direto de Artur Emídio o disputa. Pode refletir a mitologização comunitária de uma figura de mestre misteriosa.
 
 CADEIA DE LINHAGEM:
 Neném (Africano, ~1860-?) → Paizinho (Teodoro Ramos, ~1890-1945) → Artur Emídio (1930-2011) → [Leopoldina, Djalma Bandeira, Paulo Gomes, Celso do Engenho, Mendonça, etc.]

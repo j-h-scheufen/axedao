@@ -2,7 +2,7 @@
 
 **SQL Import:** `docs/genealogy/sql-imports/persons/pastinha.sql`
 
-**Significance:** The "Father of Capoeira Angola." Founded the Centro Esportivo de Capoeira Angola (CECA) in 1941—the first academy dedicated to preserving traditional capoeira against the modernizing Regional style. Codified the philosophy, aesthetics, and techniques that define Angola capoeira worldwide.
+**Significance:** The "Father of Capoeira Angola". Founded the Centro Esportivo de Capoeira Angola (CECA) in 1941—the first academy dedicated to preserving traditional capoeira against the modernizing Regional style. Codified the philosophy, aesthetics, and techniques that define Angola capoeira worldwide.
 
 **Profile Type:** `founding_mestre`
 
@@ -22,7 +22,7 @@
 
 Vicente Ferreira Pastinha was born on April 5, 1889, on Rua do Tijolo in Salvador, Bahia. His father, José Señor Pastinha, was a Spanish peddler who owned a small shop. His mother, Maria Eugênia Ferreira, was a Black woman from Santo Amaro da Purificação who sold acarajé and did laundry. The two had little contact.
 
-At ten years old, Pastinha faced a problem familiar to many small boys: a bigger kid bullied him regularly on Rua das Laranjeiras in the Pelourinho neighborhood. An elderly African neighbor named Benedito, native of Angola, watched these encounters and offered to teach the boy capoeira. For three years, young Vicente learned the art at Benedito's house at Rua das Laranjeiras, n° 26. After training, he defeated the bully. In later interviews, Pastinha spoke with deep gratitude about "Mestre Benedito, a black man native of Angola." When asked who taught him capoeira, he simply replied: "Um africano"—an African.
+At ten years old, Pastinha faced a problem familiar to many small boys: a bigger kid bullied him regularly on Rua das Laranjeiras in the Pelourinho neighborhood. An elderly African neighbor named Benedito, native of Angola, watched these encounters and offered to teach the boy capoeira. For three years, young Vicente learned the art at Benedito's house at Rua das Laranjeiras, n° 26. After training, he defeated the bully. In later interviews, Pastinha spoke with deep gratitude about "Mestre Benedito, a black man native of Angola". When asked who taught him capoeira, he simply replied: "Um africano"—an African.
 
 In 1902, at twelve years old, Pastinha's father enrolled him in the Escola de Aprendiz de Marineros (School of Naval Apprentices). At the school, Pastinha was assigned number 110. He served until age 20, working as a musician—a horn virtuoso—while secretly teaching capoeira to his fellow sailors. He also trained with sword and foil, studied guitar, and saved money at Caixa Economica bank.
 
@@ -32,7 +32,7 @@ Then came a mysterious gap. According to his own writings, Pastinha "completely 
 
 In February 1941, everything changed. One of Pastinha's former students, Raimundo Aberrê, invited him to a Sunday roda at Ladeira de Gengibirra in the Liberdade neighborhood. The traditional Bahian capoeira had become known as "Capoeira de Angola" in opposition to Bimba's modernizing Regional style. A group of old mestres—including Amorzinho, Totonho de Maré, Noronha, and Livino—held regular rodas there. Amorzinho, a civil guard, offered protection from police harassment.
 
-When Pastinha arrived on February 23, 1941, Amorzinho extended his hand and offered him the berimbau: "I have been waiting a long time to give you this capoeira for you to master." With Aberrê, Amorzinho, and Antonio Maré supporting him, the 52-year-old Pastinha accepted leadership of Capoeira Angola.
+When Pastinha arrived on February 23, 1941, Amorzinho extended his hand and offered him the berimbau: "I have been waiting a long time to give you this capoeira for you to master". With Aberrê, Amorzinho, and Antonio Maré supporting him, the 52-year-old Pastinha accepted leadership of Capoeira Angola.
 
 That same year, Pastinha founded the Centro Esportivo de Capoeira Angola (CECA)—the first academy dedicated specifically to the traditional style. The group reformed several times (1944, 1949) before official registration on October 1, 1952. In 1955, at age 66, Pastinha moved CECA to its famous address: Praça do Pelourinho, n° 19.
 
@@ -161,21 +161,21 @@ In 1967, Pastinha listed these deceased practitioners of "pure Capoeira de Angol
 ## Philosophy and Quotes
 
 **On Capoeira's Nature:**
-> "Angola, capoeira mãe. Mandinga de escravo em ânsia de liberdade; seu princípio não tem método e seu fim é inconcebível ao mais sábio capoeirista."
+> "Angola, capoeira mãe. Mandinga de escravo em ânsia de liberdade; seu princípio não tem método e seu fim é inconcebível ao mais sábio capoeirista".
 >
-> "Angola, mother of Capoeira. Sorcery of slaves in the longing for freedom; its beginning has no method and its end is inconceivable to even the most knowledgeable capoeirista."
+> "Angola, mother of Capoeira. Sorcery of slaves in the longing for freedom; its beginning has no method and its end is inconceivable to even the most knowledgeable capoeirista".
 
 **On Teaching Method:**
-> "Capoeira de Angola can only be taught without forcing the person's natural expression."
+> "Capoeira de Angola can only be taught without forcing the person's natural expression".
 
 **On His Students:**
-> "They will be the greatest Capoeira players of the future and I have worked hard with them, and for them, to achieve this. They will be true masters. Not just impromptu teachers, as can be found anywhere, who only destroy our tradition which is so beautiful."
+> "They will be the greatest Capoeira players of the future and I have worked hard with them, and for them, to achieve this. They will be true masters. Not just impromptu teachers, as can be found anywhere, who only destroy our tradition which is so beautiful".
 
 **On Fighting:**
-> "Capoeira is not an attacking martial art, it waits. The good capoeirista is obligated to cry at the foot of his attacker."
+> "Capoeira is not an attacking martial art, it waits. The good capoeirista is obligated to cry at the foot of his attacker".
 
 **On His Own Playing:**
-> "What I do playing, you don't even do when you're mad."
+> "What I do playing, you don't even do when you're mad".
 
 ## Date Discrepancies
 

@@ -77,11 +77,11 @@ Hoje, Mestre Jurandir Santos vive em Nova York e continua ativo na comunidade in
 
 ### English
 
-Pure Capoeira Angola in the tradition of his father Mestre João Grande, transmitted from early childhood through organic, immersive family training. As a coordinator at João Pequeno's academy, he represents the direct continuation of Pastinha's lineage through both the Dois Joãos (Two Johns)—the two principal heirs of Mestre Pastinha who were described as "the two most learned students."
+Pure Capoeira Angola in the tradition of his father Mestre João Grande, transmitted from early childhood through organic, immersive family training. As a coordinator at João Pequeno's academy, he represents the direct continuation of Pastinha's lineage through both the Dois Joãos (Two Johns)—the two principal heirs of Mestre Pastinha who were described as "the two most learned students".
 
 ### Português
 
-Capoeira Angola pura na tradição de seu pai Mestre João Grande, transmitida desde a primeira infância através de treinamento familiar orgânico e imersivo. Como coordenador na academia de João Pequeno, representa a continuação direta da linhagem de Pastinha através dos Dois Joãos—os dois principais herdeiros de Mestre Pastinha que foram descritos como "os dois alunos mais preparados."
+Capoeira Angola pura na tradição de seu pai Mestre João Grande, transmitida desde a primeira infância através de treinamento familiar orgânico e imersivo. Como coordenador na academia de João Pequeno, representa a continuação direta da linhagem de Pastinha através dos Dois Joãos—os dois principais herdeiros de Mestre Pastinha que foram descritos como "os dois alunos mais preparados".
 
 ## Teachers / Mestres
 
@@ -128,7 +128,7 @@ Capoeira Angola pura na tradição de seu pai Mestre João Grande, transmitida d
 No birth year found in sources. João Grande was born 1933. If Jurandir is his son and started training in childhood, he was likely born 1960s-1970s. Estimated ~1965 with decade precision based on father's birth year and contextual evidence.
 
 **FAMILY DISCREPANCY:**
-Velhos Mestres (2007 article) quotes João Grande saying "out of his six sons no-one likes capoeira—only boxing and cock-fighting, capoeira they say doesn't give anything back." This may be outdated or inaccurate given Jurandir's documented career as a coordinator and mestre. Possibly the quote referred to a specific time period or reflects family dynamics that changed.
+Velhos Mestres (2007 article) quotes João Grande saying "out of his six sons no-one likes capoeira—only boxing and cock-fighting, capoeira they say doesn't give anything back". This may be outdated or inaccurate given Jurandir's documented career as a coordinator and mestre. Possibly the quote referred to a specific time period or reflects family dynamics that changed.
 
 **LOCATION:**
 - CapoeiraHub lists: "Ilha de Itaparica, Bahia, Brasil"
@@ -150,7 +150,7 @@ Velhos Mestres (2007 article) quotes João Grande saying "out of his six sons no
 Nenhum ano de nascimento encontrado nas fontes. João Grande nasceu em 1933. Se Jurandir é seu filho e começou a treinar na infância, provavelmente nasceu nos anos 1960-1970. Estimado ~1965 com precisão de década baseado no ano de nascimento do pai e evidências contextuais.
 
 **DISCREPÂNCIA FAMILIAR:**
-Velhos Mestres (artigo de 2007) cita João Grande dizendo "de seus seis filhos nenhum gosta de capoeira—só boxe e rinha de galo, capoeira dizem que não dá nada." Isso pode estar desatualizado ou impreciso dado a carreira documentada de Jurandir como coordenador e mestre. Possivelmente a citação se referia a um período específico ou reflete dinâmicas familiares que mudaram.
+Velhos Mestres (artigo de 2007) cita João Grande dizendo "de seus seis filhos nenhum gosta de capoeira—só boxe e rinha de galo, capoeira dizem que não dá nada". Isso pode estar desatualizado ou impreciso dado a carreira documentada de Jurandir como coordenador e mestre. Possivelmente a citação se referia a um período específico ou reflete dinâmicas familiares que mudaram.
 
 **LOCALIZAÇÃO:**
 - CapoeiraHub lista: "Ilha de Itaparica, Bahia, Brasil"

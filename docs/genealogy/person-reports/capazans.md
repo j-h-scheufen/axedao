@@ -26,7 +26,7 @@
 
 Mestre Capazans is a figure from Salvador's Capoeira Regional history whose life remains largely undocumented beyond a single newspaper reference. What we know comes from a February 1982 O Globo article titled "Capoeira - Uma grande controvérsia nas rodas da Bahia" ("Capoeira - A great controversy in the Bahia rodas"), which surveyed the state of capoeira in Salvador at that time.
 
-The article categorized active mestres by lineage, listing those in the Regional branch as "almost all direct disciples of the legendary Bimba." Capazans appears among the most prominent: Itapuã, Vinte e Nove, Brás Amansa Brabo, Vermelho 27, Medicina, Banduê, Capazans, Ezequiel, and Hélio Xaréu.
+The article categorized active mestres by lineage, listing those in the Regional branch as "almost all direct disciples of the legendary Bimba". Capazans appears among the most prominent: Itapuã, Vinte e Nove, Brás Amansa Brabo, Vermelho 27, Medicina, Banduê, Capazans, Ezequiel, and Hélio Xaréu.
 
 This places Capazans in significant company. His contemporaries in that 1982 roster included several documented figures: Mestre Itapuã (Raimundo César Alves de Almeida), who had co-founded the Ginga Associação de Capoeira with Hélio Xaréu in 1972; Vermelho 27, who had assumed direction of Bimba's academy at Terreiro de Jesus after the master's departure for Goiânia; Ezequiel, who had integrated capoeira into the Military Police curriculum; and Hélio Xaréu, who had brought capoeira to the UFBA School of Physical Education.
 
@@ -40,7 +40,7 @@ Beyond the 1982 press reference, Capazans's story has not been preserved in avai
 
 Mestre Capazans é uma figura da história da Capoeira Regional de Salvador cuja vida permanece largamente não documentada além de uma única referência jornalística. O que sabemos vem de um artigo do O Globo de fevereiro de 1982 intitulado "Capoeira - Uma grande controvérsia nas rodas da Bahia", que pesquisou o estado da capoeira em Salvador naquela época.
 
-O artigo categorizou os mestres ativos por linhagem, listando aqueles no ramo Regional como "quase todos discípulos diretos do lendário Bimba." Capazans aparece entre os mais proeminentes: Itapuã, Vinte e Nove, Brás Amansa Brabo, Vermelho 27, Medicina, Banduê, Capazans, Ezequiel e Hélio Xaréu.
+O artigo categorizou os mestres ativos por linhagem, listando aqueles no ramo Regional como "quase todos discípulos diretos do lendário Bimba". Capazans aparece entre os mais proeminentes: Itapuã, Vinte e Nove, Brás Amansa Brabo, Vermelho 27, Medicina, Banduê, Capazans, Ezequiel e Hélio Xaréu.
 
 Isso coloca Capazans em companhia significativa. Seus contemporâneos naquela lista de 1982 incluíam várias figuras documentadas: Mestre Itapuã (Raimundo César Alves de Almeida), que havia co-fundado a Ginga Associação de Capoeira com Hélio Xaréu em 1972; Vermelho 27, que havia assumido a direção da academia de Bimba no Terreiro de Jesus após a partida do mestre para Goiânia; Ezequiel, que havia integrado a capoeira no currículo da Polícia Militar; e Hélio Xaréu, que havia levado a capoeira à Escola de Educação Física da UFBA.
 
@@ -104,7 +104,7 @@ Listed together as prominent Capoeira Regional mestres in Salvador:
 Listed as prominent Capoeira Regional mestre in Salvador in February 1982 O Globo article. If he was a direct Bimba student who reached mestre status and was active teaching in 1982, he likely began training in the 1950s-1960s as a teenager or young adult. This suggests birth circa 1925-1940. Using 1930 with decade precision as central estimate, which would make him approximately 52 years old in 1982.
 
 ### Lineage Clarification
-The 1982 O Globo article states the Regional mestres listed were "almost all direct disciples of the legendary Bimba." This is a generalization, not a claim about each individual. Without additional sources, we cannot definitively confirm whether Capazans was a direct Bimba student or trained through an intermediary (as was the case with Medicina, who trained under Suassuna). Treating as likely direct disciple pending further research.
+The 1982 O Globo article states the Regional mestres listed were "almost all direct disciples of the legendary Bimba". This is a generalization, not a claim about each individual. Without additional sources, we cannot definitively confirm whether Capazans was a direct Bimba student or trained through an intermediary (as was the case with Medicina, who trained under Suassuna). Treating as likely direct disciple pending further research.
 
 ### Apelido Origin
 "Capazans" is an unusual capoeira name. Possibly derived from "capaz" (capable/able) with augmentative suffix "-ão" + plural marker, suggesting "the very capable ones" or as a singular nickname meaning someone of notable ability. Origin unconfirmed.

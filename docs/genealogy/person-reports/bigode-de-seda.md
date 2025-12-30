@@ -24,7 +24,7 @@
 
 ### English
 
-Bigode de Seda ("Silk Mustache") was one of the legendary capoeiristas of Bahia's golden era. In a 1967 interview with Revista Realidade, Mestre Pastinha remembered him among the great capoeiristas of the past: "Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Zé do U, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá." Pastinha noted that "pelo apelido dá para saber como eram, como lutavam" (from the nicknames alone you can know who they were, how they fought).
+Bigode de Seda ("Silk Mustache") was one of the legendary capoeiristas of Bahia's golden era. In a 1967 interview with Revista Realidade, Mestre Pastinha remembered him among the great capoeiristas of the past: "Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Zé do U, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá". Pastinha noted that "pelo apelido dá para saber como eram, como lutavam" (from the nicknames alone you can know who they were, how they fought).
 
 Bigode de Seda was one of the 22 founding mestres of the Centro Nacional de Capoeira de Origem Angola, the historic gathering at Ladeira de Pedra in the Gengibirra area of Salvador's Liberdade neighborhood. This center, established in the 1920s during the era when capoeira was still criminalized in Brazil, served as the primary meeting place for traditional capoeira angola practitioners.
 
@@ -34,7 +34,7 @@ Bigode de Seda was present at the historic gathering when, on February 23, 1941,
 
 ### Português
 
-Bigode de Seda ("Bigode de Seda") foi um dos lendários capoeiristas da era de ouro da Bahia. Em uma entrevista de 1967 à Revista Realidade, Mestre Pastinha o lembrou entre os grandes capoeiristas do passado: "Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Zé do U, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá." Pastinha observou que "pelo apelido dá para saber como eram, como lutavam" (pelos apelidos dá para saber quem eram, como lutavam).
+Bigode de Seda ("Bigode de Seda") foi um dos lendários capoeiristas da era de ouro da Bahia. Em uma entrevista de 1967 à Revista Realidade, Mestre Pastinha o lembrou entre os grandes capoeiristas do passado: "Bigode de Seda, Américo Ciência, Bugalho, Amorzinho, Zé Bom Pé, Chico Três Pedaços, Tibirici da Folha Grossa, Doze Homens, Inimigo Sem Tripa, Zé do U, Vitorino Braço Torto, Zé do Saco, Bené do Correio, Sete Mortes, Chico Me Dá". Pastinha observou que "pelo apelido dá para saber como eram, como lutavam" (pelos apelidos dá para saber quem eram, como lutavam).
 
 Bigode de Seda foi um dos 22 mestres fundadores do Centro Nacional de Capoeira de Origem Angola, a histórica reunião na Ladeira de Pedra, na área do Gengibirra, no bairro da Liberdade em Salvador. Este centro, estabelecido na década de 1920 durante a era em que a capoeira ainda era criminalizada no Brasil, serviu como o principal ponto de encontro dos praticantes de capoeira angola tradicional.
 
@@ -156,7 +156,7 @@ DEATH YEAR ESTIMATION (1960, decade):
 Pastinha confirmed in 1967 interview (Revista Realidade) that Bigode de Seda was "já morto" (already dead). Given his activity in 1920s-1941, death likely occurred 1940s-1960s.
 
 NAME RESOLUTION:
-The backlog noted "may be same as Feliciano Bigode de Seda from Gengibirra, needs examination, potential duplicate!!" Research confirms these are the SAME PERSON. "Feliciano" appears in Noronha's manuscripts as his given name, while Pastinha and most sources simply use "Bigode de Seda." Updated to use the more common apelido "Bigode de Seda" for database consistency.
+The backlog noted "may be same as Feliciano Bigode de Seda from Gengibirra, needs examination, potential duplicate!!" Research confirms these are the SAME PERSON. "Feliciano" appears in Noronha's manuscripts as his given name, while Pastinha and most sources simply use "Bigode de Seda". Updated to use the more common apelido "Bigode de Seda" for database consistency.
 
 MEDIA APPEARANCES:
 - 1967: Named by Mestre Pastinha in Revista Realidade interview as one of the legendary capoeiristas of the past.
@@ -171,7 +171,7 @@ ESTIMATIVA DO ANO DE MORTE (1960, década):
 Pastinha confirmou em entrevista de 1967 (Revista Realidade) que Bigode de Seda estava "já morto". Dada sua atividade de 1920 a 1941, a morte provavelmente ocorreu entre 1940-1960.
 
 RESOLUÇÃO DE NOME:
-O backlog observou "pode ser o mesmo que Feliciano Bigode de Seda do Gengibirra, precisa de exame, possível duplicata!!" A pesquisa confirma que são a MESMA PESSOA. "Feliciano" aparece nos manuscritos de Noronha como seu nome de batismo, enquanto Pastinha e a maioria das fontes simplesmente usam "Bigode de Seda." Atualizado para usar o apelido mais comum "Bigode de Seda" para consistência do banco de dados.
+O backlog observou "pode ser o mesmo que Feliciano Bigode de Seda do Gengibirra, precisa de exame, possível duplicata!!" A pesquisa confirma que são a MESMA PESSOA. "Feliciano" aparece nos manuscritos de Noronha como seu nome de batismo, enquanto Pastinha e a maioria das fontes simplesmente usam "Bigode de Seda". Atualizado para usar o apelido mais comum "Bigode de Seda" para consistência do banco de dados.
 
 APARIÇÕES NA MÍDIA:
 - 1967: Nomeado por Mestre Pastinha em entrevista à Revista Realidade como um dos lendários capoeiristas do passado.

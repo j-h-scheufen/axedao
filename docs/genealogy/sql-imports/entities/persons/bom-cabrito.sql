@@ -62,7 +62,7 @@ In 1968, Bom Cabrito expanded his martial arts training, practicing karate, hapk
 
 In 1969, Bom Cabrito participated in the historic Seminário de Capoeira em Campos dos Afonsos, Rio de Janeiro. This gathering brought together the old guard—Mestres Bimba, Canjiquinha, Caiçaras, Artur Emídio, Gato Preto, and Leopoldina—with the younger generation including Acordeon, Airton, Suassuna, Joel, Itapoan, Paulo Gomes, and Bom Cabrito himself.
 
-By 1970, Mestre Gato Preto referred to Bom Cabrito as one of the "future masters", noting that he "already teaches capoeira there in Faísca." This indicates Bom Cabrito had established himself as a teacher at a relatively young age.
+By 1970, Mestre Gato Preto referred to Bom Cabrito as one of the "future masters", noting that he "already teaches capoeira there in Faísca". This indicates Bom Cabrito had established himself as a teacher at a relatively young age.
 
 In November-December 1984, Bom Cabrito was one of the seven traditional Old Masters from Bahia who traveled to Rio de Janeiro for the I Encontro Nacional de Arte Capoeira at the Circo Voador. Under the theme "Pé Quente - Cabeça Fria" (Hot Feet - Cold Head), he played berimbau alongside Mestres Gato Preto and Waldemar, while younger capoeiristas like Moraes and Camisa performed. The event drew 70 capoeiristas from seven states and included iconic masters Canjiquinha, João Pequeno, and Atenilo.
 
@@ -84,7 +84,7 @@ Em 1968, Bom Cabrito expandiu seu treinamento em artes marciais, praticando kara
 
 Em 1969, Bom Cabrito participou do histórico Seminário de Capoeira em Campos dos Afonsos, Rio de Janeiro. Esse encontro reuniu a velha guarda—Mestres Bimba, Canjiquinha, Caiçaras, Artur Emídio, Gato Preto e Leopoldina—com a geração mais jovem incluindo Acordeon, Airton, Suassuna, Joel, Itapoan, Paulo Gomes e o próprio Bom Cabrito.
 
-Em 1970, Mestre Gato Preto referiu-se a Bom Cabrito como um dos "mestres do futuro", observando que ele "já ensina capoeira lá no Faísca." Isso indica que Bom Cabrito havia se estabelecido como professor em idade relativamente jovem.
+Em 1970, Mestre Gato Preto referiu-se a Bom Cabrito como um dos "mestres do futuro", observando que ele "já ensina capoeira lá no Faísca". Isso indica que Bom Cabrito havia se estabelecido como professor em idade relativamente jovem.
 
 Em novembro-dezembro de 1984, Bom Cabrito foi um dos sete Velhos Mestres tradicionais da Bahia que viajaram ao Rio de Janeiro para o I Encontro Nacional de Arte Capoeira no Circo Voador. Sob o tema "Pé Quente - Cabeça Fria", ele tocou berimbau ao lado dos Mestres Gato Preto e Waldemar, enquanto capoeiristas mais jovens como Moraes e Camisa jogavam. O evento reuniu 70 capoeiristas de sete estados e incluiu mestres icônicos como Canjiquinha, João Pequeno e Atenilo.
 

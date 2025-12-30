@@ -27,9 +27,9 @@
 
 Antônio Cabeceiro was a student of Mestre Pastinha who brought Capoeira Angola to the southern Bahian city of Ilhéus. In an era before formal capoeira academies existed outside Salvador, Cabeceiro taught the art on the streets—transmitting knowledge the same way it had been passed down for generations, through observation in the roda and direct practice.
 
-Before his time in Ilhéus, Cabeceiro trained at Mestre Waldemar's legendary roda in Salvador—the barracão in Liberdade that attracted "every capoeirista from Bahia." The roda was notorious for its intensity, filled with what João Grande called "snakes, experts" who showed no mercy to newcomers.
+Before his time in Ilhéus, Cabeceiro trained at Mestre Waldemar's legendary roda in Salvador—the barracão in Liberdade that attracted "every capoeirista from Bahia". The roda was notorious for its intensity, filled with what João Grande called "snakes, experts" who showed no mercy to newcomers.
 
-In 1953 or 1954, a young João Grande—only three months into his capoeira training—experienced Cabeceiro's formidable skill firsthand. While playing with Evanir, Cabeceiro bought the game without João Grande seeing. "Exactly at the time when I did a meia lua de costas without looking", João Grande recalled, "he threw me out of the roda, into the middle of the street. I didn't even see it coming. I got all dirty and had to leave." Years later, João Grande still remembered: "Antônio Cabeceiro was as wicked as anything."
+In 1953 or 1954, a young João Grande—only three months into his capoeira training—experienced Cabeceiro's formidable skill firsthand. While playing with Evanir, Cabeceiro bought the game without João Grande seeing. "Exactly at the time when I did a meia lua de costas without looking", João Grande recalled, "he threw me out of the roda, into the middle of the street. I didn't even see it coming. I got all dirty and had to leave". Years later, João Grande still remembered: "Antônio Cabeceiro was as wicked as anything".
 
 In 1956, Cabeceiro appeared at the Festa de São Sebastião in Ilhéus—the celebration of the city's patron saint. Alongside Mestres João Grande and João Pequeno, he demonstrated capoeira to crowds that included an eleven-year-old boy named Vivaldo Conceição Rodrigues. That boy, watching the mestres play, felt something awaken in him. He would become Mestre Boa Gente.
 
@@ -39,9 +39,9 @@ There were no capoeira schools in Ilhéus in 1956. Boa Gente learned in the trad
 
 Antônio Cabeceiro foi aluno de Mestre Pastinha que levou a Capoeira Angola para a cidade de Ilhéus, no sul da Bahia. Numa época em que não existiam academias formais de capoeira fora de Salvador, Cabeceiro ensinava a arte nas ruas—transmitindo o conhecimento da mesma forma que havia sido passado por gerações, através da observação na roda e prática direta.
 
-Antes de seu tempo em Ilhéus, Cabeceiro treinou na lendária roda de Mestre Waldemar em Salvador—o barracão na Liberdade que atraía "todo capoeirista da Bahia." A roda era notória por sua intensidade, cheia do que João Grande chamou de "cobras, experts" que não tinham piedade dos novatos.
+Antes de seu tempo em Ilhéus, Cabeceiro treinou na lendária roda de Mestre Waldemar em Salvador—o barracão na Liberdade que atraía "todo capoeirista da Bahia". A roda era notória por sua intensidade, cheia do que João Grande chamou de "cobras, experts" que não tinham piedade dos novatos.
 
-Em 1953 ou 1954, um jovem João Grande—com apenas três meses de treinamento de capoeira—experimentou a formidável habilidade de Cabeceiro em primeira mão. Enquanto jogava com Evanir, Cabeceiro comprou o jogo sem João Grande ver. "Exatamente na hora que eu fiz uma meia lua de costas sem olhar", lembrou João Grande, "ele me jogou para fora da roda, no meio da rua. Nem vi quando ele entrou. Fiquei todo sujo e tive que ir embora." Anos depois, João Grande ainda lembrava: "Antônio Cabeceiro era malvado demais."
+Em 1953 ou 1954, um jovem João Grande—com apenas três meses de treinamento de capoeira—experimentou a formidável habilidade de Cabeceiro em primeira mão. Enquanto jogava com Evanir, Cabeceiro comprou o jogo sem João Grande ver. "Exatamente na hora que eu fiz uma meia lua de costas sem olhar", lembrou João Grande, "ele me jogou para fora da roda, no meio da rua. Nem vi quando ele entrou. Fiquei todo sujo e tive que ir embora". Anos depois, João Grande ainda lembrava: "Antônio Cabeceiro era malvado demais".
 
 Em 1956, Cabeceiro apareceu na Festa de São Sebastião em Ilhéus—a celebração do padroeiro da cidade. Ao lado dos Mestres João Grande e João Pequeno, demonstrou capoeira para multidões que incluíam um menino de onze anos chamado Vivaldo Conceição Rodrigues. Aquele menino, vendo os mestres jogarem, sentiu algo despertar nele. Ele se tornaria Mestre Boa Gente.
 
@@ -95,7 +95,7 @@ Cabeceiro treinou com Mestre Pastinha em Salvador, representando a tradição pu
 - **Young Boa Gente** - 11-year-old spectator who was inspired by the demonstration
 
 ### João Grande's Ilhéus Period
-Note: João Grande lived in the Ilhéus region for some years in the 1950s and was known as "João Bate-Estaca." During this time, he graduated Mestre Virgílio de Ilhéus to Contra-Mestre. This suggests the group of capoeiristas at the 1956 festival may have had ongoing presence in southern Bahia.
+Note: João Grande lived in the Ilhéus region for some years in the 1950s and was known as "João Bate-Estaca". During this time, he graduated Mestre Virgílio de Ilhéus to Contra-Mestre. This suggests the group of capoeiristas at the 1956 festival may have had ongoing presence in southern Bahia.
 
 ## Timeline / Cronologia
 
@@ -128,7 +128,7 @@ Unknown - only the apelido "Cabeceiro" is documented.
 "Cabeceiro" may relate to skill with cabeçada (headbutt) or possibly a profession. In capoeira songs, "iê é cabeceiro, camará" refers to someone "da casa" (from the house/trusted member of the collective).
 
 **TEACHING METHOD:**
-Informal street teaching in Ilhéus - no formal schools existed there in 1956. Boa Gente learned "in the same manner with which the slaves learnt to play in 'capoeiras' (cleared areas in the jungle), by watching others and applying what he saw in the roda."
+Informal street teaching in Ilhéus - no formal schools existed there in 1956. Boa Gente learned "in the same manner with which the slaves learnt to play in 'capoeiras' (cleared areas in the jungle), by watching others and applying what he saw in the roda".
 
 **OPEN QUESTIONS:**
 - Death date unknown
@@ -149,7 +149,7 @@ Desconhecido - apenas o apelido "Cabeceiro" está documentado.
 "Cabeceiro" pode estar relacionado à habilidade com cabeçada ou possivelmente a uma profissão. Nas músicas de capoeira, "iê é cabeceiro, camará" refere-se a alguém "da casa" (membro confiável do coletivo).
 
 **MÉTODO DE ENSINO:**
-Ensino informal nas ruas de Ilhéus - não existiam escolas formais lá em 1956. Boa Gente aprendeu "da mesma forma que os escravos aprendiam a jogar nas 'capoeiras' (áreas abertas na selva), observando os outros e aplicando o que via na roda."
+Ensino informal nas ruas de Ilhéus - não existiam escolas formais lá em 1956. Boa Gente aprendeu "da mesma forma que os escravos aprendiam a jogar nas 'capoeiras' (áreas abertas na selva), observando os outros e aplicando o que via na roda".
 
 **QUESTÕES EM ABERTO:**
 - Data de morte desconhecida

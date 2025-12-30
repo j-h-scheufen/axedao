@@ -19,7 +19,7 @@ SELECT
   NULL, NULL,
   '{"association_context": {"en": "Both identified as capoeira rogues imprisoned at Dois Rios Correctional Colony on Ilha Grande", "pt": "Ambos identificados como malandros capoeiras presos na Colônia Correcional de Dois Rios na Ilha Grande"}}'::jsonb,
   'likely'::genealogy.confidence,
-  'Paezzo, Sylvan. "Memórias de Madame Satã." Rio de Janeiro: Lidador, 1972.',
+  'Paezzo, Sylvan. "Memórias de Madame Satã". Rio de Janeiro: Lidador, 1972.',
   'Mentioned together in Madame Satã''s prison memoirs as capoeira rogues at Dois Rios. Sete Coroas was from Bahia.',
   'Mencionados juntos nas memórias de prisão de Madame Satã como malandros capoeiras em Dois Rios. Sete Coroas era da Bahia.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
@@ -41,7 +41,7 @@ SELECT
   NULL, NULL,
   '{"association_context": {"en": "Both identified as capoeira rogues imprisoned at Dois Rios Correctional Colony on Ilha Grande", "pt": "Ambos identificados como malandros capoeiras presos na Colônia Correcional de Dois Rios na Ilha Grande"}}'::jsonb,
   'likely'::genealogy.confidence,
-  'Paezzo, Sylvan. "Memórias de Madame Satã." Rio de Janeiro: Lidador, 1972.',
+  'Paezzo, Sylvan. "Memórias de Madame Satã". Rio de Janeiro: Lidador, 1972.',
   'Mentioned together in Madame Satã''s prison memoirs as capoeira rogues at Dois Rios.',
   'Mencionados juntos nas memórias de prisão de Madame Satã como malandros capoeiras em Dois Rios.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
