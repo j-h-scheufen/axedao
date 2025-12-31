@@ -7,6 +7,9 @@ export const QUERY_KEYS = {
   global: {
     blockNumber: 'global.blockNumber',
   },
+  stats: {
+    publicStats: 'stats.publicStats',
+  },
   user: {
     getUser: 'user.getUser',
     getUserProfile: 'user.getUserProfile',

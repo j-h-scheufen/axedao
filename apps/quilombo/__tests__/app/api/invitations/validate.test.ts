@@ -65,7 +65,7 @@ describe('POST /api/invitations/validate', () => {
     (dbModule.findValidInvitation as typeof mockDb.findValidInvitation) = mockDb.findValidInvitation;
     (dbModule as any).db = mockDb.db;
 
-    const routeModule = await import('@/app/api/invitations/validate/route');
+    const routeModule = await import('@/app/api/public/invitations/validate/route');
     POST = routeModule.POST;
   });
 
@@ -220,6 +220,22 @@ describe('POST /api/invitations/validate', () => {
         expiresAt: '2025-01-02T00:00:00.000Z',
       });
       expect(body.invitedEmail).toBeUndefined();
+    });
+
+    it('should validate open invitation with null email (from QR code URL params)', async () => {
+      // When searchParams.get('email') returns null for QR codes, JSON.stringify includes it as null
+      // The route converts null to undefined before calling findValidInvitation
+      const request = new Request('http://localhost/api/invitations/validate', {
+        method: 'POST',
+        body: JSON.stringify({ code: invitationCode, email: null }),
+      });
+
+      const response = await POST(request);
+      const body = await getResponseJson(response);
+
+      expect(response.status).toBe(200);
+      expect(mockDb.findValidInvitation).toHaveBeenCalledWith(invitationCode, undefined);
+      expect(body.type).toBe('open');
     });
 
     it('should validate open invitation with email parameter (ignored)', async () => {

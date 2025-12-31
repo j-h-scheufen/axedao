@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Button, Link, Divider } from '@heroui/react';
+import { Button, Divider, Link } from '@heroui/react';
 import { useSession, signIn as nextAuthSignIn } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAccount } from 'wagmi';
@@ -12,6 +12,7 @@ import { PATHS } from '@/config/constants';
 import { loginSchema } from '@/config/validation-schema';
 import ErrorText from '../ErrorText';
 import FieldInput from '../forms/FieldInput';
+import OrDivider from './OrDivider';
 import WalletEmailModal from './WalletEmailModal';
 
 type LoginFormValues = {
@@ -125,12 +126,7 @@ const SignInForm = () => {
 
         {error && <ErrorText message={error.message} />}
 
-        <div className="relative my-4">
-          <Divider />
-          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-2 text-sm text-default-400">
-            OR
-          </span>
-        </div>
+        <OrDivider />
 
         <p className="text-xs text-center text-default-500 mb-2">
           You can use one of these identity providers to log in.

@@ -132,7 +132,7 @@
    *
    * Using !important to override HeroUI's default bg-background/70.
    *
-   * See: docs/DARK_MODE_INVESTIGATION.md
+   * See: docs/BUG-INVESTIGATION-NAVBAR-DARK-MODE.md
    */
   .dark .navbar-dark-bg {
     background-color: hsl(var(--heroui-background) / 0.2) !important;

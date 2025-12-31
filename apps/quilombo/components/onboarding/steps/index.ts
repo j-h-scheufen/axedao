@@ -1,0 +1,11 @@
+export { PlaceholderStep } from './PlaceholderStep';
+export { BasicProfileStep } from './BasicProfileStep';
+export { ClaimCheckStep } from './ClaimCheckStep';
+export { ClaimFormStep } from './ClaimFormStep';
+export { GenealogyExplainerStep } from './GenealogyExplainerStep';
+export { GenealogyProfileStep } from './GenealogyProfileStep';
+export { GroupOrTeacherStep } from './GroupOrTeacherStep';
+export { FindGroupStep } from './FindGroupStep';
+export { FindTeacherStep } from './FindTeacherStep';
+export { AddMoreStep } from './AddMoreStep';
+export { FinalStep } from './FinalStep';

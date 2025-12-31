@@ -101,9 +101,12 @@ export const urlArraySchema = array()
 export type UrlArray = InferType<typeof urlArraySchema>;
 
 export const profileFormSchema = object({
-  title: string().nullable().oneOf(titles, 'Not a valid title'),
+  title: string()
+    .nullable()
+    .transform((value) => (value === '' ? null : value))
+    .oneOf([...titles, null], 'Not a valid title'),
   name: string().nullable(),
-  nickname: string().nullable(),
+  nickname: string().required('Apelido or username is required').min(1, 'Apelido or username is required'),
   email: string().email('Not a valid email').optional(),
   phone: string().optional(),
   links: linksSchema,
@@ -453,7 +456,7 @@ export const invitationSchema = object({
 
 export const validateInvitationSchema = object({
   code: string().uuid('Invalid invitation code').required('Invitation code is required'),
-  email: string().email('Invalid email address').lowercase().trim().optional(), // Optional - only validated for email_bound
+  email: string().email('Invalid email address').lowercase().trim().nullable().optional(), // Optional - for open invites; nullable for JSON null from searchParams
 });
 
 export type InvitationForm = InferType<typeof invitationSchema>;
@@ -654,7 +657,7 @@ export type GenealogyGraphParams = InferType<typeof genealogyGraphParamsSchema>;
  */
 export const genealogyProfileFormSchema = object({
   // Sync toggles
-  syncPortrait: boolean().default(true),
+  syncPortrait: boolean().default(false),
   syncApelido: boolean().default(true),
   syncTitle: boolean().default(true),
 

@@ -78,7 +78,7 @@ export default withAuth(
   },
   {
     callbacks: {
-      authorized({ token, req }) {
+      authorized({ token, req: _req }) {
         // During maintenance mode, allow all requests through to middleware
         // (middleware will handle the redirect)
         if (isAppShutdown()) return true;
@@ -92,14 +92,13 @@ export default withAuth(
 );
 
 export const config = {
-  // Do not run the middleware on static assets, auth pages, and public API routes
+  // Do not run the middleware on static assets, auth pages, public pages, and public API routes
   // Excludes: Next.js internals, static files with extensions in root, specific directories, auth pages, and public APIs
+  // Note: Root path (/) is NOT matched due to .+ requiring at least one character
   // Note: Public APIs should be placed under /api/public/ to be excluded from authentication
   // Note: /maintenance is excluded so it can be accessed without auth during shutdown
+  // Note: /genealogy is a public page accessible without authentication
   matcher: [
-    // Root path
-    '/',
-    // All other paths except exclusions (.* instead of .+ to also catch single-segment paths)
-    '/((?!_next/static|_next/image|manifest.json|.*\\.(?:ico|png|jpg|jpeg|svg|webp|gif)|assets|favicon*|images|logos|auth|api/stats|api/public|maintenance).+)',
+    '/((?!_next/static|_next/image|manifest.json|.*\\.(?:ico|png|jpg|jpeg|svg|webp|gif)|assets|favicon*|images|logos|auth|api/stats|api/public|maintenance|genealogy).+)',
   ],
 };

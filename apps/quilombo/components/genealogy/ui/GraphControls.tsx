@@ -1,20 +1,36 @@
 'use client';
 
-import { Button, Card, CardBody, Checkbox, CheckboxGroup, Divider, Switch } from '@heroui/react';
-import { useAtom, useAtomValue } from 'jotai';
+import { Accordion, AccordionItem, Button, Checkbox, CheckboxGroup, Divider, Switch, Tooltip } from '@heroui/react';
+import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 
 import type { EntityType, Predicate } from '@/db/schema/genealogy';
+import { currentUserProfileIdAtom } from '@/hooks/state/currentUser';
+import { useUserAncestry } from '@/hooks/useGenealogyData';
 
 import { getFilteredPredicateGroups } from '@/components/genealogy/config';
-import { graphFiltersAtom, graphSettingsAtom, viewConfigAtom } from '@/components/genealogy/state';
+import {
+  genealogyLanguageAtom,
+  graphFiltersAtom,
+  graphSettingsAtom,
+  graphViewModeAtom,
+  recenterCallbackAtom,
+  selectedNodeIdAtom,
+  showYourselfAtom,
+  viewConfigAtom,
+} from '@/components/genealogy/state';
 import type { GraphStats } from '@/components/genealogy/types';
 import { PREDICATE_LABELS } from '@/components/genealogy/types';
+import { LanguageSwitch } from './LanguageSwitch';
 
 interface GraphControlsProps {
   /** Graph statistics */
   stats: GraphStats | undefined;
   /** Loading state */
   isLoading: boolean;
+  /** IDs of nodes currently in the filtered graph (for "Find Me" visibility) */
+  nodeIds?: ReadonlySet<string>;
+  /** Optional callback when an action that should close the drawer is triggered (e.g., Find Me) */
+  onClose?: () => void;
 }
 
 /** Labels for node type checkboxes */
@@ -30,11 +46,63 @@ const PREDICATE_GROUP_REQUIRED_TYPES: Record<string, EntityType[]> = {
   'Group → Group': ['group'],
 };
 
-export function GraphControls({ stats, isLoading }: GraphControlsProps) {
+export function GraphControls({ stats, isLoading, nodeIds, onClose }: GraphControlsProps) {
   // Jotai state
+  const viewMode = useAtomValue(graphViewModeAtom);
   const viewConfig = useAtomValue(viewConfigAtom);
   const [filters, setFilters] = useAtom(graphFiltersAtom);
   const [settings, setSettings] = useAtom(graphSettingsAtom);
+  const [language, setLanguage] = useAtom(genealogyLanguageAtom);
+  const setSelectedNodeId = useSetAtom(selectedNodeIdAtom);
+
+  // "Show Yourself" feature state
+  const [showYourself, setShowYourself] = useAtom(showYourselfAtom);
+  const userProfileId = useAtomValue(currentUserProfileIdAtom);
+  const hasGenealogyProfile = !!userProfileId;
+  const isStudentAncestryView = viewMode === 'student-ancestry';
+
+  // Fetch user's ancestry to check if they have any lineage relations
+  const { data: ancestryData } = useUserAncestry(userProfileId, {
+    enabled: isStudentAncestryView && hasGenealogyProfile,
+  });
+  const hasLineageRelations = (ancestryData?.ancestorIds?.length ?? 0) > 0;
+
+  // "Find Me" feature - check if user's profile is in the current graph
+  const isUserInGraph = hasGenealogyProfile && nodeIds?.has(userProfileId);
+
+  // Re-Center callback from graph component
+  const recenterCallback = useAtomValue(recenterCallbackAtom);
+
+  const handleFindMe = () => {
+    if (userProfileId) {
+      setSelectedNodeId(userProfileId);
+      onClose?.(); // Close drawer on mobile so user can see the selected node
+    }
+  };
+
+  const handleRecenter = () => {
+    recenterCallback?.();
+    onClose?.(); // Close drawer on mobile so user can see the graph
+  };
+
+  // Handle "Highlight Your Lineage" toggle - ensure lineage predicates are enabled when activated
+  const handleShowYourselfChange = (enabled: boolean) => {
+    setShowYourself(enabled);
+
+    // When enabling, ensure both lineage predicates are active to show the full ancestry tree
+    if (enabled) {
+      const lineagePredicates: Predicate[] = ['student_of', 'trained_under'];
+      const currentPredicates = new Set(filters.predicates);
+      const missingPredicates = lineagePredicates.filter((p) => !currentPredicates.has(p));
+
+      if (missingPredicates.length > 0) {
+        setFilters({
+          ...filters,
+          predicates: [...filters.predicates, ...missingPredicates],
+        });
+      }
+    }
+  };
 
   // Get predicate groups filtered to this view's allowed predicates
   const viewPredicateGroups = getFilteredPredicateGroups(viewConfig);
@@ -99,9 +167,13 @@ export function GraphControls({ stats, isLoading }: GraphControlsProps) {
   // Check if there are predicates available (based on filtered groups, not view config)
   const hasPredicates = visiblePredicates.length > 0;
 
+  // Get accordion keys for predicate groups
+  const predicateGroupKeys = Object.keys(predicateGroups);
+
   return (
-    <Card className="h-full overflow-auto">
-      <CardBody className="gap-4">
+    <div className="flex h-full flex-col">
+      {/* Scrollable content area */}
+      <div className="flex-1 overflow-y-auto p-3">
         {/* Stats */}
         {stats && (
           <div className="space-y-1">
@@ -117,7 +189,7 @@ export function GraphControls({ stats, isLoading }: GraphControlsProps) {
 
         {hasMultipleNodeTypes && (
           <>
-            <Divider />
+            <Divider className="my-3" />
 
             {/* Node Types */}
             <div className="space-y-2">
@@ -140,9 +212,9 @@ export function GraphControls({ stats, isLoading }: GraphControlsProps) {
 
         {hasPredicates && (
           <>
-            <Divider />
+            <Divider className="my-3" />
 
-            {/* Relationship Types */}
+            {/* Relationship Types - Accordion */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <h3 className="text-small font-semibold">Relationships</h3>
@@ -162,28 +234,45 @@ export function GraphControls({ stats, isLoading }: GraphControlsProps) {
                 onValueChange={handlePredicatesChange}
                 size="sm"
                 isDisabled={isLoading}
-                className="max-h-80 overflow-y-auto"
               >
-                {Object.entries(predicateGroups).map(([groupName, groupPredicates]) => (
-                  <div key={groupName} className="mb-3">
-                    <p className="mb-1 text-tiny font-medium text-default-500">{groupName}</p>
-                    {groupPredicates.map((predicate) => (
-                      <Checkbox key={predicate} value={predicate} className="block py-0.5">
-                        {PREDICATE_LABELS[predicate]}
-                      </Checkbox>
-                    ))}
-                  </div>
-                ))}
+                <Accordion
+                  selectionMode="single"
+                  defaultExpandedKeys={predicateGroupKeys.length > 0 ? [predicateGroupKeys[0]] : []}
+                  isCompact
+                  className="-mx-2"
+                >
+                  {Object.entries(predicateGroups).map(([groupName, groupPredicates]) => (
+                    <AccordionItem
+                      key={groupName}
+                      aria-label={groupName}
+                      title={<span className="text-tiny font-medium">{groupName}</span>}
+                      classNames={{
+                        content: 'pt-0 pb-2',
+                        trigger: 'py-2',
+                      }}
+                    >
+                      {groupPredicates.map((predicate) => (
+                        <Checkbox key={predicate} value={predicate} className="block py-0.5">
+                          {PREDICATE_LABELS[predicate]}
+                        </Checkbox>
+                      ))}
+                    </AccordionItem>
+                  ))}
+                </Accordion>
               </CheckboxGroup>
             </div>
           </>
         )}
 
-        <Divider />
+        <Divider className="my-3" />
 
         {/* Graph Settings */}
-        <div className="space-y-2">
+        <div className="space-y-3">
           <h3 className="text-small font-semibold">Settings</h3>
+
+          {/* Content Language Toggle */}
+          <LanguageSwitch label="Content" language={language} onLanguageChange={setLanguage} />
+
           <Switch
             size="sm"
             isSelected={settings.showAnimations}
@@ -192,16 +281,64 @@ export function GraphControls({ stats, isLoading }: GraphControlsProps) {
           >
             Show Animations
           </Switch>
+          {isStudentAncestryView && (
+            <Tooltip
+              content={
+                !hasGenealogyProfile
+                  ? 'Link your account to a genealogy profile to see yourself on the graph'
+                  : !hasLineageRelations
+                    ? 'No lineage relations found for your profile'
+                    : ''
+              }
+              isDisabled={hasGenealogyProfile && hasLineageRelations}
+              placement="bottom"
+            >
+              <div className="w-fit">
+                <Switch
+                  size="sm"
+                  isSelected={showYourself}
+                  onValueChange={handleShowYourselfChange}
+                  isDisabled={isLoading || !hasGenealogyProfile || !hasLineageRelations}
+                >
+                  Highlight Your Lineage
+                </Switch>
+              </div>
+            </Tooltip>
+          )}
         </div>
+      </div>
 
-        <Divider />
+      {/* Fixed buttons area - never scrolls */}
+      <div className="shrink-0 space-y-2 border-t border-default-200 p-3">
+        <Button
+          variant="flat"
+          size="sm"
+          onPress={handleRecenter}
+          isDisabled={isLoading || !recenterCallback}
+          className="w-full"
+        >
+          Re-Center
+        </Button>
 
-        {/* Reset Button */}
+        {/* Find Me Button - shown when user's profile is in the current graph */}
+        {isUserInGraph && (
+          <Button
+            variant="flat"
+            color="primary"
+            size="sm"
+            onPress={handleFindMe}
+            isDisabled={isLoading}
+            className="w-full"
+          >
+            Find Me
+          </Button>
+        )}
+
         <Button variant="bordered" size="sm" onPress={handleReset} isDisabled={isLoading} className="w-full">
           Reset Filters
         </Button>
-      </CardBody>
-    </Card>
+      </div>
+    </div>
   );
 }
 

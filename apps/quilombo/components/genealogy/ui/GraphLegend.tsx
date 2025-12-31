@@ -1,13 +1,16 @@
 'use client';
 
-import { Card, CardBody } from '@heroui/react';
+import { Button, Card, CardBody } from '@heroui/react';
 import { useAtomValue } from 'jotai';
-import { useMemo } from 'react';
+import { ChevronDown, Info } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
 
-import type { EntityType } from '@/db/schema/genealogy';
+import type { EntityType, Predicate } from '@/db/schema/genealogy';
+import { useResponsiveLayout } from '@/hooks/useResponsiveLayout';
 
 import type { LegendCategory } from '@/components/genealogy/config';
 import { graphFiltersAtom, viewConfigAtom } from '@/components/genealogy/state';
+import { LINK_COLORS, PREDICATE_LABELS } from '@/components/genealogy/types';
 
 /** Maps legend category names to the node type they require */
 const LEGEND_CATEGORY_REQUIRED_TYPE: Record<string, EntityType> = {
@@ -37,11 +40,20 @@ function LegendSection({ category }: { category: LegendCategory }) {
 }
 
 export function GraphLegend() {
+  // Responsive layout - collapsed by default on mobile
+  const { isMobile } = useResponsiveLayout();
+  const [isExpanded, setIsExpanded] = useState(!isMobile);
+
+  // Sync expanded state when screen size changes
+  useEffect(() => {
+    setIsExpanded(!isMobile);
+  }, [isMobile]);
+
   // Jotai state
   const viewConfig = useAtomValue(viewConfigAtom);
   const filters = useAtomValue(graphFiltersAtom);
 
-  const { nodeCategories, showNodeShapes, nodeShapes } = viewConfig.legend;
+  const { nodeCategories, showNodeShapes, nodeShapes, showDynamicRelationships } = viewConfig.legend;
 
   // Filter legend categories based on selected node types
   const visibleCategories = useMemo(() => {
@@ -69,19 +81,66 @@ export function GraphLegend() {
     });
   }, [showNodeShapes, nodeShapes, filters.nodeTypes]);
 
-  // Don't render if no categories visible
-  if (visibleCategories.length === 0 && visibleNodeShapes.length === 0) {
+  // Generate dynamic relationship legend items based on selected predicates
+  const dynamicRelationshipsCategory = useMemo((): LegendCategory | null => {
+    if (!showDynamicRelationships || filters.predicates.length === 0) return null;
+
+    const items = filters.predicates.map((predicate: Predicate) => ({
+      label: PREDICATE_LABELS[predicate],
+      color: LINK_COLORS[predicate] ?? LINK_COLORS.default,
+    }));
+
+    return {
+      category: 'Relationships',
+      items,
+    };
+  }, [showDynamicRelationships, filters.predicates]);
+
+  // Don't render if nothing to show
+  const hasContent =
+    visibleCategories.length > 0 || visibleNodeShapes.length > 0 || dynamicRelationshipsCategory !== null;
+  if (!hasContent) {
     return null;
+  }
+
+  // Collapsed state - just show a small button
+  if (!isExpanded) {
+    return (
+      <Button
+        isIconOnly
+        size="sm"
+        variant="flat"
+        className="absolute bottom-4 left-4 z-10"
+        onPress={() => setIsExpanded(true)}
+        aria-label="Show legend"
+      >
+        <Info className="h-4 w-4" />
+      </Button>
+    );
   }
 
   return (
     <Card className="absolute bottom-4 left-4 z-10 max-w-xs">
       <CardBody className="gap-3 p-3">
-        <h3 className="text-small font-semibold">Legend</h3>
+        <div className="flex items-center justify-between">
+          <h3 className="text-small font-semibold">Legend</h3>
+          <Button
+            isIconOnly
+            size="sm"
+            variant="light"
+            onPress={() => setIsExpanded(false)}
+            aria-label="Collapse legend"
+            className="-mr-1"
+          >
+            <ChevronDown className="h-4 w-4" />
+          </Button>
+        </div>
 
         {visibleCategories.map((category) => (
           <LegendSection key={category.category} category={category} />
         ))}
+
+        {dynamicRelationshipsCategory && <LegendSection category={dynamicRelationshipsCategory} />}
 
         {showNodeShapes && visibleNodeShapes.length > 0 && (
           <div>

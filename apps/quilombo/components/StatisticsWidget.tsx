@@ -1,23 +1,11 @@
 'use client';
 
 import { Card, CardBody, Skeleton } from '@heroui/react';
-import { Users, UsersRound, Calendar } from 'lucide-react';
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import { Users, UsersRound, Calendar, MapPin, UserRound, Building2 } from 'lucide-react';
 import Link from 'next/link';
 
 import { PATHS } from '@/config/constants';
-
-interface PublicStats {
-  activeUsers: number;
-  totalGroups: number;
-  upcomingEvents: number;
-}
-
-const fetchStats = async (): Promise<PublicStats> => {
-  const response = await axios.get('/api/stats');
-  return response.data;
-};
+import { stats } from '@/query';
 
 interface StatCardProps {
   icon: React.ReactNode;
@@ -68,17 +56,7 @@ const StatCardSkeleton = () => {
  * Fetches data from /api/stats with automatic caching and refetching.
  */
 const StatisticsWidget = () => {
-  const {
-    data: stats,
-    isLoading,
-    isError,
-  } = useQuery({
-    queryKey: ['publicStats'],
-    queryFn: fetchStats,
-    staleTime: 5 * 60 * 1000, // Consider data fresh for 5 minutes
-    refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
-    retry: 2,
-  });
+  const { data: publicStats, isLoading, isError } = stats.useFetchPublicStats();
 
   if (isLoading) {
     return (
@@ -88,12 +66,15 @@ const StatisticsWidget = () => {
           <StatCardSkeleton />
           <StatCardSkeleton />
           <StatCardSkeleton />
+          <StatCardSkeleton />
+          <StatCardSkeleton />
+          <StatCardSkeleton />
         </div>
       </div>
     );
   }
 
-  if (isError || !stats) {
+  if (isError || !publicStats) {
     return null; // Silently fail - statistics are not critical
   }
 
@@ -101,23 +82,43 @@ const StatisticsWidget = () => {
     <div className="w-full mx-auto">
       <h2 className="text-xl font-semibold text-default-900 mb-2 sm:mb-4 text-center">Statistics</h2>
       <div className="grid grid-cols-3 gap-4">
-        <StatCard
-          icon={<Users size={24} />}
-          label="Active Users"
-          value={stats.activeUsers}
-          href={`${PATHS.search}?tab=users`}
-        />
+        {/* Row 1: Groups, Capoeiras, Upcoming Events */}
         <StatCard
           icon={<UsersRound size={24} />}
-          label="Total Groups"
-          value={stats.totalGroups}
-          href={`${PATHS.search}?tab=groups`}
+          label="Groups"
+          value={publicStats.genealogy.groups}
+          href={`${PATHS.genealogy}?type=group`}
+        />
+        <StatCard
+          icon={<UserRound size={24} />}
+          label="Capoeiras"
+          value={publicStats.genealogy.persons}
+          href={`${PATHS.genealogy}?type=person`}
         />
         <StatCard
           icon={<Calendar size={24} />}
           label="Upcoming Events"
-          value={stats.upcomingEvents}
+          value={publicStats.platform.upcomingEvents}
           href={`${PATHS.search}?tab=events`}
+        />
+        {/* Row 2: Managed Groups, Users, Active Locations */}
+        <StatCard
+          icon={<Building2 size={24} />}
+          label="Managed Groups"
+          value={publicStats.platform.managedGroups}
+          href={`${PATHS.search}?tab=groups`}
+        />
+        <StatCard
+          icon={<Users size={24} />}
+          label="Users"
+          value={publicStats.platform.users}
+          href={`${PATHS.search}?tab=users`}
+        />
+        <StatCard
+          icon={<MapPin size={24} />}
+          label="Locations"
+          value={publicStats.platform.groupLocations}
+          href={`${PATHS.search}?tab=groups&view=map`}
         />
       </div>
     </div>

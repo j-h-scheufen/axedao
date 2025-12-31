@@ -7,11 +7,18 @@
  * Specialized graph views should use this as their foundation.
  */
 
-import { useSetAtom } from 'jotai';
+import { useAtomValue, useSetAtom } from 'jotai';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ForceGraph3D, { type ForceGraphMethods } from 'react-force-graph-3d';
 
-import { needsRefocusAtom, refocusCallbackAtom } from '@/components/genealogy/state';
+import { useResponsiveLayout } from '@/hooks/useResponsiveLayout';
+
+import {
+  mobileDrawerOpenAtom,
+  needsRefocusAtom,
+  recenterCallbackAtom,
+  refocusCallbackAtom,
+} from '@/components/genealogy/state';
 
 import { createDefaultNodeObject } from './nodeRenderers';
 import { getLinkColor } from './linkRenderers';
@@ -29,9 +36,25 @@ import type { ForceGraph3DWrapperProps, ForceLink, ForceNode } from './types';
  * - Support for custom forces
  * - Auto-fit on load option
  */
+/** Opacity multiplier for dimmed links (when highlighting lineage) */
+const DIMMED_LINK_OPACITY = 0.1;
+
+/**
+ * Camera lookAt offsets for mobile drawer modes.
+ *
+ * Hybrid approach:
+ * - Predictive: Applied immediately on node focus based on screen layout
+ * - Reactive: Removed when drawer closes to re-center the node
+ */
+/** Y-offset for bottom drawer (mobile portrait). Negative = node appears higher. */
+const BOTTOM_DRAWER_Y_OFFSET = -100;
+/** X-offset for right drawer (mobile landscape). Negative = node appears more to the right. */
+const RIGHT_DRAWER_X_OFFSET = -100;
+
 export function ForceGraph3DWrapper({
   graphData,
   selectedNodeId,
+  highlightedNodeIds,
   focusOnSelection = true,
   onNodeClick,
   onBackgroundClick,
@@ -39,11 +62,11 @@ export function ForceGraph3DWrapper({
   forces,
   customSceneObjects,
   autoFitOnLoad = true,
-  autoFitDelay = 800,
   autoFitPadding = 50,
   backgroundColor = '#1a1a2e',
   width,
   height,
+  warmupTicks = 0,
   cooldownTicks = 100,
   d3AlphaDecay = 0.02,
   d3VelocityDecay = 0.3,
@@ -51,6 +74,8 @@ export function ForceGraph3DWrapper({
   showLinkArrows = true,
   initialCameraPosition,
   linkForceConfig,
+  nodeScale = 1.0,
+  maxVisibleRadius,
 }: ForceGraph3DWrapperProps) {
   const graphRef = useRef<ForceGraphMethods<ForceNode, ForceLink> | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -59,95 +84,165 @@ export function ForceGraph3DWrapper({
   const isClickFocusRef = useRef(false);
   const isFocusingRef = useRef(false); // True while camera is animating to a node
   const focusEndTimeRef = useRef(0); // Timestamp when last focus animation ended
-  const [dimensions, setDimensions] = useState({ width: width || 800, height: height || 600 });
+  // Start with null dimensions - don't render graph until we have accurate measurements
+  // This prevents the graph from initializing with wrong dimensions (e.g., 800px default on 390px mobile)
+  const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(
+    width && height ? { width, height } : null
+  );
 
-  // Jotai setters for refocus state
+  // Jotai state for refocus/recenter
   const setNeedsRefocus = useSetAtom(needsRefocusAtom);
   const setRefocusCallback = useSetAtom(refocusCallbackAtom);
+  const setRecenterCallback = useSetAtom(recenterCallbackAtom);
+
+  // Predictive: detect drawer placement based on screen layout
+  const { isMobile, isPortrait, isLandscape } = useResponsiveLayout();
+  const willUseBottomDrawer = isMobile && isPortrait;
+  const willUseRightDrawerOnMobile = isMobile && isLandscape;
+
+  // Reactive: track actual drawer state (for re-centering on close)
+  const isMobileDrawerOpen = useAtomValue(mobileDrawerOpenAtom);
+
+  // Camera offset: predictive approach - apply offset immediately based on layout
+  const cameraOffset = useMemo(() => {
+    if (willUseBottomDrawer) {
+      return { y: BOTTOM_DRAWER_Y_OFFSET };
+    }
+    if (willUseRightDrawerOnMobile) {
+      return { x: RIGHT_DRAWER_X_OFFSET };
+    }
+    return {};
+  }, [willUseBottomDrawer, willUseRightDrawerOnMobile]);
 
   // Camera controls
   const { zoomToFit, focusOnNode, getCameraPosition } = useGraphCamera(
     graphRef as React.RefObject<ForceGraphMethods<ForceNode, ForceLink> | undefined>
   );
 
-  // Handle container resize
+  // Handle container resize using ResizeObserver for reliable measurements
+  // This catches layout changes (flex settling, orientation changes) not just window resize
   useEffect(() => {
     if (width && height) {
       setDimensions({ width, height });
       return;
     }
 
+    const container = containerRef.current;
+    if (!container) return;
+
     const updateDimensions = () => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        setDimensions({
-          width: rect.width || 800,
-          height: rect.height || 600,
+      const rect = container.getBoundingClientRect();
+      const newWidth = Math.floor(rect.width);
+      const newHeight = Math.floor(rect.height);
+
+      // Only update if we have valid dimensions
+      if (newWidth > 0 && newHeight > 0) {
+        setDimensions((prev) => {
+          // Only update if dimensions actually changed to avoid unnecessary re-renders
+          if (!prev || prev.width !== newWidth || prev.height !== newHeight) {
+            return { width: newWidth, height: newHeight };
+          }
+          return prev;
         });
       }
     };
 
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    return () => window.removeEventListener('resize', updateDimensions);
+    // Initial measurement after a frame to ensure layout is settled
+    requestAnimationFrame(updateDimensions);
+
+    // Use ResizeObserver for responsive updates
+    const resizeObserver = new ResizeObserver(updateDimensions);
+    resizeObserver.observe(container);
+
+    return () => resizeObserver.disconnect();
   }, [width, height]);
 
   // Apply custom forces (collision, radial, etc.)
   // Note: We skip the 'link' force here because react-force-graph-3d manages its own link force.
   // Replacing it causes "node not found" errors. Use linkForceConfig to customize it instead.
+  // We include `dimensions` in deps to ensure forces are applied after graph mounts
+  // (graph only mounts when dimensions becomes non-null)
+  // biome-ignore lint/correctness/useExhaustiveDependencies: dimensions triggers re-run when graph mounts
   useEffect(() => {
     if (!graphRef.current || !forces || forces.length === 0) return;
 
-    for (const forceConfig of forces) {
-      // Skip link force - let react-force-graph-3d manage it internally
-      if (forceConfig.name === 'link') continue;
-      graphRef.current.d3Force(forceConfig.name, forceConfig.force);
-    }
+    // Use requestAnimationFrame to ensure graph's internal simulation is initialized
+    const frameId = requestAnimationFrame(() => {
+      if (!graphRef.current) return;
 
-    graphRef.current.d3ReheatSimulation();
-  }, [forces]);
+      for (const forceConfig of forces) {
+        // Skip link force - let react-force-graph-3d manage it internally
+        if (forceConfig.name === 'link') continue;
+        graphRef.current.d3Force(forceConfig.name, forceConfig.force);
+      }
+
+      graphRef.current.d3ReheatSimulation();
+    });
+
+    return () => cancelAnimationFrame(frameId);
+  }, [forces, dimensions]);
 
   // Configure the library's built-in link force with custom strength/distance resolvers
   // This allows per-predicate configuration (e.g., student_of links stronger than member_of)
+  // We include `dimensions` in deps to ensure config is applied after graph mounts
+  // biome-ignore lint/correctness/useExhaustiveDependencies: dimensions triggers re-run when graph mounts
   useEffect(() => {
     if (!graphRef.current || !linkForceConfig) return;
 
-    const linkForce = graphRef.current.d3Force('link');
-    if (!linkForce) return;
+    // Use requestAnimationFrame to ensure graph's internal simulation is initialized
+    const frameId = requestAnimationFrame(() => {
+      if (!graphRef.current) return;
 
-    if (linkForceConfig.strength !== undefined) {
-      linkForce.strength(linkForceConfig.strength);
-    }
-    if (linkForceConfig.distance !== undefined) {
-      linkForce.distance(linkForceConfig.distance);
-    }
+      const linkForce = graphRef.current.d3Force('link');
+      if (!linkForce) return;
 
-    graphRef.current.d3ReheatSimulation();
-  }, [linkForceConfig]);
+      if (linkForceConfig.strength !== undefined) {
+        linkForce.strength(linkForceConfig.strength);
+      }
+      if (linkForceConfig.distance !== undefined) {
+        linkForce.distance(linkForceConfig.distance);
+      }
 
-  // Set initial camera position
+      graphRef.current.d3ReheatSimulation();
+    });
+
+    return () => cancelAnimationFrame(frameId);
+  }, [linkForceConfig, dimensions]);
+
+  // Track if this is the initial mount (vs. a view change)
+  const isInitialMountRef = useRef(true);
+  const prevInitialCameraPositionRef = useRef(initialCameraPosition);
+
+  // Set initial camera position and trigger zoom-to-fit on mount or view change
+  // initialCameraPosition changes when viewMode changes, so we use it to detect view switches
+  // We include `dimensions` in deps to ensure this runs after graph mounts
+  // biome-ignore lint/correctness/useExhaustiveDependencies: dimensions triggers re-run when graph mounts
   useEffect(() => {
-    if (!graphRef.current || !initialCameraPosition) return;
+    if (!graphRef.current) return;
 
-    const camera = graphRef.current.camera();
-    if (camera) {
-      camera.position.set(initialCameraPosition.x, initialCameraPosition.y, initialCameraPosition.z);
-      camera.lookAt(0, 0, 0);
+    const isViewChange = !isInitialMountRef.current && prevInitialCameraPositionRef.current !== initialCameraPosition;
+
+    // Set camera position if provided
+    if (initialCameraPosition) {
+      const camera = graphRef.current.camera();
+      if (camera) {
+        camera.position.set(initialCameraPosition.x, initialCameraPosition.y, initialCameraPosition.z);
+        camera.lookAt(0, 0, 0);
+      }
     }
-  }, [initialCameraPosition]);
 
-  // Auto-fit on load
-  useEffect(() => {
-    if (!autoFitOnLoad) return;
-
-    const timer = setTimeout(() => {
+    // Zoom to fit on initial mount or view change
+    if ((isInitialMountRef.current && autoFitOnLoad) || isViewChange) {
       zoomToFit(1000, autoFitPadding);
-    }, autoFitDelay);
+      isInitialMountRef.current = false;
+    }
 
-    return () => clearTimeout(timer);
-  }, [autoFitOnLoad, autoFitDelay, autoFitPadding, zoomToFit]);
+    prevInitialCameraPositionRef.current = initialCameraPosition;
+  }, [initialCameraPosition, autoFitOnLoad, autoFitPadding, zoomToFit, dimensions]);
 
-  // Add custom scene objects
+  // Add custom scene objects (e.g., era rings in student ancestry view)
+  // We include `dimensions` in deps to ensure objects are added after graph mounts
+  // biome-ignore lint/correctness/useExhaustiveDependencies: dimensions triggers re-run when graph mounts
   useEffect(() => {
     if (!graphRef.current || !customSceneObjects || customSceneObjects.length === 0) return;
 
@@ -187,7 +282,7 @@ export function ForceGraph3DWrapper({
       }
       addedObjectIdsRef.current.clear();
     };
-  }, [customSceneObjects]);
+  }, [customSceneObjects, dimensions]);
 
   // Handle node click with camera focus
   const handleNodeClick = useCallback(
@@ -197,7 +292,7 @@ export function ForceGraph3DWrapper({
       isFocusingRef.current = true;
       setNeedsRefocus(false);
 
-      focusOnNode(node, 300, 1500);
+      focusOnNode(node, 300, 1500, cameraOffset);
       onNodeClick?.(node);
 
       // Clear focusing flag after animation completes
@@ -206,7 +301,7 @@ export function ForceGraph3DWrapper({
         focusEndTimeRef.current = Date.now();
       }, 1600);
     },
-    [focusOnNode, onNodeClick, setNeedsRefocus]
+    [focusOnNode, onNodeClick, setNeedsRefocus, cameraOffset]
   );
 
   // Handle background click
@@ -249,7 +344,7 @@ export function ForceGraph3DWrapper({
     if (node) {
       isFocusingRef.current = true;
       setNeedsRefocus(false);
-      focusOnNode(node, 300, 1500);
+      focusOnNode(node, 300, 1500, cameraOffset);
 
       // Clear focusing flag after animation completes
       setTimeout(() => {
@@ -259,26 +354,49 @@ export function ForceGraph3DWrapper({
     }
 
     prevSelectedNodeIdRef.current = validSelectedNodeId;
-  }, [validSelectedNodeId, focusOnSelection, graphData.nodes, focusOnNode, setNeedsRefocus]);
+  }, [validSelectedNodeId, focusOnSelection, graphData.nodes, focusOnNode, setNeedsRefocus, cameraOffset]);
 
   // Default node renderer
   const defaultNodeThreeObject = useCallback(
     (node: ForceNode) => {
       const isSelected = node.id === validSelectedNodeId;
+      // Dim nodes when highlighting is active and this node is not in the highlighted set
+      const isDimmed = highlightedNodeIds ? !highlightedNodeIds.has(node.id) : false;
 
       if (nodeRenderer) {
         return nodeRenderer(node, isSelected);
       }
 
-      return createDefaultNodeObject(node, isSelected);
+      return createDefaultNodeObject(node, isSelected, { isDimmed, scale: nodeScale });
     },
-    [validSelectedNodeId, nodeRenderer]
+    [validSelectedNodeId, nodeRenderer, highlightedNodeIds, nodeScale]
   );
 
-  // Link color resolver
-  const linkColorResolver = useCallback((link: ForceLink) => {
-    return getLinkColor(link);
-  }, []);
+  // Link color resolver - includes opacity via rgba when highlighting is active
+  const linkColorResolver = useCallback(
+    (link: ForceLink) => {
+      const baseColor = getLinkColor(link);
+
+      if (!highlightedNodeIds) return baseColor; // No highlighting active
+
+      const sourceId = typeof link.source === 'string' ? link.source : (link.source as ForceNode).id;
+      const targetId = typeof link.target === 'string' ? link.target : (link.target as ForceNode).id;
+
+      // Both endpoints must be highlighted for the link to remain bright
+      const isHighlighted = highlightedNodeIds.has(sourceId) && highlightedNodeIds.has(targetId);
+
+      if (isHighlighted) return baseColor;
+
+      // Dim the link by returning rgba with low alpha
+      // Convert hex to rgba with dimmed opacity
+      const hex = baseColor.replace('#', '');
+      const r = Number.parseInt(hex.substring(0, 2), 16);
+      const g = Number.parseInt(hex.substring(2, 4), 16);
+      const b = Number.parseInt(hex.substring(4, 6), 16);
+      return `rgba(${r}, ${g}, ${b}, ${DIMMED_LINK_OPACITY})`;
+    },
+    [highlightedNodeIds]
+  );
 
   // Link visibility resolver - hides links marked as invisible
   // These links still participate in the force simulation (gravity) but aren't rendered
@@ -294,20 +412,94 @@ export function ForceGraph3DWrapper({
     if (node) {
       isFocusingRef.current = true;
       setNeedsRefocus(false);
-      focusOnNode(node, 300, 1500);
+      focusOnNode(node, 300, 1500, cameraOffset);
 
       setTimeout(() => {
         isFocusingRef.current = false;
         focusEndTimeRef.current = Date.now(); // Record when animation ended
       }, 1600);
     }
-  }, [validSelectedNodeId, graphData.nodes, focusOnNode, setNeedsRefocus]);
+  }, [validSelectedNodeId, graphData.nodes, focusOnNode, setNeedsRefocus, cameraOffset]);
 
   // Register the refocus callback in global state for NodeDetailsPanel to use
   useEffect(() => {
     setRefocusCallback(() => refocusOnSelectedNode);
     return () => setRefocusCallback(null);
   }, [refocusOnSelectedNode, setRefocusCallback]);
+
+  // Re-center node when mobile drawer closes (reactive approach for close only)
+  // Opening is handled predictively via cameraOffset in focus calls
+  const prevDrawerOpenRef = useRef(isMobileDrawerOpen);
+  const lastSelectedNodeIdRef = useRef<string | null>(null);
+
+  // Track the last selected node (so we can re-center it after deselection)
+  useEffect(() => {
+    if (validSelectedNodeId) {
+      lastSelectedNodeIdRef.current = validSelectedNodeId;
+    }
+  }, [validSelectedNodeId]);
+
+  useEffect(() => {
+    const wasOpen = prevDrawerOpenRef.current;
+    const isNowOpen = isMobileDrawerOpen;
+    prevDrawerOpenRef.current = isNowOpen;
+
+    // Only act on drawer CLOSE (was open, now closed)
+    if (!(wasOpen && !isNowOpen)) return;
+
+    // Use current selection, or fall back to last selected node (may have been deselected on close)
+    const nodeIdToCenter = validSelectedNodeId || lastSelectedNodeIdRef.current;
+    if (!nodeIdToCenter) return;
+
+    const node = graphData.nodes.find((n) => n.id === nodeIdToCenter);
+    if (!node) return;
+
+    // Re-center node (no offset since drawer is closed)
+    isFocusingRef.current = true;
+    setNeedsRefocus(false);
+    focusOnNode(node, 300, 800, {}); // No offset - center the node
+
+    setTimeout(() => {
+      isFocusingRef.current = false;
+      focusEndTimeRef.current = Date.now();
+    }, 900);
+  }, [isMobileDrawerOpen, validSelectedNodeId, graphData.nodes, focusOnNode, setNeedsRefocus]);
+
+  // Recenter callback - returns camera to initial position looking at origin
+  // We avoid zoomToFit() because it includes all nodes in bounding box calculation,
+  // including outliers at year 2200 band which causes excessive zoom out
+  const recenterGraph = useCallback(() => {
+    if (!graphRef.current) return;
+
+    // Compute camera distance based on max visible radius
+    let cameraDistance: number;
+    if (maxVisibleRadius) {
+      // Camera distance calculation for typical 75° FOV:
+      // distance = radius / tan(FOV/2) ≈ radius * 1.3
+      // Add small multiplier (1.15) for minimal padding around the visible area
+      cameraDistance = maxVisibleRadius * 1.3 * 1.15;
+    } else {
+      // Fallback to provided initial position or default
+      cameraDistance = initialCameraPosition?.z ?? 500;
+    }
+
+    // Set camera position looking at origin
+    const targetPosition = { x: 0, y: 0, z: cameraDistance };
+    const camera = graphRef.current.camera();
+    if (camera) {
+      camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
+      camera.lookAt(0, 0, 0);
+    }
+
+    // Animate the camera smoothly to the target position
+    graphRef.current.cameraPosition(targetPosition, { x: 0, y: 0, z: 0 }, 1000);
+  }, [initialCameraPosition, maxVisibleRadius]);
+
+  // Register the recenter callback in global state for GraphControls to use
+  useEffect(() => {
+    setRecenterCallback(() => recenterGraph);
+    return () => setRecenterCallback(null);
+  }, [recenterGraph, setRecenterCallback]);
 
   // Detect camera movement when a node is selected (user dragged/rotated the view)
   // We poll the camera position periodically to detect if it has moved away from the node
@@ -374,40 +566,43 @@ export function ForceGraph3DWrapper({
   }, [validSelectedNodeId, graphData.nodes, getCameraPosition, setNeedsRefocus]);
 
   return (
-    <div ref={containerRef} className="h-full w-full" style={{ minHeight: 400 }}>
-      <ForceGraph3D
-        ref={graphRef}
-        graphData={graphData}
-        width={dimensions.width}
-        height={dimensions.height}
-        // Node configuration
-        nodeId="id"
-        nodeLabel={(node: ForceNode) => `${node.name} (${node.type})`}
-        nodeThreeObject={defaultNodeThreeObject}
-        nodeThreeObjectExtend={false}
-        // Link configuration
-        linkVisibility={linkVisibilityResolver}
-        linkColor={linkColorResolver}
-        linkWidth={1.5}
-        linkOpacity={0.6}
-        linkDirectionalArrowLength={showLinkArrows ? 3 : 0}
-        linkDirectionalArrowRelPos={1}
-        linkDirectionalParticles={showLinkParticles ? 1 : 0}
-        linkDirectionalParticleWidth={2}
-        linkDirectionalParticleSpeed={0.005}
-        // Interaction
-        onNodeClick={handleNodeClick}
-        onBackgroundClick={handleBackgroundClick}
-        // Layout
-        cooldownTicks={cooldownTicks}
-        d3AlphaDecay={d3AlphaDecay}
-        d3VelocityDecay={d3VelocityDecay}
-        // Performance
-        enableNavigationControls
-        showNavInfo={false}
-        // Background
-        backgroundColor={backgroundColor}
-      />
+    <div ref={containerRef} className="h-full w-full" style={{ minHeight: 400, backgroundColor }}>
+      {dimensions && (
+        <ForceGraph3D
+          ref={graphRef}
+          graphData={graphData}
+          width={dimensions.width}
+          height={dimensions.height}
+          // Node configuration
+          nodeId="id"
+          nodeLabel={(node: ForceNode) => (node.type === 'group' ? `${node.name} (group)` : node.name)}
+          nodeThreeObject={defaultNodeThreeObject}
+          nodeThreeObjectExtend={false}
+          // Link configuration
+          linkVisibility={linkVisibilityResolver}
+          linkColor={linkColorResolver}
+          linkWidth={1.5}
+          linkOpacity={0.6}
+          linkDirectionalArrowLength={showLinkArrows ? 3 : 0}
+          linkDirectionalArrowRelPos={1}
+          linkDirectionalParticles={showLinkParticles ? 1 : 0}
+          linkDirectionalParticleWidth={2}
+          linkDirectionalParticleSpeed={0.005}
+          // Interaction
+          onNodeClick={handleNodeClick}
+          onBackgroundClick={handleBackgroundClick}
+          // Layout / Simulation
+          warmupTicks={warmupTicks}
+          cooldownTicks={cooldownTicks}
+          d3AlphaDecay={d3AlphaDecay}
+          d3VelocityDecay={d3VelocityDecay}
+          // Performance
+          enableNavigationControls
+          showNavInfo={false}
+          // Background
+          backgroundColor={backgroundColor}
+        />
+      )}
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { useMemo, useState } from 'react';
 
 import type { GraphNode, GroupMetadata, PersonMetadata } from '@/components/genealogy/types';
 import { NODE_COLORS } from '@/components/genealogy/types';
+import { matchesNormalized } from '@/utils';
 
 interface NodeSearchProps {
   /** All nodes available for searching */
@@ -18,6 +19,8 @@ interface NodeSearchProps {
   isLoading?: boolean;
   /** Disabled state */
   isDisabled?: boolean;
+  /** Additional className for the autocomplete */
+  className?: string;
 }
 
 /**
@@ -31,31 +34,30 @@ export function NodeSearch({
   onNodeSelect,
   isLoading = false,
   isDisabled = false,
+  className,
 }: NodeSearchProps) {
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Filter nodes based on search term
+  // Filter nodes based on search term (accent-insensitive)
   const filteredNodes = useMemo(() => {
     if (!searchTerm.trim()) {
       return [];
     }
 
-    const term = searchTerm.toLowerCase();
-
     return nodes
       .filter((node) => {
-        // Always match against the primary name
-        if (node.name.toLowerCase().includes(term)) {
+        // Always match against the primary name (accent-insensitive)
+        if (matchesNormalized(node.name, searchTerm)) {
           return true;
         }
 
         // For persons, also match against fullName and apelido in metadata
         if (node.type === 'person') {
           const meta = node.metadata as PersonMetadata;
-          if (meta.fullName?.toLowerCase().includes(term)) {
+          if (matchesNormalized(meta.fullName, searchTerm)) {
             return true;
           }
-          if (meta.apelido?.toLowerCase().includes(term)) {
+          if (matchesNormalized(meta.apelido, searchTerm)) {
             return true;
           }
         }
@@ -93,9 +95,16 @@ export function NodeSearch({
     };
   };
 
+  const handleSelection = (key: string | number | null) => {
+    onNodeSelect(key?.toString() || null);
+    if (key) {
+      setSearchTerm('');
+    }
+  };
+
   return (
     <Autocomplete
-      className="w-80"
+      className={className}
       size="sm"
       variant="bordered"
       label="Search"
@@ -110,17 +119,8 @@ export function NodeSearch({
       listboxProps={{
         emptyContent: searchTerm.trim() ? 'No matches found' : 'Type to search...',
       }}
-      onInputChange={(value) => {
-        setSearchTerm(value);
-      }}
-      onSelectionChange={(key) => {
-        onNodeSelect(key?.toString() || null);
-        if (key) {
-          // Clear search after selection to show placeholder
-          setSearchTerm('');
-        }
-      }}
-      // Clear selection when input is cleared
+      onInputChange={setSearchTerm}
+      onSelectionChange={handleSelection}
       onClear={() => {
         setSearchTerm('');
         onNodeSelect(null);
@@ -137,12 +137,12 @@ export function NodeSearch({
             aria-label={`${node.type === 'person' ? 'Person' : 'Group'}: ${node.name}`}
           >
             <div className="flex items-center justify-between gap-2">
-              <div className="flex flex-col min-w-0">
-                <span className="font-medium truncate">{info.primary}</span>
-                {info.secondary && <span className="text-tiny text-default-400 truncate">{info.secondary}</span>}
+              <div className="flex min-w-0 flex-col">
+                <span className="truncate font-medium">{info.primary}</span>
+                {info.secondary && <span className="truncate text-tiny text-default-400">{info.secondary}</span>}
               </div>
               <span
-                className="text-tiny px-1.5 py-0.5 rounded shrink-0 text-white"
+                className="shrink-0 rounded px-1.5 py-0.5 text-tiny text-white"
                 style={{ backgroundColor: info.color }}
               >
                 {info.badge}

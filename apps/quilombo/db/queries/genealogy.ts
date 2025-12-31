@@ -6,9 +6,9 @@
  * No foreign keys point from genealogy to public schema.
  */
 
-import { and, eq, gt, ilike, inArray, isNull, or, sql, type SQLWrapper } from 'drizzle-orm';
+import { and, eq, gt, inArray, isNull, or, sql, type SQLWrapper } from 'drizzle-orm';
 
-import { QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
+import { PRESUMED_DECEASED_AGE_THRESHOLD, QUERY_DEFAULT_PAGE_SIZE } from '@/config/constants';
 import { db } from '@/db';
 import * as schema from '@/db/schema';
 import {
@@ -45,6 +45,7 @@ export async function fetchPersonProfile(profileId: string): Promise<SelectPerso
  *
  * @param options - Search parameters
  * @param options.claimableOnly - If true, excludes deceased profiles and profiles already claimed by a user
+ * @param options.includeHistorical - If true, includes historical persons (born 100+ years ago). Default: false
  * @returns Paginated list of person profiles with total count
  */
 export async function searchPersonProfiles(options: {
@@ -55,6 +56,7 @@ export async function searchPersonProfiles(options: {
   title?: string;
   includeDeceased?: boolean;
   claimableOnly?: boolean;
+  includeHistorical?: boolean;
 }): Promise<{ rows: SelectPersonProfile[]; totalCount: number }> {
   const {
     pageSize = QUERY_DEFAULT_PAGE_SIZE,
@@ -64,13 +66,18 @@ export async function searchPersonProfiles(options: {
     title,
     includeDeceased = true,
     claimableOnly = false,
+    includeHistorical = false,
   } = options;
 
   const filters: (SQLWrapper | undefined)[] = [];
 
   if (searchTerm) {
     // Search on identity fields only (apelido, name) - not bio content
-    filters.push(or(ilike(personProfiles.apelido, `%${searchTerm}%`), ilike(personProfiles.name, `%${searchTerm}%`)));
+    // Use unaccent() for accent-insensitive search (e.g., "Jose" matches "José")
+    const searchPattern = `%${searchTerm}%`;
+    filters.push(
+      sql`(unaccent(${personProfiles.apelido}) ILIKE unaccent(${searchPattern}) OR unaccent(${personProfiles.name}) ILIKE unaccent(${searchPattern}))`
+    );
   }
 
   if (style) {
@@ -81,25 +88,25 @@ export async function searchPersonProfiles(options: {
     filters.push(sql`${personProfiles.title} = ${title}`);
   }
 
-  // claimableOnly implies not deceased
-  if (!includeDeceased || claimableOnly) {
+  // Exclude historical persons (born PRESUMED_DECEASED_AGE_THRESHOLD+ years ago) unless includeHistorical is true
+  // claimableOnly also implies !includeHistorical
+  if (!includeHistorical || claimableOnly) {
+    filters.push(isNull(personProfiles.deathYear));
+    const currentYear = new Date().getFullYear();
+    const historicalThreshold = currentYear - PRESUMED_DECEASED_AGE_THRESHOLD;
+    filters.push(or(isNull(personProfiles.birthYear), gt(personProfiles.birthYear, historicalThreshold)));
+  } else if (!includeDeceased) {
+    // Only filter deceased if not already filtered by historical exclusion
     filters.push(isNull(personProfiles.deathYear));
   }
 
-  // For claimable profiles, apply additional filters
+  // For claimable profiles, also exclude profiles already claimed by another user
   if (claimableOnly) {
-    // Exclude profiles already claimed by a user (users.profileId references them)
     const claimedProfileIds = db
       .select({ profileId: schema.users.profileId })
       .from(schema.users)
       .where(sql`${schema.users.profileId} IS NOT NULL`);
     filters.push(sql`${personProfiles.id} NOT IN (${claimedProfileIds})`);
-
-    // Exclude profiles with birth year > 100 years ago (presumed deceased historical figures)
-    // This mirrors the heuristic used in the genealogy graph UI
-    const currentYear = new Date().getFullYear();
-    const presumedDeceasedThreshold = currentYear - 100;
-    filters.push(or(isNull(personProfiles.birthYear), gt(personProfiles.birthYear, presumedDeceasedThreshold)));
   }
 
   const results = await db
@@ -203,14 +210,15 @@ export async function searchGroupProfiles(options: {
 
   if (searchTerm) {
     // Search on identity fields: name, nameAliases array, nameHistory JSONB array
+    // Use unaccent() for accent-insensitive search (e.g., "Senzala" matches "Senzalã")
     const searchPattern = `%${searchTerm}%`;
     filters.push(
       or(
-        ilike(groupProfiles.name, searchPattern),
-        // Search in nameAliases text array (case-insensitive)
-        sql`EXISTS (SELECT 1 FROM unnest(${groupProfiles.nameAliases}) AS alias WHERE alias ILIKE ${searchPattern})`,
-        // Search in nameHistory JSONB array's 'name' field (case-insensitive)
-        sql`EXISTS (SELECT 1 FROM jsonb_array_elements(${groupProfiles.nameHistory}) AS entry WHERE entry->>'name' ILIKE ${searchPattern})`
+        sql`unaccent(${groupProfiles.name}) ILIKE unaccent(${searchPattern})`,
+        // Search in nameAliases text array (case-insensitive, accent-insensitive)
+        sql`EXISTS (SELECT 1 FROM unnest(${groupProfiles.nameAliases}) AS alias WHERE unaccent(alias) ILIKE unaccent(${searchPattern}))`,
+        // Search in nameHistory JSONB array's 'name' field (case-insensitive, accent-insensitive)
+        sql`EXISTS (SELECT 1 FROM jsonb_array_elements(${groupProfiles.nameHistory}) AS entry WHERE unaccent(entry->>'name') ILIKE unaccent(${searchPattern}))`
       )
     );
   }
@@ -549,6 +557,69 @@ export async function fetchGraphData(options?: { nodeTypes?: EntityType[]; predi
       groupCount: nodes.filter((n) => n.type === 'group').length,
     },
   };
+}
+
+// ============================================================================
+// ANCESTRY QUERIES (for lineage visualization)
+// ============================================================================
+
+/**
+ * Fetches all ancestor IDs for a person by traversing student_of and trained_under relationships.
+ * Uses a recursive CTE to walk up the lineage chain.
+ *
+ * @param personId - The starting person's profile ID
+ * @param options - Query options
+ * @param options.maxDepth - Maximum traversal depth (default: 50)
+ * @param options.predicates - Predicates to follow (default: ['student_of', 'trained_under'])
+ * @returns Array of unique ancestor person profile IDs (not including the starting person)
+ *
+ * @example
+ * const ancestors = await fetchAncestorIds('person-123');
+ * // Returns ['mestre-abc', 'mestre-xyz', ...]
+ */
+export async function fetchAncestorIds(
+  personId: string,
+  options?: {
+    maxDepth?: number;
+    predicates?: ('student_of' | 'trained_under')[];
+  }
+): Promise<string[]> {
+  const { maxDepth = 50, predicates: predicateList = ['student_of', 'trained_under'] } = options || {};
+
+  // Build the recursive CTE query
+  // Using raw SQL for the recursive CTE as Drizzle doesn't natively support WITH RECURSIVE
+  const result = await db.execute(sql`
+    WITH RECURSIVE ancestors AS (
+      -- Base case: direct ancestors of the starting person
+      SELECT s.object_id as person_id, 1 as depth
+      FROM genealogy.statements s
+      WHERE s.subject_id = ${personId}
+        AND s.subject_type = 'person'
+        AND s.object_type = 'person'
+        AND s.predicate IN (${sql.join(
+          predicateList.map((p) => sql`${p}`),
+          sql`, `
+        )})
+
+      UNION
+
+      -- Recursive case: ancestors of ancestors
+      SELECT s.object_id, a.depth + 1
+      FROM genealogy.statements s
+      JOIN ancestors a ON s.subject_id = a.person_id
+      WHERE s.subject_type = 'person'
+        AND s.object_type = 'person'
+        AND s.predicate IN (${sql.join(
+          predicateList.map((p) => sql`${p}`),
+          sql`, `
+        )})
+        AND a.depth < ${maxDepth}
+    )
+    SELECT DISTINCT person_id FROM ancestors
+  `);
+
+  // Extract the IDs from the result - postgres-js returns an array-like RowList
+  return (result as unknown as Array<{ person_id: string }>).map((row) => row.person_id);
 }
 
 // ============================================================================

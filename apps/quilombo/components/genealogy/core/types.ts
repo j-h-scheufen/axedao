@@ -117,6 +117,13 @@ export interface ForceGraph3DWrapperProps {
   selectedNodeId?: string | null;
 
   /**
+   * Set of node IDs to highlight (for lineage highlighting).
+   * When provided, nodes NOT in this set will be dimmed.
+   * Links connecting highlighted nodes will remain bright.
+   */
+  highlightedNodeIds?: ReadonlySet<string>;
+
+  /**
    * Whether to auto-focus camera on selected node when selectedNodeId changes.
    * When true, camera will animate to focus on the newly selected node.
    * Default: true
@@ -144,9 +151,6 @@ export interface ForceGraph3DWrapperProps {
   /** Whether to auto-fit graph on load */
   autoFitOnLoad?: boolean;
 
-  /** Auto-fit delay in ms */
-  autoFitDelay?: number;
-
   /** Auto-fit padding */
   autoFitPadding?: number;
 
@@ -159,13 +163,16 @@ export interface ForceGraph3DWrapperProps {
   /** Fixed height (auto-sizes if not provided) */
   height?: number;
 
-  /** Simulation cooldown ticks */
+  /** Simulation warmup ticks (pre-compute before rendering to reduce initial chaos) */
+  warmupTicks?: number;
+
+  /** Simulation cooldown ticks (stop simulation after this many rendered frames) */
   cooldownTicks?: number;
 
-  /** Simulation alpha decay rate */
+  /** Simulation alpha decay rate (higher = faster settling) */
   d3AlphaDecay?: number;
 
-  /** Simulation velocity decay rate */
+  /** Simulation velocity decay rate (higher = more friction = calmer motion) */
   d3VelocityDecay?: number;
 
   /** Show link directional particles */
@@ -182,6 +189,20 @@ export interface ForceGraph3DWrapperProps {
    * Use this to customize per-predicate strength/distance without replacing the force.
    */
   linkForceConfig?: LinkForceConfig;
+
+  /**
+   * Scale factor for node sizes.
+   * Use values > 1 for larger touch targets on mobile (e.g., 1.5 = 50% larger).
+   * Default: 1.0
+   */
+  nodeScale?: number;
+
+  /**
+   * Maximum visible radius for the graph (excluding outlier nodes like year 2200 band).
+   * Used to compute appropriate camera distance for recenter.
+   * When not provided, falls back to a default camera distance.
+   */
+  maxVisibleRadius?: number;
 }
 
 /**
