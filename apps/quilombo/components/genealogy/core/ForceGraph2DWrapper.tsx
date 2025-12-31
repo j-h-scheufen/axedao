@@ -474,7 +474,7 @@ export function ForceGraph2DWrapper({
           height={dimensions.height}
           // Node configuration
           nodeId="id"
-          nodeLabel={(node: ForceNode2D) => `${node.name} (${node.type})`}
+          nodeLabel={(node: ForceNode2D) => (node.type === 'group' ? `${node.name} (group)` : node.name)}
           nodeCanvasObject={nodeCanvasObject}
           nodeCanvasObjectMode={() => 'replace'}
           nodePointerAreaPaint={nodePointerAreaPaint}

@@ -575,7 +575,7 @@ export function ForceGraph3DWrapper({
           height={dimensions.height}
           // Node configuration
           nodeId="id"
-          nodeLabel={(node: ForceNode) => `${node.name} (${node.type})`}
+          nodeLabel={(node: ForceNode) => (node.type === 'group' ? `${node.name} (group)` : node.name)}
           nodeThreeObject={defaultNodeThreeObject}
           nodeThreeObjectExtend={false}
           // Link configuration

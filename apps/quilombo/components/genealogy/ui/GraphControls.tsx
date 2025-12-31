@@ -20,6 +20,7 @@ import {
 } from '@/components/genealogy/state';
 import type { GraphStats } from '@/components/genealogy/types';
 import { PREDICATE_LABELS } from '@/components/genealogy/types';
+import { LanguageSwitch } from './LanguageSwitch';
 
 interface GraphControlsProps {
   /** Graph statistics */
@@ -269,24 +270,8 @@ export function GraphControls({ stats, isLoading, nodeIds, onClose }: GraphContr
         <div className="space-y-3">
           <h3 className="text-small font-semibold">Settings</h3>
 
-          {/* Language Toggle */}
-          <div className="flex items-center justify-between">
-            <span className="text-small">Language</span>
-            <div className="flex items-center gap-2">
-              <span className="text-base" title="English">
-                🇬🇧
-              </span>
-              <Switch
-                size="sm"
-                isSelected={language === 'pt'}
-                onValueChange={(selected) => setLanguage(selected ? 'pt' : 'en')}
-                aria-label="Toggle language between English and Portuguese"
-              />
-              <span className="text-base" title="Português">
-                🇧🇷
-              </span>
-            </div>
-          </div>
+          {/* Content Language Toggle */}
+          <LanguageSwitch label="Content" language={language} onLanguageChange={setLanguage} />
 
           <Switch
             size="sm"
