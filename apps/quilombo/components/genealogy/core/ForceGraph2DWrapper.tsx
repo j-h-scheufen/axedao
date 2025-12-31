@@ -284,6 +284,22 @@ export function ForceGraph2DWrapper({
     return createNodeCanvasObject(validSelectedNodeId, highlightedNodeIds, nodeScale);
   }, [validSelectedNodeId, nodeRenderer, highlightedNodeIds, nodeScale]);
 
+  // Custom pointer area for hit detection - uses simple shape instead of pixel detection.
+  // This fixes Brave browser's canvas fingerprinting protection breaking hit detection.
+  // See: https://github.com/vasturiano/react-force-graph/issues/270
+  const nodePointerAreaPaint = useCallback(
+    (node: ForceNode2D, color: string, ctx: CanvasRenderingContext2D) => {
+      if (node.x === undefined || node.y === undefined) return;
+      const baseRadius = node.type === 'group' ? 6 : 4;
+      const radius = baseRadius * nodeScale * 1.5; // Slightly larger for easier clicking
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI);
+      ctx.fill();
+    },
+    [nodeScale]
+  );
+
   // Link color resolver
   const linkColorResolver = useCallback(
     (link: ForceLink2D) => {
@@ -458,9 +474,10 @@ export function ForceGraph2DWrapper({
           height={dimensions.height}
           // Node configuration
           nodeId="id"
-          nodeLabel={(node: ForceNode2D) => `${node.name} (${node.type})`}
+          nodeLabel={(node: ForceNode2D) => (node.type === 'group' ? `${node.name} (group)` : node.name)}
           nodeCanvasObject={nodeCanvasObject}
           nodeCanvasObjectMode={() => 'replace'}
+          nodePointerAreaPaint={nodePointerAreaPaint}
           // Link configuration
           linkVisibility={linkVisibilityResolver}
           linkColor={linkColorResolver}

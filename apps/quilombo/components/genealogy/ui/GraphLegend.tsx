@@ -110,7 +110,7 @@ export function GraphLegend() {
         isIconOnly
         size="sm"
         variant="flat"
-        className="absolute bottom-4 left-4 z-10 bg-background/80 backdrop-blur-sm"
+        className="absolute bottom-4 left-4 z-10"
         onPress={() => setIsExpanded(true)}
         aria-label="Show legend"
       >
@@ -120,7 +120,7 @@ export function GraphLegend() {
   }
 
   return (
-    <Card className="absolute bottom-4 left-4 z-10 max-w-xs bg-background/90 backdrop-blur-sm">
+    <Card className="absolute bottom-4 left-4 z-10 max-w-xs">
       <CardBody className="gap-3 p-3">
         <div className="flex items-center justify-between">
           <h3 className="text-small font-semibold">Legend</h3>
