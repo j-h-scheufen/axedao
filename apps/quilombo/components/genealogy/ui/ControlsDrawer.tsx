@@ -32,7 +32,7 @@ export function ControlsDrawer({ stats, isLoading, nodeIds }: ControlsDrawerProp
         variant="flat"
         size="sm"
         onPress={onOpen}
-        className="absolute left-3 top-3 z-20 bg-background/80 backdrop-blur-sm"
+        className="absolute left-3 top-3 z-20"
         aria-label="Open filters"
       >
         <Menu className="h-5 w-5" />
