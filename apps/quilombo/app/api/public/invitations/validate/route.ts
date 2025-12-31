@@ -86,8 +86,8 @@ export async function POST(request: Request) {
     // Validate request body
     const validatedData = await validateInvitationSchema.validate(body, { abortEarly: true });
 
-    // Find valid invitation
-    const invitation = await findValidInvitation(validatedData.code, validatedData.email);
+    // Find valid invitation (convert null to undefined for function signature)
+    const invitation = await findValidInvitation(validatedData.code, validatedData.email ?? undefined);
 
     if (!invitation) {
       // Generic error to prevent user enumeration
