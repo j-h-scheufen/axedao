@@ -456,7 +456,7 @@ export const invitationSchema = object({
 
 export const validateInvitationSchema = object({
   code: string().uuid('Invalid invitation code').required('Invitation code is required'),
-  email: string().email('Invalid email address').lowercase().trim().optional(), // Optional - only validated for email_bound
+  email: string().email('Invalid email address').lowercase().trim().nullable().optional(), // Optional - for open invites; nullable for JSON null from searchParams
 });
 
 export type InvitationForm = InferType<typeof invitationSchema>;
