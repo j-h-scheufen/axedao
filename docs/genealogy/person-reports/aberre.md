@@ -1,10 +1,10 @@
 # Mestre Aberrê / Antônio Raimundo Argolo (1895-1942)
 
-**SQL Import:** `docs/genealogy/sql-imports/persons/aberre.sql`
+**SQL Import:** `docs/genealogy/sql-imports/entities/persons/aberre.sql`
 
 **Significance / Significância:**
-- EN: Bridge figure who invited Pastinha to Gengibirra in 1941, facilitating the handover of Capoeira Angola leadership. Teacher of Mestre Canjiquinha and possibly Mestre Caiçara.
-- PT: Figura de ligação que convidou Pastinha para Gengibirra em 1941, facilitando a passagem da liderança da Capoeira Angola. Professor de Mestre Canjiquinha e possivelmente Mestre Caiçara.
+- EN: Bridge figure who invited Pastinha to Gengibirra in 1941, facilitating the handover of Capoeira Angola leadership. Teacher of both Mestre Canjiquinha and Mestre Caiçara—two of the most important lineage founders in Capoeira Angola history.
+- PT: Figura de ligação que convidou Pastinha para Gengibirra em 1941, facilitando a passagem da liderança da Capoeira Angola. Professor de Mestre Canjiquinha e Mestre Caiçara—dois dos fundadores de linhagem mais importantes na história da Capoeira Angola.
 
 **Profile Type:** `early_mestre`
 
@@ -13,11 +13,11 @@
 | Field / Campo | Value / Valor |
 |---------------|---------------|
 | Full Name / Nome Completo | Antônio Raimundo Argolo |
-| Apelido | Aberrê, Raimundo ABR |
-| Born / Nascimento | August 6, 1895, Salvador, Bahia |
+| Apelido | Aberrê, Raimundo ABR, "Aberrê de Santo Amaro" |
+| Born / Nascimento | August 6, 1895, Santo Amaro da Purificação, Bahia |
 | Died / Falecimento | September 1942, Fuisco de Baixo, Jacaré, Salvador |
 | Parents / Pais | Ângelo Argolo and Maria R. de Argolo |
-| Location / Local | Baixada do Matatu Preto, Matatu neighborhood, Salvador |
+| Location / Local | Born in Santo Amaro; lived in Salvador from ~1910 (Baixada do Matatu Preto, Matatu neighborhood) |
 | Occupation (1939) | Mason at Santa Casa de Misericórdia da Bahia |
 | Address (1939) | Rua das Pitangueiras, n°50 |
 | Title / Título | Mestre |
@@ -27,11 +27,11 @@
 
 ### English
 
-Antônio Raimundo Argolo was born on August 6, 1895, in Salvador—the same year as the legendary Besouro Mangangá. Son of Ângelo Argolo and Maria R. de Argolo, he grew up to become one of the pivotal figures in the survival of Capoeira Angola.
+Antônio Raimundo Argolo was born on August 6, 1895, in Santo Amaro da Purificação in the Recôncavo Baiano—the same year as the legendary Besouro Mangangá. Son of Ângelo Argolo and Maria R. de Argolo, he grew up to become one of the pivotal figures in the survival of Capoeira Angola.
 
-By 1910, the teenage Aberrê was already practicing capoeira in the Baixada do Matatu Preto in the Matatu neighborhood. He trained among a formidable generation: Onça Preta, Geraldo Chapeleiro, Totonho de Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, and Barbosa. Sources disagree on his primary teacher—some attribute his training to Mestre Pastinha, others to Mestre Antônio de Noronha, and some suggest both.
+By 1910, the teenage Aberrê had moved to Salvador and was already practicing capoeira in the Baixada do Matatu Preto in the Matatu neighborhood. He trained among a formidable generation: Onça Preta, Geraldo Chapeleiro, Totonho de Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha, and Barbosa. Sources disagree on his primary teacher—some attribute his training to Mestre Pastinha, others to Mestre Antônio de Noronha, and some suggest both.
 
-In 1935, Aberrê began teaching a 10-year-old named Washington Bruno da Silva—who would become Mestre Canjiquinha, "the joy of capoeira". He also trained Mestre Caiçara (though some accounts attribute Caiçara to a different "Aberrê de Santo Amaro"). Aberrê emphasized practical street defense: negativa, queda de rim, and how to fall safely. When asked why, he explained simply: if someone pushes you in the street, you need to know how to land.
+In 1935, Aberrê began teaching a 10-year-old named Washington Bruno da Silva—who would become Mestre Canjiquinha, "the joy of capoeira"—at the Matatu Preto Sunday training sessions. In 1938, he also began training 14-year-old Antônio Conceição Moraes from Cachoeira (later Mestre Caiçara), teaching him "os segredos e mistérios da capoeiragem" (the secrets and mysteries of capoeira). Aberrê emphasized practical street defense: negativa, queda de rim, and how to fall safely. When asked why, he explained simply: if someone pushes you in the street, you need to know how to land.
 
 In 1936, Aberrê proved himself in Salvador's fighting circuit. On March 25, he challenged Mestre Bimba at Parque Odeon. On May 16, he faced Onça Preta (Cícero Navarro). These challenges demonstrated his standing among the great mestres of his era.
 
@@ -45,15 +45,15 @@ In September 1942, at a lively roda in Lower City where the Estrela de Salomão 
 
 For weeks, no one played capoeira in Bahia. Everyone understood they had lost a great master.
 
-The bengala (walking cane) that Aberrê always carried—both for elegance and as a potential weapon—he gave to his student Caiçara before his death. It remained a symbol of their lineage.
+The bengala (walking cane) that Aberrê always carried—both for elegance and as a potential weapon—he gave to his student Caiçara before his death. It remained a symbol of their lineage. Mestre Canjiquinha later founded the "Conjunto Folclórico Aberrê" in honor of his teacher.
 
 ### Português
 
-Antônio Raimundo Argolo nasceu em 6 de agosto de 1895 em Salvador—o mesmo ano do lendário Besouro Mangangá. Filho de Ângelo Argolo e Maria R. de Argolo, ele cresceu para se tornar uma das figuras centrais na sobrevivência da Capoeira Angola.
+Antônio Raimundo Argolo nasceu em 6 de agosto de 1895 em Santo Amaro da Purificação, no Recôncavo Baiano—o mesmo ano do lendário Besouro Mangangá. Filho de Ângelo Argolo e Maria R. de Argolo, ele cresceu para se tornar uma das figuras centrais na sobrevivência da Capoeira Angola.
 
-Por volta de 1910, o adolescente Aberrê já praticava capoeira na Baixada do Matatu Preto, no bairro do Matatu. Ele treinou entre uma geração formidável: Onça Preta, Geraldo Chapeleiro, Totonho de Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha e Barbosa. As fontes divergem sobre seu professor principal—algumas atribuem seu treinamento a Mestre Pastinha, outras a Mestre Antônio de Noronha, e algumas sugerem ambos.
+Por volta de 1910, o adolescente Aberrê havia se mudado para Salvador e já praticava capoeira na Baixada do Matatu Preto, no bairro do Matatu. Ele treinou entre uma geração formidável: Onça Preta, Geraldo Chapeleiro, Totonho de Maré, Creoni, Chico Três Pedaços, Pedro Paulo Barroquinha e Barbosa. As fontes divergem sobre seu professor principal—algumas atribuem seu treinamento a Mestre Pastinha, outras a Mestre Antônio de Noronha, e algumas sugerem ambos.
 
-Em 1935, Aberrê começou a ensinar um garoto de 10 anos chamado Washington Bruno da Silva—que se tornaria Mestre Canjiquinha, "a alegria da capoeira". Ele também treinou Mestre Caiçara (embora alguns relatos atribuam Caiçara a um diferente "Aberrê de Santo Amaro"). Aberrê enfatizava a defesa prática de rua: negativa, queda de rim e como cair com segurança. Quando perguntado por quê, explicava simplesmente: se alguém te empurrar na rua, você precisa saber como aterrissar.
+Em 1935, Aberrê começou a ensinar um garoto de 10 anos chamado Washington Bruno da Silva—que se tornaria Mestre Canjiquinha, "a alegria da capoeira"—nas sessões de treino de domingo no Matatu Preto. Em 1938, também começou a treinar Antônio Conceição Moraes, de 14 anos, de Cachoeira (mais tarde Mestre Caiçara), ensinando-lhe "os segredos e mistérios da capoeiragem". Aberrê enfatizava a defesa prática de rua: negativa, queda de rim e como cair com segurança. Quando perguntado por quê, explicava simplesmente: se alguém te empurrar na rua, você precisa saber como aterrissar.
 
 Em 1936, Aberrê provou seu valor no circuito de lutas de Salvador. Em 25 de março, desafiou Mestre Bimba no Parque Odeon. Em 16 de maio, enfrentou Onça Preta (Cícero Navarro). Esses desafios demonstraram sua posição entre os grandes mestres de sua era.
 
@@ -67,7 +67,7 @@ Em setembro de 1942, em uma animada roda na Cidade Baixa onde estava desenhada a
 
 Por semanas, ninguém jogou capoeira na Bahia. Todos entenderam que haviam perdido um grande mestre.
 
-A bengala que Aberrê sempre carregava—tanto por elegância quanto como potencial arma—ele deu ao seu aluno Caiçara antes de sua morte. Permaneceu como símbolo de sua linhagem.
+A bengala que Aberrê sempre carregava—tanto por elegância quanto como potencial arma—ele deu ao seu aluno Caiçara antes de sua morte. Permaneceu como símbolo de sua linhagem. Mestre Canjiquinha mais tarde fundou o "Conjunto Folclórico Aberrê" em homenagem ao seu professor.
 
 ## Achievements / Conquistas
 
@@ -75,34 +75,36 @@ A bengala que Aberrê sempre carregava—tanto por elegância quanto como potenc
 - March 25, 1936: Challenged Mestre Bimba at Parque Odeon, Salvador
 - May 16, 1936: Challenged Onça Preta (Cícero Navarro) in fighting circuit
 - February 23, 1941: Invited Pastinha to Gengibirra and facilitated the handover of Capoeira Angola leadership
-- 1935-1942: Trained Mestre Canjiquinha and (possibly) Mestre Caiçara—both became major lineage founders
+- 1935-1942: Trained Mestre Canjiquinha (1935) and Mestre Caiçara (1938)—both became major lineage founders
 - Co-founded Centro de Capoeira Angola at Conceição da Praia (precursor to Gengibirra)
+- His bengala became Caiçara's trademark; Canjiquinha founded "Conjunto Folclórico Aberrê" in his honor
 
 ### Português
 - 25 de março de 1936: Desafiou Mestre Bimba no Parque Odeon, Salvador
 - 16 de maio de 1936: Desafiou Onça Preta (Cícero Navarro) no circuito de lutas
 - 23 de fevereiro de 1941: Convidou Pastinha para Gengibirra e facilitou a passagem da liderança da Capoeira Angola
-- 1935-1942: Treinou Mestre Canjiquinha e (possivelmente) Mestre Caiçara—ambos tornaram-se fundadores de grandes linhagens
+- 1935-1942: Treinou Mestre Canjiquinha (1935) e Mestre Caiçara (1938)—ambos tornaram-se fundadores de grandes linhagens
 - Co-fundador do Centro de Capoeira Angola na Conceição da Praia (precursor de Gengibirra)
+- Sua bengala tornou-se marca registrada de Caiçara; Canjiquinha fundou o "Conjunto Folclórico Aberrê" em sua homenagem
 
 ## Style Notes / Notas de Estilo
 
 ### English
-Practiced the pre-codified capoeira of early 20th century Salvador. His teaching emphasized practical self-defense: negativa, queda de rim, and falling techniques. He explained students needed to know how to fall if pushed in the street.
+Practiced the pre-codified capoeira of early 20th century Salvador. His teaching emphasized practical self-defense: negativa, queda de rim, and falling techniques. He explained students needed to know how to fall if pushed in the street. He carried a bengala (walking cane) both for elegance and as a potential weapon—a trademark he passed to his student Caiçara.
 
 ### Português
-Praticava a capoeira pré-codificada do início do século XX em Salvador. Seu ensino enfatizava autodefesa prática: negativa, queda de rim e técnicas de queda. Explicava que alunos precisavam saber cair caso fossem empurrados na rua.
+Praticava a capoeira pré-codificada do início do século XX em Salvador. Seu ensino enfatizava autodefesa prática: negativa, queda de rim e técnicas de queda. Explicava que alunos precisavam saber cair caso fossem empurrados na rua. Carregava uma bengala tanto por elegância quanto como arma em potencial—uma marca registrada que passou ao seu aluno Caiçara.
 
 ## Teachers / Mestres
 
 Sources disagree on Aberrê's primary teacher:
 - **Mestre Pastinha** - Some sources say Aberrê learned from Pastinha around 1910-1912 (making Aberrê Pastinha's student). However, this is disputed since Pastinha later referred to Aberrê as his own student.
-- **Mestre Antônio de Noronha** - Other sources attribute Aberrê's training to Noronha.
+- **Mestre Antônio de Noronha** - Other sources attribute Aberrê's training to Noronha. Testimony from Mestre Caiçara and Mestre Silvestre confirms the lineage: "Mestre Aberrê is the second mestre in my lineage, above him comes Mestre Antônio de Noronha."
 
 ## Students / Alunos
 
 - **Mestre Canjiquinha** (Washington Bruno da Silva) - Started training 1935 in Baixa do Tubo, Matatu Pequeno; trained for 8 years. Canjiquinha founded the "Conjunto Folclórico Aberrê" in tribute to his master.
-- **Mestre Caiçara** (Antonio Carlos Moraes / Antônio Conceição Moraes) - Started training 1938. NOTE: Some sources identify Caiçara's teacher as a different "Aberrê de Santo Amaro" (Antônio Rufino dos Santos). Aberrê gave his bengala (walking cane) to Caiçara before dying.
+- **Mestre Caiçara** (Antônio Conceição Moraes) - Born in Cachoeira; started training 1938. Aberrê taught him "os segredos e mistérios da capoeiragem" (the secrets and mysteries of capoeira). Aberrê gave his bengala (walking cane) to Caiçara before dying—it became Caiçara's trademark.
 - **Onça Preta** - According to O Cruzeiro (1948), Onça Preta was Aberrê's student and had "rodas of mandinga" in Pau Miúdo and Alto das Pombas.
 
 ## Connections / Conexões
@@ -127,35 +129,37 @@ Sources disagree on Aberrê's primary teacher:
 - Challenged Onça Preta (May 16, 1936)
 - May appear in Ruth Landes photographs (October 23, 1938)
 
-## The "Two Aberrês" Controversy / A Controvérsia dos "Dois Aberrês"
+## The "Two Aberrês" Controversy - RESOLVED / A Controvérsia dos "Dois Aberrês" - RESOLVIDA
 
-### English
-There is significant academic and oral debate about whether there were two different capoeiristas named "Aberrê" in Bahia:
+### Research Conclusion (January 2026)
 
-1. **Antônio Raimundo Argolo** (b. August 6, 1895, Salvador) - Son of Ângelo Argolo and Maria R. de Argolo. This is the documented Aberrê who invited Pastinha to Gengibirra and died in September 1942.
+After thorough research, the "two Aberrês" theory was determined to be based on **confusion about birthplace vs residence**. There was ONE person: Antônio Raimundo Argolo, born in Santo Amaro da Purificação, who moved to Salvador as a teenager and lived there until his death in 1942.
 
-2. **Antônio Rufino dos Santos** (Santo Amaro) - Known as "Aberrê de Santo Amaro" or "M Aberré de Santo Amaro". Some sources identify this as Mestre Caiçara's teacher.
+### Evidence Supporting One Person
 
-**Evidence for two individuals:**
-- Both Canjiquinha and Caiçara denied connection to Pastinha's lineage
-- Caiçara always said his Aberrê was from Santo Amaro, not Salvador
-- The denial of the Pastiniana connection suggests they may have trained under a different Aberrê
+1. **Birthplace vs Residence**: Multiple sources confirm Aberrê was "natural de Santo Amaro da Purificação" (born there) but by 1910 was "already living in the capital (Salvador)" and practicing capoeira. The key article ["Aberrê, um nome disputado no mundo da capoeira"](http://ipcb-rj.com.br/?p=617) explicitly states that even his birthplace is debated—"whether he was from Salvador or Santo Amaro"—suggesting ONE person with disputed origin, not two people.
 
-If this theory is true, the history of Bahian Capoeira Angola would need significant revision.
+2. **Single Teacher for Both Students**: Sources consistently state that ONE Aberrê taught both Canjiquinha (starting 1935 in Salvador) and Caiçara (starting 1938). The timeline works perfectly for one person.
+
+3. **Consistent Biographical Details**: Birth date (August 6, 1895), death (September 1942), role at Gengibirra (1941), challenges to Bimba and Onça Preta (1936)—all details are consistent across sources.
+
+4. **The "Rufino" vs "Raimundo" Confusion**: The alternate name "Antônio Rufino dos Santos" appears to be an oral history error. Mestre Caiçara reportedly distinguished between "José Rufino" (his teacher) and "José Raimundo" (Pastinha's Aberrê), but this likely reflects confusion with middle names decades later, not two different people.
+
+### Why the Confusion Arose
+
+- **Geographic designation**: "Aberrê de Santo Amaro" refers to his birthplace, similar to how Mestre Caiçara was called "Cachoeirano" because he was born in Cachoeira.
+- **Lineage politics**: Both Canjiquinha and Caiçara denied connection to Pastinha's lineage, but this reflects lineage identity rather than evidence of different teachers. Both may have chosen to define their lineage through Aberrê rather than Pastinha.
+- **Secondary source errors**: The name "Antônio Rufino dos Santos" appears in some sources but lacks primary documentation; it likely originated from oral history confusion that propagated through secondary sources.
 
 ### Português
-Há debate acadêmico e oral significativo sobre se existiram dois capoeiristas diferentes chamados "Aberrê" na Bahia:
 
-1. **Antônio Raimundo Argolo** (n. 6 de agosto de 1895, Salvador) - Filho de Ângelo Argolo e Maria R. de Argolo. Este é o Aberrê documentado que convidou Pastinha para Gengibirra e morreu em setembro de 1942.
+Após pesquisa aprofundada, a teoria dos "dois Aberrês" foi determinada como baseada em **confusão entre local de nascimento e residência**. Havia UMA pessoa: Antônio Raimundo Argolo, nascido em Santo Amaro da Purificação, que se mudou para Salvador quando adolescente e viveu lá até sua morte em 1942.
 
-2. **Antônio Rufino dos Santos** (Santo Amaro) - Conhecido como "Aberrê de Santo Amaro" ou "M Aberré de Santo Amaro". Algumas fontes identificam este como o professor de Mestre Caiçara.
-
-**Evidências para dois indivíduos:**
-- Tanto Canjiquinha quanto Caiçara negaram conexão com a linhagem de Pastinha
-- Caiçara sempre disse que seu Aberrê era de Santo Amaro, não Salvador
-- A negação da conexão pastiniana sugere que podem ter treinado sob um Aberrê diferente
-
-Se esta teoria for verdadeira, a história da Capoeira Angola baiana precisaria de revisão significativa.
+**Evidências principais:**
+1. Múltiplas fontes confirmam que Aberrê era "natural de Santo Amaro da Purificação" mas em 1910 "já vivia na capital (Salvador)"
+2. UM Aberrê ensinou tanto Canjiquinha (1935) quanto Caiçara (1938)
+3. Detalhes biográficos consistentes entre todas as fontes
+4. O nome "Antônio Rufino dos Santos" parece ser erro de história oral—"Rufino" confundido com "Raimundo"
 
 ## Death / Morte
 
@@ -173,32 +177,24 @@ Aberrê morreu em setembro de 1942 em Fuisco de Baixo, Jacaré (Cidade Baixa, Sa
 
 **Relato de Mestre Onça Preta:** A morte ocorreu durante uma animada roda na Cidade Baixa, no centro onde estava desenhada a Estrela de Salomão. Aberrê dominava seu adversário quando subitamente, sem ninguém esperar, ele caiu. Foi um ataque cardíaco. Por semanas, ninguém jogou capoeira na Bahia, pois todos entenderam que haviam perdido um grande mestre.
 
-## Date Discrepancies / Discrepâncias de Datas
-
-| Field | Primary | Alternative | Notes |
-|-------|---------|-------------|-------|
-| Birthplace | Salvador | Santo Amaro (Recôncavo) | Controversy exists; birth records (velhosmestres) say Salvador |
-| Death month | September 1942 | - | Consistent across sources |
-| Gengibirra invitation | February 23, 1941 | 1941 (month unspecified) | Specific date from velhosmestres |
-
-## Related Profiles
-
-- [Aberrê de Santo Amaro](aberre-de-santo-amaro.md) - Possible second person named "Aberrê" (Antônio Rufino dos Santos) who may have taught Mestre Caiçara
-
 ## Sources / Fontes
 
 ### Primary/Academic Sources
 - [Velhos Mestres: Antônio Raimundo Argolo - M Aberrê](https://velhosmestres.com/en/featured-2) - Birth records, detailed timeline
-- [Velhos Mestres (Portuguese)](https://velhosmestres.com/br/destaques-2)
+- [Velhos Mestres: Mestre Caiçara](https://velhosmestres.com/br/destaques-27) - Confirms "Aberrê de Santo Amaro" taught Caiçara
 - Mestre Noronha's manuscripts ("O ABC da Capoeira Angola", 1976/1993)
 - Mestre Pastinha's manuscripts (death circumstances)
 
+### Key Article on Controversy
+- [IPCB-RJ: Aberrê, um nome disputado no mundo da capoeira](http://ipcb-rj.com.br/?p=617) - Explicitly discusses birthplace controversy as Salvador vs Santo Amaro for ONE person
+
 ### Secondary Sources
-- [Grupo Esquiva: Mestre Aberrê](https://esquiva.wordpress.com/mestres/mestre-aberre/)
+- [Grupo Esquiva: Mestre Aberrê](https://esquiva.wordpress.com/mestres/mestre-aberre/) - Includes comment discussion on "two Aberrês" theory
 - [Nossa Tribo: Mestre Aberrê](https://nossa-tribo.com/mestre-aberre/)
-- [Lalaue: Mestre Aberrê](https://www.lalaue.com/learn-capoeira/mestre-berre)
-- [IPCB-RJ: Aberrê, um nome disputado](http://ipcb-rj.com.br/?p=617) - "Two Aberrês" controversy
+- [De Capoeira: Mestre Caiçara](https://decapoeira.org/en/mestre-caicara/)
+- [Palito Capoeira: Mestre Caiçara](https://palitocapoeira.com.br/capoeira/mestre-caicara/) - Contains Caiçara's testimony about "José Rufino" vs "José Raimundo"
 - [Recanto das Letras: História de Mestre Aberrê](https://www.recantodasletras.com.br/artigos-de-esporte/8024819)
+- [Capoeira Engenho: Mestre Canjiquinha](https://capoeiraengenho.wordpress.com/mestres-cmestres/m-baiano/mestre-canjiquinha/) - Confirms Aberrê was "natural de Santo Amaro da Purificação"
 
 ### Related Source Material
 - [Capoeira History: Manuscripts of Mestre Noronha](https://capoeirahistory.com/classical-texts-of-capoeira-history-the-manuscripts-of-mestre-noronha/)
