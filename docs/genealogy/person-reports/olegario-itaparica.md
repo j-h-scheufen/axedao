@@ -81,6 +81,10 @@ This Olegário is **DISTINCT** from Olegário (teacher of Gato Preto) mentioned 
 
 Este Olegário é **DISTINTO** de Olegário (professor de Gato Preto) mencionado na genealogia Campo de Mandinga. Aquele Olegário é de Santo Amaro/Salvador. Este Olegário é especificamente da Ilha de Itaparica e é o avô materno de Mestre Nô. Usa `apelido_context = 'Itaparica'` no banco de dados.
 
+**CAUTION / ATENÇÃO:** The claim that there is a separate "Olegário teacher of Gato Preto" comes from a single source (gen.campodemandinga.com.br genealogy chart). This information requires careful verification before import. The Gato Preto report does not list Olegário among his teachers (only Eutíquio/father, Mestre Léo, Cobrinha Verde, Pastinha, Waldemar). This could be: (1) false information, (2) the same person as this Olegário after all, or (3) a different Olegário not yet documented elsewhere.
+
+**ATENÇÃO:** A afirmação de que existe um "Olegário professor de Gato Preto" separado vem de uma única fonte (genealogia gen.campodemandinga.com.br). Esta informação requer verificação cuidadosa antes da importação. O relatório de Gato Preto não lista Olegário entre seus professores (apenas Eutíquio/pai, Mestre Léo, Cobrinha Verde, Pastinha, Waldemar). Isso pode ser: (1) informação falsa, (2) a mesma pessoa que este Olegário afinal, ou (3) um Olegário diferente ainda não documentado em outras fontes.
+
 ## Sources / Fontes
 
 ### Primary Sources / Fontes Primárias

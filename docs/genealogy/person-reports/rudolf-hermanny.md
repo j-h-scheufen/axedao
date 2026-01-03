@@ -94,7 +94,7 @@ No students documented. Hermanny did not establish a capoeira teaching lineage.
 ## Connections / Conexões
 
 - **Cirandinha** (Luiz Pereira de Aguiar) - Training partner at Sinhozinho's academy; together they represented capoeira carioca in 1949 and 1953 challenges
-- **Bruno Hermanny** - Brother; also trained under Sinhozinho
+- **Bruno Hermanny** (Bruno de Otero Hermanny, 1932-1992) - Brother; also trained under Sinhozinho in the mid-1940s; became a champion in underwater fishing and other aquatic sports; 2x world champion in spearfishing (1960, 1963)
 - **André Lacé Lopes** - Fellow Sinhozinho student; author of book "A Capoeiragem no Rio de Janeiro, Primeiro Ensaio – Sinhozinho e Rudolf Hermanny" (2002)
 - **Georges Mehdi** - Brazilian judoka; Hermanny reportedly suggested he train in Japan; later helped protect Mehdi's academy from Gracie attackers
 - **Artur Emídio** - Opponent in 1953 fight; defeated by Hermanny by referee stoppage

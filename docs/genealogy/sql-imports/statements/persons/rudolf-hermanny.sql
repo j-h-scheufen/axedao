@@ -56,9 +56,33 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Rudolf Hermanny' AND o.apelido = 'Cirandinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Rudolf Hermanny family_of Bruno Hermanny (brother)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, 'unknown'::genealogy.date_precision,
+  NULL, 'unknown'::genealogy.date_precision,
+  '{"relationship_type": "sibling"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'https://rohermanny.tripod.com/; https://pt.wikipedia.org/wiki/Bruno_Hermanny; Diário de Justiça do Rio de Janeiro legal records',
+  'Rudolf de Otero Hermanny and Bruno de Otero Hermanny were brothers, both sons of Arthur Hermanny and Elisabeth de Otero. They both trained at Mestre Sinhozinho''s academies in Ipanema during the mid-1940s. Rudolf became famous as a capoeira fighter while Bruno became a champion in underwater fishing and other aquatic sports.',
+  'Rudolf de Otero Hermanny e Bruno de Otero Hermanny eram irmãos, ambos filhos de Arthur Hermanny e Elisabeth de Otero. Ambos treinaram nas academias de Mestre Sinhozinho em Ipanema durante meados da década de 1940. Rudolf se tornou famoso como lutador de capoeira enquanto Bruno se tornou campeão em pesca subaquática e outros esportes aquáticos.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Rudolf Hermanny' AND o.apelido = 'Bruno Hermanny'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
 -- Rudolf Hermanny trained_under Augusto Cordeiro - needs import first (judoka/combat consultant to Sinhozinho)
--- Rudolf Hermanny associated_with Bruno Hermanny - needs import first (brother, also trained under Sinhozinho)
 -- Rudolf Hermanny associated_with André Lacé Lopes - needs import first (fellow Sinhozinho student, author of book about them)

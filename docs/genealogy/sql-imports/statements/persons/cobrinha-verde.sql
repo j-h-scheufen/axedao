@@ -166,6 +166,99 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Tio Pascoal'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Cobrinha Verde trained_under Espinho Remoso
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1916-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  'verified'::genealogy.confidence,
+  'Capoeira Online (Cobrinha Verde), Portal Capoeira',
+  'Cobrinha Verde learned from Espinho Remoso as part of his training with multiple Santo Amaro mestres. Espinho Remoso listed among: Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Neco Canário Pardo.',
+  'Cobrinha Verde aprendeu com Espinho Remoso como parte de seu treinamento com múltiplos mestres de Santo Amaro. Espinho Remoso listado entre: Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Neco Canário Pardo.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Espinho Remoso'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Cobrinha Verde trained_under Maitá
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1924-01-01'::date, 'approximate'::genealogy.date_precision,
+  NULL, NULL,
+  'verified'::genealogy.confidence,
+  'Cobrinha Verde autobiographical testimony (Capoeira Connection, Capoeira Online, La Laue): "I learned from many mestres in Santo Amaro. I will give their names one by one: Maitá (who even had a samba song named after him)..."',
+  'Cobrinha Verde learned from Maitá after Besouro''s death in 1924. Maitá was listed first among Cobrinha Verde''s Santo Amaro teachers and notably had a samba song named after him, indicating his prominence in the community.',
+  'Cobrinha Verde aprendeu com Maitá após a morte de Besouro em 1924. Maitá foi listado primeiro entre os professores de Cobrinha Verde em Santo Amaro e notavelmente tinha um samba com seu nome, indicando sua proeminência na comunidade.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Maitá'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Cobrinha Verde trained_under Juvêncio Grosso
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1924-01-01'::date, 'approximate'::genealogy.date_precision,
+  NULL, NULL,
+  'verified'::genealogy.confidence,
+  'Cobrinha Verde autobiographical testimony (Capoeira Connection, Capoeira Online, La Laue, Velhos Mestres)',
+  'Cobrinha Verde learned from Juvêncio Grosso as one of multiple Santo Amaro mestres after Besouro''s death in 1924. Listed in Cobrinha Verde''s testimony: "Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso, Neco Canário Pardo."',
+  'Cobrinha Verde aprendeu com Juvêncio Grosso como um de múltiplos mestres de Santo Amaro após a morte de Besouro em 1924. Listado no testemunho de Cobrinha Verde: "Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso, Neco Canário Pardo."'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Juvêncio Grosso'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Cobrinha Verde trained_under Dendê
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1924-01-01'::date, 'approximate'::genealogy.date_precision,
+  NULL, NULL,
+  'verified'::genealogy.confidence,
+  'Cobrinha Verde autobiographical testimony in "Capoeira e Mandingas" (1991) by Marcelino dos Santos',
+  'Cobrinha Verde learned from Dendê as one of multiple Santo Amaro mestres after Besouro''s death in 1924. Listed fourth in Cobrinha Verde''s testimony: "Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso, Neco Canário Pardo."',
+  'Cobrinha Verde aprendeu com Dendê como um de múltiplos mestres de Santo Amaro após a morte de Besouro em 1924. Listado em quarto lugar no testemunho de Cobrinha Verde: "Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, Espinho Remoso, Neco Canário Pardo."'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Cobrinha Verde'
+  AND o.apelido = 'Dendê' AND o.apelido_context IS NULL
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- Cobrinha Verde associated_with Pastinha (CECA membership)
 INSERT INTO genealogy.statements (
   subject_type, subject_id,
@@ -189,4 +282,29 @@ SELECT
   'Cobrinha Verde era membro #28 no CECA, compartilhando responsabilidades de ensino com Pastinha. Ensinou a João Grande e João Pequeno técnicas específicas incluindo a mandinga de tocar o chão.'
 FROM genealogy.person_profiles cv, genealogy.person_profiles p
 WHERE cv.apelido = 'Cobrinha Verde' AND p.apelido = 'Pastinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Cobrinha Verde trained_under Tonha Rolo do Mar (razor technique)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id,
+  predicate,
+  object_type, object_id,
+  started_at, started_at_precision,
+  ended_at, ended_at_precision,
+  properties, confidence, source,
+  notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1916-01-01'::date, 'decade'::genealogy.date_precision,
+  NULL, NULL,
+  '{"skill": "navalha", "skill_details": "razor on cord, in hands, and on feet"}'::jsonb,
+  'verified'::genealogy.confidence,
+  'Santos, Marcelino dos. "Capoeira e Mandingas: Cobrinha Verde" (1991): "O meu mestre de jogar navalha no cordão, nas mãos e nos pés foi Tonha, apelidada de Tonha Rolo do Mar. Uma mulher."',
+  E'Tonha Rolo do Mar taught Cobrinha Verde the specialized razor (navalha) technique in Santo Amaro. She was distinct from his other teachers—a woman who mastered the military technique of playing with knife and razor tied to a cord. This represents one of the earliest documented instances of a woman teaching a male capoeira mestre.',
+  E'Tonha Rolo do Mar ensinou a Cobrinha Verde a técnica especializada de navalha em Santo Amaro. Ela era distinta de seus outros professores—uma mulher que dominava a técnica militar de jogar com faca e navalha amarradas no cordão. Isso representa uma das primeiras instâncias documentadas de uma mulher ensinando um mestre de capoeira masculino.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Cobrinha Verde' AND o.apelido = 'Tonha Rolo do Mar'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
