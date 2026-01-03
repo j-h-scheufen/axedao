@@ -32,26 +32,10 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- ============================================================
 -- TEACHING RELATIONSHIPS
 -- ============================================================
-
--- Espinho Remoso teacher_of Cobrinha Verde
-INSERT INTO genealogy.statements (
-  subject_type, subject_id, predicate, object_type, object_id,
-  started_at, started_at_precision, ended_at, ended_at_precision,
-  properties, confidence, source, notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'teacher_of'::genealogy.predicate,
-  'person'::genealogy.entity_type, o.id,
-  '1916-01-01'::date, 'decade'::genealogy.date_precision,
-  NULL, NULL,
-  '{}'::jsonb, 'verified'::genealogy.confidence,
-  'Capoeira Online (Cobrinha Verde), Portal Capoeira (Cobrinha Verde)',
-  'Listed among Cobrinha Verde''s teachers in Santo Amaro alongside Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso, and Neco Canário Pardo.',
-  'Listado entre os professores de Cobrinha Verde em Santo Amaro junto com Maitá, Licurí, Joité, Dendê, Gasolina, Siri de Mangue, Doze Homens, Esperidião, Juvêncio Grosso e Neco Canário Pardo.'
-FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Espinho Remoso' AND o.apelido = 'Cobrinha Verde'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+-- NOTE: "teacher_of" is not a valid predicate. Teaching relationships are
+-- expressed as "student trained_under teacher" in the STUDENT's statement file.
+-- The relationship "Cobrinha Verde trained_under Espinho Remoso" is already
+-- defined in statements/persons/cobrinha-verde.sql.
 
 -- ============================================================
 -- CONTEMPORARIES / ASSOCIATIONS (Jaqueira do Carneiro Roda)

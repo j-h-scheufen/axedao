@@ -22,7 +22,6 @@ INSERT INTO genealogy.person_profiles (
   name,
   apelido,
   title,
-  gender,
   portrait,
   public_links,
   -- Capoeira-specific
@@ -49,7 +48,6 @@ INSERT INTO genealogy.person_profiles (
   NULL,
   'Tonha Rolo do Mar',
   NULL,
-  'female'::genealogy.gender,
   NULL,
   ARRAY['https://periodicos.sbu.unicamp.br/ojs/index.php/conexoes/article/view/8674321', 'https://capoeira.online/history/mestres/cobrinha-verde/']::text[],
   -- Capoeira-specific
@@ -149,7 +147,6 @@ Entre as "mulheres da pá virada" que desafiavam normas de gênero e praticavam 
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,
   title = EXCLUDED.title,
-  gender = EXCLUDED.gender,
   portrait = EXCLUDED.portrait,
   public_links = EXCLUDED.public_links,
   style = EXCLUDED.style,

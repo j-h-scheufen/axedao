@@ -2,13 +2,8 @@
   "deployedAt": "",
   "commit": null,
   "files": {
-    "entities/persons/aberre-de-santo-amaro.sql": {
-      "checksum": "7b587043a4291cec0bbd4b067a9b4099",
-      "category": "entity",
-      "entityType": "person"
-    },
     "entities/persons/aberre.sql": {
-      "checksum": "7bf05ac74e2920b77e32df692ee2b399",
+      "checksum": "0efb0b855b637b79f8f7b3b3f0173657",
       "category": "entity",
       "entityType": "person"
     },
@@ -1538,7 +1533,7 @@
       "entityType": "person"
     },
     "entities/persons/tonha-rolo-do-mar.sql": {
-      "checksum": "ca02adb1d743e554cd54c625c03e861e",
+      "checksum": "f0c4f41d97913fa5eac9bae63439aa8c",
       "category": "entity",
       "entityType": "person"
     },
@@ -1726,11 +1721,6 @@
       "checksum": "669842c000cd98201baaf29ed688707a",
       "category": "entity",
       "entityType": "group"
-    },
-    "statements/persons/aberre-de-santo-amaro.sql": {
-      "checksum": "217d40605b855adb8f85cd2acf6b2337",
-      "category": "statement",
-      "entityType": "person"
     },
     "statements/persons/aberre.sql": {
       "checksum": "9312b651b182636f338321832383e23f",
@@ -2283,7 +2273,7 @@
       "entityType": "person"
     },
     "statements/persons/espinho-remoso.sql": {
-      "checksum": "0bf6612aee994d8a9681788ce268bf77",
+      "checksum": "fc9f98b0cee7f7e70b51c511f8850eee",
       "category": "statement",
       "entityType": "person"
     },
