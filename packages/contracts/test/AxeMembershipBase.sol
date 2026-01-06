@@ -1,30 +1,54 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "forge-std/Test.sol";
+import { Test } from "forge-std/Test.sol";
+import { ERC1967Proxy } from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 import { IERC20Metadata } from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
-import "@openzeppelin/contracts/utils/Strings.sol";
+import { Strings } from "@openzeppelin/contracts/utils/Strings.sol";
 
 import { AxeMembership, IAxeMembership } from "../contracts/tokens/AxeMembership.sol";
+import { DaoConfig, IDaoConfig } from "../contracts/config/DaoConfig.sol";
 import { MockERC20 } from "./MockERC20.sol";
 
 contract AxeMembershipBase is Test {
   AxeMembership membership;
+  DaoConfig daoConfig;
   MockERC20 paymentToken;
   address[] testUsers;
   uint256 tokenDonationAmount;
 
+  uint256 constant TOKEN_RATE = 1e18; // 1:1 rate
+  uint256 constant NATIVE_TOKEN_RATE = 1e18; // 1:1 rate for native token
+  uint256 constant MEMBERSHIP_MULTIPLIER = 10e18; // 10 base units
+
+  /**
+   * @notice Deploy DaoConfig proxy with a token and rate
+   */
+  function deployDaoConfig(address owner, address token, uint256 rate) internal returns (DaoConfig) {
+    DaoConfig configImpl = new DaoConfig();
+    address[] memory tokens = new address[](1);
+    tokens[0] = token;
+    uint256[] memory rates = new uint256[](1);
+    rates[0] = rate;
+
+    bytes memory initData = abi.encodeWithSelector(DaoConfig.initializeWithTokens.selector, owner, tokens, rates);
+    ERC1967Proxy proxy = new ERC1967Proxy(address(configImpl), initData);
+    return DaoConfig(address(proxy));
+  }
+
   function initiateTestUsers(address _owner, uint256 _numTestUsers) internal {
     testUsers = new address[](_numTestUsers);
+    tokenDonationAmount = membership.getDonationAmount(address(paymentToken));
+
     for (uint256 i = 0; i < _numTestUsers; i++) {
       address user = address(uint160(uint256(keccak256(abi.encodePacked(i)))));
       testUsers[i] = user;
       vm.deal(user, 1 ether); // Give each user some ether
       vm.prank(_owner);
-      MockERC20(address(paymentToken)).mint(user, 1000 ** 10 * 18); // Mint payment tokens to each user
+      MockERC20(address(paymentToken)).mint(user, 1000e18); // Mint payment tokens to each user
       vm.startPrank(user);
       paymentToken.approve(address(membership), tokenDonationAmount);
-      membership.donate();
+      membership.donate(address(paymentToken));
       vm.stopPrank();
     }
   }

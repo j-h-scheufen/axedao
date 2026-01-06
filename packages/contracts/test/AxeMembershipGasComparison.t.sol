@@ -3,7 +3,6 @@ pragma solidity ^0.8.0;
 
 import { console } from "forge-std/console.sol";
 import { MockERC20 } from "./MockERC20.sol";
-import { IERC20Metadata } from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 
 import { AxeMembership, IAxeMembership } from "../contracts/tokens/AxeMembership.sol";
 import { AxeMembershipBase } from "./AxeMembershipBase.sol";
@@ -11,15 +10,19 @@ import { AxeMembershipBase } from "./AxeMembershipBase.sol";
 contract AxeMembershipGasComparisonTest is AxeMembershipBase {
   function setUp() public {
     paymentToken = new MockERC20("Payment Token", "PTK");
-    tokenDonationAmount = 10 ** 10 * IERC20Metadata(address(paymentToken)).decimals();
 
-    // Deploy the MembershipToken NFT
+    // Deploy DaoConfig proxy with payment token
+    daoConfig = deployDaoConfig(address(this), address(paymentToken), TOKEN_RATE);
+
+    // Set native token rate in config
+    daoConfig.setNativeTokenRate(NATIVE_TOKEN_RATE);
+
+    // Deploy the MembershipToken NFT with DaoConfig
     membership = new AxeMembership(
       address(this),
       address(this),
-      address(paymentToken),
-      tokenDonationAmount,
-      0.00001 ether,
+      address(daoConfig),
+      MEMBERSHIP_MULTIPLIER,
       "ipfs://Qmb6cxks2ZMfWTXravK5RHf7LYLRYrtgxL14Zg47hFNxjU/quilombo-early-design.json"
     );
 

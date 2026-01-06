@@ -2,12 +2,14 @@
 pragma solidity ^0.8.0;
 
 import "forge-std/console.sol";
+import { ERC1967Proxy } from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 import { IBaal } from "@daohaus/baal-contracts/contracts/interfaces/IBaal.sol";
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { IERC20Metadata } from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 
 import { AxeMembershipCouncil, IAxeMembershipCouncil } from "../contracts/baal/AxeMembershipCouncil.sol";
 import { AxeMembership, IAxeMembership } from "../contracts/tokens/AxeMembership.sol";
+import { DaoConfig } from "../contracts/config/DaoConfig.sol";
 import { MockERC20 } from "./MockERC20.sol";
 import { AxeMembershipBase } from "./AxeMembershipBase.sol";
 import { MultiSendProposal } from "./MultiSendProposal.sol";
@@ -41,13 +43,26 @@ contract AxeMembershipCouncilIntegrationTest is AxeMembershipBase, MultiSendProp
     tokenDonationAmount = 10 ** 10 * IERC20Metadata(swapTokenAddress).decimals();
     shareThreshold = 1 * 10 ** IERC20Metadata(address(baal.sharesToken())).decimals();
 
-    // Deploy the MembershipToken NFT with shaman configuration
+    // Deploy DaoConfig proxy with payment token
+    DaoConfig configImpl = new DaoConfig();
+    address[] memory tokens = new address[](1);
+    tokens[0] = swapTokenAddress;
+    uint256[] memory rates = new uint256[](1);
+    rates[0] = TOKEN_RATE;
+    bytes memory initData = abi.encodeWithSelector(DaoConfig.initializeWithTokens.selector, owner, tokens, rates);
+    ERC1967Proxy proxy = new ERC1967Proxy(address(configImpl), initData);
+    daoConfig = DaoConfig(address(proxy));
+
+    // Set native token rate
+    vm.prank(owner);
+    daoConfig.setNativeTokenRate(NATIVE_TOKEN_RATE);
+
+    // Deploy the MembershipToken NFT with DaoConfig
     membership = new AxeMembership(
       owner,
       recipient,
-      address(paymentToken),
-      tokenDonationAmount,
-      0.00001 ether,
+      address(daoConfig),
+      MEMBERSHIP_MULTIPLIER,
       "ipfs://Qmb6cxks2ZMfWTXravK5RHf7LYLRYrtgxL14Zg47hFNxjU/quilombo-early-design.json"
     );
 

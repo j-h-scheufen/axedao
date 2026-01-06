@@ -22,9 +22,11 @@ interface IAxeMembership is IERC721 {
   error AlreadyMemberError(address member);
   error InsufficientDonationError(uint256 amount, uint256 requiredAmount);
   error DonationOptionNotAvailable();
+  error TokenNotSupportedError(address token);
 
-  event ERC20DonationReceived(address indexed from, uint256 amount);
+  event ERC20DonationReceived(address indexed from, address indexed token, uint256 amount);
   event NativeDonationReceived(address indexed from, uint256 amount);
+  event MultiplierUpdated(uint256 oldMultiplier, uint256 newMultiplier);
   event ObrigadoMuitoAxe(address indexed member, uint256 memberId);
   event CandidateEnlisted(address indexed candidate);
   event CandidateResigned(address indexed candidate);
@@ -32,9 +34,10 @@ interface IAxeMembership is IERC721 {
   event VoteUndelegated(address indexed delegator, address indexed candidate);
 
   /**
-   * @notice Donate native tokens to the DAO.
+   * @notice Donate ERC20 tokens to the DAO.
+   * @param token The address of the ERC20 token to donate.
    */
-  function donate() external;
+  function donate(address token) external;
 
   /**
    * @notice Check if an address is a member of the DAO.
@@ -115,34 +118,30 @@ interface IAxeMembership is IERC721 {
   function getDelegationCountForGroupAtIndex(uint256 index) external view returns (uint256);
 
   /**
-   * @notice Returns the amount of native tokens to donate to the DAO in order to become a member.
-   * @return The amount of native tokens to donate.
+   * @notice Returns the calculated amount of native tokens to donate to the DAO in order to become a member.
+   * Calculated from multiplier and native token rate in DaoConfig.
+   * @return The amount of native tokens to donate (in 18 decimals).
    */
   function getNativeDonationAmount() external view returns (uint256);
 
   /**
-   * @notice Sets the amount of native tokens to donate to the DAO in order to become a member.
-   * @param amount The amount of native tokens to donate.
+   * @notice Returns the membership multiplier in base units (18 decimals).
+   * @return The multiplier (e.g., 10e18 = 10 base units).
    */
-  function setNativeDonationAmount(uint256 amount) external;
+  function getMultiplier() external view returns (uint256);
 
   /**
-   * @notice Returns the amount of ERC20 tokens to donate to the DAO in order to become a member.
-   * @return The amount of ERC20 tokens to donate.
+   * @notice Sets the membership multiplier in base units (18 decimals).
+   * @param multiplier The new multiplier.
    */
-  function getTokenDonationAmount() external view returns (uint256);
+  function setMultiplier(uint256 multiplier) external;
 
   /**
-   * @notice Sets the amount of ERC20 tokens to donate to the DAO in order to become a member.
-   * @param amount The amount of ERC20 tokens to donate.
+   * @notice Returns the calculated donation amount for a specific token.
+   * @param token The address of the ERC20 token.
+   * @return The amount of tokens required for donation.
    */
-  function setTokenDonationAmount(uint256 amount) external;
-
-  /**
-   * @notice Sets the ERC20 token used for membership donations.
-   * @param token The address of the ERC20 token to donate.
-   */
-  function setDonationToken(address token) external;
+  function getDonationAmount(address token) external view returns (uint256);
 
   /**
    * @notice Sets the address of the receiver of the donations.

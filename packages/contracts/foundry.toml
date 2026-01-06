@@ -3,11 +3,18 @@
 solc = "0.8.24"
 src = 'contracts'
 out = 'out'
-libs = ['lib', 'node_modules']
+libs = ['lib', 'node_modules', '../../node_modules']
 test = 'test'
 script = 'scripts'
 cache_path = 'cache_forge'
 # for EIP-7702, use evm_version = "prague"
+remappings = [
+  "@openzeppelin/contracts-upgradeable/=../../node_modules/@openzeppelin/contracts-upgradeable/"
+]
+
+[lint]
+# Disabled because solar linter doesn't handle @openzeppelin/contracts-upgradeable imports correctly
+lint_on_build = false
 
 [rpc_endpoints]
 sepolia = "${HTTPS_PROVIDER_URL_SEPOLIA}"

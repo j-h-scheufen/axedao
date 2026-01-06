@@ -4,11 +4,13 @@ pragma solidity ^0.8.20;
 
 import { ERC721 } from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import { IERC20Metadata } from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
 import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import { ReentrancyGuard } from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 import { IAxeMembership } from "./IAxeMembership.sol";
+import { IDaoConfig } from "../config/IDaoConfig.sol";
 
 /**
  * @title MembershipToken
@@ -23,10 +25,11 @@ import { IAxeMembership } from "./IAxeMembership.sol";
 contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
   using SafeERC20 for IERC20;
 
+  /// @notice The DAO-wide config contract for token rates
+  IDaoConfig public daoConfig;
+  /// @notice The membership multiplier in base units (18 decimals). E.g., 10e18 = 10 base units.
+  uint256 public multiplier;
   address internal donationReceiver;
-  address internal donationToken;
-  uint256 internal donationAmount;
-  uint256 internal nativeDonationAmount;
   uint256 internal memberCount = 0;
   mapping(address => uint256) public members; // tokenId => member address
   string private baseTokenURI;
@@ -64,35 +67,36 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
    * @notice Constructor for the AxéMembership Token.
    * @param _owner The owner of the contract who can control attributes like donation amounts.
    * @param _donationReceiver The address receiving the donations.
-   * @param _donationToken The address of the ERC20 token used for donations.
-   * @param _donationAmount The amount of ERC20 tokens required to receive a membership NFT.
-   * @param _nativeDonationAmount The amount of native tokens required to receive a membership NFT.
+   * @param _daoConfig The DAO config contract address for token rates.
+   * @param _multiplier The membership multiplier in base units (18 decimals). E.g., 10e18 = 10 base units.
    * @param _baseTokenURI The base URI for the membership NFT metadata.
    */
   constructor(
     address _owner,
     address _donationReceiver,
-    address _donationToken,
-    uint256 _donationAmount,
-    uint256 _nativeDonationAmount,
+    address _daoConfig,
+    uint256 _multiplier,
     string memory _baseTokenURI
   ) ERC721(unicode"Axé DAO Membership", "AXDM") Ownable(_owner) {
+    require(_daoConfig != address(0), "DaoConfig cannot be zero address");
+    require(_multiplier > 0, "Multiplier must be greater than 0");
+    daoConfig = IDaoConfig(_daoConfig);
+    multiplier = _multiplier;
     donationReceiver = _donationReceiver;
-    donationToken = _donationToken;
-    donationAmount = _donationAmount;
-    nativeDonationAmount = _nativeDonationAmount;
     baseTokenURI = _baseTokenURI;
   }
 
   /**
    * @notice Donate ERC20 tokens to receive a membership NFT. Remember to approve the required donation amount before calling this function.
+   * @param _token The address of the ERC20 token to donate.
    */
-  function donate() external override registerNewMember nonReentrant {
-    if (donationToken == address(0) || donationAmount == 0) revert DonationOptionNotAvailable();
+  function donate(address _token) external override registerNewMember nonReentrant {
+    uint8 tokenDecimals = IERC20Metadata(_token).decimals();
+    uint256 amount = daoConfig.calculateTokenAmount(_token, multiplier, tokenDecimals);
     address sender = _msgSender();
     _mint(sender, memberCount);
-    IERC20(donationToken).safeTransferFrom(sender, donationReceiver, donationAmount);
-    emit ERC20DonationReceived(sender, donationAmount);
+    IERC20(_token).safeTransferFrom(sender, donationReceiver, amount);
+    emit ERC20DonationReceived(sender, _token, amount);
     emit ObrigadoMuitoAxe(sender, memberCount);
   }
 
@@ -100,11 +104,12 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
    * @notice Donate native tokens to receive a membership NFT by sending the donation amount to the contract.
    */
   receive() external payable registerNewMember nonReentrant {
-    if (nativeDonationAmount == 0) revert DonationOptionNotAvailable();
+    if (!daoConfig.isNativeTokenSupported()) revert DonationOptionNotAvailable();
+    uint256 requiredAmount = daoConfig.calculateNativeTokenAmount(multiplier);
     address sender = _msgSender();
     _mint(sender, memberCount);
-    _handleNativeDonation();
-    emit NativeDonationReceived(sender, nativeDonationAmount);
+    _handleNativeDonation(requiredAmount);
+    emit NativeDonationReceived(sender, requiredAmount);
     emit ObrigadoMuitoAxe(sender, memberCount);
   }
 
@@ -302,35 +307,42 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
   }
 
   /**
-   * @notice Get the donation amount required to mint a membership NFT.
-   * @return The donation amount.
+   * @notice Get the membership multiplier in base units (18 decimals).
+   * @return The multiplier.
    */
-  function getTokenDonationAmount() external view override returns (uint256) {
-    return donationAmount;
+  function getMultiplier() external view override returns (uint256) {
+    return multiplier;
   }
 
   /**
-   * @notice Set the donation amount required to mint a membership NFT.
-   * @param _donationAmount The new donation amount.
+   * @notice Set the membership multiplier in base units (18 decimals).
+   * @param _multiplier The new multiplier.
    */
-  function setTokenDonationAmount(uint256 _donationAmount) external onlyOwner {
-    donationAmount = _donationAmount;
+  function setMultiplier(uint256 _multiplier) external override onlyOwner {
+    require(_multiplier > 0, "Multiplier must be greater than 0");
+    uint256 oldMultiplier = multiplier;
+    multiplier = _multiplier;
+    emit MultiplierUpdated(oldMultiplier, _multiplier);
+  }
+
+  /**
+   * @notice Get the calculated donation amount for a specific token.
+   * @param _token The address of the ERC20 token.
+   * @return The token amount required for donation.
+   */
+  function getDonationAmount(address _token) external view override returns (uint256) {
+    uint8 tokenDecimals = IERC20Metadata(_token).decimals();
+    return daoConfig.calculateTokenAmount(_token, multiplier, tokenDecimals);
   }
 
   /**
    * @notice Get the native donation amount required to mint a membership NFT.
-   * @return The donation amount.
+   * Calculated from multiplier and native token rate in DaoConfig.
+   * @return The donation amount (in 18 decimals). Returns 0 if native token not supported.
    */
   function getNativeDonationAmount() external view override returns (uint256) {
-    return nativeDonationAmount;
-  }
-
-  /**
-   * @notice Set the native donation amount required to mint a membership NFT.
-   * @param _nativeDonationAmount The new donation amount.
-   */
-  function setNativeDonationAmount(uint256 _nativeDonationAmount) external onlyOwner {
-    nativeDonationAmount = _nativeDonationAmount;
+    if (!daoConfig.isNativeTokenSupported()) return 0;
+    return daoConfig.calculateNativeTokenAmount(multiplier);
   }
 
   /**
@@ -339,14 +351,6 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
    */
   function setDonationReceiver(address _donationReceiver) external onlyOwner {
     donationReceiver = _donationReceiver;
-  }
-
-  /**
-   * @notice Set the address of the ERC20 token used for donations.
-   * @param _donationToken The new donation token.
-   */
-  function setDonationToken(address _donationToken) external onlyOwner {
-    donationToken = _donationToken;
   }
 
   /**
@@ -388,14 +392,15 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
 
   /**
    * @dev Handle the native donation. If more native tokens were sent than required, the excess is refunded.
+   * @param _requiredAmount The required donation amount in native tokens.
    */
-  function _handleNativeDonation() internal {
+  function _handleNativeDonation(uint256 _requiredAmount) internal {
     address sender = _msgSender();
-    if (msg.value < nativeDonationAmount) {
-      revert InsufficientDonationError(msg.value, nativeDonationAmount);
+    if (msg.value < _requiredAmount) {
+      revert InsufficientDonationError(msg.value, _requiredAmount);
     }
-    uint256 refundAmount = msg.value - nativeDonationAmount;
-    (bool success, ) = donationReceiver.call{ value: nativeDonationAmount }("");
+    uint256 refundAmount = msg.value - _requiredAmount;
+    (bool success, ) = donationReceiver.call{ value: _requiredAmount }("");
     require(success, "Failed to forward donation");
     if (refundAmount > 0) {
       (bool refundSuccess, ) = sender.call{ value: refundAmount }("");
