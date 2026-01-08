@@ -8,6 +8,30 @@ interface IAXE {
    */
   error ERC20ExceededCap(uint256 increasedSupply, uint256 cap);
   /**
+   * @dev Tax exceeds the maximum allowed (MAX_TAX).
+   */
+  error TaxExceedsMaximum(uint256 requested, uint256 maximum);
+  /**
+   * @dev Invalid address provided (zero address).
+   */
+  error InvalidAddress();
+  /**
+   * @dev Value exceeds basis points range (0-10000).
+   */
+  error InvalidBasisPoints(uint256 value);
+  /**
+   * @dev Pair does not contain this token.
+   */
+  error InvalidPair(address pair);
+  /**
+   * @dev Liquidation is not configured (missing router, token, or pair).
+   */
+  error LiquidationNotConfigured();
+  /**
+   * @dev Invalid liquidation amount.
+   */
+  error InvalidLiquidationAmount(uint256 amount, uint256 maxBalance);
+  /**
    * @notice Emits when the treasury address is changed
    * @param value - the new treasury address
    */

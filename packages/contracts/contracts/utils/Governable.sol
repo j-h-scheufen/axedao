@@ -5,23 +5,28 @@ pragma solidity ^0.8.20;
 import { Context } from "@openzeppelin/contracts/utils/Context.sol";
 
 /**
- * @dev Adaptation of the OpenZeppelin Contract "access/Ownable.sol" with the
+ * @dev Adaptation of the OpenZeppelin Contract "access/Ownable2Step.sol" with the
  * #renounceOwnership() function removed and the state variables / functions
- * renamed from "Ownable" and "owner" to "Governable" and "governor"
+ * renamed from "Ownable" and "owner" to "Governable" and "governor".
  *
- *  Contract module which provides a basic access control mechanism, where
- * there is an account (an governor) that can be granted exclusive access to
+ * Contract module which provides a basic access control mechanism, where
+ * there is an account (a governor) that can be granted exclusive access to
  * specific functions.
  *
  * The initial governor is set to the address provided by the deployer. This can
- * later be changed with {transferGovernorship}.
+ * later be changed with {transferGovernorship} and {acceptGovernorship}.
  *
  * This module is used through inheritance. It will make available the modifier
  * `onlyGovernor`, which can be applied to your functions to restrict their use to
  * the governor.
+ *
+ * This extension implements a two-step mechanism to transfer governorship. The new
+ * governor must call {acceptGovernorship} to complete the transfer. This prevents
+ * accidental transfers to invalid addresses.
  */
 abstract contract Governable is Context {
   address private _governor;
+  address private _pendingGovernor;
 
   /**
    * @dev The caller account is not authorized to perform an operation.
@@ -34,6 +39,7 @@ abstract contract Governable is Context {
   error GovernableInvalidGovernor(address governor);
 
   event GovernorshipTransferred(address indexed previousGovernor, address indexed newGovernor);
+  event GovernorshipTransferStarted(address indexed previousGovernor, address indexed newGovernor);
 
   /**
    * @dev Initializes the contract setting the address provided by the deployer as the initial governor.
@@ -62,6 +68,13 @@ abstract contract Governable is Context {
   }
 
   /**
+   * @dev Returns the address of the pending governor.
+   */
+  function pendingGovernor() public view virtual returns (address) {
+    return _pendingGovernor;
+  }
+
+  /**
    * @dev Throws if the sender is not the governor.
    */
   function _checkGovernor() internal view virtual {
@@ -71,15 +84,24 @@ abstract contract Governable is Context {
   }
 
   /**
-   * @dev Transfers governorship of the contract to a new account (`newGovernor`).
+   * @dev Starts the governorship transfer of the contract to a new account. Replaces the pending transfer if there is one.
    * Can only be called by the current governor.
    * @param _newGovernor The address of the new governor
    */
   function transferGovernorship(address _newGovernor) public virtual onlyGovernor {
-    if (_newGovernor == address(0)) {
-      revert GovernableInvalidGovernor(address(0));
+    _pendingGovernor = _newGovernor;
+    emit GovernorshipTransferStarted(governor(), _newGovernor);
+  }
+
+  /**
+   * @dev The new governor accepts the governorship transfer.
+   */
+  function acceptGovernorship() public virtual {
+    address sender = _msgSender();
+    if (_pendingGovernor != sender) {
+      revert GovernableUnauthorizedAccount(sender);
     }
-    _transferGovernorship(_newGovernor);
+    _transferGovernorship(sender);
   }
 
   /**
@@ -88,6 +110,7 @@ abstract contract Governable is Context {
    * @param _newGovernor The address of the new governor
    */
   function _transferGovernorship(address _newGovernor) internal virtual {
+    delete _pendingGovernor;
     address oldGovernor = _governor;
     _governor = _newGovernor;
     emit GovernorshipTransferred(oldGovernor, _newGovernor);

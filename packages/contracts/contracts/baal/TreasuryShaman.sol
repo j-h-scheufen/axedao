@@ -3,7 +3,7 @@
 pragma solidity ^0.8.20;
 
 import { IBaal } from "@daohaus/baal-contracts/contracts/interfaces/IBaal.sol";
-import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
+import { Ownable2Step, Ownable } from "@openzeppelin/contracts/access/Ownable2Step.sol";
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { IERC20Metadata } from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
@@ -22,7 +22,7 @@ import { IDaoConfig } from "../config/IDaoConfig.sol";
  * - A multiplier of 1e18 means 1 base unit of deposit = 1 loot
  * - A multiplier of 2e18 means 1 base unit of deposit = 2 loot
  */
-contract TreasuryShaman is ITreasuryShaman, Ownable, ReentrancyGuard {
+contract TreasuryShaman is ITreasuryShaman, Ownable2Step, ReentrancyGuard {
   using SafeERC20 for IERC20;
 
   IBaal public immutable baal;
@@ -107,35 +107,24 @@ contract TreasuryShaman is ITreasuryShaman, Ownable, ReentrancyGuard {
   /**
    * @notice Allows users to deposit native tokens and receive loot in return.
    */
-  function depositNative() external payable override nonReentrant {
-    if (msg.value == 0) revert InsufficientDeposit();
-    if (!daoConfig.isNativeTokenSupported()) revert NativeTokenNotSupported();
-
-    address sender = _msgSender();
-    uint256 amount = msg.value;
-
-    // Calculate loot to mint using config rate
-    uint256 lootAmount = _calculateNativeLootAmount(amount);
-
-    // Mint loot tokens
-    address[] memory recipients = new address[](1);
-    recipients[0] = sender;
-    uint256[] memory amounts = new uint256[](1);
-    amounts[0] = lootAmount;
-    baal.mintLoot(recipients, amounts);
-
-    // Transfer native tokens to deposit receiver
-    (bool success, ) = depositReceiver.call{ value: amount }("");
-    require(success, "Failed to forward native deposit");
-    emit NativeTreasuryDepositReceived(sender, amount, lootAmount);
+  function depositNative() external payable override {
+    _depositNativeInternal();
   }
 
   /**
-   * @notice Receive function that calls depositNative for convenience.
+   * @notice Receive function that processes native deposits with reentrancy protection.
+   * @dev Manually checks ReentrancyGuard state since receive() cannot have modifiers.
    */
   receive() external payable {
-    // Delegate to depositNative (but we can't use nonReentrant here since it's calling another function)
-    // Instead, just do the same logic inline
+    // Manual reentrancy check - ReentrancyGuard uses slot with value 1 (not entered) or 2 (entered)
+    // We call the public function through the internal implementation
+    _depositNativeInternal();
+  }
+
+  /**
+   * @dev Internal implementation for native deposits, used by both depositNative() and receive().
+   */
+  function _depositNativeInternal() internal nonReentrant {
     if (msg.value == 0) revert InsufficientDeposit();
     if (!daoConfig.isNativeTokenSupported()) revert NativeTokenNotSupported();
 

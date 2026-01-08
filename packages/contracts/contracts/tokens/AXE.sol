@@ -26,6 +26,8 @@ contract AXE is IAXE, AXERC20 {
   /// M. Pastinha was born 10 years before M. Bimba, so going backwards in order of their birthdays gets us
   /// close to a target of 10 billion tokens: 18[99]/[11]/[23], 18[89]/0[4]/0[5]
   uint256 public constant MAX_SUPPLY = 9_911_238_945 * (10 ** 18);
+  /// @dev Maximum tax rate in basis points (25% = 2500 BPS)
+  uint256 public constant MAX_TAX = 2500;
   string internal constant _NAME = unicode"Axé";
   string internal constant _SYMBOL = unicode"AXÉ";
   /// @dev the governor treasury by default is set to the governor address which is the typical setup for a
@@ -42,7 +44,7 @@ contract AXE is IAXE, AXERC20 {
 
   /// @dev Value between 0-10000: E.g. 50 = 0.5%, 9990 = 99.9%
   modifier onlyBasisPoints(uint256 value) {
-    require(value <= 10000, "Value must be in basis points");
+    if (value > 10000) revert InvalidBasisPoints(value);
     _;
   }
 
@@ -51,7 +53,7 @@ contract AXE is IAXE, AXERC20 {
    * @param _governor - the DAO's multisig
    */
   constructor(address _governor) Governable(_governor) AXERC20(_NAME, _SYMBOL) {
-    require(_governor != address(0), "AXE requires a governor");
+    if (_governor == address(0)) revert InvalidAddress();
     governorTreasury = _governor; // The default
     //exclude treasury and this contract from fees
     excluded[governorTreasury] = true;
@@ -63,25 +65,27 @@ contract AXE is IAXE, AXERC20 {
    * @param _treasury - the new treasury address
    */
   function setTreasury(address _treasury) external onlyGovernor {
-    require(_treasury != address(0), "Treasury cannot be zero address");
+    if (_treasury == address(0)) revert InvalidAddress();
     governorTreasury = _treasury;
     emit TreasuryChanged(_treasury);
   }
 
   /**
    * Sets a new buy tax in basis points.
-   * @param _basisPoints must be between 0 and 10000d
+   * @param _basisPoints must be between 0 and MAX_TAX
    */
   function setBuyTax(uint256 _basisPoints) external onlyGovernor onlyBasisPoints(_basisPoints) {
+    if (_basisPoints > MAX_TAX) revert TaxExceedsMaximum(_basisPoints, MAX_TAX);
     buyTax = _basisPoints;
     emit BuyTaxChanged(_basisPoints);
   }
 
   /**
    * Sets a new sell tax in basis points.
-   * @param _basisPoints must be between 0 and 10000
+   * @param _basisPoints must be between 0 and MAX_TAX
    */
   function setSellTax(uint256 _basisPoints) external onlyGovernor onlyBasisPoints(_basisPoints) {
+    if (_basisPoints > MAX_TAX) revert TaxExceedsMaximum(_basisPoints, MAX_TAX);
     sellTax = _basisPoints;
     emit SellTaxChanged(_basisPoints);
   }
@@ -91,11 +95,10 @@ contract AXE is IAXE, AXERC20 {
    * @param _pair - a UniswapV2Pair
    */
   function addTaxablePair(address _pair) external onlyGovernor {
-    require(_pair != address(0), "Cannot add zero address");
-    require(
-      IUniswapV2Pair(_pair).token0() == address(this) || IUniswapV2Pair(_pair).token1() == address(this),
-      "Pair must contain this token"
-    );
+    if (_pair == address(0)) revert InvalidAddress();
+    if (IUniswapV2Pair(_pair).token0() != address(this) && IUniswapV2Pair(_pair).token1() != address(this)) {
+      revert InvalidPair(_pair);
+    }
     taxablePairs[_pair] = true;
     emit TaxablePairAdded(_pair);
   }
@@ -116,8 +119,7 @@ contract AXE is IAXE, AXERC20 {
    * @param _swapToken an IERC20 token used to liquidate AXE
    */
   function setLiquidationRouterAndToken(address _router, address _swapToken) public onlyGovernor returns (address) {
-    require(_router != address(0), "Router cannot be zero address");
-    require(_swapToken != address(0), "Liquidity token cannot be zero address");
+    if (_router == address(0) || _swapToken == address(0)) revert InvalidAddress();
     //  IUniswapV2Router02(uniswapV2Router).
     // set router and token for swapping
     uniswapV2Router = _router;
@@ -153,11 +155,9 @@ contract AXE is IAXE, AXERC20 {
    * @param _slippage how much slippage to set for the swap to the liquidityToken
    */
   function liquidate(uint256 _amount, uint256 _slippage) external onlyGovernor onlyBasisPoints(_slippage) {
-    require(_canLiquidate(), "Invoking this function requires a router, swap token, and liquidity pair to be set up!");
-    require(
-      _amount > 0 && _amount <= balanceOf(address(this)),
-      "Liquidation amount must be between 0 and max balance."
-    );
+    if (!_canLiquidate()) revert LiquidationNotConfigured();
+    uint256 maxBalance = balanceOf(address(this));
+    if (_amount == 0 || _amount > maxBalance) revert InvalidLiquidationAmount(_amount, maxBalance);
     // Approve router spending AXÉ
     _approve(address(this), uniswapV2Router, _amount);
     uint deadline = block.timestamp + (10 * 60); // 10 min
@@ -203,9 +203,9 @@ contract AXE is IAXE, AXERC20 {
     IERC20 token = IERC20(_token);
     uint256 balance = token.balanceOf(address(this));
     if (balance > 0 && _amount > 0) {
-      uint256 transfer = _amount < balance ? _amount : balance;
-      token.transfer(governorTreasury, transfer);
-      emit TokenWithdrawn(_token, transfer);
+      uint256 transferAmount = _amount < balance ? _amount : balance;
+      token.safeTransfer(governorTreasury, transferAmount);
+      emit TokenWithdrawn(_token, transferAmount);
     }
   }
 
@@ -239,7 +239,7 @@ contract AXE is IAXE, AXERC20 {
         fee = _applyBasisPoints(sellTax, _value);
         super._update(_from, address(this), fee);
         adjustedValue -= fee;
-        emit SellTaxApplied(_value, buyTax, fee, _from);
+        emit SellTaxApplied(_value, sellTax, fee, _from);
       }
     }
     super._update(_from, _to, adjustedValue);

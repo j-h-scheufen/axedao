@@ -5,6 +5,7 @@ pragma solidity ^0.8.20;
 import { OwnableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import { Math } from "@openzeppelin/contracts/utils/math/Math.sol";
 
 import { IDaoConfig } from "./IDaoConfig.sol";
 
@@ -104,9 +105,7 @@ contract DaoConfig is IDaoConfig, Initializable, OwnableUpgradeable, UUPSUpgrade
   function removeToken(address _token) external override onlyOwner {
     if (tokenRates[_token] == 0) revert TokenNotSupported(_token);
 
-    tokenRates[_token] = 0;
-
-    // Remove from array (swap with last and pop)
+    // Remove from array first (swap with last and pop)
     uint256 length = supportedTokens.length;
     for (uint256 i = 0; i < length; ) {
       if (supportedTokens[i] == _token) {
@@ -118,6 +117,9 @@ contract DaoConfig is IDaoConfig, Initializable, OwnableUpgradeable, UUPSUpgrade
         i++;
       }
     }
+
+    // Zero rate after array manipulation succeeds
+    tokenRates[_token] = 0;
 
     emit TokenRemoved(_token);
   }
@@ -136,7 +138,9 @@ contract DaoConfig is IDaoConfig, Initializable, OwnableUpgradeable, UUPSUpgrade
     // Formula: tokenAmount = (baseAmount * rate) / 1e18, adjusted for token decimals
     // baseAmount is in 18 decimals, rate is in 18 decimals
     // Result needs to be in token decimals
-    return (_baseAmount * rate * (10 ** _tokenDecimals)) / (1e18 * 1e18);
+    // Using mulDiv to prevent overflow: split into two safe operations
+    uint256 baseUnits = Math.mulDiv(_baseAmount, rate, 1e18);
+    return Math.mulDiv(baseUnits, 10 ** _tokenDecimals, 1e18);
   }
 
   /**
@@ -185,7 +189,8 @@ contract DaoConfig is IDaoConfig, Initializable, OwnableUpgradeable, UUPSUpgrade
 
     // Formula: nativeAmount = (baseAmount * rate) / 1e18
     // Both baseAmount and rate are in 18 decimals, result is in 18 decimals (native token decimals)
-    return (_baseAmount * nativeTokenRate) / 1e18;
+    // Using mulDiv to prevent overflow with very large amounts
+    return Math.mulDiv(_baseAmount, nativeTokenRate, 1e18);
   }
 
   /**

@@ -3,7 +3,7 @@
 pragma solidity ^0.8.20;
 
 import { IBaal } from "@daohaus/baal-contracts/contracts/interfaces/IBaal.sol";
-import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
+import { Ownable2Step, Ownable } from "@openzeppelin/contracts/access/Ownable2Step.sol";
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { IERC20Metadata } from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
@@ -23,10 +23,12 @@ import { IAxeMembershipCouncil } from "./IAxeMembershipCouncil.sol";
  * proposal voting as the transfer of seats happens at the discretion of the candidates and not at a fixed time.
  * This contract manages the conversion of 1 loot for 1 voting share for claiming a seat and vice versa when a member leaves the council.
  */
-contract AxeMembershipCouncil is IAxeMembershipCouncil, Ownable, ReentrancyGuard {
+contract AxeMembershipCouncil is IAxeMembershipCouncil, Ownable2Step, ReentrancyGuard {
   using SafeERC20 for IERC20;
 
   uint256 public constant UPDATE_COOLDOWN = 24 hours;
+  /// @dev Maximum council size to prevent DoS via gas exhaustion in increaseCouncilLimit()
+  uint256 public constant MAX_COUNCIL_SIZE = 1000;
   uint256 public lastFormationRequest;
   IAxeMembership public immutable membership;
   IBaal public immutable baal;
@@ -132,7 +134,7 @@ contract AxeMembershipCouncil is IAxeMembershipCouncil, Ownable, ReentrancyGuard
    * enough voting shares to be on the council, most likely due to a rage-quit.
    * This function can only be invoked once every 24 hours to avoid spam.
    */
-  function requestCouncilUpdate() external {
+  function requestCouncilUpdate() external nonReentrant {
     if (block.timestamp - lastFormationRequest < UPDATE_COOLDOWN) revert UpdateCooldownInEffect();
     lastFormationRequest = block.timestamp;
 
@@ -240,6 +242,7 @@ contract AxeMembershipCouncil is IAxeMembershipCouncil, Ownable, ReentrancyGuard
    * @return The address of the council member.
    */
   function getCouncilMemberAtIndex(uint256 _index) external view override returns (address) {
+    if (_index >= currentCouncilList.length) revert IndexOutOfBounds(_index, currentCouncilList.length);
     return currentCouncilList[_index];
   }
 
@@ -285,6 +288,9 @@ contract AxeMembershipCouncil is IAxeMembershipCouncil, Ownable, ReentrancyGuard
   function increaseCouncilLimit(uint256 _newLimit) external onlyOwner {
     if (_newLimit <= councilLimit) {
       revert InvalidCouncilLimit(councilLimit, _newLimit);
+    }
+    if (_newLimit > MAX_COUNCIL_SIZE) {
+      revert CouncilLimitExceedsMaximum(_newLimit, MAX_COUNCIL_SIZE);
     }
     // Create new array with new size and copy over existing members
     address[] memory newList = new address[](_newLimit);

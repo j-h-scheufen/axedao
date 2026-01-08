@@ -19,6 +19,8 @@ interface IAxeMembershipCouncil {
   error OnlyReplacementAllowed(address candidate);
   error InsufficientLoot(address candidate);
   error InsufficientShares(address member);
+  error IndexOutOfBounds(uint256 index, uint256 length);
+  error CouncilLimitExceedsMaximum(uint256 requested, uint256 maximum);
 
   event CouncilUpdateRequested(uint256 currentSize, uint256 numJoining, uint256 numLeaving);
   event CouncilLimitIncreased(uint256 newLimit);

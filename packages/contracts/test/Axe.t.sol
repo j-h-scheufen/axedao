@@ -46,17 +46,26 @@ contract AXETest is Test {
     vm.expectRevert(abi.encodeWithSelector(Governable.GovernableUnauthorizedAccount.selector, addr1));
     token.setSellTax(900);
 
-    vm.expectRevert();
+    // Test invalid basis points (> 10000)
+    vm.expectRevert(abi.encodeWithSelector(IAXE.InvalidBasisPoints.selector, 10001));
     token.setBuyTax(10001);
 
-    vm.expectRevert();
+    vm.expectRevert(abi.encodeWithSelector(IAXE.InvalidBasisPoints.selector, 10001));
     token.setSellTax(10001);
 
-    token.setBuyTax(900);
-    assertEq(token.buyTax(), 900);
+    // Test tax exceeds MAX_TAX (2500 = 25%)
+    vm.expectRevert(abi.encodeWithSelector(IAXE.TaxExceedsMaximum.selector, 2501, 2500));
+    token.setBuyTax(2501);
 
-    token.setSellTax(3450);
-    assertEq(token.sellTax(), 3450);
+    vm.expectRevert(abi.encodeWithSelector(IAXE.TaxExceedsMaximum.selector, 2501, 2500));
+    token.setSellTax(2501);
+
+    // Valid tax within MAX_TAX
+    token.setBuyTax(2000);
+    assertEq(token.buyTax(), 2000);
+
+    token.setSellTax(2500);
+    assertEq(token.sellTax(), 2500);
   }
 
   function testSetTreasury() public {
@@ -64,7 +73,7 @@ contract AXETest is Test {
     vm.expectRevert(abi.encodeWithSelector(Governable.GovernableUnauthorizedAccount.selector, addr1));
     token.setTreasury(addr1);
 
-    vm.expectRevert("Treasury cannot be zero address");
+    vm.expectRevert(abi.encodeWithSelector(IAXE.InvalidAddress.selector));
     token.setTreasury(address(0));
 
     token.setTreasury(addr1);

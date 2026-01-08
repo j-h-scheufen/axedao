@@ -5,7 +5,7 @@ pragma solidity ^0.8.20;
 import { ERC721 } from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { IERC20Metadata } from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
-import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
+import { Ownable2Step, Ownable } from "@openzeppelin/contracts/access/Ownable2Step.sol";
 import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import { ReentrancyGuard } from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
@@ -22,7 +22,7 @@ import { IDaoConfig } from "../config/IDaoConfig.sol";
  * candidates, can delegate their membership to another candidate of their choice including themselves. The contract keeps track of
  * delegations and candidate availability and maintains a sorted list of delegation counts to allow for efficient querying of the top candidates.
  */
-contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
+contract AxeMembership is IAxeMembership, ERC721, Ownable2Step, ReentrancyGuard {
   using SafeERC20 for IERC20;
 
   /// @notice The DAO-wide config contract for token rates
@@ -78,8 +78,8 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
     uint256 _multiplier,
     string memory _baseTokenURI
   ) ERC721(unicode"Axé DAO Membership", "AXDM") Ownable(_owner) {
-    require(_daoConfig != address(0), "DaoConfig cannot be zero address");
-    require(_multiplier > 0, "Multiplier must be greater than 0");
+    if (_daoConfig == address(0)) revert InvalidAddress();
+    if (_multiplier == 0) revert InvalidMultiplier();
     daoConfig = IDaoConfig(_daoConfig);
     multiplier = _multiplier;
     donationReceiver = _donationReceiver;
@@ -131,7 +131,7 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
    */
   function enlistAsCandidate() external memberOnly {
     address sender = _msgSender();
-    require(!candidates[sender].available, "Already enlisted");
+    if (candidates[sender].available) revert AlreadyEnlisted();
 
     candidates[sender].available = true;
     // Self-delegate for convenience
@@ -156,7 +156,7 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
    */
   function resignAsCandidate() external {
     address sender = _msgSender();
-    require(candidates[sender].available == true, "Not a candidate");
+    if (!candidates[sender].available) revert NotACandidate();
 
     candidates[sender].available = false;
     uint256 groupIndex = candidates[sender].delegationCount;
@@ -175,8 +175,8 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
    */
   function delegate(address _candidate) external memberOnly {
     address sender = _msgSender();
-    require(_candidate != address(0), "Cannot delegate to the zero address. Use undelegate.");
-    require(candidates[_candidate].available, "Candidate not available");
+    if (_candidate == address(0)) revert InvalidAddress();
+    if (!candidates[_candidate].available) revert CandidateNotAvailable(_candidate);
 
     address currentDelegate = delegations[sender];
     if (currentDelegate == _candidate) return;
@@ -196,7 +196,7 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
   function undelegate() external memberOnly {
     address sender = _msgSender();
     address candidate = delegations[sender];
-    require(candidate != address(0), "No delegation");
+    if (candidate == address(0)) revert NoDelegation();
 
     moveCandidate(candidate, false);
     delegations[sender] = address(0);
@@ -290,6 +290,19 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
   }
 
   /**
+   * @dev Override to make the token soul-bound (non-transferable).
+   * Only minting (from == 0) and burning (to == 0) are allowed.
+   */
+  function _update(address to, uint256 tokenId, address auth) internal override returns (address) {
+    address from = _ownerOf(tokenId);
+    // Allow minting and burning, block transfers
+    if (from != address(0) && to != address(0)) {
+      revert SoulBoundTransferNotAllowed();
+    }
+    return super._update(to, tokenId, auth);
+  }
+
+  /**
    * @notice Get the number of members.
    * @return The number of members = the number of minted NFTs.
    */
@@ -319,7 +332,7 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
    * @param _multiplier The new multiplier.
    */
   function setMultiplier(uint256 _multiplier) external override onlyOwner {
-    require(_multiplier > 0, "Multiplier must be greater than 0");
+    if (_multiplier == 0) revert InvalidMultiplier();
     uint256 oldMultiplier = multiplier;
     multiplier = _multiplier;
     emit MultiplierUpdated(oldMultiplier, _multiplier);
@@ -350,6 +363,7 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
    * @param _donationReceiver The new donation receiver.
    */
   function setDonationReceiver(address _donationReceiver) external onlyOwner {
+    if (_donationReceiver == address(0)) revert InvalidAddress();
     donationReceiver = _donationReceiver;
   }
 
@@ -401,10 +415,10 @@ contract AxeMembership is IAxeMembership, ERC721, Ownable, ReentrancyGuard {
     }
     uint256 refundAmount = msg.value - _requiredAmount;
     (bool success, ) = donationReceiver.call{ value: _requiredAmount }("");
-    require(success, "Failed to forward donation");
+    if (!success) revert TransferFailed();
     if (refundAmount > 0) {
       (bool refundSuccess, ) = sender.call{ value: refundAmount }("");
-      require(refundSuccess, "Failed to refund excess amount");
+      if (!refundSuccess) revert TransferFailed();
     }
   }
 

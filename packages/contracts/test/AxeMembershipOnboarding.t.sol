@@ -306,7 +306,7 @@ contract AxeMembershipOnboardingTest is Test {
 
   function test_MultiplierMustBePositive() public {
     vm.prank(dao);
-    vm.expectRevert("Multiplier must be greater than 0");
+    vm.expectRevert(abi.encodeWithSelector(IAxeMembership.InvalidMultiplier.selector));
     token.setMultiplier(0);
   }
 

@@ -23,6 +23,14 @@ interface IAxeMembership is IERC721 {
   error InsufficientDonationError(uint256 amount, uint256 requiredAmount);
   error DonationOptionNotAvailable();
   error TokenNotSupportedError(address token);
+  error InvalidAddress();
+  error SoulBoundTransferNotAllowed();
+  error AlreadyEnlisted();
+  error NotACandidate();
+  error NoDelegation();
+  error CandidateNotAvailable(address candidate);
+  error TransferFailed();
+  error InvalidMultiplier();
 
   event ERC20DonationReceived(address indexed from, address indexed token, uint256 amount);
   event NativeDonationReceived(address indexed from, uint256 amount);
