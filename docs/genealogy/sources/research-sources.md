@@ -352,6 +352,40 @@ For each source, follow the specific instructions on what data can be extracted 
 
 ---
 
+### Conexões/UNICAMP: Female Masters Study (2023)
+
+**URL:** https://periodicos.sbu.unicamp.br/ojs/index.php/conexoes/article/view/8674321
+**PDF:** https://periodicos.sbu.unicamp.br/ojs/index.php/conexoes/article/view/8674321/33402
+**Languages:** Portuguese
+**Focus:** Historical and contemporary female capoeira mestras in Brazil
+**Reliability:** High - peer-reviewed academic journal (UNICAMP)
+
+**Citation:**
+França, Ábia Lima de. "Resgate histórico das pioneiras mestras de capoeira no Brasil." Conexões, v. 21, e023033, p. 1-14, 2023.
+
+**Data Available:**
+- Analysis of 296 female capoeira mestras (Brazil and abroad)
+- Three identified pioneering mestras (pre-1980)
+- Teacher-student relationships
+- Geographic distribution
+- Historical discrimination documentation
+
+**Three Pioneers Identified:**
+1. **Tonha Rolo do Mar** - Santo Amaro → Feira de Santana; taught razor technique to Cobrinha Verde
+2. **Mestra Sandrinha** (b. 1959, Rio de Janeiro) - Grupo Bantus under Mestre Roque; recognized 1970s
+3. **Mestra Cigana/Fátima Colombiano** (b. 1956, Volta Redonda) - trained with Bezerra (Pará), consecrated 1980 by Canjiquinha
+
+**How to Access:**
+- PDF must be downloaded directly (WebFetch cannot parse)
+- The full list of 296 mestras may be in appendix or supplementary materials
+- Contact author for dataset: Ábia Lima de França (Federal University of Bahia)
+
+**Best For:** Female mestras, pioneering women, gender in capoeira, academic citations
+
+**Research Lead:** The 296 mestras analyzed could be a major data source for expanding genealogy. Contact author or review PDF for complete list.
+
+---
+
 ### Academic Papers (via Web Search)
 
 **Search Terms:**

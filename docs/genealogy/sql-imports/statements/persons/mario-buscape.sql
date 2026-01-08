@@ -108,7 +108,7 @@ SELECT
   'Dendê era tio de Mário e seu primeiro professor de capoeira. A partir dos 8 anos (1942), Mário aprendeu capoeira em rodas improvisadas no quintal da família, tendo Dendê como seu professor principal.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Mário Buscapé'
-  AND o.apelido = 'Dendê' AND o.apelido_context = 'São Francisco do Conde'
+  AND o.apelido = 'Dendê' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Mário Buscapé student_of José Bidel (father)
@@ -170,7 +170,7 @@ SELECT
   'Dendê era tio de Mário (irmão de José Bidel). Mário nasceu em 17 de julho de 1934.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Mário Buscapé'
-  AND o.apelido = 'Dendê' AND o.apelido_context = 'São Francisco do Conde'
+  AND o.apelido = 'Dendê' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================

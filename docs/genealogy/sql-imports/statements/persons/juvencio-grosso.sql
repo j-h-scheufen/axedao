@@ -1,0 +1,24 @@
+-- ============================================================
+-- STATEMENTS FOR: Juvêncio Grosso
+-- Generated: 2026-01-03
+-- ============================================================
+-- Contains all relationships where Juvêncio Grosso is the SUBJECT.
+-- ============================================================
+-- NOTE: Juvêncio Grosso has no relationships where he is the SUBJECT.
+--
+-- The relationship "Cobrinha Verde trained_under Juvêncio Grosso"
+-- is in cobrinha-verde.sql (Cobrinha Verde is the subject).
+-- ============================================================
+-- DISAMBIGUATION:
+-- This is Juvêncio Grosso from Santo Amaro, distinct from Mestre
+-- Juvêncio (São Félix context) who taught João Pequeno, Ananias,
+-- and Traíra.
+-- ============================================================
+
+-- No statements to insert - Juvêncio Grosso has no documented
+-- relationships where he is the subject (e.g., no teachers, no
+-- founded groups, no titles received).
+--
+-- His only documented relationship is as OBJECT of:
+-- - Cobrinha Verde trained_under Juvêncio Grosso
+--   (See: cobrinha-verde.sql)

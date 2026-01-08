@@ -24,6 +24,12 @@
 -- NOTE: DISTINCT from Olegário (teacher of Gato Preto) - that is
 -- a different person from Santo Amaro/Salvador. This Olegário is
 -- specifically from Itaparica Island and is Mestre Nô's grandfather.
+--
+-- CAUTION: The "Olegário teacher of Gato Preto" claim comes from a
+-- single source (gen.campodemandinga.com.br). The Gato Preto report
+-- does NOT list Olegário among his teachers. This could be false info,
+-- the same person, or a different undocumented Olegário. Requires
+-- careful verification before importing as separate entity.
 -- ============================================================
 
 INSERT INTO genealogy.person_profiles (

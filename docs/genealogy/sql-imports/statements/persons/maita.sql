@@ -1,0 +1,15 @@
+-- ============================================================
+-- STATEMENTS FOR: Maitá
+-- Generated: 2026-01-03
+-- ============================================================
+-- Contains all relationships where Maitá is the SUBJECT.
+--
+-- Note: The relationship "Cobrinha Verde trained_under Maitá" is recorded
+-- in cobrinha-verde.sql (Cobrinha Verde is the subject in that statement).
+--
+-- No statements currently exist where Maitá is the subject.
+-- His contemporaries (Licurí, Joité, Dendê, etc.) are documented in
+-- notes_en/notes_pt but not as formal relationships since there is no
+-- specific documented interaction beyond being listed together as
+-- Cobrinha Verde's teachers.
+-- ============================================================

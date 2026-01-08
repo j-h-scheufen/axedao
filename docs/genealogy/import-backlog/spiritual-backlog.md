@@ -29,3 +29,4 @@ Future data model may include:
 | Mãe Stella de Oxóssi | Ialorixá | Candomblé Ketu | Barba Branca / GCAC | pending | Partnership at Ilê Axé Opô Afonjá (1993-2019); youth capoeira education program |
 | Ilê Axé Opô Afonjá | Terreiro | Candomblé Ketu | GCAC / Barba Branca | pending | Sacred space in São Gonçalo do Retiro; hosted capoeira training for children/adolescents |
 | Terreiro Oiá Padê da Riméia | Terreiro | Candomblé | Mestre Bimba | pending | At Alto da Santa Cruz, Nordeste de Amaralina; students experienced Afro-Bahian rituals |
+| Ilê Axé Omin Bain | Terreiro | Candomblé | Môa do Katendê | pending | Môa do Katendê's aunt's terreiro in Salvador; where he discovered capoeira at age 8 (1962); also called "Ominbain"; Môa taught classes there throughout his career |
