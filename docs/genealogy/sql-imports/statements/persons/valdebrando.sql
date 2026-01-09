@@ -1,0 +1,30 @@
+-- ============================================================
+-- STATEMENTS FOR: Valdebrando
+-- Generated: 2026-01-02
+-- ============================================================
+-- Contains all relationships where Valdebrando is the SUBJECT.
+-- NOTE: Valdebrando has minimal documentation - only known as
+-- first teacher of Mestre Medicina. No statements where
+-- Valdebrando is subject are available at this time.
+-- ============================================================
+
+-- ============================================================
+-- NO ACTIVE STATEMENTS
+-- ============================================================
+-- Valdebrando has no documented relationships where he is the
+-- subject that can be represented as statements:
+-- - No known teachers (we don't know who taught Valdebrando)
+-- - No known groups (we don't know if he belonged to any group)
+-- - No known title conferrals
+--
+-- The only documented relationship is:
+--   Medicina trained_under Valdebrando
+-- But this statement belongs in medicina.sql (where Medicina
+-- is the subject), not here.
+-- ============================================================
+
+-- ============================================================
+-- PENDING: Medicina trained_under Valdebrando
+-- This relationship should be added to medicina.sql
+-- (Medicina is already in the dataset)
+-- ============================================================

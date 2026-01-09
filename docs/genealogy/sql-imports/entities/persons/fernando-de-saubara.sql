@@ -1,0 +1,50 @@
+-- ============================================================
+-- GENEALOGY PERSON: Fernando de Saubara
+-- Generated: 2026-01-02
+-- ============================================================
+-- BIRTH YEAR ESTIMATION (~1944, decade precision):
+-- The VI Rede Capoeira (Jan 2025) described Fernando as one of
+-- the "octogenarian mestres" (over 80 years old). Given his
+-- age of 80+ in 2025, birth year is estimated as ~1944 with
+-- decade precision. This aligns with the input context.
+-- ============================================================
+
+INSERT INTO genealogy.person_profiles (
+  name, apelido, title, portrait, public_links,
+  style, style_notes_en, style_notes_pt,
+  birth_year, birth_year_precision, birth_place,
+  death_year, death_year_precision, death_place,
+  bio_en, bio_pt, achievements_en, achievements_pt,
+  notes_en, notes_pt
+) VALUES (
+  'Antônio Fernando da Silva',
+  'Fernando de Saubara',
+  'mestre'::genealogy.title,
+  NULL,
+  ARRAY['https://tribunadoreconcavo.com/mestres-octogenarios-da-capoeira-recebem-titulo-de-herois-populares-no-vi-rede-capoeira/']::text[],
+  'angola'::genealogy.style,
+  NULL,
+  NULL,
+  1944,
+  'decade'::genealogy.date_precision,
+  'Saubara, Bahia, Brazil',
+  NULL,
+  NULL,
+  NULL,
+  E'Antônio Fernando da Silva, known as Mestre Fernando de Saubara, is one of the last remaining capoeiristas trained by Mestre Pastinha, the legendary codifier of Capoeira Angola. His apelido ("of Saubara") identifies him with the municipality of Saubara in the Recôncavo Baiano, a region steeped in Afro-Brazilian cultural traditions including capoeira angola and samba de roda.\n\nThe Recôncavo Baiano—encompassing towns like Santo Amaro, Cachoeira, São Félix, and Saubara—is recognized as one of the cradles of capoeira. As Mestre Gato Preto once said: "Colônia Aliança, Usina Santa Elisa, São Bento de Inhatá, Muraê, Banga, Capanema, São Braz, Santo Amaro, Acupe, Vila de São Francisco, Saubara, Itapema... fall into that whole region there and you''ll really learn." Fernando de Saubara represents this deep tradition.\n\nWhile specific details of his training timeline with Pastinha are not extensively documented, his recognition as "one of the last remaining capoeiristas trained by Mestre Pastinha" places him among an increasingly rare generation. Pastinha taught at the Centro Esportivo de Capoeira Angola (CECA) in Pelourinho, Salvador, from 1941 until 1973 when he was forced to leave. If Fernando trained with Pastinha in the 1960s (as an adolescent or young man), this would align with the academy''s active period.\n\nBeyond his role as a capoeirista, Fernando de Saubara is recognized for his cultural and social contributions to the Saubara region. The municipality of Saubara, with its strong Afro-Brazilian heritage, has produced notable cultural figures including Rosildo do Rosário, a mobilizer of samba de roda traditions who received the Berimbau de Ouro award in 2016.\n\nIn January 2025, at over eighty years old, Fernando de Saubara received the Sankofa trophy at the VI Rede Capoeira event in Salvador, consecrating him as a "herói popular" (popular hero). The Sankofa symbol—an African bird with its head turned backwards—represents "returning to the past to resignify the present and build the future." He was honored alongside fellow octogenarian mestres Virgílio da Fazenda Grande, Boa Gente, Baiano (Edvaldo dos Santos Reis), and Mestre Nô.\n\nAs one of Pastinha''s last living students, Fernando de Saubara represents a living link to the foundations of Capoeira Angola.',
+  E'Antônio Fernando da Silva, conhecido como Mestre Fernando de Saubara, é um dos últimos capoeiristas remanescentes formados por Mestre Pastinha, o lendário codificador da Capoeira Angola. Seu apelido ("de Saubara") o identifica com o município de Saubara no Recôncavo Baiano, uma região imersa em tradições culturais afro-brasileiras, incluindo capoeira angola e samba de roda.\n\nO Recôncavo Baiano—abrangendo cidades como Santo Amaro, Cachoeira, São Félix e Saubara—é reconhecido como um dos berços da capoeira. Como Mestre Gato Preto disse uma vez: "Colônia Aliança, Usina Santa Elisa, São Bento de Inhatá, Muraê, Banga, Capanema, São Braz, Santo Amaro, Acupe, Vila de São Francisco, Saubara, Itapema... cê cair dentro daquela região toda ali e cê aprende mesmo." Fernando de Saubara representa essa profunda tradição.\n\nEmbora detalhes específicos de sua linha do tempo de treinamento com Pastinha não sejam extensamente documentados, seu reconhecimento como "um dos últimos capoeiristas remanescentes formados por Mestre Pastinha" o coloca entre uma geração cada vez mais rara. Pastinha ensinou no Centro Esportivo de Capoeira Angola (CECA) no Pelourinho, Salvador, de 1941 até 1973 quando foi forçado a sair. Se Fernando treinou com Pastinha nos anos 1960 (como adolescente ou jovem), isso se alinharia com o período ativo da academia.\n\nAlém de seu papel como capoeirista, Fernando de Saubara é reconhecido por suas contribuições culturais e sociais à região de Saubara. O município de Saubara, com sua forte herança afro-brasileira, produziu figuras culturais notáveis incluindo Rosildo do Rosário, um mobilizador das tradições do samba de roda que recebeu o prêmio Berimbau de Ouro em 2016.\n\nEm janeiro de 2025, com mais de oitenta anos, Fernando de Saubara recebeu o troféu Sankofa no VI Rede Capoeira em Salvador, consagrando-o como "herói popular". O símbolo Sankofa—um pássaro africano com a cabeça voltada para trás—representa "retornar ao passado para ressignificar o presente e construir o futuro". Ele foi homenageado ao lado dos mestres octogenários Virgílio da Fazenda Grande, Boa Gente, Baiano (Edvaldo dos Santos Reis) e Mestre Nô.\n\nComo um dos últimos alunos vivos de Pastinha, Fernando de Saubara representa um elo vivo com os fundamentos da Capoeira Angola.',
+  E'Received Sankofa trophy at VI Rede Capoeira (January 2025) as "popular hero"\nRecognized cultural and social contributions to Saubara region\nOne of last remaining capoeiristas trained by Mestre Pastinha',
+  E'Recebeu troféu Sankofa no VI Rede Capoeira (janeiro 2025) como "herói popular"\nReconhecidas contribuições culturais e sociais à região de Saubara\nUm dos últimos capoeiristas remanescentes formados por Mestre Pastinha',
+  E'BIRTH YEAR ESTIMATION (1944, decade):\nDescribed as "octogenarian" (over 80 years old) at VI Rede Capoeira in January 2025.\nIf 80+ in 2025, birth year ~1944-1945. Using 1944 with decade precision.\n\nTEACHERS:\n- Mestre Pastinha (Vicente Ferreira Pastinha) - primary teacher\n  Training likely occurred in 1960s at CECA in Pelourinho, Salvador.\n  Fernando identified as "one of the last remaining capoeiristas trained by Mestre Pastinha."\n\nLOCATION:\n- Associated with Saubara, municipality in Recôncavo Baiano, Bahia\n- Saubara is known for strong Afro-Brazilian cultural traditions including samba de roda\n\nVI REDE CAPOEIRA 2025 HONOREES (Sankofa Trophy):\n- Fernando de Saubara (Capoeira)\n- Mestre Virgílio da Fazenda Grande (Capoeira)\n- Mestre Boa Gente (Capoeira)\n- Mestre Baiano - Edvaldo dos Santos Reis (Capoeira)\n- Mestre Nô - Norival Moreira de Oliveira (Capoeira)\n- Dona Santinha (Samba Chula)\n- Mateus Aleluia (Musician)\n- Mestre Walmir Lima (Samba)\n- Bule Bule (Cordel/Repente)\n- Zenaide Bezerra (Frevo)\n\nSOURCE LIMITATIONS:\nPrimary source is the Tribuna do Recôncavo article on VI Rede Capoeira (Jan 2025).\nNo additional biographical details (specific training dates, students, groups founded)\nfound in Tier 1 sources (velhosmestres.com, CapoeiraHub, Lalaue, Wikipedia).\nFernando de Saubara does not appear on standard Pastinha student lists, suggesting\nhe may have trained informally or outside Salvador''s main academy network.',
+  E'ESTIMATIVA DE ANO DE NASCIMENTO (1944, década):\nDescrito como "octogenário" (mais de 80 anos) no VI Rede Capoeira em janeiro de 2025.\nSe 80+ em 2025, ano de nascimento ~1944-1945. Usando 1944 com precisão de década.\n\nMESTRES:\n- Mestre Pastinha (Vicente Ferreira Pastinha) - mestre principal\n  Treinamento provavelmente ocorreu nos anos 1960 no CECA no Pelourinho, Salvador.\n  Fernando identificado como "um dos últimos capoeiristas remanescentes formados por Mestre Pastinha."\n\nLOCALIZAÇÃO:\n- Associado a Saubara, município no Recôncavo Baiano, Bahia\n- Saubara é conhecida por fortes tradições culturais afro-brasileiras incluindo samba de roda\n\nHOMENAGEADOS VI REDE CAPOEIRA 2025 (Troféu Sankofa):\n- Fernando de Saubara (Capoeira)\n- Mestre Virgílio da Fazenda Grande (Capoeira)\n- Mestre Boa Gente (Capoeira)\n- Mestre Baiano - Edvaldo dos Santos Reis (Capoeira)\n- Mestre Nô - Norival Moreira de Oliveira (Capoeira)\n- Dona Santinha (Samba Chula)\n- Mateus Aleluia (Músico)\n- Mestre Walmir Lima (Samba)\n- Bule Bule (Cordel/Repente)\n- Zenaide Bezerra (Frevo)\n\nLIMITAÇÕES DE FONTE:\nFonte primária é o artigo da Tribuna do Recôncavo sobre VI Rede Capoeira (jan 2025).\nNenhum detalhe biográfico adicional (datas específicas de treinamento, alunos, grupos fundados)\nencontrado em fontes Tier 1 (velhosmestres.com, CapoeiraHub, Lalaue, Wikipedia).\nFernando de Saubara não aparece nas listas padrão de alunos de Pastinha, sugerindo\nque ele pode ter treinado informalmente ou fora da rede principal de academias de Salvador.'
+)
+ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
+  name = EXCLUDED.name, title = EXCLUDED.title, portrait = EXCLUDED.portrait,
+  public_links = EXCLUDED.public_links, style = EXCLUDED.style,
+  style_notes_en = EXCLUDED.style_notes_en, style_notes_pt = EXCLUDED.style_notes_pt,
+  birth_year = EXCLUDED.birth_year, birth_year_precision = EXCLUDED.birth_year_precision,
+  birth_place = EXCLUDED.birth_place, death_year = EXCLUDED.death_year,
+  death_year_precision = EXCLUDED.death_year_precision, death_place = EXCLUDED.death_place,
+  bio_en = EXCLUDED.bio_en, bio_pt = EXCLUDED.bio_pt,
+  achievements_en = EXCLUDED.achievements_en, achievements_pt = EXCLUDED.achievements_pt,
+  notes_en = EXCLUDED.notes_en, notes_pt = EXCLUDED.notes_pt, updated_at = NOW();

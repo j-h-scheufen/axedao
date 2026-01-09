@@ -47,9 +47,9 @@ WHERE s.apelido = 'Bugalho' AND o.apelido = 'Pastinha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================
--- PENDING RELATIONSHIPS (object not yet in dataset)
+-- NOTE: Related statements in other files
 -- ============================================================
--- Pelé da Bomba student_of Bugalho - PENDING: Pelé da Bomba not yet in dataset
+-- Pelé da Bomba student_of Bugalho - See pele-da-bomba.sql (statement is in subject's file)
 --   Natalício Neves da Silva (1934-2024), the "Gogó de Ouro" of Bahia
 --   Started learning from Bugalho in 1946 at Mercado Modelo ramp at age 12
 --   Primary source: velhosmestres.com/br/destaques-20

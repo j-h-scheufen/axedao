@@ -1,0 +1,19 @@
+-- ============================================================
+-- STATEMENTS FOR: Tonha Rolo do Mar
+-- Generated: 2026-01-03
+-- ============================================================
+-- Contains all relationships where Tonha Rolo do Mar is the SUBJECT.
+-- Note: The primary known relationship (teaching Cobrinha Verde) is recorded
+-- in Cobrinha Verde's statements file as: Cobrinha Verde trained_under Tonha Rolo do Mar
+-- ============================================================
+
+-- No statements where Tonha Rolo do Mar is the SUBJECT are currently documented.
+--
+-- Her known relationship:
+-- - Taught Mestre Cobrinha Verde razor technique (1910s-1920s, Santo Amaro)
+--   → This is recorded in cobrinha-verde.sql as "trained_under" with Tonha as OBJECT
+--
+-- PENDING RELATIONSHIPS (require more research):
+-- - Unknown teachers: Who taught Tonha the razor technique? No sources document this.
+-- - Unknown group affiliations: No formal groups existed in her era.
+-- - Unknown other students: Only Cobrinha Verde is documented as her student.

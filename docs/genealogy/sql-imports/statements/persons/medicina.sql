@@ -108,12 +108,49 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Medicina' AND o.apelido = 'Maneca Brandão'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Medicina trained_under Valdebrando (first exposure to capoeira)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1963-01-01'::date, 'year'::genealogy.date_precision,
+  '1965-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'likely'::genealogy.confidence,
+  'https://pclogic.wixsite.com/capoeiraraza/mestre-medicina',
+  'First exposure to capoeira before entering Major Dória''s academy. Valdebrando was likely a street capoeirista in Itabuna. Used trained_under (not student_of) as this was initial exposure, not ongoing formal training.',
+  'Primeira exposição à capoeira antes de entrar na academia do Major Dória. Valdebrando era provavelmente um capoeirista de rua em Itabuna. Usado trained_under (não student_of) pois foi exposição inicial, não treinamento formal contínuo.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Medicina' AND o.apelido = 'Valdebrando'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Medicina trained_under Antônio Rodrigues (introduced to street capoeira circles ~1965)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1965-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'https://grupo-capoeira-raca.webnode.fr/sobre-nos/',
+  'A friend introduced Medicina to Antônio Rodrigues, who brought him into the street capoeira circles of Itabuna around age fifteen (~1965). Antônio Rodrigues founded Academia de Capoeira Nossa Senhora de Fátima, the first indoor academy in Itabuna. Used trained_under (not student_of) as this was introduction to the capoeira scene; Suassuna became his primary teacher.',
+  'Um amigo apresentou Medicina a Antônio Rodrigues, que o trouxe para as rodas de capoeira de rua de Itabuna por volta dos quinze anos (~1965). Antônio Rodrigues fundou a Academia de Capoeira Nossa Senhora de Fátima, a primeira academia fechada em Itabuna. Usado trained_under (não student_of) pois foi uma introdução à cena da capoeira; Suassuna se tornou seu professor principal.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Medicina' AND o.apelido = 'Antônio Rodrigues'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
-
--- Medicina trained_under Valdebrando - needs import first
--- First exposure to capoeira in Itabuna, early 1960s
 
 -- Medicina trained_under Major Dória (Carlos Dória) - needs import first
 -- Trained at Academia Cultura Física e Capoeira Major Dória in Itabuna
