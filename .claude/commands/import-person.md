@@ -398,10 +398,55 @@ Map all relationships. **Direction:** predicates flow from "younger/newer" to "o
 | `student_of` | Primary ongoing teacher-student | - |
 | `trained_under` | Historical/past, workshops, seminars | - |
 | `influenced_by` | Studied philosophy without direct training | - |
-| `associated_with` | Documented connection between contemporaries | `association_context` (**required**) |
+| `associated_with` | **Specific documented connection** between individuals | `association_context` (**required**) |
 | `received_title_from` | Person received title FROM mestre | `title_grant: {title, ceremony?, location?}` |
 | `baptized_by` | Received apelido at batizado | `baptism: {apelido_given, ceremony?, location?}` |
 | `family_of` | Biological/ceremonial family | `relationship_type` |
+
+### Sibling Relationships (Avoiding Redundancy)
+
+For `family_of` with siblings, store **only one direction** to avoid redundancy:
+- Only store `family_of` from the **younger sibling** to the **older** one
+- Example: If Zeca (born 1956) and Gato II (born 1950) are brothers, only generate:
+  - `Zeca family_of Gato II {relationship_type: brother}` ✓
+  - Do NOT also generate `Gato II family_of Zeca` ✗
+
+This convention ensures sibling relationships are captured once, in the younger sibling's statements file.
+
+### CRITICAL: When to Use `associated_with` (AVOID OVERUSE)
+
+**`associated_with` requires a SPECIFIC, DOCUMENTED connection.** Do NOT use it for:
+
+- People listed together as contemporaries in a book/article
+- People from the same era/neighborhood without documented interaction
+- People mentioned in the same category (e.g., "legendary valentonas", "famous mestres of the 1950s")
+
+**Valid uses of `associated_with`:**
+- Shared a specific chapter/section in a book (implies scholarly pairing, e.g., "Rosa Palmeirão e Massú: Vacila pra tu vê!")
+- Documented fight, rivalry, or conflict between them
+- Named together as training companions in a specific roda/academy
+- Collaborated on a recording, performance, or event
+- Photographed together with attribution
+- Explicitly described relationship in primary source ("was friends with", "worked alongside", "co-led")
+
+**Where to document contemporaries instead:**
+- **Biography text**: "Catu operated in the same era as Rosa Palmeirão, Salomé, and other legendary valentonas..."
+- **notes_en/notes_pt CONTEMPORARIES section**: List names with dates/context
+- **Connections table in .md report**: Use "Contemporary" as relationship type (for human readers, not SQL)
+
+**Example - WRONG:**
+```
+-- DO NOT generate M:N mappings between all contemporaries
+Massú associated_with Salomé -- NO: just listed together
+Massú associated_with Chicão -- NO: just listed together
+Massú associated_with Catu -- NO: just listed together
+```
+
+**Example - CORRECT:**
+```
+-- Only generate when specific documented connection exists
+Massú associated_with Rosa Palmeirão -- YES: share book chapter (paired_in_scholarship)
+```
 
 ### Person-to-Group Predicates
 

@@ -210,12 +210,50 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Curió' AND o.apelido = 'Malvadeza'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Curió associated_with Gigante (1980 seminar participant)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1980-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "1980 capoeira seminar participants"}'::jsonb, 'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/featured-25',
+  E'Both participated in a 1980 capoeira seminar together.',
+  E'Ambos participaram de um seminário de capoeira em 1980.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Curió' AND o.apelido = 'Gigante'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Curió associated_with Boca Rica (1988 Fortaleza Velha Guarda)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1988-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "1988 Fortaleza Velha Guarda event"}'::jsonb, 'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/featured-25',
+  E'Both participated in the 1988 Fortaleza Velha Guarda (Old Guard) event.',
+  E'Ambos participaram do evento Velha Guarda em Fortaleza em 1988.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Curió' AND o.apelido = 'Boca Rica'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
 -- Curió associated_with Bobó - 1988 Florianópolis Velha Guarda, needs import
--- Curió associated_with Boca Rica - 1988 Fortaleza Velha Guarda, needs import
--- Curió associated_with Gigante - 1980 seminar participant, needs import
 -- Curió founded ECAIG - group not yet imported
 -- Curió leads ECAIG - group not yet imported
 -- Curió member_of CECA - group not yet imported

@@ -162,5 +162,22 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Gaguinho Preto associated_with Augusto Januário - needs import first
 --   (December 1989 photo together)
 --
--- Gaguinho Preto associated_with Gigante - needs import first
---   (December 1989 photo; Gigante at back with berimbau)
+-- Gaguinho Preto associated_with Gigante (December 1989 photo)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1989-12-01'::date, 'month'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "December 1989 photograph together"}'::jsonb, 'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/featured-37',
+  E'Photographed together in December 1989. Gigante is at back with berimbau.',
+  E'Fotografados juntos em dezembro de 1989. Gigante está ao fundo com berimbau.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gaguinho Preto' AND o.apelido = 'Gigante'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

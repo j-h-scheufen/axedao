@@ -73,4 +73,8 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
 -- Genaro associated_with Vilela - Fellow student of Artur Emídio, performed together on TV Rio 1957; Vilela in backlog
--- Genaro associated_with Polaco - Fellow guardian of Rio capoeira history; Polaco not in dataset
+
+-- ============================================================
+-- NOTE: Relationships where Genaro is the OBJECT
+-- ============================================================
+-- Polaco associated_with Genaro (guardians of Rio history, documentary) → polaco.sql

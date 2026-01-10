@@ -87,13 +87,49 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Founded 1950 on Rua Miguel Burnier, Rio de Janeiro
 -- Later became foundation for Grupo Muzenza
 
+-- Paraná associated_with Joel Lourenço (O Pagador de Promessas 1962 film)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1962-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "O Pagador de Promessas film 1962"}'::jsonb, 'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/parana',
+  E'Both appeared in the 1962 film "O Pagador de Promessas" (The Given Word), directed by Anselmo Duarte, which won the Palme d''Or at Cannes.',
+  E'Ambos apareceram no filme "O Pagador de Promessas" de 1962, dirigido por Anselmo Duarte, que ganhou a Palma de Ouro em Cannes.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Paraná' AND o.apelido = 'Joel Lourenço'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Paraná associated_with Mucungê (1963 LP collaboration)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1963-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "1963 LP recording collaboration"}'::jsonb, 'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/parana',
+  E'Collaborated on a 1963 LP recording together.',
+  E'Colaboraram em uma gravação de LP em 1963.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Paraná' AND o.apelido = 'Mucungê'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (objects not yet in dataset)
 -- ============================================================
--- Paraná associated_with Mucungê (1963 LP collaboration) - Mucungê needs import first
--- Paraná associated_with Joel Lourenço (O Pagador de Promessas 1962) - Joel Lourenço needs import first
--- Paraná associated_with Genaro (taught berimbau) - Genaro needs import first
--- Paraná associated_with Polaco (teacher, gave nickname 1956) - Polaco needs import first
 -- Paraná associated_with Mintirinha (appeared at rodas) - Mintirinha needs import first
 -- Paraná founded Grupo São Bento Pequeno (1950) - Group needs import first
 
@@ -102,5 +138,6 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- ============================================================
 -- These go in the OTHER person's statements file per ownership rule:
 -- Polaco student_of Paraná (1956) → polaco.sql
+-- Polaco baptized_by Paraná (1956, apelido "Polaco") → polaco.sql
 -- Genaro trained_under Paraná (learned berimbau) → genaro.sql
 -- Mintirinha associated_with Paraná (appeared at rodas) → mintirinha.sql

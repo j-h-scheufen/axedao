@@ -169,6 +169,102 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Roque' AND o.apelido = 'Zé Bedeu'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- ------------------------------------------------------------
+-- Roque associated_with Boca de Fumaça
+-- Socialized with at Mercado Modelo as youth (1948-1956)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1948-01-01'::date, 'decade'::genealogy.date_precision,
+  '1956-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": {"en": "Socialized at Mercado Modelo in Salvador through father Chico Preto''s connections", "pt": "Conviveu no Mercado Modelo em Salvador através das conexões do pai Chico Preto"}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'https://capoeirahistory.com/mestre/master-roque-1938/',
+  E'As a child, Roque socialized with Boca de Fumaça at Mercado Modelo in Salvador through his father Chico Preto''s connections as a fish vendor. Roque left Salvador for Rio in 1956.',
+  E'Quando criança, Roque conviveu com Boca de Fumaça no Mercado Modelo em Salvador através das conexões de seu pai Chico Preto como peixeiro. Roque deixou Salvador para o Rio em 1956.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roque' AND o.apelido = 'Boca de Fumaça'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Roque associated_with Tatu Bola
+-- Socialized with at Mercado Modelo as youth (1948-1956)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1948-01-01'::date, 'decade'::genealogy.date_precision,
+  '1956-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": {"en": "Socialized at Mercado Modelo in Salvador through father Chico Preto''s connections", "pt": "Conviveu no Mercado Modelo em Salvador através das conexões do pai Chico Preto"}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'https://capoeirahistory.com/mestre/master-roque-1938/',
+  E'As a child, Roque socialized with Tatu Bola at Mercado Modelo in Salvador through his father Chico Preto''s connections as a fish vendor. Roque left Salvador for Rio in 1956.',
+  E'Quando criança, Roque conviveu com Tatu Bola no Mercado Modelo em Salvador através das conexões de seu pai Chico Preto como peixeiro. Roque deixou Salvador para o Rio em 1956.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roque' AND o.apelido = 'Tatu Bola'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Roque associated_with Bom Cabrito
+-- Socialized with at Mercado Modelo as youth (1948-1956)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1948-01-01'::date, 'decade'::genealogy.date_precision,
+  '1956-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": {"en": "Socialized at Mercado Modelo in Salvador through father Chico Preto''s connections", "pt": "Conviveu no Mercado Modelo em Salvador através das conexões do pai Chico Preto"}}'::jsonb,
+  'likely'::genealogy.confidence,
+  'https://capoeirahistory.com/mestre/master-roque-1938/',
+  E'As a child, Roque socialized with Bom Cabrito at Mercado Modelo in Salvador through his father Chico Preto''s connections as a fish vendor. Roque left Salvador for Rio in 1956.',
+  E'Quando criança, Roque conviveu com Bom Cabrito no Mercado Modelo em Salvador através das conexões de seu pai Chico Preto como peixeiro. Roque deixou Salvador para o Rio em 1956.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roque' AND o.apelido = 'Bom Cabrito'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- ------------------------------------------------------------
+-- Roque associated_with Canjiquinha
+-- Socialized with at Mercado Modelo as youth (1948-1956)
+-- ------------------------------------------------------------
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1948-01-01'::date, 'decade'::genealogy.date_precision,
+  '1956-01-01'::date, 'year'::genealogy.date_precision,
+  '{"association_context": {"en": "Socialized at Mercado Modelo in Salvador through father Chico Preto''s connections", "pt": "Conviveu no Mercado Modelo em Salvador através das conexões do pai Chico Preto"}}'::jsonb,
+  'verified'::genealogy.confidence,
+  'https://capoeirahistory.com/mestre/master-roque-1938/',
+  E'As a child, Roque socialized with Canjiquinha at Mercado Modelo in Salvador through his father Chico Preto''s connections as a fish vendor. Canjiquinha was already an established figure in the Salvador capoeira scene.',
+  E'Quando criança, Roque conviveu com Canjiquinha no Mercado Modelo em Salvador através das conexões de seu pai Chico Preto como peixeiro. Canjiquinha já era uma figura estabelecida na cena da capoeira de Salvador.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roque' AND o.apelido = 'Canjiquinha'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
@@ -182,14 +278,16 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Roque trained_under Mucungê (learned berimbau from him)
 --
 -- CONTEMPORARIES (need import):
--- Roque associated_with Gajé (socialized with in Salvador)
--- Roque associated_with Índio (socialized with in Salvador)
--- Roque associated_with Tatu Bola (socialized with in Salvador)
--- Roque associated_with Bom Cabrito (socialized with in Salvador)
--- Roque associated_with Boca de Fumaça (socialized with in Salvador)
--- Roque associated_with Canjiquinha (socialized with in Salvador)
+-- Roque associated_with Gajé (socialized with in Salvador) - in backlog
 -- Roque associated_with Mário Buscapé (joined his Capoeiras do Bonfim group)
 -- Roque associated_with Vermelho 27 (had contact in Rio)
+--
+-- CONTEMPORARIES (DONE - SQL added above):
+-- Roque associated_with Boca de Fumaça ✓
+-- Roque associated_with Tatu Bola ✓
+-- Roque associated_with Bom Cabrito ✓
+-- Roque associated_with Canjiquinha ✓
+-- Roque trained_under Traíra ✓ (see above)
 --
 -- FILHOS DE ANGOLA CO-FOUNDERS (need import):
 -- Roque associated_with Mucungê (co-founder Filhos de Angola)

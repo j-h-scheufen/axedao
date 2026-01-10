@@ -125,8 +125,27 @@ WHERE s.apelido = 'Nilton' AND s.apelido_context IS NULL
   AND o.apelido = 'Zeca do Uruguai'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Nilton family_of Fernandinho (younger brother)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'family_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  NULL, NULL,
+  '2001-01-01'::date, 'year'::genealogy.date_precision,
+  '{"relationship_type": "elder brother"}'::jsonb, 'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/featured-39',
+  'Younger brother; Nilton trained Fernandinho before he moved to Rio and became contra-mestre under Caiçara',
+  'Irmão mais novo; Nilton treinou Fernandinho antes de ele mudar-se para o Rio e tornar-se contra-mestre de Caiçara'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Nilton' AND s.apelido_context IS NULL
+  AND o.apelido = 'Fernandinho'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
--- PENDING RELATIONSHIPS (object not yet in dataset)
+-- PENDING RELATIONSHIPS (none remaining)
 -- ============================================================
--- Nilton family_of Fernandinho - needs import first (Fernando Olímpio Paes Filho, 1948-2001)
---   Younger brother; Nilton trained him before Fernandinho moved to Rio and became contra-mestre under Caiçara
