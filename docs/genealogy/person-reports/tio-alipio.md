@@ -76,6 +76,20 @@ A importância de Tio Alípio se estende além de sua própria vida. Ele represe
 
 - **Besouro Mangangá** (Manoel Henrique Pereira, c. 1895-1924) - The most legendary capoeirista in history / O capoeirista mais lendário da história
 
+## Contemporaries in Santo Amaro (Different Lineages)
+
+Santo Amaro da Purificação was home to multiple parallel capoeira teaching traditions in the late 19th and early 20th centuries:
+
+| Teacher | Student | Lineage Continues Through |
+|---------|---------|---------------------------|
+| **Tio Alípio** | Besouro Mangangá | Cobrinha Verde → João Grande, João Pequeno |
+| **Antônio Asa Branca** | Ferreirinha de Santo Amaro | Ivan de Santo Amaro → ACANA |
+| **Benedito de Santo Amaro** | Mestre Bobó | (to be researched) |
+
+**Note:** Benedito de Santo Amaro is distinct from Benedito (the African who taught Pastinha in Salvador). The Santo Amaro Benedito taught Bobó, while the Salvador Benedito taught Pastinha.
+
+These three teachers represent the richness of Santo Amaro's capoeira heritage. While Tio Alípio's lineage through Besouro became the most famous, the parallel traditions also survived and continue today.
+
 ## Lineage Impact
 
 ```

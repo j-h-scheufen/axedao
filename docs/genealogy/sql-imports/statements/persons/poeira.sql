@@ -23,7 +23,7 @@ SELECT
   E'Poeira began training with Mestre Roque in 1978 per CapoeiraHub. This was during Roque''s later teaching career after leaving Pavão/Pavãozinho.',
   E'Poeira começou a treinar com Mestre Roque em 1978 conforme CapoeiraHub. Isso foi durante a fase posterior da carreira de ensino de Roque após deixar o Pavão/Pavãozinho.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Poeira' AND o.apelido = 'Roque'
+WHERE s.apelido = 'Poeira' AND o.apelido = 'Roque' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================

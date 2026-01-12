@@ -23,7 +23,7 @@ SELECT
   E'Lapinha "accompanied Mestre Roque at a later stage" of his teaching career. Roque taught at Pavão/Pavãozinho for 12 years (~1960-1972), then at various other locations. Lapinha joined at this later stage, likely in the 1970s-1980s.',
   E'Lapinha "acompanhou Mestre Roque em uma fase mais avançada" de sua carreira de ensino. Roque ensinou no Pavão/Pavãozinho por 12 anos (~1960-1972), depois em vários outros locais. Lapinha se juntou nesta fase posterior, provavelmente nos anos 1970-1980.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Lapinha' AND o.apelido = 'Roque'
+WHERE s.apelido = 'Lapinha' AND o.apelido = 'Roque' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Lapinha associated_with Sandrinha (fellow student under Roque)

@@ -1,0 +1,59 @@
+-- ============================================================
+-- STATEMENTS FOR: Caboclinho
+-- Generated: 2026-01-11
+-- ============================================================
+-- Contains all relationships where Caboclinho is the SUBJECT.
+-- ============================================================
+
+-- Caboclinho associated_with Mangue Sêco (documented fight on the Tabuão)
+-- NOTE: Mangue Sêco is in backlog but not yet imported
+-- INSERT INTO genealogy.statements (...)
+-- SELECT ... WHERE s.apelido = 'Caboclinho' AND o.apelido = 'Mangue Sêco'
+-- This will be uncommented once Mangue Sêco is imported
+
+-- ============================================================
+-- CONTEMPORARIES (associated_with - shared location/era)
+-- ============================================================
+-- These are documented as frequenting the same location (Cais Dourado)
+-- but without a specific documented incident. Per import-person.md,
+-- we document contemporaries in notes_en/notes_pt rather than
+-- generating associated_with statements for everyone in the same era.
+--
+-- Contemporaries at Cais Dourado (late 19th/early 20th century):
+-- - Besouro Mangangá (arrived from Santo Amaro via saveiro) - EXISTS
+-- - Pedro Porreta (fish seller, Baixa dos Sapateiros) - EXISTS
+-- - Tico (Julio dos Santos Menezes, porter from Santo Amaro) - EXISTS
+-- - Antônio Corró (cart driver, teacher of Mestre Paraná) - EXISTS
+-- - Mangue Sêco (opponent in documented fight) - PENDING
+-- - Mata Escura - PENDING
+-- - Manoel Thié - NOT IN BACKLOG
+-- - Marinheiro - NOT IN BACKLOG
+-- - Ignácio Loyola - NOT IN BACKLOG
+-- - Pedro Piroca - NOT IN BACKLOG
+-- - Pedro Mineiro - PENDING
+-- - Antonio Boca de Porco - EXISTS
+-- - Gabiano - NOT IN BACKLOG
+-- - Agripino - NOT IN BACKLOG
+-- - Paulo Gomes - NOT IN BACKLOG
+-- - José Martins - NOT IN BACKLOG
+-- - Cypriano - NOT IN BACKLOG
+-- - Três Pedaços (Chico Três Pedaços) - EXISTS
+-- ============================================================
+
+-- ============================================================
+-- NAVALHA EXPERTISE (peer group)
+-- ============================================================
+-- Caboclinho is documented as one of the expert navalha handlers of Bahia:
+-- - Inocêncio Sete Mortes - EXISTS
+-- - Noca de Jacó - EXISTS
+-- These are scholarly groupings, not specific documented interactions.
+-- Per import-person.md, this is noted in bio/notes rather than statements.
+-- ============================================================
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Caboclinho associated_with Mangue Sêco - documented fight on Tabuão
+--   (Caboclinho struck Mangue Sêco with navalha; arrested at Cais Dourado)
+--   Mangue Sêco is in persons-backlog.md, needs import first
+-- ============================================================

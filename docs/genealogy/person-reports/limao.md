@@ -213,6 +213,7 @@ Mestre Limão era um Angoleiro (praticante de Capoeira Angola) que aprendeu com 
 
 ### Related Profiles
 - [Caiçara](caicara.md) - Primary teacher
+- [Natanael](natanael.md) - Taught together at Quilombo dos Palmares; recorded albums together
 - [Onça (SP)](onca-sp.md) - Grupo dos Nove; organized Bimba's 1971 visit
 - [Silvestre](silvestre.md) - Both received contra-mestre from Caiçara 1969
 - [Brasília](brasilia.md) - Grupo dos Nove

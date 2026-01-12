@@ -23,7 +23,7 @@ SELECT
   'Primary teacher; started practicing after being rescued from streets at age ~9-10',
   'Mestre principal; começou a praticar após ser resgatado das ruas aos ~9-10 anos'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Derli' AND o.apelido = 'Roque'
+WHERE s.apelido = 'Derli' AND o.apelido = 'Roque' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================

@@ -1,0 +1,26 @@
+-- ============================================================
+-- STATEMENTS FOR: Cabeça de Bagre
+-- Generated: 2026-01-10
+-- ============================================================
+-- NO STATEMENTS GENERATED
+--
+-- Cabeça de Bagre is known only from a single newspaper reference
+-- (Jornal Metropolitano, 1960) which listed him among outstanding
+-- capoeiristas of Salvador's Liberdade neighborhood alongside
+-- Bimba, Waldemar, Traíra, and Espinho Remoso.
+--
+-- This listing does NOT justify `associated_with` statements because:
+-- - Being listed together as contemporaries in an article is not
+--   a specific documented connection between individuals
+-- - There is no evidence of direct interaction, collaboration,
+--   rivalry, or other specific relationship
+--
+-- The contemporaries are documented in:
+-- - bio_en/bio_pt columns (narrative context)
+-- - notes_en/notes_pt columns (structured CONTEMPORARIES section)
+-- - The .md report Connections table (for human readers)
+--
+-- No teacher-student relationships can be established due to
+-- complete lack of documentation about Cabeça de Bagre's
+-- training history, teachers, or students.
+-- ============================================================

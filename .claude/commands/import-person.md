@@ -458,7 +458,6 @@ Massú associated_with Rosa Palmeirão -- YES: share book chapter (paired_in_sch
 | `member_of` | Formal membership | - |
 | `teaches_at` | Active instructor | - |
 | `regional_coordinator_of` | Coordinates a region for international group | `region?, country?` |
-| `cultural_pioneer_of` | First to bring capoeira to region | `region?, country?, context?` |
 | `associated_with` | Loose/informal affiliation | `association_type` |
 | `departed_from` | Left group | `departure_type: neutral/blessed/contentious/expelled` |
 
@@ -637,6 +636,9 @@ For EVERY source used during research, verify it appears in the correct location
 - For each teacher/student/associate already in dataset, check their person-report and entity SQL
 - Verify dates and facts are consistent (e.g., if you say Traira trained under Waldemar from 1947, check waldemar.sql/waldemar.md mentions this)
 - If inconsistencies found: determine which version is correct based on sources, update both files if needed, note discrepancy in researcher notes
+
+**Cleanup
+- Move the entry from persons-backlog.md to persons-done.md
 
 ---
 

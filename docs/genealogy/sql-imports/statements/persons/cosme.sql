@@ -25,7 +25,7 @@ SELECT
   E'Treinou com Mestre Roque em sua última academia em Vilar do Teles, São João de Meriti, Baixada Fluminense. Apresentado no documentário "Alunos de M. Roque" ao lado de M. Paulo Siqueira e M. Lapinha.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Cosme' AND s.apelido_context = 'Rio de Janeiro, Roque lineage'
-  AND o.apelido = 'Roque'
+  AND o.apelido = 'Roque' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================

@@ -23,7 +23,7 @@ SELECT
   'Nagé was part of the scene at Waldemar''s Barracão in Corta Braço. Waldemar mentioned him in 1989: "um preto por nome Nagé—que juntaram cinco homens pra matar ele"',
   'Nagé fazia parte da cena no Barracão de Waldemar em Corta Braço. Waldemar mencionou-o em 1989: "um preto por nome Nagé—que juntaram cinco homens pra matar ele"'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Nagé' AND o.apelido = 'Waldemar'
+WHERE s.apelido = 'Nagé' AND s.apelido_context IS NULL AND o.apelido = 'Waldemar'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Nagé associated_with Traíra - contemporaries; both in Vadiação 1954
@@ -44,7 +44,7 @@ SELECT
   'Both appeared in Alexandre Robatto Filho''s pioneering documentary "Vadiação" in November 1954, filmed at Mestre Waldemar''s gathering',
   'Ambos apareceram no documentário pioneiro "Vadiação" de Alexandre Robatto Filho em novembro de 1954, filmado no encontro de Mestre Waldemar'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Nagé' AND o.apelido = 'Traíra'
+WHERE s.apelido = 'Nagé' AND s.apelido_context IS NULL AND o.apelido = 'Traíra'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Nagé associated_with Zacarias Boa Morte - contemporaries; both in Vadiação 1954
@@ -65,7 +65,7 @@ SELECT
   'Both appeared in Alexandre Robatto Filho''s pioneering documentary "Vadiação" in November 1954; Zacarias played berimbau in bateria',
   'Ambos apareceram no documentário pioneiro "Vadiação" de Alexandre Robatto Filho em novembro de 1954; Zacarias tocou berimbau na bateria'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Nagé' AND o.apelido = 'Zacarias Boa Morte'
+WHERE s.apelido = 'Nagé' AND s.apelido_context IS NULL AND o.apelido = 'Zacarias Boa Morte'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Nagé associated_with Curió Velho - played together in Vadiação 1954
@@ -86,7 +86,7 @@ SELECT
   'In the film Vadiação (1954), Nagé played in the second game sequence alongside the older Curió (Pedro Virício)',
   'No filme Vadiação (1954), Nagé jogou na segunda sequência de jogo ao lado do Curió mais velho (Pedro Virício)'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Nagé' AND o.apelido = 'Curió Velho'
+WHERE s.apelido = 'Nagé' AND s.apelido_context IS NULL AND o.apelido = 'Curió Velho'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Nagé associated_with Gigante - contemporaries in 1940s Salvador
@@ -107,7 +107,7 @@ SELECT
   'Gigante "conviveu" (lived alongside) Nagé in 1940s Salvador, per his 2016 obituary',
   'Gigante conviveu com Nagé na Salvador dos anos 1940, conforme seu obituário de 2016'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Nagé' AND o.apelido = 'Gigante'
+WHERE s.apelido = 'Nagé' AND s.apelido_context IS NULL AND o.apelido = 'Gigante'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Nagé associated_with Aberrê - contemporaries in 1940s Salvador (per Gigante obituary)
@@ -128,7 +128,7 @@ SELECT
   'Both mentioned in Gigante''s obituary as 1940s Salvador contemporaries he lived alongside',
   'Ambos mencionados no obituário de Gigante como contemporâneos da Salvador dos anos 1940 com quem ele conviveu'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Nagé' AND o.apelido = 'Aberrê'
+WHERE s.apelido = 'Nagé' AND s.apelido_context IS NULL AND o.apelido = 'Aberrê'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Nagé associated_with Noronha - contemporaries in 1940s Salvador (per Gigante obituary)
@@ -149,7 +149,7 @@ SELECT
   'Both mentioned in Gigante''s obituary as 1940s Salvador contemporaries he lived alongside',
   'Ambos mencionados no obituário de Gigante como contemporâneos da Salvador dos anos 1940 com quem ele conviveu'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Nagé' AND o.apelido = 'Noronha'
+WHERE s.apelido = 'Nagé' AND s.apelido_context IS NULL AND o.apelido = 'Noronha'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Nagé associated_with Barbosa - contemporaries in 1940s Salvador (per Gigante obituary)
@@ -170,7 +170,7 @@ SELECT
   'Both mentioned in Gigante''s obituary as 1940s Salvador contemporaries he lived alongside',
   'Ambos mencionados no obituário de Gigante como contemporâneos da Salvador dos anos 1940 com quem ele conviveu'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Nagé' AND o.apelido = 'Barbosa'
+WHERE s.apelido = 'Nagé' AND s.apelido_context IS NULL AND o.apelido = 'Barbosa'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================

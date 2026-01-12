@@ -1,0 +1,48 @@
+-- ============================================================
+-- STATEMENTS FOR: Caranha
+-- Generated: 2026-01-12
+-- ============================================================
+-- Contains all relationships where Caranha is the SUBJECT.
+-- Note: Most relationships for Caranha are as OBJECT (teacher of)
+-- rather than SUBJECT. Those relationships are stored in student files.
+-- ============================================================
+
+-- ============================================================
+-- CONTEMPORARIES (No SQL - documented in notes only)
+-- ============================================================
+-- Caranha operated alongside these local Ilhéus mestres in the 1940s.
+-- These are contemporaries, NOT associated_with relationships,
+-- as there is no documented specific interaction between them:
+--
+-- - Chico da Onça (contemporary, co-taught Virgílio de Ilhéus)
+-- - Claudemiro (contemporary, co-taught Virgílio de Ilhéus)
+-- - Álvaro (contemporary, co-taught Virgílio de Ilhéus)
+-- - Elíscio (contemporary, co-taught Virgílio de Ilhéus)
+-- - João Valença (contemporary, co-taught Virgílio de Ilhéus)
+-- - Barreto (contemporary, co-taught Virgílio de Ilhéus)
+--
+-- Per import guidelines: contemporaries are NOT associated_with
+-- unless specific documented interaction exists.
+-- ============================================================
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (teachers unknown)
+-- ============================================================
+-- Caranha's teachers are unknown - no sources document his lineage.
+-- He represents a Layer Zero figure for the Ilhéus capoeira tradition.
+-- ============================================================
+
+-- ============================================================
+-- STUDENT RELATIONSHIPS (stored in student files, not here)
+-- ============================================================
+-- The following relationship exists but is stored in the student's file:
+--
+-- Virgílio de Ilhéus student_of Caranha
+--   → stored in virgilio-de-ilheus.sql (subject is Virgílio)
+--   → Caranha initiated Virgílio July 28, 1944 in Ilhéus
+--
+-- This file has no active INSERT statements because:
+-- 1. Caranha's teachers are unknown (no student_of/trained_under)
+-- 2. Contemporary relationships don't qualify for associated_with
+-- 3. Student relationships are stored in student files per convention
+-- ============================================================

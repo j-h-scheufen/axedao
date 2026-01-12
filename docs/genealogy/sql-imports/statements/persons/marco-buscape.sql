@@ -77,7 +77,7 @@ SELECT
   E'Marco Buscapé and Mestre Roque were cousins. Roque''s father Chico Preto (Liberato Francisco Xavier) was the brother of Zé Bedeu (Marco''s father). Both families practiced capoeira in Salvador.',
   E'Marco Buscapé e Mestre Roque eram primos. O pai de Roque, Chico Preto (Liberato Francisco Xavier), era irmão de Zé Bedeu (pai de Marco). Ambas as famílias praticavam capoeira em Salvador.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Marco Buscapé' AND o.apelido = 'Roque'
+WHERE s.apelido = 'Marco Buscapé' AND o.apelido = 'Roque' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Marco Buscapé family_of Chico Preto (uncle - nephew relationship)

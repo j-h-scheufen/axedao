@@ -1,0 +1,22 @@
+-- ============================================================
+-- STATEMENTS FOR: Antônio Asa Branca
+-- Generated: 2026-01-11
+-- ============================================================
+-- Contains all relationships where Antônio Asa Branca is the SUBJECT.
+--
+-- IMPORTANT: No outgoing relationships documented for Asa Branca.
+-- - No teachers documented (unknown lineage)
+-- - No groups documented (operated in street rodas era)
+--
+-- The relationship "Ferreirinha de Santo Amaro student_of Antônio Asa Branca"
+-- will be generated in ferreirinha-de-santo-amaro.sql when Ferreirinha is imported,
+-- as statements are placed in the file named after their SUBJECT.
+-- ============================================================
+
+-- ============================================================
+-- NO STATEMENTS TO GENERATE
+-- ============================================================
+-- Asa Branca has no documented outgoing relationships (no teachers, no groups).
+-- His legacy is preserved through inbound relationships:
+-- - Ferreirinha de Santo Amaro student_of Antônio Asa Branca (to be added when Ferreirinha is imported)
+-- ============================================================

@@ -26,7 +26,7 @@ SELECT
   E'Paulo Siqueira began training at Mestre Roque''s academy on Morro do Pavão around 1972. While Adilson was his primary instructor, Roque provided overall guidance and the academy bore his name. Paulo is recognized as one of Roque''s students.',
   E'Paulo Siqueira começou a treinar na academia de Mestre Roque no Morro do Pavão por volta de 1972. Embora Adilson fosse seu instrutor principal, Roque fornecia orientação geral e a academia levava seu nome. Paulo é reconhecido como um dos alunos de Roque.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Paulo Siqueira' AND o.apelido = 'Roque'
+WHERE s.apelido = 'Paulo Siqueira' AND o.apelido = 'Roque' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ------------------------------------------------------------

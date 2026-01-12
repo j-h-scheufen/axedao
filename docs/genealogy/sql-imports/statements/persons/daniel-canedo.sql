@@ -6,8 +6,30 @@
 -- ============================================================
 
 -- Daniel Canedo trained_under Jaime, Alberto, Rubens (informal street capoeira)
--- NOTE: These informal teachers are not imported as they are not formal capoeiristas
--- with documented lineages. Documented in bio and notes only.
+-- NOTE: Alberto (Caxias) has been imported. Jaime and Rubens pending.
+
+-- Daniel Canedo trained_under Alberto (Caxias) - informal street teacher
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'trained_under'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1971-01-01'::date, 'year'::genealogy.date_precision,
+  '1975-01-01'::date, 'year'::genealogy.date_precision,
+  '{}'::jsonb, 'likely'::genealogy.confidence,
+  'https://acaz.site/historicoacaz',
+  'Informal street capoeira training in Parque dos Ferreiras neighborhood, Duque de Caxias, early 1970s. Part of preparation for street rodas in central Caxias before joining Mestre Josias''s formal academy.',
+  'Treinamento informal de capoeira de rua no bairro Parque dos Ferreiras, Duque de Caxias, início dos anos 1970. Parte da preparação para rodas de rua no centro de Caxias antes de ingressar na academia formal de Mestre Josias.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Daniel Canedo' AND o.apelido = 'Alberto' AND o.apelido_context = 'Duque de Caxias'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- PENDING: Daniel Canedo trained_under Jaime (Caxias) - needs Jaime entity import
+-- PENDING: Daniel Canedo trained_under Rubens (Caxias) - needs Rubens entity import
 
 -- Daniel Canedo student_of Josias (primary teacher)
 INSERT INTO genealogy.statements (

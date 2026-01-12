@@ -22,7 +22,7 @@ SELECT
   E'Sandrinha began training under Mestre Roque at age 10 (~1969) at the Associação de Moradores do Pavão/Pavãozinho in Rio de Janeiro. She grew up in the same favela where Roque taught, and his academy became her second home. Roque himself stated that he "graduated the first capoeira mestra in Brazil", referring to Sandrinha.',
   E'Sandrinha começou a treinar com Mestre Roque aos 10 anos (~1969) na Associação de Moradores do Pavão/Pavãozinho no Rio de Janeiro. Ela cresceu na mesma favela onde Roque ensinava, e sua academia tornou-se um segundo lar. O próprio Roque declarou que "formou a primeira mestra de capoeira no Brasil", referindo-se a Sandrinha.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Sandrinha' AND o.apelido = 'Roque'
+WHERE s.apelido = 'Sandrinha' AND o.apelido = 'Roque' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Sandrinha received_title_from Roque (mestra, 1970s)
@@ -42,7 +42,7 @@ SELECT
   E'Sandrinha was recognized as mestra in the 1970s, making her the first woman to formally receive this rank in Brazilian capoeira. According to Mestre Roque''s own testimony, he "graduated the first capoeira mestra in Brazil". The 2023 UNICAMP study confirms: "foi reconhecida mestra na década de 1970".',
   E'Sandrinha foi reconhecida como mestra nos anos 1970, tornando-se a primeira mulher a receber formalmente este título na capoeira brasileira. De acordo com o próprio depoimento de Mestre Roque, ele "formou a primeira mestra de capoeira no Brasil". O estudo UNICAMP de 2023 confirma: "foi reconhecida mestra na década de 1970".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Sandrinha' AND o.apelido = 'Roque'
+WHERE s.apelido = 'Sandrinha' AND o.apelido = 'Roque' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Sandrinha trained_under Caiçara (also graduated by, date unknown)

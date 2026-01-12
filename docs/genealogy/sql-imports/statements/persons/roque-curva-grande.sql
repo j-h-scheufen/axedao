@@ -1,0 +1,15 @@
+-- ============================================================
+-- STATEMENTS FOR: Roque (Curva Grande)
+-- Generated: 2026-01-11
+-- ============================================================
+-- Contains all relationships where Roque (Curva Grande) is the SUBJECT.
+--
+-- NO STATEMENTS GENERATED:
+-- The only documented relationship is teaching Gaguinho Preto, which
+-- is recorded as "Gaguinho Preto student_of Roque (Curva Grande)" in
+-- gaguinho-preto.sql (subject owns the relationship).
+--
+-- Co-teacher relationships with Menino Gordo and Vitor Agaú are NOT
+-- generated as explicit associated_with statements because they are
+-- implicit from Gaguinho Preto having student_of to all three teachers.
+-- ============================================================

@@ -72,27 +72,6 @@ WHERE s.apelido = 'Índio' AND s.apelido_context = 'Mercado Modelo'
   AND o.apelido = 'Pelé da Bomba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
--- Índio (Mercado Modelo) cultural_pioneer_of Rio Grande do Sul
--- First to bring capoeira to the state
-INSERT INTO genealogy.statements (
-  subject_type, subject_id, predicate, object_type, object_id,
-  started_at, started_at_precision, ended_at, ended_at_precision,
-  properties, confidence, source, notes_en, notes_pt
-)
-SELECT
-  'person'::genealogy.entity_type, s.id,
-  'cultural_pioneer_of'::genealogy.predicate,
-  'region'::genealogy.entity_type, NULL,
-  '1969-01-01'::date, 'year'::genealogy.date_precision, NULL, NULL,
-  '{"region": "Rio Grande do Sul", "country": "Brazil", "context": {"en": "First to bring capoeira to Rio Grande do Sul through performances at Dragão Verde nightclub (1969-1970) and formal teaching at Clube Petrópolis (1974)", "pt": "Primeiro a trazer capoeira para o Rio Grande do Sul através de apresentações na boate Dragão Verde (1969-1970) e ensino formal no Clube Petrópolis (1974)"}}'::jsonb,
-  'verified'::genealogy.confidence,
-  'esquiva.wordpress.com, grupoliberdadecapoeira.com.br, CCDH RS',
-  E'Mestre Índio is recognized as the first capoeirista to arrive in Rio Grande do Sul. He performed at Dragão Verde nightclub in 1969-1970, returned in 1974 to teach at Clube Petrópolis, and established the first public rodas at Parcão and Brique da Redenção. In 2019, the RS Legislative Assembly recognized him as one of two pioneers (with Mestre Paulinho) who brought capoeira to the state.',
-  E'Mestre Índio é reconhecido como o primeiro capoeirista a chegar ao Rio Grande do Sul. Apresentou-se na boate Dragão Verde em 1969-1970, retornou em 1974 para ensinar no Clube Petrópolis, e estabeleceu as primeiras rodas públicas no Parcão e Brique da Redenção. Em 2019, a Assembleia Legislativa do RS o reconheceu como um dos dois pioneiros (com Mestre Paulinho) que trouxeram a capoeira para o estado.'
-FROM genealogy.person_profiles s
-WHERE s.apelido = 'Índio' AND s.apelido_context = 'Mercado Modelo'
-ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
-
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================

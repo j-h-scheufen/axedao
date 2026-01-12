@@ -22,7 +22,7 @@ SELECT
   'Gajé learned capoeira as a child from Nagé in Boa Vista de São Caetano, Salvador. Nagé died in 1958 when Gajé was approximately 7 years old.',
   'Gajé aprendeu capoeira ainda criança com Nagé em Boa Vista de São Caetano, Salvador. Nagé morreu em 1958 quando Gajé tinha aproximadamente 7 anos.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Gajé' AND o.apelido = 'Nagé'
+WHERE s.apelido = 'Gajé' AND o.apelido = 'Nagé' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Gajé influenced_by Noronha (learned from him at Mercado Modelo after initial training)

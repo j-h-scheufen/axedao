@@ -125,7 +125,6 @@ According to CapoeiraHub and CapoeiraWiki:
 | Mestre Sabú | Goiás | - |
 | Mestre Fernandinho | Bahia | - |
 | Mestre José de Freitas (Zé de Freitas) | Alagoinhas, Bahia | - |
-| Mestre Robertino da Hora | Salvador, Bahia | - |
 | Mestre Valdomiro | Brazil | - |
 
 **Note on Sandrinha:** Some sources list Sandrinha (Sandra Eugênia Feitosa, first female mestra in Brazil) as Caiçara's student, but research indicates her primary teacher was Mestre Roque at Grupo Bantus de Capoeira.

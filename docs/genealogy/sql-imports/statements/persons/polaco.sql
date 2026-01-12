@@ -22,7 +22,7 @@ SELECT
   E'Polaco was introduced to Mestre Paraná in 1956 and trained in his famous backyard academy in Bonsucesso until Paraná''s death on March 7, 1972. Paraná gave him his apelido "Polaco".',
   E'Polaco foi apresentado a Mestre Paraná em 1956 e treinou em sua famosa academia de quintal em Bonsucesso até a morte de Paraná em 7 de março de 1972. Paraná lhe deu o apelido "Polaco".'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Polaco' AND o.apelido = 'Paraná'
+WHERE s.apelido = 'Polaco' AND o.apelido = 'Paraná' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Polaco baptized_by Paraná (received apelido "Polaco")
@@ -42,7 +42,7 @@ SELECT
   E'Polaco received his apelido from Mestre Paraná when he became a disciple in 1956. The nickname "Polaco" (Polish) likely refers to his physical appearance.',
   E'Polaco recebeu seu apelido de Mestre Paraná quando se tornou discípulo em 1956. O apelido "Polaco" provavelmente refere-se à sua aparência física.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Polaco' AND o.apelido = 'Paraná'
+WHERE s.apelido = 'Polaco' AND o.apelido = 'Paraná' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Polaco associated_with Genaro (fellow guardians of Rio capoeira history)
