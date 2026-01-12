@@ -1,0 +1,37 @@
+-- ============================================================
+-- STATEMENTS FOR: Diogo da Lapa
+-- Generated: 2026-01-10
+-- ============================================================
+-- Contains all relationships where Diogo da Lapa is the SUBJECT.
+-- ============================================================
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (objects not yet in dataset)
+-- ============================================================
+-- Diogo da Lapa member_of Guarda Negra da Redentora
+--   - Context: Participated in the Guarda Negra of Largo da Lapa
+--   - Started: 1888 (after formation on July 9, 1888)
+--   - Ended: December 1889 (arrested)
+--   - Group needs import: Guarda Negra da Redentora (paramilitary organization)
+
+-- Diogo da Lapa member_of Malta Espada
+--   - Context: The Espada malta controlled Largo da Lapa territory
+--   - Diogo's apelido "da Lapa" suggests residence/activity in this area
+--   - Group needs import: Malta Espada (19th century capoeira gang, Nagoas faction)
+
+-- ============================================================
+-- NOTES ON POTENTIAL RELATIONSHIPS
+-- ============================================================
+-- No direct teacher-student relationships documented for Diogo da Lapa.
+-- He was arrested alongside "ten capoeiras in Santana neighborhood" but
+-- their names are not documented in available sources.
+--
+-- Contemporary figures in Rio during same era (no direct relationship documented):
+-- - Manduca da Praia (Nagoas chief, Santa Luzia - EXISTS in dataset)
+-- - Leandro Bonaparte (Guaiamús chief, São Francisco - EXISTS in dataset)
+-- - Plácido de Abreu (chronicler - EXISTS in dataset)
+-- - Pinta Preta da Lapa (Glória chief, killed 1870 - EXISTS in dataset)
+--
+-- Without documented interaction, these should NOT have associated_with
+-- statements generated (per Phase 4 guidelines on avoiding overuse).
+-- ============================================================

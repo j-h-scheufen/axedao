@@ -105,13 +105,49 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Roberto Satanás' AND o.apelido = 'Gato Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Roberto Satanás associated_with Camafeu de Oxóssi (Dakar 1966 delegation)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1966-04-16'::date, 'exact'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Dakar 1966 delegation"}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com/en/pastinha-1966',
+  E'Fellow members of the 1966 Dakar delegation. Camafeu played berimbau while Roberto performed at the First World Festival of Black Arts.',
+  E'Membros da delegação de Dakar 1966. Camafeu tocou berimbau enquanto Roberto se apresentava no Primeiro Festival Mundial de Artes Negras.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roberto Satanás' AND o.apelido = 'Camafeu de Oxóssi'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Roberto Satanás associated_with Waldomiro Malvadeza (1969 LP "Capoeira Angola")
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1969-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "1969 LP Capoeira Angola recording"}'::jsonb, 'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/robertosatanas',
+  E'Fellow singer on the 1969 LP "Capoeira Angola" recorded at Teatro Castro Alves, Salvador.',
+  E'Cantor no LP "Capoeira Angola" de 1969, gravado no Teatro Castro Alves, Salvador.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Roberto Satanás' AND o.apelido = 'Valdomiro Malvadeza'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
--- Roberto Satanás associated_with Camafeu de Oxóssi - needs import first
---   (Dakar 1966 delegation; Camafeu played berimbau while Roberto performed)
--- Roberto Satanás associated_with Waldomiro Malvadeza - needs import first
---   (Fellow singer on 1969 LP "Capoeira Angola" recorded at Teatro Castro Alves)
 -- Roberto Satanás associated_with Toinho - needs import first
 --   (Participated together in 1964 Belo Horizonte trip)
 -- ============================================================

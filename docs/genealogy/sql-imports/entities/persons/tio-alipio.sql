@@ -89,7 +89,12 @@ BIRTHPLACE: Listed as Dahomey (Benin), though technically his mother came from t
 "SENTENCED TO DEATH" CLAIM: Some secondary sources mention this but no primary sources have been found. Noted as unverified in the bio.
 
 PENDING RELATIONSHIPS:
-- student_of: Besouro Mangangá → Tio Alípio (defined in besouro-manganga.sql)',
+- student_of: Besouro Mangangá → Tio Alípio (defined in besouro-manganga.sql)
+
+CONTEMPORARIES IN SANTO AMARO (DIFFERENT LINEAGES):
+- Antônio Asa Branca → Ferreirinha de Santo Amaro → Ivan de Santo Amaro → ACANA
+- Benedito de Santo Amaro → Mestre Bobó
+Note: These were parallel teaching traditions in Santo Amaro; different lineages, not connected.',
   -- Researcher notes (Portuguese)
   E'ESTIMATIVA DO ANO DE NASCIMENTO (1850, precisão de década): Descrito como escravizado "ainda jovem" e ativamente ensinando Besouro Mangangá por volta de 1908. Se escravizado como jovem nos anos 1860-1870 e ainda ensinando nos seus 50-60 anos em 1908, década de nascimento estimada como 1850.
 
@@ -100,7 +105,12 @@ LOCAL DE NASCIMENTO: Listado como Daomé (Benin), embora tecnicamente sua mãe t
 ALEGAÇÃO DE "CONDENADO À MORTE": Algumas fontes secundárias mencionam isso mas nenhuma fonte primária foi encontrada. Notado como não verificado na bio.
 
 RELACIONAMENTOS PENDENTES:
-- student_of: Besouro Mangangá → Tio Alípio (definido em besouro-manganga.sql)'
+- student_of: Besouro Mangangá → Tio Alípio (definido em besouro-manganga.sql)
+
+CONTEMPORÂNEOS EM SANTO AMARO (LINHAGENS DIFERENTES):
+- Antônio Asa Branca → Ferreirinha de Santo Amaro → Ivan de Santo Amaro → ACANA
+- Benedito de Santo Amaro → Mestre Bobó
+Nota: Estas eram tradições de ensino paralelas em Santo Amaro; linhagens diferentes, não conectadas.'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,

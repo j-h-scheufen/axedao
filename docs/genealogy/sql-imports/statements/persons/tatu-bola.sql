@@ -1,0 +1,35 @@
+-- ============================================================
+-- STATEMENTS FOR: Tatu Bola
+-- Generated: 2026-01-10
+-- ============================================================
+-- Contains all relationships where Tatu Bola is the SUBJECT.
+-- ============================================================
+
+-- NO DOCUMENTED RELATIONSHIPS
+-- Tatu Bola has no documented relationships where he is the subject.
+-- The only mention of Tatu Bola is in Mestre Roque's oral testimony,
+-- where he states he "socialized with" famous capoeiristas including
+-- Tatu Bola at the Mercado Modelo in Salvador during the late 1940s-
+-- early 1950s.
+--
+-- This does NOT qualify for an `associated_with` statement because:
+-- 1. "Socialized with" is not a specific documented connection
+-- 2. The listing is of contemporaries, not of people with specific
+--    documented interactions (training together, rivalry, collaboration)
+-- 3. The relationship is documented from Roque's perspective, not
+--    Tatu Bola's perspective
+--
+-- The contemporary relationship is documented in:
+-- - Tatu Bola's bio (notes_en/notes_pt): CONTEMPORARIES section
+-- - Roque's bio and report: as part of his early capoeira exposure
+-- - Chico Preto's report: as part of the Mercado Modelo capoeira scene
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet determined)
+-- ============================================================
+-- No pending relationships identified. Research would be needed to
+-- establish:
+-- - Tatu Bola's teacher(s) - unknown
+-- - Tatu Bola's students - unknown
+-- - Tatu Bola's group affiliation - unknown
+-- - Any formal associations with contemporaries

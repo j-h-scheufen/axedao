@@ -1,0 +1,42 @@
+-- ============================================================
+-- STATEMENTS FOR: Paulão (São Bento Pequeno)
+-- Generated: 2026-01-11
+-- ============================================================
+-- Contains all relationships where Paulão (São Bento Pequeno) is the SUBJECT.
+--
+-- NOTE: This profile has minimal documented relationships due to
+-- limited biographical data. The only confirmed relationship is
+-- co-founding Academia São Bento Pequeno with Pinatti and Limão.
+--
+-- TEACHERS: Unknown - no documented training lineage
+-- STUDENTS: Unknown - none documented
+--
+-- NOTE: associated_with statements for Pinatti and Limão are NOT
+-- generated here since the co-founding relationship will be
+-- established through the group entity (co_founded predicate).
+-- ============================================================
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (groups not yet in dataset)
+-- ============================================================
+-- Paulão co_founded Academia de Capoeira São Bento Pequeno (SP) - GROUP NOT IN DATASET
+--   Co-founded Aug 1, 1969 with Mestres Pinatti and Limão
+--   Address: Rua do Vergueiro 2684, near Ana Rosa metro
+--   Style: "Capoeira Angolinha" (eclectic between Regional and Angola)
+--   Group already in groups-backlog
+
+-- ============================================================
+-- UNKNOWN RELATIONSHIPS (not documented)
+-- ============================================================
+-- Paulão student_of [Unknown] - No training lineage documented
+-- Paulão trained_under [Unknown] - No teachers documented
+-- Paulão received_title_from [Unknown] - Title conferral not documented
+-- Paulão teaches_at [Unknown] - Teaching activities post-1969 not documented
+
+-- ============================================================
+-- NOTE ON MISSING RELATIONSHIPS
+-- ============================================================
+-- Unlike Limão (whose lineage to Caiçara is well documented) and
+-- Pinatti (who learned from Zé de Freitas and the book "Capoeira sem Mestre"),
+-- Paulão's capoeira training is not documented in any available source.
+-- Future research may uncover his teachers and lineage.

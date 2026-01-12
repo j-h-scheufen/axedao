@@ -116,7 +116,7 @@ TEACHER: Mestre Waldemar - began training 1942 at Corta Braço (Barracão de Wal
 SON: Arival - born April 26, 1947
 
 TRAINING COMPANIONS at Waldemar''s roda (per João Grande 1989 testimony):
-- Evanir, Tatá, Bom Cabelo (José Cabelo Bom), Chita, Macário, Sete Molas (Waldemar)
+- Evanir, Tatá, Bom Cabelo (José Cabelo Bom), Chita, Macário, Sete Molas (distinct mestre, had own school in Liberdade)
 
 MEDIA APPEARANCES:
 - 1948: Pierre Verger photographs at Agnelo roda, Corta Braço (April 11)
@@ -146,7 +146,7 @@ MESTRE: Mestre Waldemar - começou treinamento em 1942 em Corta Braço (Barracã
 FILHO: Arival - nascido em 26 de abril de 1947
 
 COMPANHEIROS DE TREINO na roda de Waldemar (per testemunho de João Grande 1989):
-- Evanir, Tatá, Bom Cabelo (José Cabelo Bom), Chita, Macário, Sete Molas (Waldemar)
+- Evanir, Tatá, Bom Cabelo (José Cabelo Bom), Chita, Macário, Sete Molas (distinct mestre, had own school in Liberdade)
 
 APARIÇÕES EM MÍDIA:
 - 1948: Fotografias de Pierre Verger na roda de Agnelo, Corta Braço (11 de abril)

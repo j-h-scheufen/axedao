@@ -1,0 +1,55 @@
+-- ============================================================
+-- STATEMENTS FOR: Olívio Bispo dos Santos (Mestre Bispo)
+-- Generated: 2026-01-12
+-- ============================================================
+-- Contains all relationships where Olívio Bispo is the SUBJECT.
+-- ============================================================
+
+-- Bispo founded Bahia do Berimbau
+-- NOTE: Bahia do Berimbau group is NOT in the dataset yet.
+-- This relationship is documented as PENDING below.
+
+-- Bispo leads Bahia do Berimbau
+-- NOTE: Bahia do Berimbau group is NOT in the dataset yet.
+-- This relationship is documented as PENDING below.
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (object not yet in dataset)
+-- ============================================================
+-- Bispo founded Bahia do Berimbau - needs group import first
+--   Context: Founded/led the proto-group in Vicente de Carvalho
+--   Period: ~1940-1945 through 1972
+--   Location: Itapema (Vicente de Carvalho), Guarujá, SP
+--
+-- Bispo leads Bahia do Berimbau - needs group import first
+--   Context: Led the Sunday gatherings until his death
+--   Period: ~1940-1945 through 1972
+
+-- ============================================================
+-- STUDENT RELATIONSHIPS (Bispo as Object - NOT in this file)
+-- ============================================================
+-- The following students have Bispo as their teacher.
+-- These relationships should go in each student's statements file:
+--
+-- Sombra student_of Bispo (1963-1972, Vicente de Carvalho)
+--   Last member admitted to Bahia do Berimbau group
+--   Trained until Olívio's death in 1972
+--   Entrusted with mission to spread the tradition
+--   NOTE: This relationship should be added to sombra.sql statements
+
+-- ============================================================
+-- FELLOW MEMBERS OF BAHIA DO BERIMBAU (contemporaries)
+-- ============================================================
+-- These were fellow practitioners in the group, not students of Bispo:
+-- - Benedito dos Santos (Mestre Dito)
+-- - Maurício de Oliveira Santos (Mestre Bahia do Charuto)
+-- - Samuel
+-- - Ling
+-- - Mata Onça
+-- - Aluízio
+-- - Anastácio
+-- - Jacaré
+--
+-- No associated_with statements generated - these are contemporaries
+-- listed together in the same group, not documented individual connections.
+-- They are documented in notes_en/notes_pt of the entity SQL.

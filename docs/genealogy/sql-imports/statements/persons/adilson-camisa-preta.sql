@@ -25,7 +25,7 @@ SELECT
   E'Adilson trained under Mestre Roque at the Pavao/Pavaozinho academy, becoming his most advanced student. Training start date unknown, but by the early 1970s Adilson was ready to take over the school.',
   E'Adilson treinou sob Mestre Roque na academia do Pavao/Pavaozinho, tornando-se seu aluno mais avancado. Data de inicio do treinamento desconhecida, mas no inicio dos anos 1970 Adilson estava pronto para assumir a escola.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Adilson Camisa Preta' AND o.apelido = 'Roque'
+WHERE s.apelido = 'Adilson Camisa Preta' AND o.apelido = 'Roque' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- ============================================================

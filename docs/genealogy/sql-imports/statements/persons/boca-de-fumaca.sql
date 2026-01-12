@@ -1,0 +1,32 @@
+-- ============================================================
+-- STATEMENTS FOR: Boca de Fumaça
+-- Generated: 2026-01-10
+-- ============================================================
+-- Contains all relationships where Boca de Fumaça is the SUBJECT.
+-- ============================================================
+
+-- No documented relationships where Boca de Fumaça is the subject.
+--
+-- Known associations (where Boca de Fumaça is the OBJECT, not subject):
+-- - Roque associated_with Boca de Fumaça (socialized at Mercado Modelo 1948-1956)
+--   → SQL statement added to roque.sql ✓
+--
+-- Potential pending relationships if more research emerges:
+-- - student_of [unknown teacher] - no teacher documented
+-- - teaches [unknown students] - no students documented
+-- - associated_with contemporaries - per OWNERSHIP RULE, other subjects initiate
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (objects not yet confirmed or subject unclear)
+-- ============================================================
+-- The following contemporaries socialized together at Mercado Modelo
+-- per Roque's testimony. If research confirms formal relationships,
+-- statements should go in the appropriate subject's file:
+--
+-- Contemporaries (all Import? = yes or ?, add to backlog if not there):
+-- - Gajé (in backlog, pending)
+-- - Índio (IMPORTED as Índio Mercado Modelo)
+-- - Tatu Bola (IMPORTED)
+-- - Bom Cabrito (IMPORTED)
+-- - Traíra (IMPORTED)
+-- - Canjiquinha (IMPORTED)

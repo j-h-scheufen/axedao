@@ -1,0 +1,17 @@
+-- ============================================================
+-- STATEMENTS FOR: Catu (Antônia de Tal, known as Cattú)
+-- Generated: 2026-01-09
+-- ============================================================
+-- Contains all relationships where Catu is the SUBJECT.
+-- ============================================================
+
+-- No documented relationships found.
+--
+-- Catu is listed among legendary valentonas of Bahia alongside
+-- Rosa Palmeirão, Massú, Salomé, Chicão, etc., but being listed
+-- together as contemporaries does not constitute a documented
+-- association. This contemporaneity is noted in the biography.
+--
+-- The 1914 Jornal de Notícias incident documents her conflict
+-- with police guards, but no capoeira figures are mentioned.
+-- ============================================================

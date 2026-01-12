@@ -44,7 +44,7 @@ SELECT
   'Learned berimbau from Mestre Paraná, who often directed the bateria at Artur Emídio''s rodas. Genaro accompanied him and developed his berimbau skills under Paraná''s instruction.',
   'Aprendeu berimbau com Mestre Paraná, que frequentemente dirigia a bateria nas rodas de Artur Emídio. Genaro o acompanhava e desenvolveu suas habilidades de berimbau sob a instrução de Paraná.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Genaro' AND o.apelido = 'Paraná'
+WHERE s.apelido = 'Genaro' AND o.apelido = 'Paraná' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Genaro associated_with Djalma Bandeira
@@ -73,4 +73,8 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
 -- Genaro associated_with Vilela - Fellow student of Artur Emídio, performed together on TV Rio 1957; Vilela in backlog
--- Genaro associated_with Polaco - Fellow guardian of Rio capoeira history; Polaco not in dataset
+
+-- ============================================================
+-- NOTE: Relationships where Genaro is the OBJECT
+-- ============================================================
+-- Polaco associated_with Genaro (guardians of Rio history, documentary) → polaco.sql

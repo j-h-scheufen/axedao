@@ -143,7 +143,6 @@ STUDENTS (per CapoeiraHub and other sources):
 - Mestre Sabu/Sabú (Goiás)
 - Mestre Fernandinho (Bahia)
 - Mestre José de Freitas / Zé de Freitas (Alagoinhas, Bahia)
-- Mestre Robertino da Hora (Salvador, Bahia)
 - Mestre Valdomiro (Brazil)
 
 NOTE ON SANDRINHA: CapoeiraWiki lists "Sandrinha" as Caiçara''s student, but other sources (ResearchGate) identify her primary teacher as Mestre Roque. She trained at Grupo Bantus de Capoeira. The connection to Caiçara may be indirect or secondary.
@@ -164,7 +163,11 @@ CLAIM OF CANGAÇO INVOLVEMENT: Caiçara claimed adolescent association with Lamp
 
 WORK: Worked as magarefe (butcher) in youth. In the 1960s, worked as political enforcer for Mayor ACM with Mestre Traíra.
 
-27 SCARS: Displayed scars from bullets, razors, knives, daggers, and machetes with pride.',
+27 SCARS: Displayed scars from bullets, razors, knives, daggers, and machetes with pride.
+
+BROTHER: Contra-Mestre Lampião - capoeirista brother who worked with Caiçara. In 1990, both trained Bundo (who later founded Grupo Bantu Capoeira in Jacksonville, FL). Per capoeirabeiramar.com: "Bundo became a Professor under Mestre Caiçara and his brother Contra-Mestre Lampião in 1990."
+
+TRAVEL: Known to travel nationally. In 1969, Caiçara brought Mestre Limão to São Paulo.',
   -- Researcher notes (Portuguese)
   E'DATAS DE VIDA:
 Nascimento: 8 de maio de 1924 - confirmado por múltiplas fontes (velhosmestres.com, capoeirawiki.org, capoeirahub.net)
@@ -185,7 +188,6 @@ ALUNOS (per CapoeiraHub e outras fontes):
 - Mestre Sabu/Sabú (Goiás)
 - Mestre Fernandinho (Bahia)
 - Mestre José de Freitas / Zé de Freitas (Alagoinhas, Bahia)
-- Mestre Robertino da Hora (Salvador, Bahia)
 - Mestre Valdomiro (Brasil)
 
 NOTA SOBRE SANDRINHA: CapoeiraWiki lista "Sandrinha" como aluna de Caiçara, mas outras fontes (ResearchGate) identificam seu professor principal como Mestre Roque. Ela treinou no Grupo Bantus de Capoeira. A conexão com Caiçara pode ser indireta ou secundária.
@@ -206,7 +208,11 @@ ALEGAÇÃO DE ENVOLVIMENTO COM CANGAÇO: Caiçara alegava associação adolescen
 
 TRABALHO: Trabalhou como magarefe (açougueiro) na juventude. Nos anos 1960, trabalhou como capanga político para o prefeito ACM com Mestre Traíra.
 
-27 CICATRIZES: Exibia cicatrizes de balas, navalhas, facas, punhais e facões com orgulho.'
+27 CICATRIZES: Exibia cicatrizes de balas, navalhas, facas, punhais e facões com orgulho.
+
+IRMÃO: Contra-Mestre Lampião - irmão capoeirista que trabalhava com Caiçara. Em 1990, ambos treinaram Bundo (que depois fundou o Grupo Bantu Capoeira em Jacksonville, FL). Conforme capoeirabeiramar.com: "Bundo became a Professor under Mestre Caiçara and his brother Contra-Mestre Lampião in 1990."
+
+VIAGENS: Conhecido por viajar nacionalmente. Em 1969, Caiçara trouxe Mestre Limão para São Paulo.'
 )
 ON CONFLICT (apelido, COALESCE(apelido_context, '')) WHERE apelido IS NOT NULL DO UPDATE SET
   name = EXCLUDED.name,

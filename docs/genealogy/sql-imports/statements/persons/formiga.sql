@@ -22,7 +22,7 @@ SELECT
   'Trained under his father at Centro de Cultura Física Regional in Salvador; graduated June 1967 alongside half-brother Nenel',
   'Treinou com seu pai no Centro de Cultura Física Regional em Salvador; formou-se em junho de 1967 junto com o meio-irmão Nenel'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Formiga' AND o.apelido = 'Bimba'
+WHERE s.apelido = 'Formiga' AND s.apelido_context IS NULL AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Formiga family_of Bimba (son)
@@ -42,7 +42,7 @@ SELECT
   'Son of Mestre Bimba with Dona Nair; one of 13 children',
   'Filho de Mestre Bimba com Dona Nair; um de 13 filhos'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Formiga' AND o.apelido = 'Bimba'
+WHERE s.apelido = 'Formiga' AND s.apelido_context IS NULL AND o.apelido = 'Bimba'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Formiga family_of Nenel (half-brother)
@@ -62,7 +62,7 @@ SELECT
   'Half-brothers; different mothers (Formiga: Dona Nair; Nenel: Berenice da Conceição Nascimento); same father (Bimba); graduated together June 1967; taught together in Goiânia 1973-1974',
   'Meios-irmãos; mães diferentes (Formiga: Dona Nair; Nenel: Berenice da Conceição Nascimento); mesmo pai (Bimba); formaram-se juntos em junho de 1967; ensinaram juntos em Goiânia 1973-1974'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Formiga' AND o.apelido = 'Nenel'
+WHERE s.apelido = 'Formiga' AND s.apelido_context IS NULL AND o.apelido = 'Nenel'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Formiga associated_with Frede Abreu (collaboration on UFBA Honoris Causa speech)

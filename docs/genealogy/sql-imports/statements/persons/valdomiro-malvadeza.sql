@@ -124,8 +124,28 @@ WHERE s.apelido = 'Valdomiro Malvadeza' AND s.apelido_context = 'CECA student'
   AND o.apelido = 'Albertino da Hora'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Valdomiro Malvadeza associated_with Roberto Satanás (1969 LP "Capoeira Angola")
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1969-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "1969 LP Capoeira Angola recording"}'::jsonb, 'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/malvadeza',
+  E'Fellow singer on the 1969 LP "Capoeira Angola" recorded at Teatro Castro Alves, Salvador.',
+  E'Cantor no LP "Capoeira Angola" de 1969, gravado no Teatro Castro Alves, Salvador.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Valdomiro Malvadeza' AND s.apelido_context = 'CECA student'
+  AND o.apelido = 'Roberto Satanás'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
--- Valdomiro associated_with Roberto Satanás - 1969 LP recording (Roberto Satanás pending import)
 -- Valdomiro associated_with Raimundo Pequeno/Natividade - 1969 LP recording (pending import)
