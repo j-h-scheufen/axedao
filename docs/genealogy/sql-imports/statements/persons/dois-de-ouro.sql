@@ -93,7 +93,7 @@ SELECT
 FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Dois de Ouro'
   AND COALESCE(s.apelido_context, '') = ''
-  AND o.apelido = 'Roque'
+  AND o.apelido = 'Roque' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Dois de Ouro associated_with Mucungê (co-founded Filhos de Angola)

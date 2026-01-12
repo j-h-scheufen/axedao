@@ -109,10 +109,67 @@ FROM genealogy.person_profiles s, genealogy.person_profiles o
 WHERE s.apelido = 'Gildo Alfinete' AND o.apelido = 'Gato Preto'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Gildo Alfinete associated_with Roberto Satanás (Dakar 1966 delegation, 1964 BH trip)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1964-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Dakar 1966 delegation; 1964 Belo Horizonte trip together"}'::jsonb, 'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/pastinha-1966',
+  E'Fellow members of the 1966 Dakar delegation for the First World Festival of Black Arts. Also traveled together to Belo Horizonte in 1964.',
+  E'Membros da delegação de Dakar 1966 para o Primeiro Festival Mundial de Artes Negras. Também viajaram juntos para Belo Horizonte em 1964.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gildo Alfinete' AND o.apelido = 'Roberto Satanás'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Gildo Alfinete associated_with Camafeu de Oxóssi (Dakar 1966 delegation)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1966-04-16'::date, 'exact'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "Dakar 1966 delegation"}'::jsonb, 'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/pastinha-1966',
+  E'Fellow members of the 1966 Dakar delegation. Camafeu played berimbau while Gildo performed.',
+  E'Membros da delegação de Dakar 1966. Camafeu tocou berimbau enquanto Gildo se apresentava.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gildo Alfinete' AND o.apelido = 'Camafeu de Oxóssi'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
+-- Gildo Alfinete associated_with Bola Sete (2006 ABCA lecture together)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '2006-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "2006 ABCA lecture together"}'::jsonb, 'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/gildo',
+  E'Participated together in an ABCA (Associação Brasileira de Capoeira Angola) lecture in 2006.',
+  E'Participaram juntos de uma palestra da ABCA (Associação Brasileira de Capoeira Angola) em 2006.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gildo Alfinete' AND o.apelido = 'Bola Sete'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
--- Gildo Alfinete associated_with Roberto Satanás - needs import first (Dakar 1966 delegation, 1964 BH trip)
--- Gildo Alfinete associated_with Camafeu de Oxossi - needs import first (Dakar 1966 delegation)
--- Gildo Alfinete associated_with Bola Sete - needs import first (2006 ABCA lecture together)
 -- Gildo Alfinete associated_with Genésio Meio-Quilo - needs import (brother, compiled 2020 book)

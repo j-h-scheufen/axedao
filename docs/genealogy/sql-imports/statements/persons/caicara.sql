@@ -184,7 +184,6 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- - Mestre Sabu/Sabú (Goiás) student_of Caiçara - pending import (same as in backlog)
 -- - Mestre Fernandinho (Bahia) student_of Caiçara - pending import
 -- - Mestre José de Freitas / Zé de Freitas (Alagoinhas, Bahia) student_of Caiçara - pending import
--- - Mestre Robertino da Hora (Salvador, Bahia) student_of Caiçara - pending import
 -- - Mestre Valdomiro (Brazil) student_of Caiçara - pending import
 --
 -- NOTE: CapoeiraWiki lists "Sandrinha" as Caiçara's student, but other research

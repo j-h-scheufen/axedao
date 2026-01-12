@@ -1,12 +1,13 @@
 -- ============================================================
 -- STATEMENTS FOR: Gaguinho Preto
 -- Generated: 2025-12-27
+-- Updated: 2026-01-11 - Added Roque (Curva Grande) relationship
 -- ============================================================
 -- Contains all relationships where Gaguinho Preto is the SUBJECT.
 --
 -- Teachers:
 -- - Menino Gordo da Curva Grande (student_of, ~1938) - EXISTS in DB
--- - Roque (Curva Grande) (student_of, ~1938) - PENDING (not in DB, distinct from Roque Mendes)
+-- - Roque (Curva Grande) (student_of, ~1938) - EXISTS in DB (added 2026-01-11)
 -- - Vitor Agaú (student_of, ~1938) - EXISTS in DB
 -- - Pastinha (trained_under, via CECA) - EXISTS in DB
 -- - Zeca do Uruguai (trained_under, date unknown) - EXISTS in DB
@@ -129,13 +130,33 @@ WHERE s.apelido = 'Gaguinho Preto'
   AND o.apelido = 'Cutica'
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
+-- Gaguinho Preto student_of Roque (Curva Grande)
+-- Primary teacher in Curva Grande neighborhood from age 4 (~1938)
+-- Note: DISTINCT from Mestre Roque Mendes dos Santos (b. 1938)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'student_of'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1938-01-01'::date, 'year'::genealogy.date_precision,
+  NULL, NULL,
+  '{}'::jsonb, 'verified'::genealogy.confidence,
+  'velhosmestres.com/br/destaques-39',
+  'One of three teachers in Curva Grande neighborhood; taught Gaguinho Preto from age 4',
+  'Um de três professores no bairro da Curva Grande; ensinou Gaguinho Preto a partir dos 4 anos'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gaguinho Preto'
+  AND o.apelido = 'Roque'
+  AND COALESCE(o.apelido_context, '') = 'Curva Grande'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
+
 -- ============================================================
 -- PENDING RELATIONSHIPS (object not yet in dataset)
 -- ============================================================
--- Gaguinho Preto student_of Roque (Curva Grande) - needs import first
---   Note: DISTINCT from Mestre Roque Mendes dos Santos (b. 1938)
---   The Roque who taught Gaguinho Preto in 1938 must be an earlier figure
---
 -- Gaguinho Preto associated_with Pierrô - needs import first
 --   (Zeca do Uruguai's student; part of Cidade Baixa network)
 --
@@ -162,5 +183,22 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Gaguinho Preto associated_with Augusto Januário - needs import first
 --   (December 1989 photo together)
 --
--- Gaguinho Preto associated_with Gigante - needs import first
---   (December 1989 photo; Gigante at back with berimbau)
+-- Gaguinho Preto associated_with Gigante (December 1989 photo)
+INSERT INTO genealogy.statements (
+  subject_type, subject_id, predicate, object_type, object_id,
+  started_at, started_at_precision, ended_at, ended_at_precision,
+  properties, confidence, source, notes_en, notes_pt
+)
+SELECT
+  'person'::genealogy.entity_type, s.id,
+  'associated_with'::genealogy.predicate,
+  'person'::genealogy.entity_type, o.id,
+  '1989-12-01'::date, 'month'::genealogy.date_precision,
+  NULL, NULL,
+  '{"association_context": "December 1989 photograph together"}'::jsonb, 'verified'::genealogy.confidence,
+  'https://velhosmestres.com/en/featured-37',
+  E'Photographed together in December 1989. Gigante is at back with berimbau.',
+  E'Fotografados juntos em dezembro de 1989. Gigante está ao fundo com berimbau.'
+FROM genealogy.person_profiles s, genealogy.person_profiles o
+WHERE s.apelido = 'Gaguinho Preto' AND o.apelido = 'Gigante'
+ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

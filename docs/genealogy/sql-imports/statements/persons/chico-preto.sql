@@ -23,7 +23,7 @@ SELECT
   'Chico Preto is the father of Mestre Roque (born 1938). Multiple sources confirm this.',
   'Chico Preto e o pai de Mestre Roque (nascido em 1938). Multiplas fontes confirmam isto.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Chico Preto' AND o.apelido = 'Roque'
+WHERE s.apelido = 'Chico Preto' AND o.apelido = 'Roque' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;
 
 -- Chico Preto family_of Zé Bedeu (brother relationship)

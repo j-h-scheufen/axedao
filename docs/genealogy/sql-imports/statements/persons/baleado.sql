@@ -110,5 +110,5 @@ SELECT
   E'Co-founders of Grupo Filhos de Angola in Rio de Janeiro (July 21, 1960). Both were Bahian angoleiros who participated in the Roda da Central. Roque honored Baleado''s name on his academy banner in São João de Meriti.',
   E'Co-fundadores do Grupo Filhos de Angola no Rio de Janeiro (21 de julho de 1960). Ambos eram angoleiros baianos que participavam da Roda da Central. Roque homenageou o nome de Baleado no banner de sua academia em São João de Meriti.'
 FROM genealogy.person_profiles s, genealogy.person_profiles o
-WHERE s.apelido = 'Baleado' AND o.apelido = 'Roque'
+WHERE s.apelido = 'Baleado' AND o.apelido = 'Roque' AND o.apelido_context IS NULL
 ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALESCE(started_at, '0001-01-01'::date)) DO NOTHING;

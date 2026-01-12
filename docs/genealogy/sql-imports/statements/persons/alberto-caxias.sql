@@ -1,0 +1,32 @@
+-- ============================================================
+-- STATEMENTS FOR: Alberto (Duque de Caxias)
+-- Generated: 2025-01-10
+-- ============================================================
+-- Contains all relationships where Alberto (Caxias) is the SUBJECT.
+--
+-- Note: Daniel Canedo's trained_under Alberto statement is in
+-- daniel-canedo.sql (subject owns the statement).
+-- ============================================================
+
+-- ============================================================
+-- PENDING RELATIONSHIPS (objects not yet in dataset)
+-- ============================================================
+-- The following relationships cannot be generated until the
+-- referenced entities are imported:
+--
+-- Alberto (Caxias) associated_with Jaime (Caxias)
+--   - Context: Co-taught informally with Jaime in early 1970s
+--   - Properties: {association_context: 'co_taught_informally', location: 'Parque dos Ferreiras, Duque de Caxias'}
+--   - Confidence: likely (single source - Daniel Canedo testimony)
+--   - Needs: Jaime (Caxias) entity import
+--
+-- Alberto (Caxias) associated_with Rubens (Caxias)
+--   - Context: Co-taught informally with Rubens in early 1970s
+--   - Properties: {association_context: 'co_taught_informally', location: 'Parque dos Ferreiras, Duque de Caxias'}
+--   - Confidence: likely (single source - Daniel Canedo testimony)
+--   - Needs: Rubens (Caxias) entity import
+-- ============================================================
+
+-- Note: No active statements to generate for Alberto as subject.
+-- The student relationship (Daniel Canedo trained_under Alberto)
+-- is owned by Daniel Canedo and should be added to his statements file.

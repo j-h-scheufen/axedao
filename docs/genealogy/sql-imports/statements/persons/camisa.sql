@@ -154,8 +154,7 @@ ON CONFLICT (subject_type, subject_id, predicate, object_type, object_id, COALES
 -- Camisa founded Abadá-Capoeira - group needs import first
 -- Camisa member_of Grupo Senzala - group needs import first
 -- Camisa member_of Olodum Maré - group needs import first
--- Camisa associated_with Macarrão - graduation companion 1969, needs import
--- Camisa associated_with Onça Negra - graduation companion 1969, needs import
--- Camisa associated_with Torpedo - graduation companion 1969, needs import
+-- NOTE: Graduation companions (Macarrão, Onça Negra, Torpedo) documented in bio and notes.
+-- No associated_with statements needed - context is clear from narrative.
 -- Camisa associated_with Peixinho (Senzala) - film "Cordão de Ouro", Senzala colleague, in backlog
 -- Camisa associated_with Santana (Abadá) - 1992 Spring Encounter, in backlog
